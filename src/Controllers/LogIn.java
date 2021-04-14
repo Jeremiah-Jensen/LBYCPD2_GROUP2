@@ -58,9 +58,10 @@ public class LogIn {
                         }
                     }
                     if(returnValue == 1) {
-                        // there is no existing user
+                        new Main().MainMenuWindow();
+                        Main.loginstage.close();
                         Error5.setVisible(false);
-                        System.out.println("Found in Database"); // initial code -- to be changec with codes for logging in to main
+                        System.out.println("Found in Database"); // initial code -- to be change with codes for logging in to main
                     }
                     else if(returnValue == 0) {
                         Error4.setVisible(false);
@@ -94,7 +95,6 @@ public class LogIn {
             // passwords do not match
             Error3.setVisible(false);
         }
-
         else if(!Password.getText().equals(ReenterPassword.getText())) {
             // passwords do not match
             Error3.setVisible(true);
@@ -112,6 +112,7 @@ public class LogIn {
             translateTransition2.setByX(-380);
             translateTransition2.play();
             Next.setDisable(true);
+
             count = 1;
         }
     }
@@ -156,6 +157,7 @@ public class LogIn {
         translateTransition3.play();
         count = 0;
     }
+
     private void Write(){
         Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
         User model = new User();

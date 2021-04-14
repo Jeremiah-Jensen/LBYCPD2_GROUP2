@@ -1,6 +1,7 @@
 package Controllers;
 
 import javafx.animation.TranslateTransition;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
@@ -16,4 +17,5 @@ public class MainMenu {
         translateTransition.setByX(310);
         translateTransition.play();
     }
+
 }

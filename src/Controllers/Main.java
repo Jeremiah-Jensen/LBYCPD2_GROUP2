@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Main extends Application {
     // badette commit
-    Stage loginstage;
+    public static Stage loginstage, mainStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -39,9 +39,9 @@ public class Main extends Application {
             AnchorPane pane = loader.load();
 
             Scene scene = new Scene(pane);
-            loginstage.setScene(scene);
-            loginstage.show();
-
+            mainStage = new Stage();
+            mainStage.setScene(scene);
+            mainStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
