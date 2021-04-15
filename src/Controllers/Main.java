@@ -1,6 +1,7 @@
 package Controllers;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -13,17 +14,15 @@ public class Main extends Application {
     public static Stage loginstage, mainStage;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        this.loginstage=primaryStage;
+    public void start(Stage primaryStage) throws Exception {
+        this.loginstage = primaryStage;
         LoginWindow();
-//        MainMenuWindow();
     }
 
     public void LoginWindow() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/LogIn.fxml"));
             AnchorPane pane = loader.load();
-
             Scene scene = new Scene(pane);
             loginstage.setScene(scene);
             loginstage.show();
@@ -34,22 +33,25 @@ public class Main extends Application {
     }
 
     public void MainMenuWindow() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/MainMenu.fxml"));
-            AnchorPane pane = loader.load();
-
-            Scene scene = new Scene(pane);
-            mainStage = new Stage();
-            mainStage.setScene(scene);
-            mainStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       Platform.runLater(new Runnable() {
+           @Override
+           public void run() {
+               try {
+                   FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/MainMenu.fxml"));
+                   AnchorPane pane = loader.load();
+                   Scene scene = new Scene(pane);
+                   mainStage = new Stage();
+                   mainStage.setScene(scene);
+                   mainStage.show();
+               } catch (IOException e) {
+                   e.printStackTrace();
+               }
+           }
+       });
     }
 
-
-
-    public static void main(String[] args) {
+    public static void main (String[]args){
         launch(args);
     }
+
 }

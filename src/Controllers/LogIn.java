@@ -59,7 +59,6 @@ public class LogIn {
                     }
                     if(returnValue == 1) {
                         new Main().MainMenuWindow();
-                        Main.loginstage.close();
                         Error5.setVisible(false);
                         System.out.println("Found in Database"); // initial code -- to be change with codes for logging in to main
                     }
