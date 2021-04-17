@@ -6,9 +6,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainMenu">
    <children>
-      <AnchorPane layoutX="-2.0" layoutY="-6.0" prefHeight="607.0" prefWidth="262.0">
+      <AnchorPane layoutX="23.0" layoutY="18.0" prefHeight="557.0" prefWidth="293.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;">
          <effect>
             <DropShadow>
                <color>
@@ -17,9 +17,22 @@
             </DropShadow>
          </effect>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#58b8ed" height="606.0" layoutX="1.0" layoutY="5.0" opacity="0.75" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="261.0" />
-            <Button layoutX="23.0" layoutY="144.0" mnemonicParsing="false" onAction="#ScheduleAppointment" prefHeight="26.0" prefWidth="204.0" text="Test" />
+            <Button layoutX="24.0" layoutY="490.0" mnemonicParsing="false" onAction="#ScheduleAppointment" prefHeight="44.0" prefWidth="230.0" text="Log Out" />
+            <Button layoutX="24.0" layoutY="403.0" mnemonicParsing="false" onAction="#ScheduleAppointment" prefHeight="44.0" prefWidth="230.0" text="Help Menu" />
+            <Button layoutX="24.0" layoutY="315.0" mnemonicParsing="false" onAction="#ScheduleAppointment" prefHeight="44.0" prefWidth="230.0" text="User Details" />
+            <Button layoutX="24.0" layoutY="161.0" mnemonicParsing="false" onAction="#ScheduleAppointment" prefHeight="44.0" prefWidth="234.0" text="Appointments" />
+            <Button layoutX="24.0" layoutY="234.0" mnemonicParsing="false" onAction="#ScheduleAppointment" prefHeight="44.0" prefWidth="230.0" text="Payments" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="101.0" layoutX="24.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="224.0" />
          </children>
+      </AnchorPane>
+      <AnchorPane layoutX="347.0" layoutY="20.0" prefHeight="557.0" prefWidth="628.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.3881579041481018" green="0.3881579041481018" blue="0.3881579041481018" />
+               </color>
+            </DropShadow>
+         </effect>
       </AnchorPane>
    </children>
 </AnchorPane>
