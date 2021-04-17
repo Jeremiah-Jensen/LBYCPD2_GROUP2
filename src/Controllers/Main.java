@@ -37,7 +37,7 @@ public class Main extends Application {
            @Override
            public void run() {
                try {
-                   FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/PreQues.fxml"));
+                   FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/MainMenu.fxml"));
                    AnchorPane pane = loader.load();
                    Scene scene = new Scene(pane);
                    mainStage = new Stage();

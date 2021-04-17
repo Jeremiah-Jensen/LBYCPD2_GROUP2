@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="23.0" layoutY="110.0" prefHeight="245.0" prefWidth="476.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;">
+      <AnchorPane layoutX="23.0" layoutY="110.0" prefHeight="245.0" prefWidth="538.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;">
          <effect>
             <DropShadow>
                <color>
@@ -63,30 +61,30 @@
       <RadioButton layoutX="269.0" layoutY="913.0" mnemonicParsing="false" text="Yes" />
       <RadioButton layoutX="373.0" layoutY="913.0" mnemonicParsing="false" text="No" />
       <Label layoutX="43.0" layoutY="896.0" prefHeight="50.0" prefWidth="207.0" text="10. Frequent Stepthroat Infections" />
-      <Label layoutX="34.0" layoutY="132.0" prefHeight="31.0" prefWidth="164.0" text="1. Breathing problems" />
-      <Label layoutX="33.0" layoutY="156.0" prefHeight="31.0" prefWidth="149.0" text="2. Cord around the neck " />
-      <Label layoutX="33.0" layoutY="187.0" prefHeight="31.0" prefWidth="131.0" text="3. Abnormal color" />
-      <Label layoutX="35.0" layoutY="218.0" prefHeight="31.0" prefWidth="93.0" text="4. Abnormal tone" />
-      <Label layoutX="35.0" layoutY="249.0" prefHeight="17.0" prefWidth="93.0" text="5. Meconium " />
-      <Label layoutX="33.0" layoutY="273.0" prefHeight="17.0" prefWidth="131.0" text="6. Failure to thrive" />
-      <Label layoutX="34.0" layoutY="298.0" prefHeight="17.0" prefWidth="112.0" text="7. Jaundice " />
-      <Label layoutX="34.0" layoutY="326.0" prefHeight="17.0" prefWidth="112.0" text="8. Infection" />
-      <RadioButton layoutX="216.0" layoutY="139.0" mnemonicParsing="false" text="Yes" />
-      <RadioButton layoutX="216.0" layoutY="163.0" mnemonicParsing="false" text="Yes" />
-      <RadioButton layoutX="216.0" layoutY="194.0" mnemonicParsing="false" text="Yes" />
-      <RadioButton layoutX="216.0" layoutY="225.0" mnemonicParsing="false" text="Yes" />
-      <RadioButton layoutX="216.0" layoutY="249.0" mnemonicParsing="false" text="Yes" />
-      <RadioButton layoutX="216.0" layoutY="273.0" mnemonicParsing="false" text="Yes" />
-      <RadioButton layoutX="216.0" layoutY="298.0" mnemonicParsing="false" text="Yes" />
-      <RadioButton layoutX="216.0" layoutY="326.0" mnemonicParsing="false" text="Yes" />
-      <RadioButton layoutX="300.0" layoutY="139.0" mnemonicParsing="false" text="No" />
-      <RadioButton layoutX="300.0" layoutY="163.0" mnemonicParsing="false" text="No" />
-      <RadioButton layoutX="300.0" layoutY="194.0" mnemonicParsing="false" text="No" />
-      <RadioButton layoutX="300.0" layoutY="225.0" mnemonicParsing="false" text="No" />
-      <RadioButton layoutX="300.0" layoutY="258.0" mnemonicParsing="false" text="No" />
-      <RadioButton layoutX="300.0" layoutY="282.0" mnemonicParsing="false" text="No" />
-      <RadioButton layoutX="300.0" layoutY="307.0" mnemonicParsing="false" text="No" />
-      <RadioButton layoutX="300.0" layoutY="326.0" mnemonicParsing="false" text="No" />
+      <Label layoutX="54.0" layoutY="129.0" prefHeight="31.0" prefWidth="164.0" text="1. Breathing problems" />
+      <Label layoutX="53.0" layoutY="153.0" prefHeight="31.0" prefWidth="149.0" text="2. Cord around the neck " />
+      <Label layoutX="53.0" layoutY="184.0" prefHeight="31.0" prefWidth="131.0" text="3. Abnormal color" />
+      <Label layoutX="55.0" layoutY="215.0" prefHeight="31.0" prefWidth="131.0" text="4. Abnormal tone" />
+      <Label layoutX="55.0" layoutY="246.0" prefHeight="17.0" prefWidth="93.0" text="5. Meconium " />
+      <Label layoutX="53.0" layoutY="270.0" prefHeight="17.0" prefWidth="131.0" text="6. Failure to thrive" />
+      <Label layoutX="54.0" layoutY="295.0" prefHeight="17.0" prefWidth="112.0" text="7. Jaundice " />
+      <Label layoutX="54.0" layoutY="323.0" prefHeight="17.0" prefWidth="112.0" text="8. Infection" />
+      <RadioButton layoutX="236.0" layoutY="136.0" mnemonicParsing="false" text="Yes" />
+      <RadioButton layoutX="236.0" layoutY="160.0" mnemonicParsing="false" text="Yes" />
+      <RadioButton layoutX="236.0" layoutY="191.0" mnemonicParsing="false" text="Yes" />
+      <RadioButton layoutX="236.0" layoutY="222.0" mnemonicParsing="false" text="Yes" />
+      <RadioButton layoutX="236.0" layoutY="246.0" mnemonicParsing="false" text="Yes" />
+      <RadioButton layoutX="236.0" layoutY="270.0" mnemonicParsing="false" text="Yes" />
+      <RadioButton layoutX="236.0" layoutY="295.0" mnemonicParsing="false" text="Yes" />
+      <RadioButton layoutX="236.0" layoutY="323.0" mnemonicParsing="false" text="Yes" />
+      <RadioButton layoutX="320.0" layoutY="136.0" mnemonicParsing="false" text="No" />
+      <RadioButton layoutX="320.0" layoutY="160.0" mnemonicParsing="false" text="No" />
+      <RadioButton layoutX="320.0" layoutY="191.0" mnemonicParsing="false" text="No" />
+      <RadioButton layoutX="320.0" layoutY="222.0" mnemonicParsing="false" text="No" />
+      <RadioButton layoutX="320.0" layoutY="255.0" mnemonicParsing="false" text="No" />
+      <RadioButton layoutX="320.0" layoutY="279.0" mnemonicParsing="false" text="No" />
+      <RadioButton layoutX="320.0" layoutY="304.0" mnemonicParsing="false" text="No" />
+      <RadioButton layoutX="320.0" layoutY="323.0" mnemonicParsing="false" text="No" />
       <Label layoutX="57.0" layoutY="71.0" prefHeight="50.0" prefWidth="357.0" text="Did your baby experience any of the following?">
          <font>
             <Font name="System Bold" size="15.0" />
