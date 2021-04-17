@@ -7,6 +7,7 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
@@ -14,15 +15,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import java.net.URL;
 import javafx.event.ActionEvent;
 
 import javax.naming.Name;
 import java.awt.*;
+import java.util.ResourceBundle;
 
 
-public class LogIn {
+public class LogIn implements Initializable {
     @FXML
-    public AnchorPane LogIn, Register, UserInfo;
+    public AnchorPane LogIn, Register, UserInfo, Background1, Background2, Background3, Background4;
     public TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Gender;
     public TextArea Address, Conditions;
     public PasswordField Password, ReenterPassword;
@@ -34,6 +37,11 @@ public class LogIn {
     public Button Next;
     int count = 0;
     int returnValue;
+
+    @Override
+    public void initialize(URL Location, ResourceBundle resources){
+
+    }
 
     public void LogInAction(ActionEvent actionEvent) {
         if(UsernameLogin.getText().isEmpty() || PasswordLogin.getText().isEmpty()) {
