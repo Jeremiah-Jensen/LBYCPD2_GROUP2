@@ -22,14 +22,10 @@ import java.awt.*;
 
 public class LogIn {
     @FXML
-    AnchorPane LogIn, Register, UserInfo;
-    @FXML
-    TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Gender;
-    @FXML
-    TextArea Address, Conditions;
-    @FXML
-    PasswordField Password, ReenterPassword;
-    @FXML
+    public AnchorPane LogIn, Register, UserInfo;
+    public TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Gender;
+    public TextArea Address, Conditions;
+    public PasswordField Password, ReenterPassword;
     public Label Error1;
     public Label Error2;
     public Label Error3;
