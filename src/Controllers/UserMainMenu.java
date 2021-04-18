@@ -16,11 +16,7 @@ import java.util.ResourceBundle;
 
 public class UserMainMenu implements Initializable {
     @FXML
-    public AnchorPane ScheduleAppointment;
-    public Button LogOutButton;
-
-    @FXML
-    private AnchorPane rootPane;
+    public Button LogOutButton, AppointmentsButton;
 
     public void LogOut(ActionEvent actionEvent){
         new Main().LoginWindow();
@@ -28,11 +24,14 @@ public class UserMainMenu implements Initializable {
         new Main().CloseButton(closeStage);
     }
 
+    public void UserAppointments(ActionEvent actionEvent){
+        new Main().UserAppointmentsWindow();
+        Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    }
-
-    public void DoctorLogOut(ActionEvent actionEvent) {
     }
 }
