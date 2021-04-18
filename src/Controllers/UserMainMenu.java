@@ -32,4 +32,7 @@ public class UserMainMenu implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    public void DoctorLogOut(ActionEvent actionEvent) {
+    }
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
@@ -10,35 +11,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserMainMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorDetails">
     <children>
-        <AnchorPane layoutX="298.0" layoutY="309.0" prefHeight="275.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
-            <children>
-                <Label layoutX="35.0" layoutY="11.0" text="Upcoming Appointments" textFill="#39a2bd">
-                    <font>
-                        <Font name="Avenir Book" size="26.0" />
-                    </font>
-                </Label>
-                <Button layoutX="419.0" layoutY="80.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre " textFill="#f3f3f3">
-                    <font>
-                        <Font name="Avenir Book" size="15.0" />
-                    </font>
-                </Button>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
-            </children>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
-               </color>
-            </DropShadow>
-         </effect>
-        </AnchorPane>
         <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="592.0" prefWidth="276.0" style="-fx-background-color: 0\;">
             <effect>
                 <DropShadow>
                     <color>
-                        <Color red="0.3881579041481018" green="0.3881579041481018" blue="0.3881579041481018" />
+                        <Color blue="0.3881579041481018" green="0.3881579041481018" red="0.3881579041481018" />
                     </color>
                 </DropShadow>
             </effect>
@@ -54,12 +33,12 @@
                                 </Stop>
                                 <Stop offset="0.007532956685499058">
                                     <color>
-                                        <Color red="0.41359999775886536" green="0.8799999952316284" blue="0.7678419351577759" />
+                                        <Color blue="0.7678419351577759" green="0.8799999952316284" red="0.41359999775886536" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.1921568661928177" green="0.7058823704719543" blue="0.8627451062202454" />
+                                        <Color blue="0.8627451062202454" green="0.7058823704719543" red="0.1921568661928177" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -68,7 +47,7 @@
                     <effect>
                         <DropShadow>
                             <color>
-                                <Color red="0.45394736528396606" green="0.45394736528396606" blue="0.45394736528396606" />
+                                <Color blue="0.45394736528396606" green="0.45394736528396606" red="0.45394736528396606" />
                             </color>
                         </DropShadow>
                     </effect>
@@ -83,17 +62,17 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="LogOutButton" layoutX="30.0" layoutY="489.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Log Out">
+                <Button fx:id="LogOutButton" layoutX="30.0" layoutY="489.0" mnemonicParsing="false" onAction="#DoctorLogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Log Out">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="28.0" layoutY="189.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Appontments">
+                <Button fx:id="AppointmentsButton" layoutX="28.0" layoutY="189.0" mnemonicParsing="false" onAction="#DoctorAppointments" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Appointments">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="27.0" layoutY="264.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Payments">
+                <Button fx:id="PatientsButton" layoutX="27.0" layoutY="264.0" mnemonicParsing="false" onAction="#DoctorPatients" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Patients">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
@@ -106,24 +85,20 @@
                 </Label>
             </children>
         </AnchorPane>
-      <AnchorPane layoutX="298.0" layoutY="16.0" prefHeight="275.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <AnchorPane layoutX="298.0" layoutY="16.0" prefHeight="568.0" prefWidth="687.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
-            <Label layoutX="35.0" layoutY="11.0" text="Schedule Appointment" textFill="#39a2bd">
+            <Label layoutX="35.0" layoutY="11.0" text="User Details" textFill="#39a2bd">
                <font>
                   <Font name="Avenir Book" size="26.0" />
                </font>
             </Label>
-            <Button layoutX="409.0" layoutY="209.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre-Chek" textFill="#f3f3f3">
-               <font>
-                  <Font name="Avenir Book" size="15.0" />
-               </font>
-            </Button>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="6.0" layoutX="34.0" layoutY="51.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
+            <TextArea layoutX="34.0" layoutY="71.0" prefHeight="474.0" prefWidth="628.0" />
          </children>
          <effect>
             <DropShadow>
                <color>
-                  <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
+                  <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
                </color>
             </DropShadow>
          </effect>

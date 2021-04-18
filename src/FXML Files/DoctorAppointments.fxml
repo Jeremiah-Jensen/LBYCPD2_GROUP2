@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorAppointments">
+    <children>
+        <AnchorPane layoutX="298.0" layoutY="309.0" prefHeight="275.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+            <children>
+                <Label layoutX="35.0" layoutY="11.0" text="Upcoming Appointments" textFill="#39a2bd">
+                    <font>
+                        <Font name="Avenir Book" size="26.0" />
+                    </font>
+                </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
+            <ListView layoutX="34.0" layoutY="62.0" prefHeight="191.0" prefWidth="628.0" />
+            </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+               </color>
+            </DropShadow>
+         </effect>
+        </AnchorPane>
+        <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="592.0" prefWidth="276.0" style="-fx-background-color: 0\;">
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color blue="0.3881579041481018" green="0.3881579041481018" red="0.3881579041481018" />
+                    </color>
+                </DropShadow>
+            </effect>
+            <children>
+                <Rectangle height="604.0" layoutX="-5.0" layoutY="-12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="280.0">
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color />
+                                    </color>
+                                </Stop>
+                                <Stop offset="0.007532956685499058">
+                                    <color>
+                                        <Color blue="0.7678419351577759" green="0.8799999952316284" red="0.41359999775886536" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color blue="0.8627451062202454" green="0.7058823704719543" red="0.1921568661928177" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color blue="0.45394736528396606" green="0.45394736528396606" red="0.45394736528396606" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Rectangle>
+                <Button fx:id="UserDetailsButton" layoutX="29.0" layoutY="339.0" mnemonicParsing="false" onAction="#DoctorDetails" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="User Details">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
+                <Button layoutX="31.0" layoutY="414.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
+                <Button fx:id="LogOutButton" layoutX="30.0" layoutY="489.0" mnemonicParsing="false" onAction="#DoctorLogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Log Out">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
+                <Button layoutX="28.0" layoutY="189.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Appointments">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
+                <Button fx:id="PatientsButton" layoutX="27.0" layoutY="264.0" mnemonicParsing="false" onAction="#DoctorPatients" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Patients">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
+                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="108.0" layoutX="32.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="208.0" />
+                <Label layoutX="65.0" layoutY="62.0" text="LOGO">
+                    <font>
+                        <Font name="Avenir Book" size="52.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+      <AnchorPane layoutX="298.0" layoutY="16.0" prefHeight="275.0" prefWidth="379.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+         <children>
+            <Label layoutX="35.0" layoutY="11.0" text="Consultation Period" textFill="#39a2bd">
+               <font>
+                  <Font name="Avenir Book" size="26.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="318.0" />
+            <TextField layoutX="35.0" layoutY="97.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="35.0" layoutY="76.0" text="Day" textFill="#39a2bd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="138.0" text="Time" textFill="#39a2bd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="35.0" layoutY="162.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+            <Button layoutX="106.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Confirm" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="692.0" layoutY="16.0" prefHeight="275.0" prefWidth="290.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+         <children>
+            <Label layoutX="35.0" layoutY="11.0" text="Prescription" textFill="#39a2bd">
+               <font>
+                  <Font name="Avenir Book" size="26.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="227.0" />
+            <TextField layoutX="32.0" layoutY="97.0" prefHeight="32.0" prefWidth="227.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="32.0" layoutY="76.0" text="Medicine" textFill="#39a2bd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="138.0" text="Daily Dosage" textFill="#39a2bd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="32.0" layoutY="162.0" prefHeight="32.0" prefWidth="227.0" style="-fx-background-radius: 20;" />
+            <Button layoutX="62.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Add Prescription" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+    </children>
+</AnchorPane>
