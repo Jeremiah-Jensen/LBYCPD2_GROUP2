@@ -3,8 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -14,31 +12,29 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainMenu">
     <children>
-        <AnchorPane prefHeight="600.0" prefWidth="1001.0">
+        <AnchorPane layoutX="298.0" layoutY="309.0" prefHeight="275.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
             <children>
-                <ImageView fitHeight="600.0" fitWidth="997.0" layoutX="3.0" opacity="0.81" pickOnBounds="true">
-                    <image>
-                        <Image url="@../Images/3.jpg" />
-                    </image>
-                </ImageView>
-            </children>
-        </AnchorPane>
-        <AnchorPane prefHeight="604.0" prefWidth="715.0">
-            <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" height="123.0" layoutX="281.0" layoutY="391.0" opacity="0.58" stroke="BLACK" strokeType="INSIDE" width="718.0" />
-                <Label layoutX="331.0" layoutY="407.0" text="Hello, Welcome to -Program Name-" textFill="WHITE">
+                <Label layoutX="35.0" layoutY="11.0" text="Upcoming Appointments" textFill="#39a2bd">
                     <font>
-                        <Font name="Avenir Book" size="32.0" />
+                        <Font name="Avenir Book" size="26.0" />
                     </font>
                 </Label>
-                <Button layoutX="330.0" layoutY="460.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="304.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Click Here to Schedule an Appointment" textFill="#f3f3f3">
+                <Button layoutX="419.0" layoutY="80.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre " textFill="#f3f3f3">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
             </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
+               </color>
+            </DropShadow>
+         </effect>
         </AnchorPane>
-        <AnchorPane layoutX="7.0" layoutY="9.0" prefHeight="563.0" prefWidth="288.0" style="-fx-background-color: 0\;">
+        <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="592.0" prefWidth="276.0" style="-fx-background-color: 0\;">
             <effect>
                 <DropShadow>
                     <color>
@@ -110,5 +106,27 @@
                 </Label>
             </children>
         </AnchorPane>
+      <AnchorPane layoutX="298.0" layoutY="16.0" prefHeight="275.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+         <children>
+            <Label layoutX="35.0" layoutY="11.0" text="Schedule Appointment" textFill="#39a2bd">
+               <font>
+                  <Font name="Avenir Book" size="26.0" />
+               </font>
+            </Label>
+            <Button layoutX="409.0" layoutY="209.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre-Chek" textFill="#f3f3f3">
+               <font>
+                  <Font name="Avenir Book" size="15.0" />
+               </font>
+            </Button>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
     </children>
 </AnchorPane>
