@@ -14,11 +14,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.net.URL;
 import javafx.event.ActionEvent;
 
 import javax.naming.Name;
+import javax.print.Doc;
 import java.awt.*;
 import java.util.ResourceBundle;
 
@@ -34,7 +36,7 @@ public class LogIn implements Initializable {
     public Label Error3;
     public Label Error4;
     public Label Error5;
-    public Button Next;
+    public Button Next, LoginButton, DoctorLoginButton;
     int count = 0;
     int returnValue;
 
@@ -63,6 +65,8 @@ public class LogIn implements Initializable {
                     }
                     if(returnValue == 1) {
                         new Main().MainMenuWindow();
+                        Stage closeStage = (Stage) LoginButton.getScene().getWindow();
+                        new Main().CloseButton(closeStage);
                         Error5.setVisible(false);
                         System.out.println("Found in Database"); // initial code -- to be change with codes for logging in to main
                     }
@@ -193,6 +197,12 @@ public class LogIn implements Initializable {
         Gender.clear();
         Address.setText(" ");
         Conditions.setText(" ");
+    }
+
+    public void DoctorsLogin(ActionEvent actionEvent) {
+        new Main().DoctorsLoginWindow();
+        Stage closeStage = (Stage) DoctorLoginButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
     }
 }
 

@@ -50,6 +50,51 @@ public class Main extends Application {
        });
     }
 
+    public void DoctorsLoginWindow() {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorLogIn.fxml"));
+                    AnchorPane pane = loader.load();
+                    Scene scene = new Scene(pane);
+                    mainStage = new Stage();
+                    mainStage.setScene(scene);
+                    mainStage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void DoctorsRegisterWindow() {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorRegister.fxml"));
+                    AnchorPane pane = loader.load();
+                    Scene scene = new Scene(pane);
+                    mainStage = new Stage();
+                    mainStage.setScene(scene);
+                    mainStage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void CloseButton(Stage stage) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                stage.close();
+            }
+        });
+    }
+
     public static void main (String[]args){
         launch(args);
     }
