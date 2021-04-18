@@ -33,21 +33,21 @@ public class Main extends Application {
     }
 
     public void MainMenuWindow() {
-       Platform.runLater(new Runnable() {
-           @Override
-           public void run() {
-               try {
-                   FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/MainMenu.fxml"));
-                   AnchorPane pane = loader.load();
-                   Scene scene = new Scene(pane);
-                   mainStage = new Stage();
-                   mainStage.setScene(scene);
-                   mainStage.show();
-               } catch (IOException e) {
-                   e.printStackTrace();
-               }
-           }
-       });
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/MainMenu.fxml"));
+                    AnchorPane pane = loader.load();
+                    Scene scene = new Scene(pane);
+                    mainStage = new Stage();
+                    mainStage.setScene(scene);
+                    mainStage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     public void DoctorsLoginWindow() {

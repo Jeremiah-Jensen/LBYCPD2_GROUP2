@@ -205,4 +205,3 @@ public class LogIn implements Initializable {
         new Main().CloseButton(closeStage);
     }
 }
-

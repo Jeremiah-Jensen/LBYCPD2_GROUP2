@@ -28,7 +28,7 @@ public class DoctorRegister implements Initializable {
         if(Username.getText().isEmpty() || Password.getText().isEmpty() || FirstName.getText().isEmpty() || FirstName.getText().isEmpty() || LastName.getText().isEmpty() || ReenterPassword.getText().isEmpty() || Birthdate.getText().isEmpty() || Gender.getText().isEmpty() || Email.getText().isEmpty() || Number.getText().isEmpty()) {
             Error3.setVisible(false);
             Error2.setVisible(true);
-        } 
+        }
         else if(!Password.getText().equals(ReenterPassword.getText())) {
             Error2.setVisible(false);
             Error3.setVisible(true);
