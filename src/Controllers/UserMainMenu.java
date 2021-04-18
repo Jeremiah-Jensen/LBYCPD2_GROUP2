@@ -14,7 +14,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainMenu implements Initializable {
+public class UserMainMenu implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment;
     public Button LogOutButton;

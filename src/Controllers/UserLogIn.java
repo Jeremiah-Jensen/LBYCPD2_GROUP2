@@ -25,7 +25,7 @@ import java.awt.*;
 import java.util.ResourceBundle;
 
 
-public class LogIn implements Initializable {
+public class UserLogIn implements Initializable {
     @FXML
     public AnchorPane LogIn, Register, UserInfo, Background1, Background2, Background3, Background4;
     public TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Gender;
