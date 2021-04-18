@@ -75,12 +75,14 @@ BS Computer Engineering in De La Salle University-Manila.
 > Previous Projects: SafeLink: Contactless Bus Payment and Reservation System, Animo Click: DLSU Services Application, Automated Food Ordering System in C, Coronavirus Risk Identification Software.
 
 
+
 ### Julienne Bernadette Silva
 Email: julienne_silva@dlsu.edu.ph
 
 BS Computer Engineering in De La Salle University-Manila.
 > Programming Experience: C, C++, Python, Java, Object Oriented Programming, Data Structures and Algorithms.
 > Previous Projects: AnimoClick, Hospital Management System in C, LADDER (Lookup Patient, Add Record, Diagnosis Field, Delete Record, and Edit Record) System, CoCo: Covid Connect (COVID-19 Tracker).
+
 
 
 ### Jeremiah Timothy B. Jensen
