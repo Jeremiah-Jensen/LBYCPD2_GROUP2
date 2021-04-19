@@ -68,7 +68,7 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="28.0" layoutY="189.0" mnemonicParsing="false" onAction="#MainMenu" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Home">
+                <Button fx:id="HomeButton" layoutX="28.0" layoutY="189.0" mnemonicParsing="false" onAction="#MainMenu" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Home">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
@@ -175,7 +175,7 @@
       </AnchorPane>
       <AnchorPane fx:id="PreviousAppointments" layoutX="298.0" layoutY="603.0" prefHeight="331.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
-            <Label layoutX="23.0" layoutY="11.0" text="Previous Appointment" textFill="#3abd8f">
+            <Label layoutX="23.0" layoutY="11.0" text="Previous Appointments" textFill="#3abd8f">
                <font>
                   <Font name="Avenir Book" size="26.0" />
                </font>
