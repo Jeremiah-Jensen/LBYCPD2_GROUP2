@@ -6,16 +6,16 @@ The project is titled as “Online Pediatrician Consultation and Patient Monitor
 ## Requirements and Dependencies
 The following are the requirements and dependencies that were used in developing the project. The links in order to download the different requirements and dependencies are in the external links section when you scroll down:
 
-IntelliJ IDEA
+####IntelliJ IDEA
 > IntelliJ is an integrated development environment (IDE) which is used in order to develop computer softwares in Java. This is the main development platform of the developers to create the project.
 
-javafx-SDK-11.0.2
+####javafx-SDK-11.0.2
 > The JavaFX Software Development Kit is used in order to provide command tools in order to produce a project. It provides the platform in developing desktop applications which can run on multiple operating systems.
 
-Gluon Scene Builder
+####Gluon Scene Builder
 > Gluon Scene Builder is a drag and drop UI development tool which allows the developers to rapidly layout the user interface of the program. This serves as a complementary extension of JavaFX.
 
-firebase-client-android-2.5.2
+####firebase-client-android-2.5.2
 > The firebase client library is a jar file which allows the developers to use specific commands to read and write data to the online realtime database.
 
 ## Environment and Set-Up
