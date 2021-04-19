@@ -19,7 +19,7 @@ public class DoctorLogin implements Initializable {
     public TextField UsernameLogin, PasswordLogin;
     public Label Error4;
     public Label Error5;
-    public Button RegisterButton;
+    public Button RegisterButton, LoginButton;
     int returnValue;
 
     @Override
@@ -45,6 +45,9 @@ public class DoctorLogin implements Initializable {
                         }
                     }
                     if (returnValue == 1) {
+                        new Main().DoctorMainMenu();
+                        Stage closeStage = (Stage) LoginButton.getScene().getWindow();
+                        new Main().CloseButton(closeStage);
                         Error5.setVisible(false);
                         System.out.println("Found in Database"); // initial code -- to be change with codes for logging in to doctor menu
                     } else if (returnValue == 0) {
