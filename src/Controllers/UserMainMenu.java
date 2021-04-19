@@ -1,22 +1,17 @@
 package Controllers;
 
-import javafx.animation.TranslateTransition;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
-
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class UserMainMenu implements Initializable {
     @FXML
-    public Button LogOutButton, AppointmentsButton;
+    public Button LogOutButton, AppointmentsButton, DetailsButton;
 
     public void LogOut(ActionEvent actionEvent){
         new Main().LoginWindow();
@@ -27,6 +22,12 @@ public class UserMainMenu implements Initializable {
     public void UserAppointments(ActionEvent actionEvent){
         new Main().UserAppointmentsWindow();
         Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+    public void UserDetails(ActionEvent actionEvent){
+        new Main().UserDetailsWindow();
+        Stage closeStage = (Stage) DetailsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 

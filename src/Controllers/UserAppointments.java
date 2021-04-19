@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 public class UserAppointments implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment,UpcomingAppointments, PreviousAppointments;
-    public Button LogOutButton, HomeButton, ScheduleButton;
+    public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton;
     int count = 0;
 
     @Override
@@ -55,6 +55,12 @@ public class UserAppointments implements Initializable {
     public void LogOut(ActionEvent actionEvent){
         new Main().LoginWindow();
         Stage closeStage = (Stage) LogOutButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+    public void UserDetails(ActionEvent actionEvent){
+        new Main().UserDetailsWindow();
+        Stage closeStage = (Stage) DetailsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 }

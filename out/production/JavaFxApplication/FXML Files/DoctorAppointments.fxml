@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorAppointments">
     <children>
-        <AnchorPane layoutX="298.0" layoutY="309.0" prefHeight="275.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+        <AnchorPane layoutX="298.0" layoutY="267.0" prefHeight="275.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
             <children>
                 <Label layoutX="35.0" layoutY="11.0" text="Upcoming Appointments" textFill="#39a2bd">
                     <font>
@@ -104,7 +104,7 @@
                 </Label>
             </children>
         </AnchorPane>
-      <AnchorPane layoutX="298.0" layoutY="16.0" prefHeight="275.0" prefWidth="379.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <AnchorPane layoutX="298.0" layoutY="16.0" prefHeight="243.0" prefWidth="379.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
             <Label layoutX="35.0" layoutY="11.0" text="Consultation Period" textFill="#39a2bd">
                <font>
@@ -112,19 +112,19 @@
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="318.0" />
-            <TextField layoutX="35.0" layoutY="97.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
-            <Label layoutX="35.0" layoutY="76.0" text="Day" textFill="#39a2bd">
+            <TextField layoutX="34.0" layoutY="84.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="34.0" layoutY="63.0" text="Day" textFill="#39a2bd">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="35.0" layoutY="138.0" text="Time" textFill="#39a2bd">
+            <Label layoutX="34.0" layoutY="125.0" text="Time" textFill="#39a2bd">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="35.0" layoutY="162.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
-            <Button layoutX="106.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Confirm" textFill="WHITE">
+            <TextField layoutX="34.0" layoutY="149.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+            <Button layoutX="105.0" layoutY="199.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Confirm" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -138,7 +138,7 @@
             </DropShadow>
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="692.0" layoutY="16.0" prefHeight="275.0" prefWidth="290.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <AnchorPane layoutX="692.0" layoutY="16.0" prefHeight="243.0" prefWidth="290.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
             <Label layoutX="35.0" layoutY="11.0" text="Prescription" textFill="#39a2bd">
                <font>
@@ -146,19 +146,19 @@
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="227.0" />
-            <TextField layoutX="32.0" layoutY="97.0" prefHeight="32.0" prefWidth="227.0" style="-fx-background-radius: 20;" />
-            <Label layoutX="32.0" layoutY="76.0" text="Medicine" textFill="#39a2bd">
+            <TextField layoutX="32.0" layoutY="85.0" prefHeight="32.0" prefWidth="227.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="32.0" layoutY="64.0" text="Medicine" textFill="#39a2bd">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="138.0" text="Daily Dosage" textFill="#39a2bd">
+            <Label layoutX="32.0" layoutY="126.0" text="Daily Dosage" textFill="#39a2bd">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="32.0" layoutY="162.0" prefHeight="32.0" prefWidth="227.0" style="-fx-background-radius: 20;" />
-            <Button layoutX="62.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Add Prescription" textFill="WHITE">
+            <TextField layoutX="32.0" layoutY="150.0" prefHeight="32.0" prefWidth="227.0" style="-fx-background-radius: 20;" />
+            <Button layoutX="62.0" layoutY="198.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Add Prescription" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -172,5 +172,11 @@
             </DropShadow>
          </effect>
       </AnchorPane>
+      <TextField layoutX="475.0" layoutY="554.0" prefHeight="32.0" prefWidth="507.0" promptText="Zoom Link" style="-fx-background-radius: 20;" />
+      <Button layoutX="298.0" layoutY="555.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

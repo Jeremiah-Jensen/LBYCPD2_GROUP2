@@ -19,9 +19,12 @@ import javafx.util.Duration;
 import java.net.URL;
 import javafx.event.ActionEvent;
 
+
 import javax.naming.Name;
 import javax.print.Doc;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -40,48 +43,60 @@ public class UserLogIn implements Initializable {
     int count = 0;
     int returnValue;
 
-    @Override
-    public void initialize(URL Location, ResourceBundle resources){
+    List<User> userList;
+    public static User userModel;
 
+    public UserLogIn(){
+        Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com");
+        firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    User userModel=data.getValue(User.class);
+                    userModel.setId(data.getKey());
+                    userList.add(userModel);
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+            }
+        });
     }
 
+    @Override
+    public void initialize(URL Location, ResourceBundle resources){
+        userList=new ArrayList<>();
+    }
+
+
     public void LogInAction(ActionEvent actionEvent) {
+
         if(UsernameLogin.getText().isEmpty() || PasswordLogin.getText().isEmpty()) {
             Error5.setVisible(false);
             Error4.setVisible(true);
         }
         else {
             Error4.setVisible(false);
-            Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
-            firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    returnValue = 0;
-                    for(DataSnapshot data: dataSnapshot.getChildren()) {
-                        User user = data.getValue(User.class);
-                        if(UsernameLogin.getText().equals(user.getUsername()) && PasswordLogin.getText().equals(user.getPassword())) {
-                            returnValue = 1;
-                        }
-                    }
-                    if(returnValue == 1) {
-                        new Main().MainMenuWindow();
-                        Stage closeStage = (Stage) LoginButton.getScene().getWindow();
-                        new Main().CloseButton(closeStage);
-                        Error5.setVisible(false);
-                        System.out.println("Found in Database"); // initial code -- to be change with codes for logging in to main
-                    }
-                    else if(returnValue == 0) {
-                        Error4.setVisible(false);
-                        // there is no existing user
-                        Error5.setVisible(true);
-                    }
+            for (int i = 0; i <userList.size() ; i++) {
+                User model=userList.get(i);
+                if (UsernameLogin.getText().equals(model.getUsername()) && PasswordLogin.getText().equals(model.getPassword())) {
+                    returnValue = 1;
+                    userModel = userList.get(i);
                 }
+            }
 
-                @Override
-                public void onCancelled(FirebaseError firebaseError) {
-
-                }
-            });
+            if (returnValue==1){
+                new Main().MainMenuWindow();
+                Stage closeStage = (Stage) LoginButton.getScene().getWindow();
+                new Main().CloseButton(closeStage);
+                System.out.println("Found in Database");
+            }else if (returnValue==0){
+                Error4.setVisible(false);
+                // there is no existing user
+                System.out.println("Found in Database");
+                Error5.setVisible(true);
+            }
         }
     }
 
@@ -149,6 +164,8 @@ public class UserLogIn implements Initializable {
         TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(1),Register);
         translateTransition2.setByX(-380);
         translateTransition2.play();
+        UsernameLogin.clear();
+        PasswordLogin.clear();
         Next.setDisable(false);
     }
 

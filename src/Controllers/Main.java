@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-    // badette commit
     public static Stage loginstage, mainStage;
 
     @Override
@@ -164,6 +163,24 @@ public class Main extends Application {
             public void run() {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/UserAppointments.fxml"));
+                    AnchorPane pane = loader.load();
+                    Scene scene = new Scene(pane);
+                    mainStage = new Stage();
+                    mainStage.setScene(scene);
+                    mainStage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void UserDetailsWindow() {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/UserDetails.fxml"));
                     AnchorPane pane = loader.load();
                     Scene scene = new Scene(pane);
                     mainStage = new Stage();

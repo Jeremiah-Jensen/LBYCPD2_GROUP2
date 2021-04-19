@@ -73,7 +73,7 @@
                   </DropShadow>
                </effect>
             </Rectangle>
-            <Button layoutX="29.0" layoutY="339.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="User Details">
+            <Button fx:id="DetailsButton" layoutX="29.0" layoutY="339.0" mnemonicParsing="false" onAction="#UserDetails" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="User Details">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>
