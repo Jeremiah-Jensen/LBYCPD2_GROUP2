@@ -50,7 +50,7 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 6. Once done, click on apply and the project is ready to run.
 
 ## Revision Logs
-### March 26, 2021: 
+#### March 26, 2021: 
 Initial Set-Up of Repository and JavaFX.
 
 #### April 2, 2021: 
