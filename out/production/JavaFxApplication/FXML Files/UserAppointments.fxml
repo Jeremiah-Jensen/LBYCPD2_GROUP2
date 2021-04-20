@@ -200,7 +200,7 @@
                         <Font name="Avenir Book" size="26.0" />
                     </font>
                 </Label>
-                <Button layoutX="408.0" layoutY="275.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="33.0" prefWidth="260.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Follow Up Questionaire">
+                <Button fx:id="PostQues" layoutX="408.0" layoutY="275.0" mnemonicParsing="false" onAction="#PostCheckUpQues" prefHeight="33.0" prefWidth="260.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Follow Up Questionaire">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
@@ -222,7 +222,7 @@
                         <Font name="Avenir Book" size="26.0" />
                     </font>
                 </Label>
-                <Button layoutX="417.0" layoutY="71.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre Check Up Questionaire" textFill="#f3f3f3">
+                <Button layoutX="417.0" layoutY="71.0" mnemonicParsing="false" onAction="#PreCheckUpQues" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre Check Up Questionaire" textFill="#f3f3f3">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
