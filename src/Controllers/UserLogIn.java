@@ -39,7 +39,7 @@ public class UserLogIn implements Initializable {
     public Label Error3;
     public Label Error4;
     public Label Error5;
-    public Button Next, LoginButton, DoctorLoginButton;
+    public Button Next, LoginButton, DoctorLoginButton, RegisterButton;
     int count = 0;
     int returnValue;
 
@@ -66,9 +66,12 @@ public class UserLogIn implements Initializable {
 
     @Override
     public void initialize(URL Location, ResourceBundle resources){
-        userList=new ArrayList<>();
+        userList();
     }
 
+    private void userList(){
+        userList=new ArrayList<>();
+    }
 
     public void LogInAction(ActionEvent actionEvent) {
 
@@ -106,7 +109,9 @@ public class UserLogIn implements Initializable {
         } else {
             Write();
             Reset();
-            Clear();
+            new Main().LoginWindow();
+            Stage closeStage = (Stage) RegisterButton.getScene().getWindow();
+            new Main().CloseButton(closeStage);
         }
     }
 
