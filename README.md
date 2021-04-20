@@ -53,22 +53,22 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 ### March 26, 2021: 
 Initial Set-Up of Repository and JavaFX.
 
-### April 2, 2021: 
+#### April 2, 2021: 
 Completion of Initial UI/UX. Imported firebase to JavaFX.
 
-### April 7, 2021: 
+#### April 7, 2021: 
 Incorporated firebase to the program.Created the initial  register and login feature.
 
-### April 9, 2021: 
+#### April 9, 2021: 
 Added validation to register and login.
 
-### April 13, 2021: 
+#### April 13, 2021: 
 Connect to the main menu.
 
-### April 17, 2021: 
+#### April 17, 2021: 
 Doctor/User Login and Register, Pre-Checkup Questionnaire.
 
-### April 18, 2021:
+#### April 18, 2021:
 Schedule Appointment and Main Menu  UI/UX Improvements.
 
 ## About the Contributors
