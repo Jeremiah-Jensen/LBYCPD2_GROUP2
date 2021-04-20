@@ -90,7 +90,7 @@
             <RadioButton layoutX="326.0" layoutY="352.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" />
          </children>
       </AnchorPane>
-      <Button layoutX="301.0" layoutY="876.0" mnemonicParsing="false" onAction="#SubmitAnswers" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Submit Answers">
+      <Button layoutX="310.0" layoutY="876.0" mnemonicParsing="false" onAction="#SubmitAnswers" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Submit Answers">
          <font>
             <Font name="Avenir Book" size="15.0" />
          </font>
