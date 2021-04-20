@@ -50,19 +50,26 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 6. Once done, click on apply and the project is ready to run.
 
 ## Revision Logs
-March 26, 2021: 0.0.1 Initial Set-Up of Repository and JavaFX.
+### March 26, 2021: 
+Initial Set-Up of Repository and JavaFX.
 
-April 2, 2021: 0.0.2 Completion of Initial UI/UX. Imported firebase to JavaFX.
+### April 2, 2021: 
+Completion of Initial UI/UX. Imported firebase to JavaFX.
 
-April 7, 2021: 0.0.3 Incorporated firebase to the program.Created the initial  register and login feature.
+### April 7, 2021: 
+Incorporated firebase to the program.Created the initial  register and login feature.
 
-April 9, 2021: 0.0.3 Added validation to register and login.
+### April 9, 2021: 
+Added validation to register and login.
 
-April 13, 2021: 0.0.4 Connect to the main menu.
+### April 13, 2021: 
+Connect to the main menu.
 
-April 17, 2021: 0.0.4 Doctor/User Login and Register, Pre-Checkup Questionnaire.
+### April 17, 2021: 
+Doctor/User Login and Register, Pre-Checkup Questionnaire.
 
-April 18, 2021: 0.0.4 Schedule Appointment and Main Menu  UI/UX Improvements.
+### April 18, 2021:
+Schedule Appointment and Main Menu  UI/UX Improvements.
 
 ## About the Contributors
 For any questions about the project, you may email us directly through our personal email address.
