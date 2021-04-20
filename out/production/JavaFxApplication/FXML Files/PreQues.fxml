@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PreQuestionnaire">
    <children>
       <AnchorPane layoutX="92.0" layoutY="71.0" prefHeight="403.0" prefWidth="418.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;">
          <effect>
@@ -51,7 +51,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="257.0" layoutY="953.0" mnemonicParsing="false" text="Submit Answers" />
       <Label layoutX="92.0" layoutY="494.0" prefHeight="38.0" prefWidth="368.0" text="Tick any of the following that your child is experiencing">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -91,5 +90,15 @@
             <RadioButton layoutX="326.0" layoutY="352.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" />
          </children>
       </AnchorPane>
+      <Button layoutX="319.0" layoutY="933.0" mnemonicParsing="false" onAction="#SubmitAnswers" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Submit Answers">
+         <font>
+            <Font name="Avenir Book" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="61.0" layoutY="933.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Go Back">
+         <font>
+            <Font name="Avenir Book" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
