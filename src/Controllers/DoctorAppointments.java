@@ -1,12 +1,19 @@
 package Controllers;
 
+import Models.Doctor;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 public class DoctorAppointments {
 
     public Button LogOutButton, PatientsButton, UserDetailsButton;
+    public ListView UpcomingAppointments;
 
     public void DoctorPatients(ActionEvent actionEvent) {
         new Main().DoctorPatients();

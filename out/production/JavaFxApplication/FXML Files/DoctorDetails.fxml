@@ -2,14 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorDetails">
     <children>
@@ -85,7 +86,7 @@
                 </Label>
             </children>
         </AnchorPane>
-      <AnchorPane layoutX="298.0" layoutY="16.0" prefHeight="568.0" prefWidth="687.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <AnchorPane layoutX="298.0" layoutY="16.0" prefHeight="534.0" prefWidth="687.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
             <Label layoutX="35.0" layoutY="11.0" text="User Details" textFill="#39a2bd">
                <font>
@@ -93,7 +94,66 @@
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="6.0" layoutX="34.0" layoutY="51.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
-            <TextArea layoutX="34.0" layoutY="71.0" prefHeight="474.0" prefWidth="628.0" />
+            <AnchorPane layoutX="35.0" layoutY="73.0" prefHeight="153.0" prefWidth="154.0" style="-fx-background-color: #d3d3d3;" AnchorPane.bottomAnchor="308.0" AnchorPane.topAnchor="73.0">
+               <children>
+                  <ImageView fitHeight="153.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+            <Button layoutX="50.0" layoutY="237.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="125.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Upload Photo" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="235.0" layoutY="80.0" text="Name" textFill="#39a2bd">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="236.0" layoutY="163.0" text="Contact Number" textFill="#39a2bd">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="235.0" layoutY="249.0" text="Email Address" textFill="#39a2bd">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="235.0" layoutY="337.0" text="Birthday" textFill="#39a2bd">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="238.0" layoutY="426.0" text="Gender" textFill="#39a2bd">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Text fx:id="FirstName" layoutX="272.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="348.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="ContactNumber" layoutX="272.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="348.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="Email" layoutX="272.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="348.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="Birthday" layoutX="272.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="348.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="Gender" layoutX="272.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="348.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
          </children>
          <effect>
             <DropShadow>
@@ -103,5 +163,10 @@
             </DropShadow>
          </effect>
       </AnchorPane>
+      <Button layoutX="579.0" layoutY="559.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="125.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Refresh" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
