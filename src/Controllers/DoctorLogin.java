@@ -41,6 +41,8 @@ public class DoctorLogin implements Initializable {
                     for (DataSnapshot data : dataSnapshot.getChildren()) {
                         Doctor doctor = data.getValue(Doctor.class);
                         if (UsernameLogin.getText().equals(doctor.getUsername()) && PasswordLogin.getText().equals(doctor.getPassword())) {
+                            DoctorDetails doctorDetails = new DoctorDetails();
+                            doctorDetails.Username(UsernameLogin.getText());
                             returnValue = 1;
                         }
                     }

@@ -13,12 +13,25 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class DoctorDetails implements Initializable {
 
     public Button LogOutButton, AppointmentsButton, PatientsButton;
     public Text FirstName, ContactNumber, Email, Birthday, Gender;
+    public String username;
+    List<Doctor> doctorList = new ArrayList<>();
+
+    public void Username(String username) {
+        this.username = username;
+    }
+
+    public String returnUsername() {
+        return username;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -28,11 +41,18 @@ public class DoctorDetails implements Initializable {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Doctor doctor = data.getValue(Doctor.class);
-                    FirstName.setText(doctor.getFirstName() + " " + doctor.getLastName());
-                    ContactNumber.setText(doctor.getContactNumber());
-                    Email.setText(doctor.getEmail());
-                    Birthday.setText(doctor.getBirthday());
-                    Gender.setText(doctor.getGender());
+                    doctorList.add(doctor);
+                }
+                for(int i = 0; i < doctorList.size(); i++) {
+                    Doctor doctor = doctorList.get(i);
+                    if(doctor.getUsername().equals(returnUsername())) {
+                        System.out.println();
+                        FirstName.setText(doctor.getFirstName() + " " + doctor.getLastName());
+                        ContactNumber.setText(doctor.getContactNumber());
+                        Email.setText(doctor.getEmail());
+                        Birthday.setText(doctor.getBirthday());
+                        Gender.setText(doctor.getGender());
+                    }
                 }
             }
 

@@ -95,7 +95,7 @@
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="250.0" />
-            <ListView layoutX="34.0" layoutY="69.0" prefHeight="435.0" prefWidth="250.0" />
+            <ListView fx:id="PatientsList" layoutX="34.0" layoutY="69.0" prefHeight="435.0" prefWidth="250.0" />
          </children>
          <effect>
             <DropShadow>
@@ -113,7 +113,7 @@
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="305.0" />
-            <TextArea layoutX="35.0" layoutY="69.0" prefHeight="482.0" prefWidth="305.0" />
+            <TextArea fx:id="PatientsInformation" layoutX="35.0" layoutY="69.0" prefHeight="482.0" prefWidth="305.0" />
          </children>
          <effect>
             <DropShadow>
@@ -123,8 +123,8 @@
             </DropShadow>
          </effect>
       </AnchorPane>
-      <TextField alignment="CENTER_RIGHT" layoutX="298.0" layoutY="17.0" prefHeight="32.0" prefWidth="198.0" promptText="Name of Patient" style="-fx-background-radius: 20;" />
-      <Button layoutX="504.0" layoutY="18.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Search" textFill="WHITE">
+      <TextField fx:id="PatientName" alignment="CENTER_RIGHT" layoutX="298.0" layoutY="17.0" prefHeight="32.0" prefWidth="198.0" promptText="Name of Patient" style="-fx-background-radius: 20;" />
+      <Button layoutX="504.0" layoutY="18.0" mnemonicParsing="false" onAction="#SearchPatient" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Search" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
