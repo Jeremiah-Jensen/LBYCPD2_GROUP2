@@ -18,11 +18,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.net.URL;
 import javafx.event.ActionEvent;
-
-
-import javax.naming.Name;
-import javax.print.Doc;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -81,6 +76,7 @@ public class UserLogIn implements Initializable {
         }
         else {
             Error4.setVisible(false);
+
             for (int i = 0; i <userList.size() ; i++) {
                 User model=userList.get(i);
                 if (UsernameLogin.getText().equals(model.getUsername()) && PasswordLogin.getText().equals(model.getPassword())) {

@@ -1,26 +1,54 @@
 package Controllers;
 
+import Models.Doctor;
+import Models.User;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class UserAppointments implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment,UpcomingAppointments, PreviousAppointments;
     public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton, PreQues, PostQues;
+    public ListView<String> Doctors;;
     int count = 0;
+    List<Doctor> doctorList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+        firebase.child("Doctor").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Doctor doctor = data.getValue(Doctor.class);
+                    doctorList.add(doctor);
+                }
+                for(int i = 0; i < doctorList.size(); i++) {
+                    Doctor doctorModel = doctorList.get(i);
+                    Doctors.getItems().add("Dr. " + doctorModel.getFirstName() + " " + doctorModel.getLastName() + "\n");
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
 
+            }
+        });
     }
 
     public void Switch(ActionEvent actionEvent) {

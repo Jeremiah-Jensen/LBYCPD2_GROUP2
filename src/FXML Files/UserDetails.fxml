@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserDetails">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserDetails">
     <children>
         <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="592.0" prefWidth="276.0" style="-fx-background-color: 0\;">
             <effect>
@@ -101,7 +106,7 @@
                         </LinearGradient>
                     </fill>
                 </Rectangle>
-                <Label fx:id="Username" layoutX="25.0" layoutY="4.0" text="Username" textFill="WHITE">
+                <Label fx:id="Username" layoutX="25.0" layoutY="4.0" text="Parent Name" textFill="WHITE">
                     <font>
                         <Font name="Avenir Book" size="32.0" />
                     </font>
@@ -197,23 +202,65 @@
                         <Font name="Avenir Book" size="26.0" />
                     </font>
                 </Label>
-                <Button layoutX="417.0" layoutY="71.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre Check Up Questionaire" textFill="#f3f3f3">
-                    <font>
-                        <Font name="Avenir Book" size="15.0" />
-                    </font>
-                </Button>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="24.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
-                <ListView layoutX="25.0" layoutY="66.0" prefHeight="138.0" prefWidth="360.0" style="-fx-background-radius: 20;" />
-                <Button layoutX="417.0" layoutY="120.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Go to Consultaion" textFill="#f3f3f3">
-                    <font>
-                        <Font name="Avenir Book" size="15.0" />
-                    </font>
-                </Button>
-                <Button fx:id="ScheduleButton" layoutX="417.0" layoutY="168.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="View Previous Appointments" textFill="#f3f3f3">
-                    <font>
-                        <Font name="Avenir Book" size="15.0" />
-                    </font>
-                </Button>
+            <TextField layoutX="144.0" layoutY="65.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="34.0" layoutY="64.0" prefHeight="30.0" prefWidth="114.0" text="First Name">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="145.0" layoutY="105.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="35.0" layoutY="104.0" prefHeight="30.0" prefWidth="114.0" text="Last Name">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="144.0" layoutY="144.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="34.0" layoutY="143.0" prefHeight="30.0" prefWidth="114.0" text="Birthday">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="145.0" layoutY="183.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="35.0" layoutY="182.0" prefHeight="30.0" prefWidth="114.0" text="Gender">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="460.0" layoutY="64.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="357.0" layoutY="63.0" prefHeight="30.0" prefWidth="104.0" text="Gender">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="460.0" layoutY="105.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="357.0" layoutY="104.0" prefHeight="30.0" prefWidth="104.0" text="Email">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="460.0" layoutY="145.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="357.0" layoutY="144.0" prefHeight="30.0" prefWidth="104.0" text="Address">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="460.0" layoutY="181.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="357.0" layoutY="180.0" prefHeight="30.0" prefWidth="104.0" text="Conditions">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="172.0" layoutY="223.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="159.0" style="-fx-background-color: #39a2bd#39a2bd;" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="11.0" />
+               </font>
+            </Button>
+            <Button layoutX="357.0" layoutY="223.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="159.0" style="-fx-background-color: #39a2bd#39a2bd;" text="Save Changes" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="11.0" />
+               </font>
+            </Button>
             </children>
             <effect>
                 <DropShadow>
