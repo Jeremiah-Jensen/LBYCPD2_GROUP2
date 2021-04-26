@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class UserDetails implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment,UpcomingAppointments;
-    public Button LogOutButton, HomeButton, AppointmentsButton;
+    public Button LogOutButton, HomeButton, AppointmentsButton, PaymentsButton;
     public Label Name, Birthday, Email, Number, Gender, Username;
     public Text test;
     String Uname;
@@ -48,6 +48,12 @@ public class UserDetails implements Initializable {
     public void LogOut(ActionEvent actionEvent){
         new Main().LoginWindow();
         Stage closeStage = (Stage) LogOutButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+    public void UserPayments(ActionEvent actionEvent){
+        new Main().UserPaymentsWindow();
+        Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 }

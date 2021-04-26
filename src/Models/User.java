@@ -2,13 +2,13 @@ package Models;
 
 public class User {
 
-    String id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, condition;
+    String id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, condition, credit, cardnumber, expirydate, bank, network, cvv;
 
     public User() {
 
     }
 
-    public User(String id, String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String condition) {
+    public User(String id, String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String condition, String credit, String cardnumber, String expirydate, String bank, String network, String cvv) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -20,6 +20,12 @@ public class User {
         this.address = address;
         this.gender = gender;
         this.condition = condition;
+        this.credit = credit;
+        this.cardnumber = cardnumber;
+        this.expirydate = expirydate;
+        this.bank = bank;
+        this.network = network;
+        this.cvv = cvv;
     }
 
     public String getId() { return id; }
@@ -112,5 +118,53 @@ public class User {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+
+    public String getCredit() {
+        return credit;
+    }
+
+    public void setCredit(String credit) {
+        this.credit = credit;
+    }
+
+    public String getCardnumber() {
+        return cardnumber;
+    }
+
+    public void setCardnumber(String cardnumber) {
+        this.cardnumber = cardnumber;
+    }
+
+    public String getExpirydate() {
+        return expirydate;
+    }
+
+    public void setExpirydate(String expirydate) {
+        this.expirydate = expirydate;
+    }
+
+    public String getBank() {
+        return bank;
+    }
+
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
+
+    public String getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(String network) {
+        this.network = network;
+    }
+
+    public String getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
     }
 }

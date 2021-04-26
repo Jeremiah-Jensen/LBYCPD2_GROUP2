@@ -93,7 +93,7 @@
                   <Font name="Avenir Book" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="27.0" layoutY="264.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Payments">
+            <Button layoutX="27.0" layoutY="264.0" mnemonicParsing="false" onAction="#UserPayments" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Payments">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>

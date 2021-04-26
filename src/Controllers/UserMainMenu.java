@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class UserMainMenu implements Initializable {
     @FXML
-    public Button LogOutButton, AppointmentsButton, DetailsButton;
+    public Button LogOutButton, AppointmentsButton, DetailsButton, PaymentsButton;
 
     public void LogOut(ActionEvent actionEvent){
         new Main().LoginWindow();
@@ -28,6 +28,12 @@ public class UserMainMenu implements Initializable {
     public void UserDetails(ActionEvent actionEvent){
         new Main().UserDetailsWindow();
         Stage closeStage = (Stage) DetailsButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+    public void UserPayments(ActionEvent actionEvent){
+        new Main().UserPaymentsWindow();
+        Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 

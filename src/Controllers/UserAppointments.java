@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 public class UserAppointments implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment,UpcomingAppointments, PreviousAppointments;
-    public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton, PreQues, PostQues;
+    public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton, PaymentsButton, PreQues, PostQues;
     public ListView<String> Doctors;;
     int count = 0;
     List<Doctor> doctorList = new ArrayList<>();
@@ -89,6 +89,13 @@ public class UserAppointments implements Initializable {
     public void UserDetails(ActionEvent actionEvent){
         new Main().UserDetailsWindow();
         Stage closeStage = (Stage) DetailsButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+
+    public void UserPayments(ActionEvent actionEvent){
+        new Main().UserPaymentsWindow();
+        Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 

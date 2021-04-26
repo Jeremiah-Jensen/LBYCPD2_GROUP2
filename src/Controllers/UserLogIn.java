@@ -197,6 +197,12 @@ public class UserLogIn implements Initializable {
 //        model.setAddress(Address.getText().replaceAll("\n", System.getProperty("line.separator")));
         model.setGender(Gender.getText());
 //        model.setCondition(Conditions.getText().replaceAll("\n", System.getProperty("line.separator")));
+        model.setCredit(" ");
+        model.setCardnumber(" ");
+        model.setBank(" ");
+        model.setCvv(" ");
+        model.setExpirydate(" ");
+        model.setNetwork(" ");
         firebase.child("User").push().setValue(model);
     }
 
