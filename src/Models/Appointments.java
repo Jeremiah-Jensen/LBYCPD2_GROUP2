@@ -32,6 +32,7 @@ public class Appointments {
         this.Link = link;
         this.Payment = payment;
         this.painQ1 = painQ1;
+        this.Status = status;
     }
 
 
