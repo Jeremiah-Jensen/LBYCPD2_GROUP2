@@ -1,6 +1,8 @@
 package Controllers;
 
+import Models.Appointments;
 import Models.Doctor;
+import Models.Schedule;
 import Models.User;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -11,6 +13,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -22,16 +26,23 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class UserAppointments implements Initializable {
+    Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
     @FXML
     public AnchorPane ScheduleAppointment,UpcomingAppointments, PreviousAppointments;
     public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton, PaymentsButton, PreQues, PostQues;
-    public ListView<String> Doctors;;
+    public Button ConfirmDoctor, ConfirmSched, ConfirmAppointment;
+    public Label DocName, SchedTime, SchedDate, DocApp, DateApp, TimeApp;
+    public ComboBox<String> DoctorsBox, DateBox, TimeBox;
     int count = 0;
+    public String FullName;
+    User userModel;
     List<Doctor> doctorList = new ArrayList<>();
+    List<Schedule> scheduleList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+        userModel = UserLogIn.userModel;
+        FullName = userModel.getFirstName() + " " + userModel.getLastName();
         firebase.child("Doctor").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -41,7 +52,7 @@ public class UserAppointments implements Initializable {
                 }
                 for(int i = 0; i < doctorList.size(); i++) {
                     Doctor doctorModel = doctorList.get(i);
-                    Doctors.getItems().add("Dr. " + doctorModel.getFirstName() + " " + doctorModel.getLastName() + "\n");
+                    DoctorsBox.getItems().add("Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName());
                 }
             }
             @Override
@@ -72,6 +83,48 @@ public class UserAppointments implements Initializable {
         TranslateTransition translateTransition3 = new TranslateTransition(Duration.seconds(1), PreviousAppointments);
         translateTransition3.setByY(move);
         translateTransition3.play();
+    }
+
+    public void ConfirmDoctor(ActionEvent actionEvent){
+        DocName.setText(DoctorsBox.getValue());
+        DateBox.setDisable(false);
+        TimeBox.setDisable(false);
+        ConfirmSched.setDisable(false);
+        DoctorsBox.setDisable(true);
+        firebase.child("Schedule").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Schedule schedule = data.getValue(Schedule.class);
+                    scheduleList.add(schedule);
+                }
+                for(int i = 0; i < scheduleList.size(); i++) {
+                    Schedule scheduleModel = scheduleList.get(i);
+                    if(DoctorsBox.getValue().equals("Dr." + scheduleModel.getName())){
+                        DateBox.getItems().add(scheduleModel.getDay());
+                        TimeBox.getItems().add(scheduleModel.getTime());
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+    }
+
+    public void ConfirmSchedule(ActionEvent actionEvent){
+        DocName.setText(DoctorsBox.getValue());
+        SchedTime.setText(TimeBox.getValue());
+        SchedDate.setText(DateBox.getValue());
+        ConfirmAppointment.setDisable(false);
+    }
+
+    public void ConfirmAppointment(ActionEvent actionEvent){
+        WriteAppointment();
+        new Main().UserAppointmentsWindow();
+        Stage closeStage = (Stage) ConfirmAppointment.getScene().getWindow();
+        new Main().CloseButton(closeStage);
     }
 
     public void MainMenu(ActionEvent actionEvent){
@@ -105,5 +158,22 @@ public class UserAppointments implements Initializable {
 
     public void PostCheckUpQues(ActionEvent actionEvent){
         new Main().PostQuesWindow();
+    }
+
+    public void WriteAppointment(){
+        Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+        Appointments model = new Appointments();
+        model.setAppointment(DoctorsBox.getValue() + " " + DateBox.getValue() + " " + TimeBox.getValue());
+        model.setDoctor(DoctorsBox.getValue());
+        model.setUser(FullName);
+        model.setTime(TimeBox.getValue());
+        model.setDate(DateBox.getValue());
+        model.setPreQuest(" ");
+        model.setFollowUp(" ");
+        model.setPayment(" ");
+        model.setPainQ1(" ");
+        model.setLink(" ");
+        model.setPreQuest(" ");
+        firebase.child("Appointments").push().setValue(model);
     }
 }

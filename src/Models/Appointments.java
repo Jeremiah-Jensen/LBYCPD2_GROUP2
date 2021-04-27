@@ -5,6 +5,7 @@ public class Appointments {
     String User;
     String Doctor;
     String Time;
+    String Date;
     String PreQuest;
     String FollowUp;
     String Appointment;
@@ -17,16 +18,17 @@ public class Appointments {
 
     }
 
-    public Appointments(String id, String user, String doctor, String time, String preQuest, String followUp, String appointment, String prescription, String link, String payment, String painQ1) {
+    public Appointments(String id, String date, String user, String doctor, String time, String preQuest, String followUp, String appointment, String prescription, String link, String payment, String painQ1) {
         this.id = id;
         this.User = user;
+        this.Date = date;
         this.Doctor = doctor;
         this.Time = time;
         this.PreQuest = preQuest;
         this.FollowUp = followUp;
         this.Appointment = appointment;
         this.Prescription = prescription;
-        this. Link = link;
+        this.Link = link;
         this.Payment = payment;
         this.painQ1 = painQ1;
     }
@@ -60,8 +62,15 @@ public class Appointments {
         return Time;
     }
 
-    public void setTime(String time) {
+    public void setDate(String time) {
         Time = time;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setTime(String date) { Date = date;
     }
 
     public String getPreQuest() {

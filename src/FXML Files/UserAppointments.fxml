@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserAppointments">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserAppointments">
     <children>
         <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="592.0" prefWidth="276.0" style="-fx-background-color: 0\;">
             <effect>
@@ -89,14 +95,12 @@
                     </font>
                 </Label>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3abd8f" height="4.0" layoutX="22.0" layoutY="52.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="372.0" />
-                <ListView fx:id="Doctors" layoutX="24.0" layoutY="86.0" prefHeight="233.0" prefWidth="166.0" style="-fx-background-radius: 20;" />
-                <ListView layoutX="204.0" layoutY="86.0" prefHeight="233.0" prefWidth="188.0" style="-fx-background-radius: 20;" />
-                <Label layoutX="29.0" layoutY="58.0" text="Available Doctors">
+                <Label layoutX="36.0" layoutY="66.0" text="Available Doctors">
                     <font>
                         <Font name="Avenir Book" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="231.0" layoutY="58.0" text="Date and Time">
+                <Label layoutX="36.0" layoutY="198.0" text="Date">
                     <font>
                         <Font name="Avenir Book" size="19.0" />
                     </font>
@@ -112,7 +116,7 @@
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.15889985859394073" green="0.59694504737854" blue="0.7302631735801697" />
+                                        <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -129,7 +133,7 @@
                         <Font name="Avenir Book" size="18.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="430.0" layoutY="105.0" prefHeight="27.0" prefWidth="241.0" text="--" textFill="#fdfdfd">
+                <Label fx:id="DocName" alignment="CENTER" layoutX="430.0" layoutY="105.0" prefHeight="27.0" prefWidth="241.0" text="--" textFill="#fdfdfd">
                     <font>
                         <Font name="Avenir Book" size="18.0" />
                     </font>
@@ -139,7 +143,7 @@
                         <Font name="Avenir Book" size="18.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="430.0" layoutY="160.0" prefHeight="27.0" prefWidth="241.0" text="--" textFill="#fdfdfd">
+                <Label fx:id="SchedDate" alignment="CENTER" layoutX="430.0" layoutY="160.0" prefHeight="27.0" prefWidth="241.0" text="--" textFill="#fdfdfd">
                     <font>
                         <Font name="Avenir Book" size="18.0" />
                     </font>
@@ -149,16 +153,34 @@
                         <Font name="Avenir Book" size="18.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="431.0" layoutY="225.0" prefHeight="27.0" prefWidth="241.0" text="--" textFill="#fdfdfd">
+                <Label fx:id="SchedTime" alignment="CENTER" layoutX="431.0" layoutY="225.0" prefHeight="27.0" prefWidth="241.0" text="--" textFill="#fdfdfd">
                     <font>
                         <Font name="Avenir Book" size="18.0" />
                     </font>
                 </Label>
-                <Button layoutX="437.0" layoutY="275.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Confirm Appointment">
+                <Button fx:id="ConfirmAppointment" disable="true" layoutX="437.0" layoutY="275.0" mnemonicParsing="false" onAction="#ConfirmAppointment" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Confirm Appointment">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
+            <ComboBox fx:id="DoctorsBox" layoutX="36.0" layoutY="104.0" prefHeight="33.0" prefWidth="333.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <ComboBox fx:id="DateBox" disable="true" layoutX="36.0" layoutY="226.0" prefHeight="33.0" prefWidth="177.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <Label layoutX="238.0" layoutY="199.0" text="Time">
+               <font>
+                  <Font name="Avenir Book" size="19.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="TimeBox" disable="true" layoutX="238.0" layoutY="227.0" prefHeight="33.0" prefWidth="132.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <Button fx:id="ConfirmDoctor" layoutX="57.0" layoutY="152.0" mnemonicParsing="false" onAction="#ConfirmDoctor" prefHeight="33.0" prefWidth="293.0" style="-fx-background-color: #3abd8f#3abd8f#3abd8f#3abd8f; -fx-background-radius: 50;" text="Confirm Doctor" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="ConfirmSched" disable="true" layoutX="61.0" layoutY="273.0" mnemonicParsing="false" onAction="#ConfirmSchedule" prefHeight="33.0" prefWidth="293.0" style="-fx-background-color: #3abd8f#3abd8f#3abd8f#3abd8f; -fx-background-radius: 50;" text="Confirm Date and Time" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="15.0" />
+               </font>
+            </Button>
             </children>
             <effect>
                 <DropShadow>
@@ -217,19 +239,18 @@
         </AnchorPane>
         <AnchorPane fx:id="UpcomingAppointments" layoutX="298.0" layoutY="367.0" prefHeight="217.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
             <children>
-                <Label layoutX="25.0" layoutY="11.0" text="Upcoming Appointments" textFill="#39a2bd">
+                <Label layoutX="25.0" layoutY="11.0" text="Upcoming Appointment" textFill="#39a2bd">
                     <font>
                         <Font name="Avenir Book" size="26.0" />
                     </font>
                 </Label>
-                <Button layoutX="417.0" layoutY="71.0" mnemonicParsing="false" onAction="#PreCheckUpQues" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre Check Up Questionaire" textFill="#f3f3f3">
+                <Button disable="true" layoutX="417.0" layoutY="71.0" mnemonicParsing="false" onAction="#PreCheckUpQues" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre Check Up Questionaire" textFill="#f3f3f3">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="24.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
-                <ListView layoutX="25.0" layoutY="66.0" prefHeight="138.0" prefWidth="360.0" style="-fx-background-radius: 20;" />
-                <Button layoutX="417.0" layoutY="120.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Go to Consultaion" textFill="#f3f3f3">
+                <Button disable="true" layoutX="417.0" layoutY="120.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Go to Consultaion" textFill="#f3f3f3">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
@@ -239,6 +260,36 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
+            <Label layoutX="26.0" layoutY="66.0" text="Doctor:">
+               <font>
+                  <Font name="Avenir Book" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="109.0" text="Date:">
+               <font>
+                  <Font name="Avenir Book" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="154.0" text="Time:">
+               <font>
+                  <Font name="Avenir Book" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="Dov" alignment="CENTER" layoutX="108.0" layoutY="66.0" prefHeight="28.0" prefWidth="276.0" text="--">
+               <font>
+                  <Font name="Avenir Book" size="19.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="108.0" layoutY="109.0" prefHeight="28.0" prefWidth="276.0" text="--">
+               <font>
+                  <Font name="Avenir Book" size="19.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="108.0" layoutY="154.0" prefHeight="28.0" prefWidth="276.0" text="--">
+               <font>
+                  <Font name="Avenir Book" size="19.0" />
+               </font>
+            </Label>
             </children>
             <effect>
                 <DropShadow>
