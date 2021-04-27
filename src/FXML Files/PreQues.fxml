@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="928.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PreQuestionnaire">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="928.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PreQuestionnaire">
    <children>
       <AnchorPane layoutX="72.0" layoutY="39.0" prefHeight="347.0" prefWidth="425.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;">
          <effect>
@@ -74,7 +70,7 @@
             <RadioButton fx:id="NoButton2" layoutX="326.0" layoutY="63.0" mnemonicParsing="false" text="No" />
             <RadioButton fx:id="YesButton3" layoutX="230.0" layoutY="101.0" mnemonicParsing="false" text="Yes" />
             <RadioButton fx:id="NoButton3" layoutX="326.0" layoutY="101.0" mnemonicParsing="false" text="No" />
-            <RadioButton layoutX="230.0" layoutY="137.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes" />
+            <RadioButton layoutX="230.0" layoutY="137.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="44.0" text="Yes" />
             <RadioButton fx:id="NoButton4" layoutX="326.0" layoutY="137.0" mnemonicParsing="false" text="No" />
             <RadioButton fx:id="YesButton5" layoutX="229.0" layoutY="175.0" mnemonicParsing="false" text="Yes" />
             <RadioButton fx:id="NoButton5" layoutX="326.0" layoutY="175.0" mnemonicParsing="false" text="No" />
@@ -90,12 +86,12 @@
             <RadioButton fx:id="NoButton10" layoutX="326.0" layoutY="352.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" />
          </children>
       </AnchorPane>
-      <Button layoutX="310.0" layoutY="876.0" mnemonicParsing="false" onAction="#SubmitAnswers" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Submit Answers">
+      <Button layoutX="500.0" layoutY="600.0" mnemonicParsing="false" onAction="#SubmitAnswers" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Submit Answers">
          <font>
             <Font name="Avenir Book" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="BackButton" layoutX="54.0" layoutY="876.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Go Back">
+      <Button fx:id="BackButton" layoutX="-50.0" layoutY="600.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Go Back">
          <font>
             <Font name="Avenir Book" size="15.0" />
          </font>

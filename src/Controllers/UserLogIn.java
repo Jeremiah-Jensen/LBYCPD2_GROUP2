@@ -82,6 +82,7 @@ public class UserLogIn implements Initializable {
                 if (UsernameLogin.getText().equals(model.getUsername()) && PasswordLogin.getText().equals(model.getPassword())) {
                     returnValue = 1;
                     userModel = userList.get(i);
+                    System.out.println("Found in Database");
                 }
             }
 
@@ -89,7 +90,6 @@ public class UserLogIn implements Initializable {
                 new Main().MainMenuWindow();
                 Stage closeStage = (Stage) LoginButton.getScene().getWindow();
                 new Main().CloseButton(closeStage);
-                System.out.println("Found in Database");
             }else if (returnValue==0){
                 Error4.setVisible(false);
                 // there is no existing user

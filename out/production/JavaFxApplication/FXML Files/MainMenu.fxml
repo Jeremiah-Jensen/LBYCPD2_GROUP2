@@ -27,7 +27,7 @@
                   <Font name="Avenir Book" size="32.0" />
                </font>
             </Label>
-            <Button layoutX="330.0" layoutY="460.0" mnemonicParsing="false" onAction="#UserAppointments" prefHeight="33.0" prefWidth="304.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Click Here to Schedule an Appointment" textFill="#f3f3f3">
+            <Button layoutX="330.0" layoutY="460.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="304.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Click Here to Schedule an Appointment" textFill="#f3f3f3">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>

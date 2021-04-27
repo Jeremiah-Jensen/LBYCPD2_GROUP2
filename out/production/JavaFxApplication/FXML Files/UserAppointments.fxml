@@ -244,13 +244,13 @@
                         <Font name="Avenir Book" size="26.0" />
                     </font>
                 </Label>
-                <Button disable="true" layoutX="420.0" layoutY="71.0" mnemonicParsing="false" onAction="#PreCheckUpQues" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre Check Up Questionaire" textFill="#f3f3f3">
+                <Button fx:id="PreQues" disable="true" layoutX="420.0" layoutY="71.0" mnemonicParsing="false" onAction="#PreCheckUpQues" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Pre Check Up Questionaire" textFill="#f3f3f3">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="24.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
-                <Button disable="true" layoutX="420.0" layoutY="120.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Go to Consultaion" textFill="#f3f3f3">
+                <Button fx:id="Consult" disable="true" layoutX="420.0" layoutY="120.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Go to Consultaion" textFill="#f3f3f3">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
@@ -260,32 +260,13 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-            <Label layoutX="26.0" layoutY="112.0" text="Doctor:">
-               <font>
-                  <Font name="Avenir Book" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="26.0" layoutY="155.0" text="Schedule:">
-               <font>
-                  <Font name="Avenir Book" size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="DoctorApp" alignment="CENTER" layoutX="108.0" layoutY="112.0" prefHeight="28.0" prefWidth="276.0" text="--">
-               <font>
-                  <Font name="Avenir Book" size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="SchedApp" alignment="CENTER" layoutX="108.0" layoutY="155.0" prefHeight="28.0" prefWidth="276.0" text="--">
-               <font>
-                  <Font name="Avenir Book" size="19.0" />
-               </font>
-            </Label>
             <ComboBox fx:id="AppointmentsBox" layoutX="24.0" layoutY="71.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
-            <Button fx:id="ConfirmDoctor1" layoutX="290.0" layoutY="71.0" mnemonicParsing="false" onAction="#ConfirmDoctor" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #3abd8f#3abd8f#3abd8f#3abd8f; -fx-background-radius: 50;" text="Select" textFill="WHITE">
+            <Button layoutX="290.0" layoutY="71.0" mnemonicParsing="false" onAction="#SelectAppointment" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #3abd8f#3abd8f#3abd8f#3abd8f; -fx-background-radius: 50;" text="Select" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>
             </Button>
+            <ListView fx:id="AppointmentsListView" layoutX="24.0" layoutY="120.0" prefHeight="82.0" prefWidth="372.0" />
             </children>
             <effect>
                 <DropShadow>

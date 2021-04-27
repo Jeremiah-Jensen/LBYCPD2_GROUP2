@@ -22,6 +22,7 @@ public class UserPayments implements Initializable {
     public PasswordField CVVPasswordField;
     public AnchorPane InputCard, CardDetails;
     public Label NameLabel, CardNumLabel, ExpirydateLabel, CVVLabel, BankLabel, NetworkLabel;
+
     User userModel;
     int count = 0;
 
@@ -77,6 +78,7 @@ public class UserPayments implements Initializable {
                     throw new NullPointerException("Can't pass null for argument 'pathString' in child()");
                 }
                 else {
+                    System.out.println(userModel.getId());
                     firebase.child("User").child(userModel.getId()).child("name").setValue(NameTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("cardnumber").setValue(CardNumTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("cvv").setValue(CVVPasswordField.getText());

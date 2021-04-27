@@ -12,7 +12,7 @@ public class Appointments {
     String Prescription;
     String Link;
     String Payment;
-    String painQ1;
+    String PainQ1;
     String Status;
 
     public Appointments(){
@@ -20,7 +20,6 @@ public class Appointments {
     }
 
     public Appointments(String id, String date, String user, String doctor, String time, String preQuest, String followUp, String appointment, String prescription, String link, String payment, String status, String painQ1) {
-        this.id = id;
         this.User = user;
         this.Date = date;
         this.Doctor = doctor;
@@ -31,18 +30,13 @@ public class Appointments {
         this.Prescription = prescription;
         this.Link = link;
         this.Payment = payment;
-        this.painQ1 = painQ1;
+        this.PainQ1 = painQ1;
         this.Status = status;
     }
 
+    public String getId() { return id; }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setId(String id) { this.id = id; }
 
     public String getUser() {
         return User;
@@ -128,11 +122,11 @@ public class Appointments {
     public void setStatus(String status){ Status = status; }
 
     public String getPainQ1() {
-        return painQ1;
+        return PainQ1;
     }
 
     public void setPainQ1(String painQ1) {
-        this.painQ1 = painQ1;
+        this.PainQ1 = painQ1;
     }
 
 
