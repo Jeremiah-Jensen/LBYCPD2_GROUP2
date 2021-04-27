@@ -247,6 +247,24 @@ public class Main extends Application {
         });
     }
 
+    public void DoctorsAppointmentScreen() {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorAppointmentScreen.fxml"));
+                    AnchorPane pane = loader.load();
+                    Scene scene = new Scene(pane);
+                    mainStage = new Stage();
+                    mainStage.setScene(scene);
+                    mainStage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     public void CloseButton(Stage stage) {
         Platform.runLater(new Runnable() {
             @Override
