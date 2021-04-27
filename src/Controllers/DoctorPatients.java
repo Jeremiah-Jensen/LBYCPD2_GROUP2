@@ -20,7 +20,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class DoctorPatients implements Initializable {
-    public Button UserDetailsButton, LogOutButton, AppointmentsButton;
+    public Button UserDetailsButton, LogOutButton, AppointmentsButton, HomeButton;
     public ListView PatientsList;
     public TextArea PatientsInformation;
     public TextField PatientName;
@@ -71,7 +71,8 @@ public class DoctorPatients implements Initializable {
         PatientsInformation.setText(null);
         for(int i = 0; i < userList.size(); i++) {
             User user = userList.get(i);
-            if(PatientName.getText().equals(user.getFirstName().toLowerCase())) {
+            String fullname = user.getFirstName() + " " + user.getLastName();
+            if(PatientName.getText().equals(fullname.toLowerCase())) {
                 PatientsInformation.appendText(user.getFirstName() + " " + user.getLastName() + "\n");
                 PatientsInformation.appendText(user.getBirthday() + "\n");
                 PatientsInformation.appendText(user.getContactNumber() + "\n");
@@ -79,5 +80,11 @@ public class DoctorPatients implements Initializable {
                 PatientsInformation.appendText(user.getGender() + "\n\n");
             }
         }
+    }
+
+    public void DoctorHome(ActionEvent actionEvent) {
+        new Main().DoctorMainMenu();
+        Stage closeStage = (Stage) HomeButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
     }
 }

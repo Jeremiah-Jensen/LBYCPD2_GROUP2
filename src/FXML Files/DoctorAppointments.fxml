@@ -86,7 +86,7 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="28.0" layoutY="189.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Appointments">
+                <Button fx:id="HomeButton" layoutX="28.0" layoutY="189.0" mnemonicParsing="false" onAction="#DoctorHome" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Home">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
@@ -112,7 +112,7 @@
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="34.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="318.0" />
-            <TextField layoutX="34.0" layoutY="84.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+            <TextField fx:id="day" layoutX="34.0" layoutY="84.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
             <Label layoutX="34.0" layoutY="63.0" text="Day" textFill="#39a2bd">
                <font>
                   <Font size="15.0" />
@@ -123,8 +123,8 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="34.0" layoutY="149.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
-            <Button layoutX="105.0" layoutY="199.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Confirm" textFill="WHITE">
+            <TextField fx:id="time" layoutX="34.0" layoutY="149.0" prefHeight="32.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+            <Button fx:id="ConfirmButton" layoutX="105.0" layoutY="199.0" mnemonicParsing="false" onAction="#ConfirmSchedule" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Confirm" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>

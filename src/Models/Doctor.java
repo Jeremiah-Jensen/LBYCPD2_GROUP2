@@ -2,14 +2,18 @@ package Models;
 
 public class Doctor {
 
-    String id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, consultation;
+    String day, time, id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, consultation;
 
     public Doctor() {
 
     }
 
-    public Doctor(String id, String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String consultation) {
-        this.id = id;
+    public Doctor(String day, String time) {
+        this.day = day;
+        this.time = time;
+    }
+
+    public Doctor(String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String consultation) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -21,6 +25,18 @@ public class Doctor {
         this.address = address;
         this.gender = gender;
         this.consultation = consultation;
+    }
+
+    public String getDay() { return day; }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getTime() { return time; }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getId() { return id; }

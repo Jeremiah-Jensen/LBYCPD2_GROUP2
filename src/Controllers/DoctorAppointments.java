@@ -8,12 +8,15 @@ import com.firebase.client.ValueEventListener;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class DoctorAppointments {
 
-    public Button LogOutButton, PatientsButton, UserDetailsButton;
+    public Button LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton;
     public ListView UpcomingAppointments;
+    public TextField day, time;
+    Doctor doctorModel;
 
     public void DoctorPatients(ActionEvent actionEvent) {
         new Main().DoctorPatients();
@@ -30,6 +33,12 @@ public class DoctorAppointments {
     public void DoctorLogOut(ActionEvent actionEvent) {
         new Main().LoginWindow();
         Stage closeStage = (Stage) LogOutButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+    public void DoctorHome(ActionEvent actionEvent) {
+        new Main().DoctorMainMenu();
+        Stage closeStage = (Stage) HomeButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 }

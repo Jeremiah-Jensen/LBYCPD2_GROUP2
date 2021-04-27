@@ -20,47 +20,19 @@ import java.util.ResourceBundle;
 
 public class DoctorDetails implements Initializable {
 
-    public Button LogOutButton, AppointmentsButton, PatientsButton;
+    public Button LogOutButton, AppointmentsButton, PatientsButton, HomeButton;
     public Text FirstName, ContactNumber, Email, Birthday, Gender;
-    public String username;
-    List<Doctor> doctorList = new ArrayList<>();
-
-    public void Username(String username) {
-        this.username = username;
-    }
-
-    public String returnUsername() {
-        return username;
-    }
+    Doctor doctorModel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
-        firebase.child("Doctor").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Doctor doctor = data.getValue(Doctor.class);
-                    doctorList.add(doctor);
-                }
-                for(int i = 0; i < doctorList.size(); i++) {
-                    Doctor doctor = doctorList.get(i);
-                    if(doctor.getUsername().equals(returnUsername())) {
-                        System.out.println();
-                        FirstName.setText(doctor.getFirstName() + " " + doctor.getLastName());
-                        ContactNumber.setText(doctor.getContactNumber());
-                        Email.setText(doctor.getEmail());
-                        Birthday.setText(doctor.getBirthday());
-                        Gender.setText(doctor.getGender());
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
+        doctorModel = DoctorLogin.doctorModel;
+        String fullName = doctorModel.getFirstName() + " " + doctorModel.getLastName();
+        FirstName.setText(fullName);
+        ContactNumber.setText(doctorModel.getContactNumber());
+        Email.setText(doctorModel.getEmail());
+        Birthday.setText(doctorModel.getBirthday());
+        Gender.setText(doctorModel.getGender());
     }
 
     public void DoctorPatients(ActionEvent actionEvent) {
@@ -82,4 +54,9 @@ public class DoctorDetails implements Initializable {
         new Main().CloseButton(closeStage);
     }
 
+    public void DoctorHome(ActionEvent actionEvent) {
+        new Main().DoctorMainMenu();
+        Stage closeStage = (Stage) HomeButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
 }
