@@ -21,6 +21,7 @@ public class UserPayments implements Initializable {
     public TextField NameTextField, CardNumTextField, ExpirydateTextField, BankTextField, NetworkTextField;
     public PasswordField CVVPasswordField;
     public AnchorPane InputCard, CardDetails;
+    public Label NameLabel, CardNumLabel, ExpirydateLabel, CVVLabel, BankLabel, NetworkLabel;
     User userModel;
     int count = 0;
 
@@ -72,8 +73,41 @@ public class UserPayments implements Initializable {
 
         if(CardNumTextField.getText().length() == 16 && CVVPasswordField.getText().length() == 3 && ExpirydateTextField.getText().length() == 5){
             if(result.isPresent()&&result.get()==ButtonType.OK){
+                if(userModel==null){
+                    throw new NullPointerException("Can't pass null for argument 'pathString' in child()");
+                }
+                else {
+                    firebase.child("User").child(userModel.getId()).child("name").setValue(NameTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("cardnumber").setValue(CardNumTextField.getText());
+                    firebase.child("User").child(userModel.getId()).child("cvv").setValue(CVVPasswordField.getText());
+                    firebase.child("User").child(userModel.getId()).child("expirydate").setValue(ExpirydateTextField.getText());
+                    firebase.child("User").child(userModel.getId()).child("bank").setValue(BankTextField.getText());
+                    firebase.child("User").child(userModel.getId()).child("network").setValue(NetworkTextField.getText());
+                }
             }
         }
+        if(NameTextField.getText().isEmpty()){
+            NameLabel.setText("Empty field");
+        }
+
+        if(CardNumTextField.getText().length() != 16 || CardNumTextField.getText().isEmpty()){
+            CardNumLabel.setText("Must be 16 digits");
+        }
+
+        if(CVVPasswordField.getText().length() != 3 || CVVPasswordField.getText().isEmpty()){
+            CVVLabel.setText("Must be 3 digits");
+        }
+        if(ExpirydateTextField.getText().length() != 5 || ExpirydateTextField.getText().isEmpty()){
+           ExpirydateLabel.setText("Must be 5 digits");
+        }
+
+        if(BankTextField.getText().isEmpty()){
+            BankLabel.setText("Empty field");
+        }
+
+        if(NameTextField.getText().isEmpty()){
+            NetworkLabel.setText("Empty field");
+        }
+
     }
 }

@@ -131,11 +131,6 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Label layoutX="131.0" layoutY="69.0" prefHeight="27.0" prefWidth="154.0" text="Anton Bautista">
-                    <font>
-                        <Font name="Avenir Book" size="18.0" />
-                    </font>
-                </Label>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="InputCard" layoutX="298.0" layoutY="608.0" prefHeight="297.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
@@ -204,6 +199,12 @@
                     </font>
                 </Label>
                 <PasswordField fx:id="CVVPasswordField" layoutX="153.0" layoutY="149.0" prefHeight="25.0" prefWidth="185.0" />
+            <Label fx:id="CardNumLabel" layoutX="342.0" layoutY="84.0" prefHeight="25.0" prefWidth="178.0" />
+            <Label fx:id="ExpirydateLabel" layoutX="341.0" layoutY="115.0" prefHeight="27.0" prefWidth="185.0" />
+            <Label fx:id="CVVLabel" layoutX="342.0" layoutY="148.0" prefHeight="25.0" prefWidth="178.0" />
+            <Label fx:id="BankLabel" layoutX="350.0" layoutY="178.0" prefHeight="25.0" prefWidth="167.0" />
+            <Label fx:id="NetworkLabel" layoutX="347.0" layoutY="208.0" prefHeight="25.0" prefWidth="167.0" />
+            <Label fx:id="NameLabel" layoutX="344.0" layoutY="55.0" prefHeight="25.0" prefWidth="178.0" />
             </children>
             <effect>
                 <DropShadow>

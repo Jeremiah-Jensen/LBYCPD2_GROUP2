@@ -198,6 +198,7 @@ public class UserLogIn implements Initializable {
         model.setGender(Gender.getText());
 //        model.setCondition(Conditions.getText().replaceAll("\n", System.getProperty("line.separator")));
         model.setCredit(" ");
+        model.setName(" ");
         model.setCardnumber(" ");
         model.setBank(" ");
         model.setCvv(" ");

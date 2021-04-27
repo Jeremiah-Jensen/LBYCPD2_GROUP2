@@ -31,12 +31,12 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font></Label>
-                  <RadioButton layoutX="209.0" layoutY="122.0" mnemonicParsing="false" text="Yes" />
-                  <RadioButton layoutX="290.0" layoutY="122.0" mnemonicParsing="false" text="No" />
+                  <RadioButton fx:id="YesPainButton" layoutX="209.0" layoutY="122.0" mnemonicParsing="false" text="Yes" />
+                  <RadioButton fx:id="NoPainButton" layoutX="290.0" layoutY="122.0" mnemonicParsing="false" text="No" />
                   <Label layoutX="14.0" layoutY="150.0" prefHeight="31.0" prefWidth="224.0" text="(If yes, rate the pain from a scale of 1-10)" />
-                  <ChoiceBox layoutX="14.0" layoutY="181.0" prefHeight="25.0" prefWidth="143.0" />
-                  <TextField layoutX="62.0" layoutY="253.0" prefHeight="120.0" prefWidth="282.0" />
-                  <TextField layoutX="62.0" layoutY="30.0" prefHeight="74.0" prefWidth="282.0" />
+                  <ChoiceBox fx:id="PainScale" layoutX="14.0" layoutY="181.0" prefHeight="25.0" prefWidth="143.0" />
+                  <TextField fx:id="Reason" layoutX="62.0" layoutY="253.0" prefHeight="120.0" prefWidth="282.0" />
+                  <TextField fx:id="Feeling" layoutX="62.0" layoutY="30.0" prefHeight="74.0" prefWidth="282.0" />
                   <Label layoutX="7.0" layoutY="222.0" prefHeight="31.0" prefWidth="224.0" text="3. Why did your child seek consultation">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -68,26 +68,26 @@
             <Label layoutX="6.0" layoutY="267.0" prefHeight="50.0" prefWidth="72.0" text="8. Injuries" />
             <Label layoutX="6.0" layoutY="304.0" prefHeight="50.0" prefWidth="72.0" text="9. Seizures" />
             <Label layoutX="4.0" layoutY="347.0" prefHeight="31.0" prefWidth="209.0" text="10. Frequent Stepthroat Infections" />
-            <RadioButton layoutX="230.0" layoutY="26.0" mnemonicParsing="false" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="26.0" mnemonicParsing="false" text="No" />
-            <RadioButton layoutX="230.0" layoutY="63.0" mnemonicParsing="false" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="63.0" mnemonicParsing="false" text="No" />
-            <RadioButton layoutX="230.0" layoutY="101.0" mnemonicParsing="false" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="101.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="YesButton1" layoutX="230.0" layoutY="26.0" mnemonicParsing="false" text="Yes" />
+            <RadioButton fx:id="NoButton1" layoutX="326.0" layoutY="26.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="YesButton2" layoutX="230.0" layoutY="63.0" mnemonicParsing="false" text="Yes" />
+            <RadioButton fx:id="NoButton2" layoutX="326.0" layoutY="63.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="YesButton3" layoutX="230.0" layoutY="101.0" mnemonicParsing="false" text="Yes" />
+            <RadioButton fx:id="NoButton3" layoutX="326.0" layoutY="101.0" mnemonicParsing="false" text="No" />
             <RadioButton layoutX="230.0" layoutY="137.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="137.0" mnemonicParsing="false" text="No" />
-            <RadioButton layoutX="229.0" layoutY="175.0" mnemonicParsing="false" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="175.0" mnemonicParsing="false" text="No" />
-            <RadioButton layoutX="229.0" layoutY="211.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="39.0" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="211.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="38.0" text="No" />
-            <RadioButton layoutX="229.0" layoutY="248.0" mnemonicParsing="false" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="248.0" mnemonicParsing="false" text="No" />
-            <RadioButton layoutX="229.0" layoutY="284.0" mnemonicParsing="false" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="284.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" />
-            <RadioButton layoutX="229.0" layoutY="319.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="319.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="38.0" text="No" />
-            <RadioButton layoutX="229.0" layoutY="352.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes" />
-            <RadioButton layoutX="326.0" layoutY="352.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" />
+            <RadioButton fx:id="NoButton4" layoutX="326.0" layoutY="137.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="YesButton5" layoutX="229.0" layoutY="175.0" mnemonicParsing="false" text="Yes" />
+            <RadioButton fx:id="NoButton5" layoutX="326.0" layoutY="175.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="YesButton6" layoutX="229.0" layoutY="211.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="39.0" text="Yes" />
+            <RadioButton fx:id="NoButton6" layoutX="326.0" layoutY="211.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="38.0" text="No" />
+            <RadioButton fx:id="YesButton7" layoutX="229.0" layoutY="248.0" mnemonicParsing="false" text="Yes" />
+            <RadioButton fx:id="NoButton7" layoutX="326.0" layoutY="248.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="YesButton8" layoutX="229.0" layoutY="284.0" mnemonicParsing="false" text="Yes" />
+            <RadioButton fx:id="NoButton8" layoutX="326.0" layoutY="284.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" />
+            <RadioButton fx:id="YesButton9" layoutX="229.0" layoutY="319.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes" />
+            <RadioButton fx:id="NoButton9" layoutX="326.0" layoutY="319.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="38.0" text="No" />
+            <RadioButton fx:id="YesButton10" layoutX="229.0" layoutY="352.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes" />
+            <RadioButton fx:id="NoButton10" layoutX="326.0" layoutY="352.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" />
          </children>
       </AnchorPane>
       <Button layoutX="310.0" layoutY="876.0" mnemonicParsing="false" onAction="#SubmitAnswers" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Submit Answers">
@@ -95,7 +95,7 @@
             <Font name="Avenir Book" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="54.0" layoutY="876.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Go Back">
+      <Button fx:id="BackButton" layoutX="54.0" layoutY="876.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Go Back">
          <font>
             <Font name="Avenir Book" size="15.0" />
          </font>

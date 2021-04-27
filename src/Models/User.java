@@ -2,13 +2,13 @@ package Models;
 
 public class User {
 
-    String id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, condition, credit, cardnumber, expirydate, bank, network, cvv;
+    String id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, condition, credit, name, cardnumber, expirydate, bank, network, cvv;
 
     public User() {
 
     }
 
-    public User(String id, String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String condition, String credit, String cardnumber, String expirydate, String bank, String network, String cvv) {
+    public User(String id, String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String condition, String credit, String name, String cardnumber, String expirydate, String bank, String network, String cvv) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -21,6 +21,7 @@ public class User {
         this.gender = gender;
         this.condition = condition;
         this.credit = credit;
+        this.name = name;
         this.cardnumber = cardnumber;
         this.expirydate = expirydate;
         this.bank = bank;
@@ -164,7 +165,9 @@ public class User {
         return cvv;
     }
 
-    public void setCvv(String cvv) {
-        this.cvv = cvv;
-    }
+    public void setCvv(String cvv) { this.cvv = cvv; }
+
+    public void setName(String name){ this.name = name; }
+
+    public String getName(){ return name; }
 }
