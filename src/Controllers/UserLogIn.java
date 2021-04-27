@@ -93,7 +93,6 @@ public class UserLogIn implements Initializable {
             }else if (returnValue==0){
                 Error4.setVisible(false);
                 // there is no existing user
-                System.out.println("Found in Database");
                 Error5.setVisible(true);
             }
         }

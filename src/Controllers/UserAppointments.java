@@ -31,12 +31,13 @@ public class UserAppointments implements Initializable {
     public AnchorPane ScheduleAppointment,UpcomingAppointments, PreviousAppointments;
     public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton, PaymentsButton, PreQues, PostQues;
     public Button ConfirmDoctor, ConfirmSched, ConfirmAppointment;
-    public Label DocName, SchedTime, SchedDate, DocApp, DateApp, TimeApp;
-    public ComboBox<String> DoctorsBox, DateBox, TimeBox;
+    public Label DocName, SchedTime, SchedDate, DoctorApp, SchedApp;
+    public ComboBox<String> DoctorsBox, DateBox, TimeBox, AppointmentsBox;
     int count = 0;
     public String FullName;
     User userModel;
     List<Doctor> doctorList = new ArrayList<>();
+    List<Appointments> appointmentsList = new ArrayList<>();
     List<Schedule> scheduleList = new ArrayList<>();
 
     @Override
@@ -53,6 +54,25 @@ public class UserAppointments implements Initializable {
                 for(int i = 0; i < doctorList.size(); i++) {
                     Doctor doctorModel = doctorList.get(i);
                     DoctorsBox.getItems().add("Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName());
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Appointments app = data.getValue(Appointments.class);
+                    appointmentsList.add(app);
+                }
+                for(int i = 0; i < appointmentsList.size(); i++) {
+                    Appointments appointmentsModel = appointmentsList.get(i);
+                    if(FullName.equals(appointmentsModel.getUser())){
+                        AppointmentsBox.getItems().add(appointmentsModel.getAppointment());
+                    }
                 }
             }
             @Override
@@ -174,6 +194,7 @@ public class UserAppointments implements Initializable {
         model.setPainQ1(" ");
         model.setLink(" ");
         model.setPreQuest(" ");
+        model.setStatus("Upcoming");
         firebase.child("Appointments").push().setValue(model);
     }
 }

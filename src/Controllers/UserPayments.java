@@ -83,6 +83,9 @@ public class UserPayments implements Initializable {
                     firebase.child("User").child(userModel.getId()).child("expirydate").setValue(ExpirydateTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("bank").setValue(BankTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("network").setValue(NetworkTextField.getText());
+                    new Main().UserPaymentsWindow();
+                    Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
+                    new Main().CloseButton(closeStage);
                 }
             }
         }

@@ -13,12 +13,13 @@ public class Appointments {
     String Link;
     String Payment;
     String painQ1;
+    String Status;
 
     public Appointments(){
 
     }
 
-    public Appointments(String id, String date, String user, String doctor, String time, String preQuest, String followUp, String appointment, String prescription, String link, String payment, String painQ1) {
+    public Appointments(String id, String date, String user, String doctor, String time, String preQuest, String followUp, String appointment, String prescription, String link, String payment, String status, String painQ1) {
         this.id = id;
         this.User = user;
         this.Date = date;
@@ -120,6 +121,10 @@ public class Appointments {
     public void setPayment(String payment) {
         Payment = payment;
     }
+
+    public String getStatus(){ return Status; }
+
+    public void setStatus(String status){ Status = status; }
 
     public String getPainQ1() {
         return painQ1;
