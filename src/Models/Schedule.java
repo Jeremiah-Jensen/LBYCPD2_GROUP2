@@ -2,17 +2,22 @@ package Models;
 
 public class Schedule {
 
-    String name, day, time;
+    String name, day, time, link;
 
     public Schedule() {
 
     }
 
-    public Schedule(String name, String day, String time) {
+    public Schedule(String name, String day, String time, String link) {
         this.name = name;
         this.day = day;
         this.time = time;
+        this.link = link;
     }
+
+    public String getLink() { return link; }
+
+    public void setLink(String link) { this.link = link; }
 
     public String getName() {
         return name;
