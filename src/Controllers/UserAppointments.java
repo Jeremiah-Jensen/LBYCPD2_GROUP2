@@ -227,7 +227,6 @@ public class UserAppointments implements Initializable {
         new Main().CloseButton(closeStage);
     }
 
-
     public void UserPayments(ActionEvent actionEvent){
         new Main().UserPaymentsWindow();
         Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
@@ -256,6 +255,19 @@ public class UserAppointments implements Initializable {
         model.setPainQ1(" ");
         model.setLink(" ");
         model.setPreQuest(" ");
+        model.setFeelingQ(" ");
+        model.setReasonQ(" ");
+        model.setPainScale(" ");
+        model.setQ1(" ");
+        model.setQ2(" ");
+        model.setQ3(" ");
+        model.setQ4(" ");
+        model.setQ5(" ");
+        model.setQ6(" ");
+        model.setQ7(" ");
+        model.setQ8(" ");
+        model.setQ9(" ");
+        model.setQ10(" ");
         model.setStatus("Upcoming");
         firebase.child("Appointments").push().setValue(model);
     }
