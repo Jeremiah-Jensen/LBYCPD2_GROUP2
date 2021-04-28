@@ -8,33 +8,28 @@ import com.firebase.client.ValueEventListener;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.net.URL;
 import javafx.event.ActionEvent;
+import javafx.stage.FileChooser;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
 import java.util.ResourceBundle;
 
 
 public class UserLogIn implements Initializable {
     @FXML
-    public AnchorPane LogIn, Register, UserInfo, Background1, Background2, Background3, Background4;
-    public TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Gender;
-    public TextArea Address, Conditions;
+    public AnchorPane LogIn, Register, UserInfo, Background1;
+    public TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Address1, Address2;
     public PasswordField Password, ReenterPassword;
-    public Label Error1;
-    public Label Error2;
-    public Label Error3;
-    public Label Error4;
-    public Label Error5;
-    public Button Next, LoginButton, DoctorLoginButton, RegisterButton;
+    public Label Error1,Error2, Error3, Error4, Error5, Pic;
+    public Button Next, LoginButton, DoctorLoginButton, RegisterButton, AddPic;
+    public ComboBox<String> Day, Month, Year, Gender;
+    public String path = "Default.png";
     int count = 0;
     int returnValue;
 
@@ -62,6 +57,32 @@ public class UserLogIn implements Initializable {
     @Override
     public void initialize(URL Location, ResourceBundle resources){
         userList();
+        for (int i = 0; i < 80; i++){
+            int day = 2003 - i;
+            String result = String.valueOf(day);
+            Year.getItems().add(result);
+        }
+        for (int i = 1; i < 32; i++){
+            String result = String.valueOf(i);
+            Day.getItems().add(result);
+        }
+        Month.getItems().add("January");
+        Month.getItems().add("February");
+        Month.getItems().add("March");
+        Month.getItems().add("April");
+        Month.getItems().add("May");
+        Month.getItems().add("June");
+        Month.getItems().add("July");
+        Month.getItems().add("August");
+        Month.getItems().add("September");
+        Month.getItems().add("October");
+        Month.getItems().add("November");
+        Month.getItems().add("December");
+
+        Gender.getItems().add("Male");
+        Gender.getItems().add("Female");
+        Gender.getItems().add("Non-Binary");
+        Gender.getItems().add("Prefer not to say");
     }
 
     private void userList(){
@@ -99,7 +120,7 @@ public class UserLogIn implements Initializable {
     }
 
     public void RegisterAction(ActionEvent actionEvent){
-        if(Birthdate.getText().isEmpty() || Gender.getText().isEmpty() || Email.getText().isEmpty() || Number.getText().isEmpty()) {
+        if(Day.getValue().isEmpty() || Month.getValue().isEmpty() || Year.getValue().isEmpty() || Gender.getValue().isEmpty() || Email.getText().isEmpty() || Number.getText().isEmpty() || Address2.getText().isEmpty() || Address1.getText().isEmpty()) {
             Error2.setVisible(true);
         } else {
             Write();
@@ -190,12 +211,12 @@ public class UserLogIn implements Initializable {
         model.setFirstName(FirstName.getText());
         model.setLastName(LastName.getText());
         model.setReenterPass(ReenterPassword.getText());
-        model.setBirthday(Birthdate.getText());
+        model.setBirthday(Month.getValue() + " " + Day.getValue() + ", " + Year.getValue());
         model.setContactNumber(Number.getText());
         model.setEmail(Email.getText());
-//        model.setAddress(Address.getText().replaceAll("\n", System.getProperty("line.separator")));
-        model.setGender(Gender.getText());
-//        model.setCondition(Conditions.getText().replaceAll("\n", System.getProperty("line.separator")));
+        model.setAddress(Address2.getText() + "_" + Address1.getText());
+        model.setGender(Gender.getValue());
+        model.setPicture(path);
         model.setCredit(" ");
         model.setName(" ");
         model.setCardnumber(" ");
@@ -204,6 +225,15 @@ public class UserLogIn implements Initializable {
         model.setExpirydate(" ");
         model.setNetwork(" ");
         firebase.child("User").push().setValue(model);
+    }
+
+    public  void ProfilePic(ActionEvent actionEvent){
+        File file;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Profile Pic");
+        file = fileChooser.showOpenDialog(null);
+        path = file.getName();
+        Pic.setText(path);
     }
 
     private void Clear(){
@@ -216,11 +246,14 @@ public class UserLogIn implements Initializable {
         Username.clear();
         Password.clear();
         ReenterPassword.clear();
-        Birthdate.clear();
         Email.clear();
-        Gender.clear();
-        Address.setText(" ");
-        Conditions.setText(" ");
+        Gender.setValue(" ");
+        Day.setValue(" ");
+        Month.setValue(" ");
+        Gender.setValue(" ");
+        Address1.clear();
+        Address2.clear();
+        Pic.setText("-No Photo Selected-");
     }
 
     public void DoctorsLogin(ActionEvent actionEvent) {

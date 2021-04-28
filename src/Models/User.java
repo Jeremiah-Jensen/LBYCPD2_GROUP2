@@ -2,13 +2,13 @@ package Models;
 
 public class User {
 
-    String id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, condition, credit, name, cardnumber, expirydate, bank, network, cvv;
+    String id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, condition, credit, name, cardnumber, expirydate, bank, network, cvv, picture;
 
     public User() {
 
     }
 
-    public User(String id, String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String condition, String credit, String name, String cardnumber, String expirydate, String bank, String network, String cvv) {
+    public User(String id, String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String condition, String credit, String name, String cardnumber, String expirydate, String bank, String network, String cvv, String picture) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -27,11 +27,20 @@ public class User {
         this.bank = bank;
         this.network = network;
         this.cvv = cvv;
+        this.picture = picture;
     }
 
     public String getId() { return id; }
 
     public void setId(String id) { this.id = id; }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
     public String getFirstName() {
         return firstName;

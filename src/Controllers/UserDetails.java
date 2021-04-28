@@ -5,6 +5,8 @@ import Models.User;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -16,7 +18,9 @@ public class UserDetails implements Initializable {
     public AnchorPane ScheduleAppointment,UpcomingAppointments;
     public Button LogOutButton, HomeButton, AppointmentsButton, PaymentsButton;
     public Label Name, Birthday, Email, Number, Gender, Username;
+    public ImageView UserImage;
     public Text test;
+    public String Pic;
     String Uname;
     int count = 0;
     User userModel;
@@ -31,6 +35,9 @@ public class UserDetails implements Initializable {
         Gender.setText(userModel.getGender());
         Email.setText(userModel.getEmail());
         Number.setText(userModel.getContactNumber());
+        Pic = userModel.getPicture();
+        Image image = new Image(Pic);
+        UserImage.setImage(image);
     }
 
     public void MainMenu(ActionEvent actionEvent){
