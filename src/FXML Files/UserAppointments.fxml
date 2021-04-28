@@ -100,7 +100,7 @@
                         <Font name="Avenir Book" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="36.0" layoutY="198.0" text="Date">
+                <Label layoutX="36.0" layoutY="198.0" text="Schedule">
                     <font>
                         <Font name="Avenir Book" size="19.0" />
                     </font>
@@ -164,13 +164,13 @@
                     </font>
                 </Button>
             <ComboBox fx:id="DoctorsBox" layoutX="36.0" layoutY="104.0" prefHeight="33.0" prefWidth="333.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
-            <ComboBox fx:id="DateBox" disable="true" layoutX="36.0" layoutY="226.0" prefHeight="33.0" prefWidth="177.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
-            <Label layoutX="238.0" layoutY="199.0" text="Time">
+            <ComboBox fx:id="DateBox" disable="true" layoutX="36.0" layoutY="226.0" prefHeight="33.0" prefWidth="154.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <Label layoutX="216.0" layoutY="198.0" text="Child">
                <font>
                   <Font name="Avenir Book" size="19.0" />
                </font>
             </Label>
-            <ComboBox fx:id="TimeBox" disable="true" layoutX="238.0" layoutY="227.0" prefHeight="33.0" prefWidth="132.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <ComboBox fx:id="TimeBox" disable="true" layoutX="216.0" layoutY="227.0" prefHeight="33.0" prefWidth="154.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
             <Button fx:id="ConfirmDoctor" layoutX="57.0" layoutY="152.0" mnemonicParsing="false" onAction="#ConfirmDoctor" prefHeight="33.0" prefWidth="293.0" style="-fx-background-color: #3abd8f#3abd8f#3abd8f#3abd8f; -fx-background-radius: 50;" text="Confirm Doctor" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="15.0" />

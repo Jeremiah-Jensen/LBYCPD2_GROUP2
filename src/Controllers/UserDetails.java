@@ -112,6 +112,16 @@ public class UserDetails implements Initializable {
                     Children childrenModel = childrenList.get(i);
                     if (userModel.getId().equals(childrenModel.getParentID())) {
                         ChildBox.getItems().add(childrenModel.getFirstname() + " " + childrenModel.getLastname());
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                ChildName.setText(childrenModel.getFirstname() + " " + childrenModel.getLastname());
+                                ChildBirthday.setText(childrenModel.getBirthday());
+                                ChildConditions.setText(childrenModel.getConditions());
+                                Image chPic = new Image(childrenModel.getPicture());
+                                ChildImage.setImage(chPic);
+                            }
+                        });
                     }
                 }
             }
@@ -170,7 +180,6 @@ public class UserDetails implements Initializable {
                                 ChildImage.setImage(chPic);
                             }
                         });
-
                     }
                 }
             }
