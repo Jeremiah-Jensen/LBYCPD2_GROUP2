@@ -10,6 +10,10 @@ public class Children {
     String conditions;
     String picture;
 
+    public Children() {
+
+    }
+
     public Children(String id, String firstname, String lastname, String parentID, String birthday, String conditions, String parentname, String picture) {
         this.firstname = firstname;
         this.lastname = lastname;
