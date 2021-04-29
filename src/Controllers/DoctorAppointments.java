@@ -36,6 +36,7 @@ public class DoctorAppointments implements Initializable {
     List<Appointments> appointmentsListA = new ArrayList<>();
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
     int count = 0;
+    double move = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -149,7 +150,6 @@ public class DoctorAppointments implements Initializable {
     }
 
     public void Switch(ActionEvent actionEvent) {
-        double move = 0;
         if(count == 0){
             move = -351;
             count = 1;
