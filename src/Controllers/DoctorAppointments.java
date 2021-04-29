@@ -30,7 +30,6 @@ public class DoctorAppointments implements Initializable {
     public Text PatientText, ScheduleText;
     public AnchorPane UpcomingAppointments, ConsultationPeriod, Questionnaires;
     Doctor doctorModel;
-    DoctorAppointmentScreen doctorAppointmentScreen = new DoctorAppointmentScreen();
     List<Schedule> scheduleList = new ArrayList<>();
     List<Appointments> appointmentsList = new ArrayList<>();
     List<Appointments> appointmentsListA = new ArrayList<>();
@@ -174,6 +173,7 @@ public class DoctorAppointments implements Initializable {
     public void Consultation(ActionEvent actionEvent) {
         new Main().DoctorsAppointmentScreen();
         String name = (String) AppointmentsBox.getValue();
+        DoctorAppointmentScreen doctorAppointmentScreen = new DoctorAppointmentScreen();
         doctorAppointmentScreen.setName(name);
     }
 }
