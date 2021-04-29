@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -22,6 +24,8 @@ public class DoctorDetails implements Initializable {
 
     public Button LogOutButton, AppointmentsButton, PatientsButton, HomeButton;
     public Text FirstName, ContactNumber, Email, Birthday, Gender, Address, Subspecialty;
+    public ImageView ProfilePhoto;
+    public String path = "Default.png";
     Doctor doctorModel;
 
     @Override
@@ -35,6 +39,9 @@ public class DoctorDetails implements Initializable {
         Gender.setText(doctorModel.getGender());
         Address.setText(doctorModel.getAddress());
         Subspecialty.setText(doctorModel.getSubspecialty());
+        path = doctorModel.getPicture();
+        Image image = new Image(path);
+        ProfilePhoto.setImage(image);
     }
 
     public void DoctorPatients(ActionEvent actionEvent) {

@@ -145,14 +145,14 @@
                   <Font size="13.0" />
                </font>
             </Text>
-            <Button layoutX="62.0" layoutY="223.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="125.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Upload Photo" textFill="WHITE">
+            <Button layoutX="62.0" layoutY="223.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="125.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Edit Photo" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
             <AnchorPane layoutX="48.0" layoutY="80.0" prefHeight="134.0" prefWidth="152.0" style="-fx-background-color: #cdcdcd;">
                <children>
-                  <ImageView fitHeight="134.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ProfilePhoto" fitHeight="134.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
             <Label layoutX="233.0" layoutY="208.0" text="Address:" textFill="#39a2bd">
