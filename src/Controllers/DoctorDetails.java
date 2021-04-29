@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 public class DoctorDetails implements Initializable {
 
     public Button LogOutButton, AppointmentsButton, PatientsButton, HomeButton;
-    public Text FirstName, ContactNumber, Email, Birthday, Gender;
+    public Text FirstName, ContactNumber, Email, Birthday, Gender, Address, Subspecialty;
     Doctor doctorModel;
 
     @Override
@@ -33,6 +33,8 @@ public class DoctorDetails implements Initializable {
         Email.setText(doctorModel.getEmail());
         Birthday.setText(doctorModel.getBirthday());
         Gender.setText(doctorModel.getGender());
+        Address.setText(doctorModel.getAddress());
+        Subspecialty.setText(doctorModel.getSubspecialty());
     }
 
     public void DoctorPatients(ActionEvent actionEvent) {

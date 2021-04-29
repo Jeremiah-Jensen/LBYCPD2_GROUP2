@@ -5,15 +5,12 @@ import com.firebase.client.Firebase;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DoctorRegister implements Initializable {
-    public TextField FirstName, LastName, Username, Birthdate, Email, Number, Gender;
-    public TextArea Address, Consultation;
+    public TextField FirstName, LastName, Username, Birthdate, Email, Number, Gender, Address, Subspecialty;
     public PasswordField Password, ReenterPassword;
     public Label Error2;
     public Label Error3;
@@ -53,9 +50,9 @@ public class DoctorRegister implements Initializable {
         model.setBirthday(Birthdate.getText());
         model.setContactNumber(Number.getText());
         model.setEmail(Email.getText());
-//        model.setAddress(Address.getText().replaceAll("\n", System.getProperty("line.separator")));
+        model.setAddress(Address.getText());
         model.setGender(Gender.getText());
-//        model.setCondition(Conditions.getText().replaceAll("\n", System.getProperty("line.separator")));
+        model.setSubspecialty(Subspecialty.getText());
         firebase.child("Doctor").push().setValue(model);
     }
 
@@ -70,8 +67,8 @@ public class DoctorRegister implements Initializable {
         Birthdate.clear();
         Email.clear();
         Gender.clear();
-        //Address.setText(" ");
-        //Consultation.setText(" ");
+        Address.clear();
+        Subspecialty.clear();
     }
 
     public void Back(ActionEvent actionEvent) {

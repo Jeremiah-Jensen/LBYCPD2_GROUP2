@@ -10,8 +10,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserMainMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorAppointmentScreen">
     <children>
         <Rectangle height="363.0" layoutX="539.0" layoutY="-14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="461.0">
             <fill>
@@ -43,13 +44,13 @@
                 </DropShadow>
             </effect>
         </Rectangle>
-        <Button layoutX="659.0" layoutY="312.0" mnemonicParsing="false" onAction="#UserAppointments" prefHeight="12.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Add" />
+        <Button layoutX="659.0" layoutY="312.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Add" />
         <Label layoutX="562.0" layoutY="13.0" text="Prescriptions/Notes" textFill="WHITE">
             <font>
                 <Font name="Avenir Book" size="29.0" />
             </font>
         </Label>
-        <TextField layoutX="168.0" layoutY="111.0" prefHeight="37.0" prefWidth="341.0" style="-fx-background-radius: 50;" />
+        <TextField fx:id="LinkTextField" layoutX="168.0" layoutY="111.0" prefHeight="37.0" prefWidth="341.0" style="-fx-background-radius: 50;" />
         <Label layoutX="28.0" layoutY="13.0" text="Appointment" textFill="#4cbe8e">
             <font>
                 <Font name="Avenir Book" size="42.0" />
@@ -66,27 +67,12 @@
                 <Font name="Avenir Book" size="24.0" />
             </font>
         </Label>
-        <Label alignment="CENTER" layoutX="165.0" layoutY="168.0" prefHeight="35.0" prefWidth="347.0" text="--">
-            <font>
-                <Font name="Avenir Book" size="24.0" />
-            </font>
-        </Label>
         <Label layoutX="33.0" layoutY="219.0" text="Date:">
             <font>
                 <Font name="Avenir Book" size="24.0" />
             </font>
         </Label>
-        <Label alignment="CENTER" layoutX="165.0" layoutY="221.0" prefHeight="35.0" prefWidth="347.0" text="--">
-            <font>
-                <Font name="Avenir Book" size="24.0" />
-            </font>
-        </Label>
         <Label layoutX="33.0" layoutY="275.0" text="Time:">
-            <font>
-                <Font name="Avenir Book" size="24.0" />
-            </font>
-        </Label>
-        <Label alignment="CENTER" layoutX="165.0" layoutY="277.0" prefHeight="35.0" prefWidth="347.0" text="--">
             <font>
                 <Font name="Avenir Book" size="24.0" />
             </font>
@@ -128,5 +114,20 @@
                 <Font size="15.0" />
             </font>
         </Label>
+      <Text fx:id="PatientText" layoutX="168.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="341.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="DateText" layoutX="168.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="341.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="TimeText" layoutX="168.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="341.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

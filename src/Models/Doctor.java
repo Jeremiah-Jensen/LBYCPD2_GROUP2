@@ -2,7 +2,7 @@ package Models;
 
 public class Doctor {
 
-    String day, time, id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, consultation;
+    String day, time, id, firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, subspecialty;
 
     public Doctor() {
 
@@ -13,7 +13,7 @@ public class Doctor {
         this.time = time;
     }
 
-    public Doctor(String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String consultation) {
+    public Doctor(String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String subspecialty) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -24,7 +24,7 @@ public class Doctor {
         this.contactNumber = contactNumber;
         this.address = address;
         this.gender = gender;
-        this.consultation = consultation;
+        this.subspecialty = subspecialty;
     }
 
     public String getDay() { return day; }
@@ -123,11 +123,11 @@ public class Doctor {
         this.gender = gender;
     }
 
-    public String getConsultation() {
-        return consultation;
+    public String getSubspecialty() {
+        return subspecialty;
     }
 
-    public void setConsultation(String consultation) {
-        this.consultation = consultation;
+    public void setSubspecialty(String consultation) {
+        this.subspecialty = consultation;
     }
 }

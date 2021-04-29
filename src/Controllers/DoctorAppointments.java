@@ -7,11 +7,15 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,16 +23,19 @@ import java.util.ResourceBundle;
 
 public class DoctorAppointments implements Initializable {
 
-    public Button LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton;
+    public Button LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton, ViewButton;
     public ListView ScheduleList;
     public TextField day, time, link;
     public ComboBox AppointmentsBox;
     public Text PatientText, ScheduleText;
+    public AnchorPane UpcomingAppointments, ConsultationPeriod, Questionnaires;
     Doctor doctorModel;
+    DoctorAppointmentScreen doctorAppointmentScreen = new DoctorAppointmentScreen();
     List<Schedule> scheduleList = new ArrayList<>();
     List<Appointments> appointmentsList = new ArrayList<>();
     List<Appointments> appointmentsListA = new ArrayList<>();
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+    int count = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -65,7 +72,7 @@ public class DoctorAppointments implements Initializable {
                 }
                 for(int i = 0; i < appointmentsList.size(); i++) {
                     Appointments appointmentModel = appointmentsList.get(i);
-                    if(fullnameDoctor.equals(appointmentModel.getDoctor())) {
+                    if(fullnameDoctor.equals(appointmentModel.getDoctor()) && appointmentModel.getStatus().equals("Consultation")) {
                         AppointmentsBox.getItems().add(appointmentModel.getUser());
                     }
                 }
@@ -127,7 +134,7 @@ public class DoctorAppointments implements Initializable {
                 }
                 for(int i = 0; i < appointmentsListA.size(); i++) {
                     Appointments appointmentModel = appointmentsListA.get(i);
-                    if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getUser()) && appointmentModel.getStatus().equals("Upcoming")) {
+                    if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getUser()) && appointmentModel.getStatus().equals("Consultation")) {
                         PatientText.setText(appointmentModel.getUser());
                         ScheduleText.setText(appointmentModel.getDate() + " at " + appointmentModel.getTime());
                     }
@@ -141,7 +148,32 @@ public class DoctorAppointments implements Initializable {
         });
     }
 
+    public void Switch(ActionEvent actionEvent) {
+        double move = 0;
+        if(count == 0){
+            move = -351;
+            count = 1;
+            ViewButton.setText("Consultation Period");
+        }
+        else{
+            move = 351;
+            count = 0;
+            ViewButton.setText("View More");
+        }
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), UpcomingAppointments);
+        translateTransition.setByY(move);
+        translateTransition.play();
+        TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(1), ConsultationPeriod);
+        translateTransition2.setByY(move);
+        translateTransition2.play();
+        TranslateTransition translateTransition3 = new TranslateTransition(Duration.seconds(1), Questionnaires);
+        translateTransition3.setByY(move);
+        translateTransition3.play();
+    }
+
     public void Consultation(ActionEvent actionEvent) {
         new Main().DoctorsAppointmentScreen();
+        String name = (String) AppointmentsBox.getValue();
+        doctorAppointmentScreen.setName(name);
     }
 }

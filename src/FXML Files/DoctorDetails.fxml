@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -94,54 +95,54 @@
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="6.0" layoutX="34.0" layoutY="51.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
-            <Label layoutX="235.0" layoutY="73.0" text="Name:" textFill="#39a2bd">
+            <Label layoutX="233.0" layoutY="67.0" text="Name:" textFill="#39a2bd">
                <font>
-                  <Font size="21.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
-            <Label layoutX="235.0" layoutY="111.0" text="Contact Number:" textFill="#39a2bd">
+            <Label layoutX="233.0" layoutY="94.0" text="Contact Number:" textFill="#39a2bd">
                <font>
-                  <Font size="21.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
-            <Label layoutX="235.0" layoutY="150.0" text="Email:" textFill="#39a2bd">
+            <Label layoutX="233.0" layoutY="122.0" text="Email:" textFill="#39a2bd">
                <font>
-                  <Font size="21.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
-            <Label layoutX="234.0" layoutY="190.0" text="Birthday:" textFill="#39a2bd">
+            <Label layoutX="233.0" layoutY="151.0" text="Birthday:" textFill="#39a2bd">
                <font>
-                  <Font size="21.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
-            <Label layoutX="234.0" layoutY="227.0" text="Gender:" textFill="#39a2bd">
+            <Label layoutX="233.0" layoutY="180.0" text="Gender:" textFill="#39a2bd">
                <font>
-                  <Font size="21.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
-            <Text fx:id="FirstName" layoutX="300.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="348.0">
+            <Text fx:id="FirstName" layoutX="278.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="365.0">
                <font>
-                  <Font size="24.0" />
+                  <Font size="13.0" />
                </font>
             </Text>
-            <Text fx:id="ContactNumber" layoutX="407.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="208.0">
+            <Text fx:id="ContactNumber" layoutX="339.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="253.0">
                <font>
-                  <Font size="24.0" />
+                  <Font size="13.0" />
                </font>
             </Text>
-            <Text fx:id="Email" layoutX="300.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="375.00000000000006">
+            <Text fx:id="Email" layoutX="278.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="375.00000000000006">
                <font>
-                  <Font size="24.0" />
+                  <Font size="13.0" />
                </font>
             </Text>
-            <Text fx:id="Birthday" layoutX="328.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="320.0">
+            <Text fx:id="Birthday" layoutX="290.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="320.0">
                <font>
-                  <Font size="24.0" />
+                  <Font size="13.0" />
                </font>
             </Text>
-            <Text fx:id="Gender" layoutX="315.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="300.0">
+            <Text fx:id="Gender" layoutX="290.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="300.0">
                <font>
-                  <Font size="24.0" />
+                  <Font size="13.0" />
                </font>
             </Text>
             <Button layoutX="62.0" layoutY="223.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="125.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Upload Photo" textFill="WHITE">
@@ -154,6 +155,26 @@
                   <ImageView fitHeight="134.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
+            <Label layoutX="233.0" layoutY="208.0" text="Address:" textFill="#39a2bd">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Text fx:id="Address" layoutX="290.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="300.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <Label layoutX="233.0" layoutY="238.0" text="Subspecialty:" textFill="#39a2bd">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Text fx:id="Subspecialty" layoutX="316.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="300.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
          </children>
          <effect>
             <DropShadow>
@@ -163,17 +184,70 @@
             </DropShadow>
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="297.0" layoutY="311.0" prefHeight="275.0" prefWidth="689.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <AnchorPane fx:id="UpcomingAppointments" layoutX="297.0" layoutY="305.0" prefHeight="275.0" prefWidth="689.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
-            <Label layoutX="35.0" layoutY="11.0" text="Edit Details" textFill="#39a2bd">
+            <Label layoutX="25.0" layoutY="11.0" text="Edit Details" textFill="#39a2bd">
                <font>
                   <Font name="Avenir Book" size="26.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="6.0" layoutX="34.0" layoutY="51.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
-            <Button layoutX="286.0" layoutY="222.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="125.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Edit Details" textFill="WHITE">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="24.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
+            <TextField layoutX="144.0" layoutY="65.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="34.0" layoutY="64.0" prefHeight="30.0" prefWidth="114.0" text="First Name">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="145.0" layoutY="105.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="35.0" layoutY="104.0" prefHeight="30.0" prefWidth="114.0" text="Last Name">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="144.0" layoutY="144.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="34.0" layoutY="143.0" prefHeight="30.0" prefWidth="114.0" text="Birthday">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="145.0" layoutY="183.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="35.0" layoutY="182.0" prefHeight="30.0" prefWidth="114.0" text="Gender">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="471.0" layoutY="65.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="357.0" layoutY="63.0" prefHeight="30.0" prefWidth="104.0" text="Gender">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="471.0" layoutY="106.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="357.0" layoutY="104.0" prefHeight="30.0" prefWidth="104.0" text="Email">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="471.0" layoutY="146.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="357.0" layoutY="144.0" prefHeight="30.0" prefWidth="104.0" text="Address">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="471.0" layoutY="182.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="357.0" layoutY="180.0" prefHeight="30.0" prefWidth="114.0" text="Subspecialty">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="172.0" layoutY="223.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="159.0" style="-fx-background-color: #39a2bd#39a2bd;" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="11.0" />
+               </font>
+            </Button>
+            <Button layoutX="357.0" layoutY="223.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="159.0" style="-fx-background-color: #39a2bd#39a2bd;" text="Save Changes" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="11.0" />
                </font>
             </Button>
          </children>
