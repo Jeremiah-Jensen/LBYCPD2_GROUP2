@@ -87,13 +87,13 @@ public class DoctorAppointments implements Initializable {
     }
 
     public void DoctorPatients(ActionEvent actionEvent) {
-        new Main().DoctorPatients();
+        new Main().loadFXML("DoctorPatients");
         Stage closeStage = (Stage) PatientsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void DoctorDetails(ActionEvent actionEvent) {
-        new Main().DoctorDetails();
+        new Main().loadFXML("DoctorDetails");
         Stage closeStage = (Stage) UserDetailsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
@@ -105,7 +105,7 @@ public class DoctorAppointments implements Initializable {
     }
 
     public void DoctorHome(ActionEvent actionEvent) {
-        new Main().DoctorMainMenu();
+    new Main().loadFXML("DoctorMainMenu");
         Stage closeStage = (Stage) HomeButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
@@ -200,7 +200,7 @@ public class DoctorAppointments implements Initializable {
     }
 
     public void Consultation(ActionEvent actionEvent) {
-        new Main().DoctorsAppointmentScreen();
+        new Main().loadFXML("DoctorAppointmentScreen");
         String name = (String) AppointmentsBox.getValue();
         DoctorAppointmentScreen doctorAppointmentScreen = new DoctorAppointmentScreen();
         doctorAppointmentScreen.setName(name);

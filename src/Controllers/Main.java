@@ -12,13 +12,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-    public static Stage loginstage, mainStage;
+    public static Stage mainStage;
 
-    @Override
     public void start(Stage primaryStage) throws Exception {
-        this.loginstage = primaryStage;
+        this.mainStage = primaryStage;
         LoginWindow();
-
     }
 
     public void LoginWindow() {
@@ -26,254 +24,21 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/LogIn.fxml"));
             AnchorPane pane = loader.load();
             Scene scene = new Scene(pane);
-            loginstage.setScene(scene);
-            loginstage.show();
+            mainStage.setScene(scene);
+            mainStage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void MainMenuWindow() {
+    public void loadFXML(String file) {
+        String fxml = "../FXML Files/" + file + ".fxml";
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/MainMenu.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void DoctorsLoginWindow() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorLogIn.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void DoctorsRegisterWindow() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorRegister.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void DoctorMainMenu() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorMainMenu.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void DoctorAppointment() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorAppointments.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void DoctorPatients() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorPatients.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void DoctorDetails() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorDetails.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void UserAppointmentsWindow() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/UserAppointments.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void UserDetailsWindow() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/UserDetails.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void PreQuesWindow() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/PreQues.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void PostQuesWindow() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/PostQues.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void UserPaymentsWindow() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/UserPayments.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void DoctorsAppointmentScreen() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/DoctorAppointmentScreen.fxml"));
-                    AnchorPane pane = loader.load();
-                    Scene scene = new Scene(pane);
-                    mainStage = new Stage();
-                    mainStage.setScene(scene);
-                    mainStage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public void UserAppointmentScreen() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/UserAppointmentScreen.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
                     AnchorPane pane = loader.load();
                     Scene scene = new Scene(pane);
                     mainStage = new Stage();

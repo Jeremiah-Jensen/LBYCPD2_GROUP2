@@ -50,7 +50,7 @@ public class DoctorPatients implements Initializable {
     }
 
     public void DoctorDetails(ActionEvent actionEvent) {
-        new Main().DoctorDetails();
+        new Main().loadFXML("DoctorDetails");
         Stage closeStage = (Stage) UserDetailsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
@@ -62,7 +62,7 @@ public class DoctorPatients implements Initializable {
     }
 
     public void DoctorAppointments(ActionEvent actionEvent) {
-        new Main().DoctorAppointment();
+        new Main().loadFXML("DoctorAppointments");
         Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
@@ -83,7 +83,7 @@ public class DoctorPatients implements Initializable {
     }
 
     public void DoctorHome(ActionEvent actionEvent) {
-        new Main().DoctorMainMenu();
+        new Main().loadFXML("DoctorMainMenu");
         Stage closeStage = (Stage) HomeButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }

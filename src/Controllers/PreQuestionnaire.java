@@ -168,7 +168,7 @@ public class PreQuestionnaire implements Initializable {
 
             firebase.child("Appointments").child(appointmentsModel.getId()).child("status").setValue("Consultation");
 
-            new Main().UserAppointmentsWindow();
+            new Main().loadFXML("UserAppointments");
             Stage closeStage = (Stage) SubmitAnswers.getScene().getWindow();
             new Main().CloseButton(closeStage);
 

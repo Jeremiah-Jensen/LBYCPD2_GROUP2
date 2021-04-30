@@ -10,7 +10,7 @@ public class DoctorMainMenu {
     public Button UserDetailsButton, LogOutButton, AppointmentsButton, PatientButton;
 
     public void DoctorDetails(ActionEvent actionEvent) {
-        new Main().DoctorDetails();
+        new Main().loadFXML("DoctorDetails");
         Stage closeStage = (Stage) UserDetailsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
@@ -22,13 +22,13 @@ public class DoctorMainMenu {
     }
 
     public void DoctorAppointments(ActionEvent actionEvent) {
-        new Main().DoctorAppointment();
+        new Main().loadFXML("DoctorAppointments");
         Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void DoctorPatient(ActionEvent actionEvent) {
-        new Main().DoctorPatients();
+        new Main().loadFXML("DoctorPatients");
         Stage closeStage = (Stage) PatientButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }

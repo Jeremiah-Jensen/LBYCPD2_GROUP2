@@ -84,19 +84,7 @@ public class UserDetails implements Initializable {
             String result = String.valueOf(k);
             Day.getItems().add(result);
         }
-        Month.getItems().add("January");
-        Month.getItems().add("February");
-        Month.getItems().add("March");
-        Month.getItems().add("April");
-        Month.getItems().add("May");
-        Month.getItems().add("June");
-        Month.getItems().add("July");
-        Month.getItems().add("August");
-        Month.getItems().add("September");
-        Month.getItems().add("October");
-        Month.getItems().add("November");
-        Month.getItems().add("December");
-
+        Month.getItems().addAll("January", "February","March","April","May","June","July","August","September","October","November","December");
         firebase.child("Children").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -111,6 +99,7 @@ public class UserDetails implements Initializable {
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
+                                ChildBox.setValue(childrenModel.getFirstname() + " " + childrenModel.getLastname());
                                 ChildName.setText(childrenModel.getFirstname() + " " + childrenModel.getLastname());
                                 ChildBirthday.setText(childrenModel.getBirthday());
                                 ChildConditions.setText(childrenModel.getConditions());
@@ -157,34 +146,21 @@ public class UserDetails implements Initializable {
     }
 
     public  void SelectChild(ActionEvent actionEvent){
-        firebase.child("Child").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Children child = data.getValue(Children.class);
-                    childrenList.add(child);
-                }
-                for (int i = 0; i < childrenList.size(); i++) {
-                    Children childrenModel = childrenList.get(i);
-                    if (ChildBox.getValue().equals(childrenModel.getFirstname() + " " + childrenModel.getLastname())) {
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                ChildName.setText(ChildBox.getValue());
-                                ChildBirthday.setText(childrenModel.getBirthday());
-                                ChildConditions.setText(childrenModel.getConditions());
-                                Image chPic = new Image(childrenModel.getPicture());
-                                ChildImage.setImage(chPic);
-                            }
-                        });
+        for (int i = 0; i < childrenList.size(); i++) {
+            Children childrenModel = childrenList.get(i);
+            if (ChildBox.getValue().equals(childrenModel.getFirstname() + " " + childrenModel.getLastname())) {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        ChildName.setText(ChildBox.getValue());
+                        ChildBirthday.setText(childrenModel.getBirthday());
+                        ChildConditions.setText(childrenModel.getConditions());
+                        Image chPic = new Image(childrenModel.getPicture());
+                        ChildImage.setImage(chPic);
                     }
-                }
+                });
             }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
+        }
     }
 
     public void AddChild(ActionEvent actionEvent){
@@ -198,13 +174,13 @@ public class UserDetails implements Initializable {
     }
 
     public void MainMenu(ActionEvent actionEvent){
-        new Main().MainMenuWindow();
+        new Main().loadFXML("MainMenu");
         Stage closeStage = (Stage) HomeButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void UserAppointments(ActionEvent actionEvent){
-        new Main().UserAppointmentsWindow();
+        new Main().loadFXML("UserAppointments");
         Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
@@ -216,7 +192,7 @@ public class UserDetails implements Initializable {
     }
 
     public void UserPayments(ActionEvent actionEvent){
-        new Main().UserPaymentsWindow();
+       new Main().loadFXML("UserPayments");
         Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }

@@ -47,19 +47,19 @@ public class UserPayments implements Initializable {
     }
 
     public void MainMenu(ActionEvent actionEvent){
-        new Main().MainMenuWindow();
+        new Main().loadFXML("MainMenu");
         Stage closeStage = (Stage) HomeButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void UserAppointments(ActionEvent actionEvent){
-        new Main().UserAppointmentsWindow();
+        new Main().loadFXML("UserAppointments");
         Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void UserDetails(ActionEvent actionEvent){
-        new Main().UserDetailsWindow();
+       new Main().loadFXML("UserDetails");
         Stage closeStage = (Stage) DetailsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
@@ -85,7 +85,7 @@ public class UserPayments implements Initializable {
                     firebase.child("User").child(userModel.getId()).child("expirydate").setValue(ExpirydateTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("bank").setValue(BankTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("network").setValue(NetworkTextField.getText());
-                    new Main().UserPaymentsWindow();
+                   new Main().loadFXML("UserPayments");
                     Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
                     new Main().CloseButton(closeStage);
                 }

@@ -100,6 +100,31 @@ public class UserAppointments implements Initializable {
 
             }
         });
+        firebase.child("Child").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Children child = data.getValue(Children.class);
+                    childrenList.add(child);
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+            }
+        });
+        firebase.child("Schedule").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Schedule schedule = data.getValue(Schedule.class);
+                    scheduleList.add(schedule);
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     public void Switch(ActionEvent actionEvent) {
@@ -131,44 +156,18 @@ public class UserAppointments implements Initializable {
         ChildBox.setDisable(false);
         ConfirmSched.setDisable(false);
         DoctorsBox.setDisable(true);
-        firebase.child("Schedule").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Schedule schedule = data.getValue(Schedule.class);
-                    scheduleList.add(schedule);
-                }
-                for(int i = 0; i < scheduleList.size(); i++) {
-                    Schedule scheduleModel = scheduleList.get(i);
-                    if(DoctorsBox.getValue().equals("Dr." + scheduleModel.getName())){
-                        ScheduleBox.getItems().add(scheduleModel.getDay() + " " + scheduleModel.getTime());
-                    }
-                }
+        for(int i = 0; i < scheduleList.size(); i++) {
+            Schedule scheduleModel = scheduleList.get(i);
+            if(DoctorsBox.getValue().equals("Dr." + scheduleModel.getName())){
+                ScheduleBox.getItems().add(scheduleModel.getDay() + " " + scheduleModel.getTime());
             }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
+        }
+        for(int i = 0; i < childrenList.size(); i++) {
+            Children childrenModel = childrenList.get(i);
+            if(userModel.getId().equals(childrenModel.getParentID())){
+                ChildBox.getItems().add(childrenModel.getFirstname() + " " + childrenModel.getLastname());
             }
-        });
-        firebase.child("Child").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Children child = data.getValue(Children.class);
-                    childrenList.add(child);
-                }
-                for(int i = 0; i < childrenList.size(); i++) {
-                    Children childrenModel = childrenList.get(i);
-                    if(userModel.getId().equals(childrenModel.getParentID())){
-                        ChildBox.getItems().add(childrenModel.getFirstname() + " " + childrenModel.getLastname());
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
+        }
     }
 
     public void ConfirmSchedule(ActionEvent actionEvent){
@@ -180,52 +179,39 @@ public class UserAppointments implements Initializable {
 
     public void SelectAppointment(ActionEvent actionEvent){
         String AppValue = AppointmentsBox.getValue();
-        firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Appointments app = data.getValue(Appointments.class);
-                    appointmentsList.add(app);
-                }
-                for(int i = 0; i < appointmentsList.size()/3; i++) {
-                    Appointments Model = appointmentsList.get(i);
-                    if(AppValue.equals(Model.getAppointment())){
-                        appointmentsModel = appointmentsList.get(i);
-                        System.out.println(appointmentsModel.getId());
-                        System.out.println(appointmentsModel.getChild());
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                if(appointmentsModel.getStatus().equals("Upcoming")){
-                                    PreQues.setDisable(false);
-                                }
-                                else if(appointmentsModel.getStatus().equals("Consultation")){
-                                    PreQues.setDisable(true);
-                                    Consult.setDisable(false);
-                                }
-                            }
-                        });
-                    }
-                    else{
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
+        for(int i = 0; i < appointmentsList.size()/2; i++) {
+            Appointments Model = appointmentsList.get(i);
+            if(AppValue.equals(Model.getAppointment())){
+                appointmentsModel = appointmentsList.get(i);
+                System.out.println(appointmentsModel.getId());
+                System.out.println(appointmentsModel.getChild());
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(appointmentsModel.getStatus().equals("Upcoming")){
+                            PreQues.setDisable(false);
+                            Consult.setDisable(true);
+                            System.out.println("aaa");
+                        }
+                        else if(appointmentsModel.getStatus().equals("Consultation")){
+                            PreQues.setDisable(true);
+                            Consult.setDisable(false);
+                        } }}); } }
     }
 
     public void ConfirmAppointment(ActionEvent actionEvent){
         WriteAppointment();
-        new Main().UserAppointmentsWindow();
+        new Main().loadFXML("UserAppointments");
         Stage closeStage = (Stage) ConfirmAppointment.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
+    public void AppointmentScreen(ActionEvent actionEvent) {
+        new Main().loadFXML("UserAppointmentScreen");
+    }
+
     public void MainMenu(ActionEvent actionEvent){
-        new Main().MainMenuWindow();
+        new Main().loadFXML("MainMenu");
         Stage closeStage = (Stage) HomeButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
@@ -237,27 +223,26 @@ public class UserAppointments implements Initializable {
     }
 
     public void UserDetails(ActionEvent actionEvent){
-        new Main().UserDetailsWindow();
+       new Main().loadFXML("UserDetails");
         Stage closeStage = (Stage) DetailsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void UserPayments(ActionEvent actionEvent){
-        new Main().UserPaymentsWindow();
+       new Main().loadFXML("UserPayments");
         Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void PreCheckUpQues(ActionEvent actionEvent){
-        new Main().PreQuesWindow();
+        new Main().loadFXML("PreQues");
     }
 
     public void PostCheckUpQues(ActionEvent actionEvent){
-        new Main().PostQuesWindow();
+        new Main().loadFXML("PostQues");
     }
 
     public void WriteAppointment(){
-        Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
         Appointments model = new Appointments();
         model.setAppointment(DoctorsBox.getValue() + " " + ScheduleBox.getValue() + " " + ChildBox.getValue());
         model.setDoctor(DoctorsBox.getValue());
@@ -289,9 +274,5 @@ public class UserAppointments implements Initializable {
         model.setFeelingQ2(" ");
         model.setStatus("Upcoming");
         firebase.child("Appointments").push().setValue(model);
-    }
-
-    public void AppointmentScreen(ActionEvent actionEvent) {
-        new Main().UserAppointmentScreen();
     }
 }

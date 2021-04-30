@@ -54,16 +54,6 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label fx:id="Error4" alignment="CENTER" layoutX="18.0" layoutY="315.0" prefHeight="24.0" prefWidth="316.0" text="Please enter all fields." textAlignment="CENTER" textFill="#e90000" visible="false">
-               <font>
-                  <Font name="Avenir Book" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="Error5" alignment="CENTER" layoutX="20.0" layoutY="315.0" prefHeight="24.0" prefWidth="316.0" text="There is no existing user." textAlignment="CENTER" textFill="#e90000" visible="false">
-               <font>
-                  <Font name="Avenir Book" size="16.0" />
-               </font>
-            </Label>
             <AnchorPane layoutX="92.0" layoutY="51.0" prefHeight="134.0" prefWidth="174.0">
                <children>
                   <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#94edff" height="90.0" layoutX="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="168.0" />
@@ -84,6 +74,11 @@
                   <Font name="Avenir Book" size="13.0" />
                </font>
             </Button>
+            <Label fx:id="LogInError" alignment="CENTER" layoutX="1.0" layoutY="325.0" prefHeight="24.0" prefWidth="345.0" textAlignment="CENTER" textFill="#e90000">
+               <font>
+                  <Font name="Avenir Book" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="Register" layoutX="1004.0" layoutY="17.0" prefHeight="566.0" prefWidth="351.0" style="-fx-background-color: #ffff; -fx-background-radius: 50px;">

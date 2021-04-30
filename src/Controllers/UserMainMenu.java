@@ -20,19 +20,19 @@ public class UserMainMenu implements Initializable {
     }
 
     public void UserAppointments(ActionEvent actionEvent){
-        new Main().UserAppointmentsWindow();
+        new Main().loadFXML("UserAppointments");
         Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void UserDetails(ActionEvent actionEvent){
-        new Main().UserDetailsWindow();
+       new Main().loadFXML("UserDetails");
         Stage closeStage = (Stage) DetailsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void UserPayments(ActionEvent actionEvent){
-        new Main().UserPaymentsWindow();
+       new Main().loadFXML("UserPayments");
         Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }

@@ -62,7 +62,7 @@ public class DoctorRegister implements Initializable {
         else {
             Write();
             Clear();
-            new Main().DoctorsLoginWindow();
+        new Main().loadFXML("DoctorLogIn");
             Stage closeStage = (Stage) RegisterButton.getScene().getWindow();
             new Main().CloseButton(closeStage);
         }

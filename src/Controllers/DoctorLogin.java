@@ -66,7 +66,7 @@ public class DoctorLogin implements Initializable {
                 }
             }
             if (returnValue == 1) {
-                new Main().DoctorMainMenu();
+            new Main().loadFXML("DoctorMainMenu");
                 Stage closeStage = (Stage) LoginButton.getScene().getWindow();
                 new Main().CloseButton(closeStage);
                 Error5.setVisible(false);
@@ -80,7 +80,7 @@ public class DoctorLogin implements Initializable {
     }
 
     public void RegisterScreen(ActionEvent actionEvent) {
-        new Main().DoctorsRegisterWindow();
+        new Main().loadFXML("DoctorRegister");
         Stage closeStage = (Stage) RegisterButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }

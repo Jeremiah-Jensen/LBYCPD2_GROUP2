@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.net.URL;
-import java.util.Map;
+
 import javafx.event.ActionEvent;
 import javafx.stage.FileChooser;
 import java.util.ArrayList;
@@ -27,14 +27,12 @@ public class UserLogIn implements Initializable {
     public AnchorPane LogIn, Register, UserInfo, Background1;
     public TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Address1, Address2;
     public PasswordField Password, ReenterPassword;
-    public Label Error1,Error2, Error3, Error4, Error5, Pic;
+    public Label Error1,Error2, Error3, LogInError, Pic;
     public Button Next, LoginButton, DoctorLoginButton, RegisterButton, AddPic;
     public ComboBox<String> Day, Month, Year, Gender;
     public String path = "Default.png";
     int count = 0;
-    int returnValue;
-
-    List<User> userList;
+    List<User> userList = new ArrayList<>();;
     public static User userModel;
 
     public UserLogIn(){
@@ -57,7 +55,6 @@ public class UserLogIn implements Initializable {
 
     @Override
     public void initialize(URL Location, ResourceBundle resources){
-        userList();
         for (int i = 0; i < 80; i++){
             int day = 2003 - i;
             String result = String.valueOf(day);
@@ -67,55 +64,35 @@ public class UserLogIn implements Initializable {
             String result = String.valueOf(i);
             Day.getItems().add(result);
         }
-        Month.getItems().add("January");
-        Month.getItems().add("February");
-        Month.getItems().add("March");
-        Month.getItems().add("April");
-        Month.getItems().add("May");
-        Month.getItems().add("June");
-        Month.getItems().add("July");
-        Month.getItems().add("August");
-        Month.getItems().add("September");
         Month.getItems().add("October");
         Month.getItems().add("November");
         Month.getItems().add("December");
-
-        Gender.getItems().add("Male");
-        Gender.getItems().add("Female");
-        Gender.getItems().add("Non-Binary");
-        Gender.getItems().add("Prefer not to say");
-    }
-
-    private void userList(){
-        userList=new ArrayList<>();
+        Month.getItems().addAll("January", "February","March","April","May","June","July","August","September","October","November","December");
+        Gender.getItems().addAll("Male", "Female", "Non-Binary","Prefer not to say");
     }
 
     public void LogInAction(ActionEvent actionEvent) {
-
         if(UsernameLogin.getText().isEmpty() || PasswordLogin.getText().isEmpty()) {
-            Error5.setVisible(false);
-            Error4.setVisible(true);
+            LogInError.setText("Please Enter Both Fields");
         }
         else {
-            Error4.setVisible(false);
-
             for (int i = 0; i <userList.size() ; i++) {
                 User model=userList.get(i);
-                if (UsernameLogin.getText().equals(model.getUsername()) && PasswordLogin.getText().equals(model.getPassword())) {
-                    returnValue = 1;
-                    userModel = userList.get(i);
-                    System.out.println("Found in Database");
+                if(!UsernameLogin.getText().equals(model.getUsername())) {
+                    LogInError.setText("User Not Found");
                 }
-            }
-
-            if (returnValue==1){
-                new Main().MainMenuWindow();
-                Stage closeStage = (Stage) LoginButton.getScene().getWindow();
-                new Main().CloseButton(closeStage);
-            }else if (returnValue==0){
-                Error4.setVisible(false);
-                // there is no existing user
-                Error5.setVisible(true);
+                else{
+                    if(UsernameLogin.getText().equals(userList.get(i).getUsername()) && !PasswordLogin.getText().equals(userList.get(i).getPassword())){
+                        LogInError.setText("Wrong Password");
+                        i = userList.size();
+                    }
+                    else if(UsernameLogin.getText().equals(userList.get(i).getUsername()) && PasswordLogin.getText().equals(userList.get(i).getPassword())){
+                        userModel = userList.get(i);
+                        new Main().loadFXML("MainMenu");
+                        Stage closeStage = (Stage) LoginButton.getScene().getWindow();
+                        new Main().CloseButton(closeStage);
+                    }
+                }
             }
         }
     }
@@ -241,7 +218,7 @@ public class UserLogIn implements Initializable {
         Error1.setVisible(false);
         Error2.setVisible(false);
         Error3.setVisible(false);
-        Error4.setVisible(false);
+        LogInError.setText(" ");
         FirstName.clear();
         LastName.clear();
         Username.clear();
@@ -258,7 +235,7 @@ public class UserLogIn implements Initializable {
     }
 
     public void DoctorsLogin(ActionEvent actionEvent) {
-        new Main().DoctorsLoginWindow();
+    new Main().loadFXML("DoctorLogIn");
         Stage closeStage = (Stage) DoctorLoginButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
