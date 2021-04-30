@@ -52,6 +52,7 @@ public class DoctorAppointmentScreen implements Initializable {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Appointments appointments = data.getValue(Appointments.class);
+                    appointments.setId(data.getKey());
                     appointmentsList.add(appointments);
                 }
                 for(int i = 0; i < appointmentsList.size(); i++) {

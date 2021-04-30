@@ -42,25 +42,26 @@ public class UserAppointmentScreen implements Initializable {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Prescription prescription= data.getValue(Prescription.class);
                     prescriptionsList.add(prescription);
+
                 }
                 for(int i = 0; i < prescriptionsList.size(); i++) {
                     Prescription prescriptionModel= prescriptionsList.get(i);
-                        if(appointmentsModel.getId().equals(prescriptionModel.getAppointmentId())){
-                            Platform.runLater(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Prescription.getItems().add("--------------------");
-                                    System.out.println("javafx erroor");
-                                    Prescription.getItems().add("Date: " + prescriptionModel.getPrescriptionDate());
-                                    Prescription.getItems().add("Medicine: " + prescriptionModel.getMedicine());
-                                    Prescription.getItems().add("Daily Dosage: " + prescriptionModel.getDailyDosage());
-                                    Prescription.getItems().add("Duration: " + prescriptionModel.getDuration());
-                                    Prescription.getItems().add("Special Instruction" + prescriptionModel.getSpecialInstructions());
-                                    Prescription.getItems().add("--------------------");
-                                }
-                            });
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(appointmentsModel.getId().equals(prescriptionModel.getAppointmentId())){
+                                        Prescription.getItems().add("--------------------");
+                                        System.out.println("javafx erroor");
+                                        Prescription.getItems().add("Date: " + prescriptionModel.getPrescriptionDate());
+                                        Prescription.getItems().add("Medicine: " + prescriptionModel.getMedicine());
+                                        Prescription.getItems().add("Daily Dosage: " + prescriptionModel.getDailyDosage());
+                                        Prescription.getItems().add("Duration: " + prescriptionModel.getDuration());
+                                        Prescription.getItems().add("Special Instruction: " + prescriptionModel.getSpecialInstructions());
+                                        Prescription.getItems().add("--------------------");
+                            }
 
                         }
+                    });
                 }
             }
 
