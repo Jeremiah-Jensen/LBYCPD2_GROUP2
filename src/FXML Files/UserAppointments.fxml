@@ -250,7 +250,7 @@
                     </font>
                 </Button>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="24.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
-                <Button fx:id="Consult" disable="true" layoutX="420.0" layoutY="120.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Go to Consultaion" textFill="#f3f3f3">
+                <Button fx:id="Consult" disable="true" layoutX="420.0" layoutY="120.0" mnemonicParsing="false" onAction="#AppointmentScreen" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Go to Consultaion" textFill="#f3f3f3">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>

@@ -72,7 +72,7 @@ public class UserAppointments implements Initializable {
                 }
                 for(int i = 0; i < doctorList.size(); i++) {
                     Doctor doctorModel = doctorList.get(i);
-                    DoctorsBox.getItems().add("Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName() + " - Subspecialty: " + doctorModel.getSubspecialty());
+                    DoctorsBox.getItems().add("Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName());
                 }
             }
             @Override
@@ -285,5 +285,9 @@ public class UserAppointments implements Initializable {
         model.setQ10(" ");
         model.setStatus("Upcoming");
         firebase.child("Appointments").push().setValue(model);
+    }
+
+    public void AppointmentScreen(ActionEvent actionEvent) {
+        new Main().UserAppointmentScreen();
     }
 }

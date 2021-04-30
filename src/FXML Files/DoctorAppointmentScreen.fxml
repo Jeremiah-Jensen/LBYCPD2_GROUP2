@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -44,90 +45,81 @@
                 </DropShadow>
             </effect>
         </Rectangle>
-        <Button layoutX="659.0" layoutY="312.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Add" />
+        <Button layoutX="598.0" layoutY="299.0" mnemonicParsing="false" onAction="#ConfirmPrescription" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Confirm Prescription" />
         <Label layoutX="562.0" layoutY="13.0" text="Prescriptions/Notes" textFill="WHITE">
             <font>
                 <Font name="Avenir Book" size="29.0" />
             </font>
         </Label>
-        <TextField fx:id="LinkTextField" layoutX="168.0" layoutY="111.0" prefHeight="37.0" prefWidth="341.0" style="-fx-background-radius: 50;" />
+        <TextField fx:id="LinkTextField" layoutX="167.0" layoutY="139.0" prefHeight="37.0" prefWidth="341.0" style="-fx-background-radius: 50;" />
         <Label layoutX="28.0" layoutY="13.0" text="Appointment" textFill="#4cbe8e">
             <font>
                 <Font name="Avenir Book" size="42.0" />
             </font>
         </Label>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4cbe8e" height="4.0" layoutX="23.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="493.0" />
-        <Label layoutX="33.0" layoutY="112.0" text="Zoom Link:">
+        <Label layoutX="32.0" layoutY="140.0" text="Zoom Link:">
             <font>
                 <Font name="Avenir Book" size="24.0" />
             </font>
         </Label>
-        <Label layoutX="33.0" layoutY="166.0" text="Patient:">
+        <Label layoutX="32.0" layoutY="194.0" text="Patient:">
             <font>
                 <Font name="Avenir Book" size="24.0" />
             </font>
         </Label>
-        <Label layoutX="33.0" layoutY="219.0" text="Date:">
+        <Label layoutX="32.0" layoutY="247.0" text="Schedule:">
             <font>
                 <Font name="Avenir Book" size="24.0" />
-            </font>
-        </Label>
-        <Label layoutX="33.0" layoutY="275.0" text="Time:">
-            <font>
-                <Font name="Avenir Book" size="24.0" />
-            </font>
-        </Label>
-        <TextField layoutX="563.0" layoutY="91.0" prefHeight="27.0" prefWidth="421.0" promptText="Name of Patient" style="-fx-background-radius: 50;" />
-        <Label layoutX="563.0" layoutY="70.0" text="Name" textFill="WHITE">
-            <font>
-                <Font size="15.0" />
             </font>
         </Label>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="563.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="421.0" />
-        <TextField layoutX="563.0" layoutY="147.0" prefHeight="27.0" prefWidth="207.0" promptText="mm/dd/yy" style="-fx-background-radius: 50;" />
-        <Label layoutX="563.0" layoutY="123.0" text="Prescription Date" textFill="WHITE">
+        <TextField fx:id="PrescriptionDate" layoutX="563.0" layoutY="104.0" prefHeight="27.0" prefWidth="207.0" promptText="MM/DD/YYYY" style="-fx-background-radius: 50;" />
+        <Label layoutX="563.0" layoutY="80.0" text="Prescription Date" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <TextField layoutX="777.0" layoutY="147.0" prefHeight="27.0" prefWidth="207.0" promptText="Medicine" style="-fx-background-radius: 50;" />
-        <Label layoutX="777.0" layoutY="123.0" text="Medicine" textFill="WHITE">
+        <TextField fx:id="Medicine" layoutX="777.0" layoutY="104.0" prefHeight="27.0" prefWidth="207.0" promptText="Medicine" style="-fx-background-radius: 50;" />
+        <Label layoutX="777.0" layoutY="80.0" text="Medicine" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <TextField layoutX="563.0" layoutY="210.0" prefHeight="27.0" prefWidth="207.0" promptText="Ex. 50 mg" style="-fx-background-radius: 50;" />
-        <Label layoutX="563.0" layoutY="186.0" text="Daily Dosage" textFill="WHITE">
+        <TextField fx:id="DailyDosage" layoutX="563.0" layoutY="173.0" prefHeight="27.0" prefWidth="207.0" promptText="Ex. 50 mg" style="-fx-background-radius: 50;" />
+        <Label layoutX="563.0" layoutY="149.0" text="Daily Dosage" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <TextField layoutX="777.0" layoutY="210.0" prefHeight="27.0" prefWidth="207.0" promptText="Ex. 5 days" style="-fx-background-radius: 50;" />
-        <Label layoutX="777.0" layoutY="186.0" text="Duration" textFill="WHITE">
+        <TextField fx:id="Duration" layoutX="777.0" layoutY="173.0" prefHeight="27.0" prefWidth="207.0" promptText="Ex. 5 days" style="-fx-background-radius: 50;" />
+        <Label layoutX="777.0" layoutY="149.0" text="Duration" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <TextField layoutX="563.0" layoutY="266.0" prefHeight="27.0" prefWidth="421.0" promptText="N/A if none" style="-fx-background-radius: 50;" />
-        <Label layoutX="563.0" layoutY="245.0" text="Special Instructions" textFill="WHITE">
+        <TextField fx:id="SpecialInstructions" layoutX="563.0" layoutY="244.0" prefHeight="27.0" prefWidth="207.0" promptText="N/A if none" style="-fx-background-radius: 50;" />
+        <Label layoutX="563.0" layoutY="223.0" text="Special Instructions" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-      <Text fx:id="PatientText" layoutX="168.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="341.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Text fx:id="DateText" layoutX="168.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="341.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Text fx:id="TimeText" layoutX="168.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="341.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
+        <Text fx:id="PatientText" layoutX="167.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="341.0">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+        <Text fx:id="DateText" layoutX="167.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="341.0">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+        <Button fx:id="EndButton" layoutX="784.0" layoutY="299.0" mnemonicParsing="false" onAction="#EndConsultation" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="End Consultation" />
+        <Label layoutX="777.0" layoutY="223.0" text="Status" textFill="WHITE">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="Status" layoutX="777.0" layoutY="245.0" prefHeight="26.0" prefWidth="207.0" promptText="Status" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
     </children>
 </AnchorPane>

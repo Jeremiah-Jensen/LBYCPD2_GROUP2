@@ -1,5 +1,4 @@
 package Controllers;
-
 import Models.Appointments;
 import com.firebase.client.Firebase;
 import javafx.event.ActionEvent;

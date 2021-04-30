@@ -74,7 +74,7 @@ public class DoctorAppointments implements Initializable {
                 for(int i = 0; i < appointmentsList.size(); i++) {
                     Appointments appointmentModel = appointmentsList.get(i);
                     if(fullnameDoctor.equals(appointmentModel.getDoctor()) && appointmentModel.getStatus().equals("Consultation")) {
-                        AppointmentsBox.getItems().add(appointmentModel.getUser());
+                        AppointmentsBox.getItems().add(appointmentModel.getChild());
                     }
                 }
             }
@@ -135,52 +135,9 @@ public class DoctorAppointments implements Initializable {
                 }
                 for(int i = 0; i < appointmentsListA.size(); i++) {
                     Appointments appointmentModel = appointmentsListA.get(i);
-                    if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getUser()) && appointmentModel.getStatus().equals("Consultation")) {
-                        PatientText.setText(appointmentModel.getUser());
-                        ScheduleText.setText(appointmentModel.getChild() + " at " + appointmentModel.getSched());
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-    }
-
-    public void Switch(ActionEvent actionEvent) {
-        if(count == 0){
-            move = -351;
-            count = 1;
-            ViewButton.setText("Consultation Period");
-        }
-        else{
-            move = 351;
-            count = 0;
-            ViewButton.setText("View More");
-        }
-        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), UpcomingAppointments);
-        translateTransition.setByY(move);
-        translateTransition.play();
-        TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(1), ConsultationPeriod);
-        translateTransition2.setByY(move);
-        translateTransition2.play();
-        TranslateTransition translateTransition3 = new TranslateTransition(Duration.seconds(1), Questionnaires);
-        translateTransition3.setByY(move);
-        translateTransition3.play();
-
-        String fullnameDoctor = "Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName();
-        firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Appointments appointments = data.getValue(Appointments.class);
-                    appointmentsListB.add(appointments);
-                }
-                for(int i = 0; i < appointmentsListB.size(); i++) {
-                    Appointments appointmentModel = appointmentsListB.get(i);
-                    if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getUser()) && appointmentModel.getStatus().equals("Consultation")) {
+                    if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getChild()) && appointmentModel.getStatus().equals("Consultation")) {
+                        PatientText.setText(appointmentModel.getChild());
+                        ScheduleText.setText(appointmentModel.getSched());
                         PreQuesAnswers.getItems().add("What is your child feeling?");
                         PreQuesAnswers.getItems().add("     - " + appointmentModel.getFeelingQ());
                         PreQuesAnswers.getItems().add("Is your child feeling pain right now?");
@@ -218,6 +175,28 @@ public class DoctorAppointments implements Initializable {
 
             }
         });
+    }
+
+    public void Switch(ActionEvent actionEvent) {
+        if(count == 0){
+            move = -351;
+            count = 1;
+            ViewButton.setText("Consultation Period");
+        }
+        else{
+            move = 351;
+            count = 0;
+            ViewButton.setText("View More");
+        }
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), UpcomingAppointments);
+        translateTransition.setByY(move);
+        translateTransition.play();
+        TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(1), ConsultationPeriod);
+        translateTransition2.setByY(move);
+        translateTransition2.play();
+        TranslateTransition translateTransition3 = new TranslateTransition(Duration.seconds(1), Questionnaires);
+        translateTransition3.setByY(move);
+        translateTransition3.play();
     }
 
     public void Consultation(ActionEvent actionEvent) {

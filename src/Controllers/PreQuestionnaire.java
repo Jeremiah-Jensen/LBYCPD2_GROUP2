@@ -1,10 +1,6 @@
 package Controllers;
-
 import Models.Appointments;
-import Models.User;
 import com.firebase.client.Firebase;
-import com.firebase.client.authentication.AuthenticationManager;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
