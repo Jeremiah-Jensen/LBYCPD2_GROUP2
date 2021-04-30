@@ -31,6 +31,7 @@ public class DoctorAppointmentScreen implements Initializable {
     List<Appointments> appointmentsList = new ArrayList<>();
     List<Appointments> appointmentsListA = new ArrayList<>();
     Doctor doctorModel;
+    String AppId;
     Appointments appointmentModel;
 
     public void setName(String name) {
@@ -58,6 +59,7 @@ public class DoctorAppointmentScreen implements Initializable {
                     if(appointmentModel.getDoctor().equals(fullnameDoctor) && appointmentModel.getChild().equals(DoctorAppointmentScreen.getName()) && appointmentModel.getStatus().equals("Consultation")) {
                         DateText.setText(appointmentModel.getSched());
                         LinkTextField.setText(appointmentModel.getLink());
+                        AppId = appointmentModel.getId();
                     }
                 }
             }
@@ -80,7 +82,7 @@ public class DoctorAppointmentScreen implements Initializable {
         prescription.setMedicine(Medicine.getText());
         prescription.setDailyDosage(DailyDosage.getText());
         prescription.setDuration(Duration.getText());
-        prescription.setAppointmentId(appointmentModel.getId());
+        prescription.setAppointmentId(AppId);
         prescription.setSpecialInstructions(SpecialInstructions.getText());
         firebase.child("Prescription").push().setValue(prescription);
     }

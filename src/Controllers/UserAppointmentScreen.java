@@ -36,7 +36,7 @@ public class UserAppointmentScreen implements Initializable {
     }
 
     public void ShowPrescription(javafx.event.ActionEvent actionEvent) {
-        firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener() {
+        firebase.child("Prescription").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
@@ -45,20 +45,22 @@ public class UserAppointmentScreen implements Initializable {
                 }
                 for(int i = 0; i < prescriptionsList.size(); i++) {
                     Prescription prescriptionModel= prescriptionsList.get(i);
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            Prescription.getItems().add("Date: " + prescriptionModel.getPrescriptionDate());
-                            Prescription.getItems().add("Medicine: " + prescriptionModel.getMedicine());
-                            Prescription.getItems().add("Daily Dosage: " + prescriptionModel.getDailyDosage());
-                            Prescription.getItems().add("Duration: " + prescriptionModel.getDuration());
-                            Prescription.getItems().add("Special Instruction" + prescriptionModel.getSpecialInstructions());
-                            Prescription.getItems().add("--------------------");
-                        }
-                    });
-                    if(prescriptionModel.getAppointmentId().equals(appointmentsModel.getId())){
+                        if(appointmentsModel.getId().equals(prescriptionModel.getAppointmentId())){
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Prescription.getItems().add("--------------------");
+                                    System.out.println("javafx erroor");
+                                    Prescription.getItems().add("Date: " + prescriptionModel.getPrescriptionDate());
+                                    Prescription.getItems().add("Medicine: " + prescriptionModel.getMedicine());
+                                    Prescription.getItems().add("Daily Dosage: " + prescriptionModel.getDailyDosage());
+                                    Prescription.getItems().add("Duration: " + prescriptionModel.getDuration());
+                                    Prescription.getItems().add("Special Instruction" + prescriptionModel.getSpecialInstructions());
+                                    Prescription.getItems().add("--------------------");
+                                }
+                            });
 
-                    }
+                        }
                 }
             }
 
