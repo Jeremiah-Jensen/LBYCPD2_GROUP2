@@ -23,12 +23,18 @@ This section of the readme file will be a step by step guide on how to run the p
 
 ### Pulling the project from the Git Repository
 1. Open IntelliJ IDEA and click the ‘get from version control’ option.
+<img width="667" alt="Screen Shot 2021-04-30 at 8 35 50 PM" src="https://user-images.githubusercontent.com/62889116/116695931-d162eb00-a9f3-11eb-888e-e03ff9d9216d.png">
+
 2. Once directed to the next page, paste the URL of the repository and select the directory of the project. Repository URL:
 ```bash
 https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 ```
+<img width="598" alt="Screen Shot 2021-04-30 at 8 42 50 PM" src="https://user-images.githubusercontent.com/62889116/116696725-da07f100-a9f4-11eb-8db8-0a4a84b2b4a0.png">
+
 3. If the git option does not appear, go to the plugins section of IntelliJ and download the Git Plugin. The git plugin should be installed by default.
 4. Once step 2 is done, Click at the clone button and the project should be loaded properly.
+<img width="473" alt="Screen Shot 2021-04-30 at 8 43 12 PM" src="https://user-images.githubusercontent.com/62889116/116696758-e429ef80-a9f4-11eb-9b58-65a496e537af.png">
+
 
 ### Initializing the JavaFX Library
 1. Open the Project in IntelliJ.
