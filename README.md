@@ -52,6 +52,7 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 ## Revision Logs
 #### March 26, 2021: 
 - Initial Set-Up of Repository and JavaFX.
+- SDK and Firebase Client added
 
 #### April 2, 2021: 
 - Completion of Initial UI/UX. 
