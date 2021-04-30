@@ -23,56 +23,56 @@ This section of the readme file will be a step by step guide on how to run the p
 
 ### Pulling the project from the Git Repository
 1. Open IntelliJ IDEA and click the ‘get from version control’ option.
-<img width="501" alt="Screen Shot 2021-04-30 at 8 35 50 PM" src="https://user-images.githubusercontent.com/62889116/116695931-d162eb00-a9f3-11eb-888e-e03ff9d9216d.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 8 35 50 PM" src="https://user-images.githubusercontent.com/62889116/116695931-d162eb00-a9f3-11eb-888e-e03ff9d9216d.png">
 
 2. Once directed to the next page, paste the URL of the repository and select the directory of the project. Repository URL:
 ```bash
 https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 ```
-<img width="501" alt="Screen Shot 2021-04-30 at 8 42 50 PM" src="https://user-images.githubusercontent.com/62889116/116696725-da07f100-a9f4-11eb-8db8-0a4a84b2b4a0.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 8 42 50 PM" src="https://user-images.githubusercontent.com/62889116/116696725-da07f100-a9f4-11eb-8db8-0a4a84b2b4a0.png">
 
 3. If the git option does not appear, go to the plugins section of IntelliJ and download the Git Plugin. The git plugin should be installed by default.
 4. Once step 2 is done, Click at the clone button and the project should be loaded properly.
-<img width="501" alt="Screen Shot 2021-04-30 at 8 43 12 PM" src="https://user-images.githubusercontent.com/62889116/116696758-e429ef80-a9f4-11eb-9b58-65a496e537af.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 8 43 12 PM" src="https://user-images.githubusercontent.com/62889116/116696758-e429ef80-a9f4-11eb-9b58-65a496e537af.png">
 
 
 ### Initializing the JavaFX Library
 1. Open the Project in IntelliJ.
 2. From the main menu, select file then click project structure.
-<img width="501" alt="Screen Shot 2021-04-30 at 8 49 39 PM" src="https://user-images.githubusercontent.com/62889116/116698072-8a2a2980-a9f6-11eb-9135-6a1e7e9bdff3.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 8 49 39 PM" src="https://user-images.githubusercontent.com/62889116/116698072-8a2a2980-a9f6-11eb-9135-6a1e7e9bdff3.png">
 
 3. In the project structures page, go to libraries and click at the ‘+’ sign to add the JavaFX Library.
-<img width="501" alt="Screen Shot 2021-04-30 at 8 57 52 PM" src="https://user-images.githubusercontent.com/62889116/116698438-f60c9200-a9f6-11eb-8d89-cc8e85c6e499.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 8 57 52 PM" src="https://user-images.githubusercontent.com/62889116/116698438-f60c9200-a9f6-11eb-8d89-cc8e85c6e499.png">
 
 4. The JavaFX libraries are already installed in the project under the lib folder. The mac and windows versions are available and pick one that is for your operating system and select it.
-<img width="501" alt="Screen Shot 2021-04-30 at 9 02 37 PM" src="https://user-images.githubusercontent.com/62889116/116698862-70d5ad00-a9f7-11eb-8484-3e1e6ff831da.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 9 02 37 PM" src="https://user-images.githubusercontent.com/62889116/116698862-70d5ad00-a9f7-11eb-8484-3e1e6ff831da.png">
 
 5. Make sure that in the SDK, you click on the lib directory of the folder press open.
-<img width="501" alt="Screen Shot 2021-04-30 at 9 00 41 PM" src="https://user-images.githubusercontent.com/62889116/116698723-45eb5900-a9f7-11eb-8f31-5b519b7ea7a5.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 9 00 41 PM" src="https://user-images.githubusercontent.com/62889116/116698723-45eb5900-a9f7-11eb-8f31-5b519b7ea7a5.png">
 
 6. Once done click apply to apply the changes.
-<img width="501" alt="Screen Shot 2021-04-30 at 9 03 40 PM" src="https://user-images.githubusercontent.com/62889116/116698969-9c589780-a9f7-11eb-8d10-166f580deaee.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 9 03 40 PM" src="https://user-images.githubusercontent.com/62889116/116698969-9c589780-a9f7-11eb-8d10-166f580deaee.png">
 
 
 ### Add VM Options
 1. Open the Project in IntelliJ.
 2. In the project's sidebar, right click on the lib directory folder of the JavaFX sdk and copy its absolute path.
-<img width="501" alt="Screen Shot 2021-04-30 at 9 07 13 PM" src="https://user-images.githubusercontent.com/62889116/116699352-0ffaa480-a9f8-11eb-8391-5264a40534eb.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 9 07 13 PM" src="https://user-images.githubusercontent.com/62889116/116699352-0ffaa480-a9f8-11eb-8391-5264a40534eb.png">
 
 3. From the main menu, select run then click edit configurations.
-<img width="501" alt="Screen Shot 2021-04-30 at 9 08 40 PM" src="https://user-images.githubusercontent.com/62889116/116699587-53551300-a9f8-11eb-9279-12ef2a562941.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 9 08 40 PM" src="https://user-images.githubusercontent.com/62889116/116699587-53551300-a9f8-11eb-9279-12ef2a562941.png">
 
 4. Click on More options and select Add VM Options.
-<img width="501" alt="Screen Shot 2021-04-30 at 9 10 06 PM" src="https://user-images.githubusercontent.com/62889116/116699726-80092a80-a9f8-11eb-8312-3188554ed8aa.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 9 10 06 PM" src="https://user-images.githubusercontent.com/62889116/116699726-80092a80-a9f8-11eb-8312-3188554ed8aa.png">
 
 5. In the VM options field, copy paste this line and add path of the directory of the lib folder of the sdk where it is specified.
 ```bash
 --module-path ADD PATH HERE --add-modules javafx.controls,javafx.fxml
 ```
-<img width="501" alt="Screen Shot 2021-04-30 at 9 11 21 PM" src="https://user-images.githubusercontent.com/62889116/116699819-a333da00-a9f8-11eb-91b0-511e7c710d69.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 9 11 21 PM" src="https://user-images.githubusercontent.com/62889116/116699819-a333da00-a9f8-11eb-91b0-511e7c710d69.png">
 
 6. Once done, click on apply and the project is ready to run.
-<img width="501" alt="Screen Shot 2021-04-30 at 9 03 40 PM" src="https://user-images.githubusercontent.com/62889116/116698969-9c589780-a9f7-11eb-8d10-166f580deaee.png">
+<img width="400" alt="Screen Shot 2021-04-30 at 9 03 40 PM" src="https://user-images.githubusercontent.com/62889116/116698969-9c589780-a9f7-11eb-8d10-166f580deaee.png">
 
 ## Revision Logs
 #### March 26, 2021: 
@@ -168,4 +168,3 @@ BS Computer Engineering in De La Salle University-Manila.
 [Firebase-client-android-2.5.2.jar Download](http://www.java2s.com/example/jar/f/download-firebaseclientandroid252jar-file.html)
 
 [JavaFX Set-Up for IntelliJ](https://www.jetbrains.com/help/idea/javafx.html)
- 
