@@ -2,70 +2,34 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PostQuestionnaire">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PostQuestionnaire">
    <children>
-      <AnchorPane layoutX="16.0" layoutY="44.0" prefHeight="529.0" prefWidth="568.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.3881579041481018" green="0.3881579041481018" blue="0.3881579041481018" />
-               </color>
-            </DropShadow>
-         </effect>
-         <children>
-            <AnchorPane layoutX="14.0" layoutY="23.0" prefHeight="548.0" prefWidth="544.0">
-               <children>
-                  <Label layoutX="22.0" layoutY="196.0" prefHeight="31.0" prefWidth="232.0" text="2. Is your child still in pain right now?">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <RadioButton fx:id="YesButton" layoutX="262.0" layoutY="203.0" mnemonicParsing="false" text="Yes">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="TG1" />
-                     </toggleGroup></RadioButton>
-                  <RadioButton fx:id="NoButton" layoutX="359.0" layoutY="203.0" mnemonicParsing="false" text="No" toggleGroup="$TG1" />
-                  <Label layoutX="26.0" layoutY="223.0" prefHeight="31.0" prefWidth="224.0" text="(If yes, rate the pain from a scale of 1-10)" />
-                  <Label layoutX="26.0" layoutY="331.0" prefHeight="31.0" prefWidth="143.0" text="the prescribed medicine">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="307.0" prefHeight="31.0" prefWidth="458.0" text="3. List down the following side-effects your child has experienced since taking ">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="279.0" text="1.  What is your child feeling?">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="PainScale" layoutX="39.0" layoutY="254.0" prefWidth="150.0" />
-                  <TextArea fx:id="Feeling" layoutX="49.0" layoutY="51.0" prefHeight="127.0" prefWidth="388.0" />
-                  <TextArea fx:id="SideEffects" layoutX="54.0" layoutY="362.0" prefHeight="151.0" prefWidth="379.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <Label layoutX="119.0" layoutY="-1.0" prefHeight="50.0" prefWidth="341.0" text="Post-Checkup Questionnaire">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <Button fx:id="SubmitAnswers" layoutX="220.0" layoutY="623.0" mnemonicParsing="false" onAction="#SubmitAnswers" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Submit Answers">
+      <ImageView fitHeight="636.0" fitWidth="504.0" layoutX="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/PostQues.PNG" />
+         </image>
+      </ImageView>
+      <Button fx:id="SubmitAnswers" layoutX="155.0" layoutY="476.0" mnemonicParsing="false" onAction="#SubmitAnswers" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #98d0d3#98d0d3; -fx-background-radius: 50;" text="Submit Answers">
          <font>
             <Font name="Avenir Book" size="15.0" />
          </font>
       </Button>
+      <TextArea fx:id="Feeling" layoutX="81.0" layoutY="106.0" prefHeight="69.0" prefWidth="346.0" />
+      <RadioButton fx:id="YesButton" layoutX="326.0" layoutY="182.0" mnemonicParsing="false" text="Yes">
+         <toggleGroup>
+            <ToggleGroup fx:id="TG1" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="NoButton" layoutX="385.0" layoutY="182.0" mnemonicParsing="false" text="No" toggleGroup="$TG1" />
+      <TextArea fx:id="SideEffects" layoutX="76.0" layoutY="307.0" prefHeight="151.0" prefWidth="379.0" />
+      <ComboBox fx:id="PainScale" layoutX="77.0" layoutY="213.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

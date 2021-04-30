@@ -19,7 +19,7 @@ public class PreQuestionnaire implements Initializable {
             YesButton8, NoButton8, YesButton9, NoButton9, YesButton10, NoButton10;
     public Button SubmitAnswers;
     public ComboBox<String> PainComboBox = new ComboBox<>();
-    public TextField Reason, Feeling;
+    public TextArea Reason, Feeling;
     public ToggleGroup TG, TG1, TG2, TG3, TG4, TG5, TG6, TG7, TG8, TG9, TG10;
     Appointments appointmentsModel;
 
