@@ -1,9 +1,6 @@
 package Controllers;
 
-import Models.Appointments;
-import Models.Doctor;
-import Models.Schedule;
-import Models.User;
+import Models.*;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -20,7 +17,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +30,12 @@ public class UserAppointments implements Initializable {
     public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton, PaymentsButton, PreQues, PostQues;
     public Button ConfirmDoctor, ConfirmSched, ConfirmAppointment, Consult;
     public Label DocName, SchedTime, SchedDate;
-    public ComboBox<String> DoctorsBox, DateBox, TimeBox, AppointmentsBox;
+    public ComboBox<String> DoctorsBox, ScheduleBox, ChildBox, AppointmentsBox;
     public ListView<String> AppointmentsListView;
     int count = 0;
     public String FullName;
     User userModel;
+    List<Children> childrenList = new ArrayList<>();
     List<Doctor> doctorList = new ArrayList<>();
     List<Schedule> scheduleList = new ArrayList<>();
     List<Appointments> appointmentsList;
@@ -75,7 +72,7 @@ public class UserAppointments implements Initializable {
                 }
                 for(int i = 0; i < doctorList.size(); i++) {
                     Doctor doctorModel = doctorList.get(i);
-                    DoctorsBox.getItems().add("Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName());
+                    DoctorsBox.getItems().add("Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName() + " - Subspecialty: " + doctorModel.getSubspecialty());
                 }
             }
             @Override
@@ -130,8 +127,8 @@ public class UserAppointments implements Initializable {
 
     public void ConfirmDoctor(ActionEvent actionEvent){
         DocName.setText(DoctorsBox.getValue());
-        DateBox.setDisable(false);
-        TimeBox.setDisable(false);
+        ScheduleBox.setDisable(false);
+        ChildBox.setDisable(false);
         ConfirmSched.setDisable(false);
         DoctorsBox.setDisable(true);
         firebase.child("Schedule").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -144,8 +141,26 @@ public class UserAppointments implements Initializable {
                 for(int i = 0; i < scheduleList.size(); i++) {
                     Schedule scheduleModel = scheduleList.get(i);
                     if(DoctorsBox.getValue().equals("Dr." + scheduleModel.getName())){
-                        DateBox.getItems().add(scheduleModel.getDay());
-                        TimeBox.getItems().add(scheduleModel.getTime());
+                        ScheduleBox.getItems().add(scheduleModel.getDay() + " " + scheduleModel.getTime());
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        firebase.child("Child").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Children child = data.getValue(Children.class);
+                    childrenList.add(child);
+                }
+                for(int i = 0; i < childrenList.size(); i++) {
+                    Children childrenModel = childrenList.get(i);
+                    if(userModel.getId().equals(childrenModel.getParentID())){
+                        ChildBox.getItems().add(childrenModel.getFirstname() + " " + childrenModel.getLastname());
                     }
                 }
             }
@@ -158,8 +173,8 @@ public class UserAppointments implements Initializable {
 
     public void ConfirmSchedule(ActionEvent actionEvent){
         DocName.setText(DoctorsBox.getValue());
-        SchedTime.setText(TimeBox.getValue());
-        SchedDate.setText(DateBox.getValue());
+        SchedTime.setText(ScheduleBox.getValue());
+        SchedDate.setText(ChildBox.getValue());
         ConfirmAppointment.setDisable(false);
     }
 
@@ -177,7 +192,7 @@ public class UserAppointments implements Initializable {
                     if(AppValue.equals(Model.getAppointment())){
                         appointmentsModel = appointmentsList.get(i);
                         System.out.println(appointmentsModel.getId());
-                        System.out.println(appointmentsModel.getDate());
+                        System.out.println(appointmentsModel.getChild());
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
@@ -244,11 +259,11 @@ public class UserAppointments implements Initializable {
     public void WriteAppointment(){
         Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
         Appointments model = new Appointments();
-        model.setAppointment(DoctorsBox.getValue() + " " + DateBox.getValue() + " " + TimeBox.getValue());
+        model.setAppointment(DoctorsBox.getValue() + " " + ScheduleBox.getValue() + " " + ChildBox.getValue());
         model.setDoctor(DoctorsBox.getValue());
         model.setUser(FullName);
-        model.setTime(TimeBox.getValue());
-        model.setDate(DateBox.getValue());
+        model.setSched(ScheduleBox.getValue());
+        model.setChild(ChildBox.getValue());
         model.setPreQuest(" ");
         model.setFollowUp(" ");
         model.setPayment(" ");

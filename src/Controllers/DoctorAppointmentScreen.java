@@ -9,7 +9,7 @@ import com.firebase.client.ValueEventListener;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import java.awt.*;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +47,8 @@ public class DoctorAppointmentScreen implements Initializable {
                 for(int i = 0; i < appointmentsList.size(); i++) {
                     Appointments appointmentModel = appointmentsList.get(i);
                     if(appointmentModel.getDoctor().equals(fullnameDoctor) && appointmentModel.getUser().equals(DoctorAppointmentScreen.getName()) && appointmentModel.getStatus().equals("Consultation")) {
-                        DateText.setText(appointmentModel.getDate());
-                        TimeText.setText(appointmentModel.getTime());
+                        DateText.setText(appointmentModel.getChild());
+                        TimeText.setText(appointmentModel.getSched());
                         LinkTextField.setText(appointmentModel.getLink());
                     }
                 }

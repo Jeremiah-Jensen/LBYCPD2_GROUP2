@@ -137,7 +137,7 @@ public class DoctorAppointments implements Initializable {
                     Appointments appointmentModel = appointmentsListA.get(i);
                     if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getUser()) && appointmentModel.getStatus().equals("Consultation")) {
                         PatientText.setText(appointmentModel.getUser());
-                        ScheduleText.setText(appointmentModel.getDate() + " at " + appointmentModel.getTime());
+                        ScheduleText.setText(appointmentModel.getChild() + " at " + appointmentModel.getSched());
                     }
                 }
             }

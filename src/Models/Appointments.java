@@ -4,8 +4,8 @@ public class Appointments {
     String id;
     String User;
     String Doctor;
-    String Time;
-    String Date;
+    String Sched;
+    String Child;
     String PreQuest;
     String FollowUp;
     String Appointment;
@@ -32,11 +32,11 @@ public class Appointments {
 
     }
 
-    public Appointments(String id, String date, String user, String doctor, String time, String preQuest, String followUp, String appointment, String prescription, String link, String payment, String status, String painQ1, String feelingQ, String reasonQ, String painScale, String q1, String q2, String q3, String q4, String q5, String q6, String q7, String q8, String q9, String q10) {
+    public Appointments(String id, String child, String user, String doctor, String sched, String preQuest, String followUp, String appointment, String prescription, String link, String payment, String status, String painQ1, String feelingQ, String reasonQ, String painScale, String q1, String q2, String q3, String q4, String q5, String q6, String q7, String q8, String q9, String q10) {
         this.User = user;
-        this.Date = date;
+        this.Child = child;
         this.Doctor = doctor;
-        this.Time = time;
+        this.Sched = sched;
         this.PreQuest = preQuest;
         this.FollowUp = followUp;
         this.Appointment = appointment;
@@ -80,19 +80,19 @@ public class Appointments {
         Doctor = doctor;
     }
 
-    public String getTime() {
-        return Time;
+    public String getSched() {
+        return Sched;
     }
 
-    public void setDate(String time) {
-        Time = time;
+    public void setChild(String time) {
+        Sched = time;
     }
 
-    public String getDate() {
-        return Date;
+    public String getChild() {
+        return Child;
     }
 
-    public void setTime(String date) { Date = date;
+    public void setSched(String date) { Child = date;
     }
 
     public String getPreQuest() {

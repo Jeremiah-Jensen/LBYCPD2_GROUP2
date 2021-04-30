@@ -1,5 +1,4 @@
 package Controllers;
-import Models.Appointments;
 import Models.Children;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -20,8 +19,6 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.application.Platform;
-
-import java.awt.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
@@ -42,7 +39,6 @@ public class UserDetails implements Initializable {
     int count = 0;
     List<Children> childrenList;
     User userModel;
-    Children childrenModel;
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com");
 
     public UserDetails(){
@@ -120,6 +116,7 @@ public class UserDetails implements Initializable {
                                 ChildConditions.setText(childrenModel.getConditions());
                                 Image chPic = new Image(childrenModel.getPicture());
                                 ChildImage.setImage(chPic);
+                                ChildName.setText(childrenModel.getFirstname() + " " + childrenModel.getLastname());
                             }
                         });
                     }
