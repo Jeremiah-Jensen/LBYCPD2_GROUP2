@@ -39,10 +39,20 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 ### Initializing the JavaFX Library
 1. Open the Project in IntelliJ.
 2. From the main menu, select file then click project structure.
-3. In the project structures page, go to lib and click at the ‘+’ sign to add the JavaFX Library.
+<img width="570" alt="Screen Shot 2021-04-30 at 8 49 39 PM" src="https://user-images.githubusercontent.com/62889116/116698072-8a2a2980-a9f6-11eb-9135-6a1e7e9bdff3.png">
+
+3. In the project structures page, go to libraries and click at the ‘+’ sign to add the JavaFX Library.
+<img width="570" alt="Screen Shot 2021-04-30 at 8 57 52 PM" src="https://user-images.githubusercontent.com/62889116/116698438-f60c9200-a9f6-11eb-8d89-cc8e85c6e499.png">
+
 4. The JavaFX libraries are already installed in the project under the lib folder. The mac and windows versions are available and pick one that is for your operating system and select it.
-5. Make sure that in the SDK, you click on the lib directory of the folder.
+<img width="501" alt="Screen Shot 2021-04-30 at 9 02 37 PM" src="https://user-images.githubusercontent.com/62889116/116698862-70d5ad00-a9f7-11eb-8484-3e1e6ff831da.png">
+
+5. Make sure that in the SDK, you click on the lib directory of the folder press open.
+<img width="745" alt="Screen Shot 2021-04-30 at 9 00 41 PM" src="https://user-images.githubusercontent.com/62889116/116698723-45eb5900-a9f7-11eb-8f31-5b519b7ea7a5.png">
+
 6. Once done click apply to apply the changes.
+<img width="501" alt="Screen Shot 2021-04-30 at 9 03 40 PM" src="https://user-images.githubusercontent.com/62889116/116698969-9c589780-a9f7-11eb-8d10-166f580deaee.png">
+
 
 ### Add VM Options
 1. Open the Project in IntelliJ.
