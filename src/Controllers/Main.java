@@ -1,11 +1,13 @@
 package Controllers;
 
+import com.firebase.client.Firebase;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 
 import java.io.IOException;
 
@@ -16,6 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.loginstage = primaryStage;
         LoginWindow();
+
     }
 
     public void LoginWindow() {

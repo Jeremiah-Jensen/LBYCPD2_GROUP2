@@ -1,11 +1,13 @@
 package Models;
 
 public class Appointments {
+    String Sched;
+    String Child;
     String id;
     String User;
     String Doctor;
-    String Sched;
-    String Child;
+    String Time;
+    String Date;
     String PreQuest;
     String FollowUp;
     String Appointment;
@@ -27,16 +29,20 @@ public class Appointments {
     String Q8;
     String Q9;
     String Q10;
+    String FeelingQ2;
+    String SideEffectsQ;
+    String PainScaleQ2;
+    String PainQ2;
 
     public Appointments(){
 
     }
 
-    public Appointments(String id, String child, String user, String doctor, String sched, String preQuest, String followUp, String appointment, String prescription, String link, String payment, String status, String painQ1, String feelingQ, String reasonQ, String painScale, String q1, String q2, String q3, String q4, String q5, String q6, String q7, String q8, String q9, String q10) {
+    public Appointments(String child, String user, String doctor, String sched, String preQuest, String followUp, String appointment, String prescription, String link, String payment, String painQ1, String status, String feelingQ, String reasonQ, String painScale, String q1, String q2, String q3, String q4, String q5, String q6, String q7, String q8, String q9, String q10, String feelingQ2, String sideEffectsQ, String painScaleQ2, String painQ2) {
         this.User = user;
         this.Child = child;
-        this.Doctor = doctor;
         this.Sched = sched;
+        this.Doctor = doctor;
         this.PreQuest = preQuest;
         this.FollowUp = followUp;
         this.Appointment = appointment;
@@ -58,6 +64,10 @@ public class Appointments {
         this.Q8 = q8;
         this.Q9 = q9;
         this.Q10 = q10;
+        this.FeelingQ2 = feelingQ2;
+        this.SideEffectsQ = sideEffectsQ;
+        this.PainScaleQ2 = painScaleQ2;
+        this.PainQ2 = painQ2;
     }
 
     public String getId() { return id; }
@@ -80,19 +90,19 @@ public class Appointments {
         Doctor = doctor;
     }
 
-    public String getSched() {
-        return Sched;
+    public String getTime() {
+        return Time;
     }
 
-    public void setChild(String time) {
-        Sched = time;
+    public void setDate(String time) {
+        Time = time;
     }
 
-    public String getChild() {
-        return Child;
+    public String getDate() {
+        return Date;
     }
 
-    public void setSched(String date) { Child = date;
+    public void setTime(String date) { Date = date;
     }
 
     public String getPreQuest() {
@@ -242,5 +252,53 @@ public class Appointments {
     public void setQ10(String q10) {
         Q10 = q10;
     }
+
+    public String getFeelingQ2() {
+        return FeelingQ2;
+    }
+
+    public void setFeelingQ2(String feelingQ2) {
+        FeelingQ2 = feelingQ2;
+    }
+
+    public String getSideEffectsQ() {
+        return SideEffectsQ;
+    }
+
+    public void setSideEffectsQ(String sideEffectsQ) {
+        SideEffectsQ = sideEffectsQ;
+    }
+
+    public String getPainScaleQ2() {
+        return PainScaleQ2;
+    }
+
+    public void setPainScaleQ2(String painScaleQ2) {
+        PainScaleQ2 = painScaleQ2;
+    }
+
+    public String getPainQ2() {
+        return PainQ2;
+    }
+
+    public void setPainQ2(String painQ2) {
+        PainQ2 = painQ2;
+    }
+
+    public String getSched() {
+        return Sched;
+    }
+
+    public void setChild(String child) {
+        Child = child;
+    }
+
+    public String getChild() {
+        return Child;
+    }
+
+    public void setSched(String child) { Sched = child;
+    }
+
 
 }

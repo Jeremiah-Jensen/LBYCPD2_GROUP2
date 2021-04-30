@@ -3,6 +3,7 @@ package Controllers;
 import Models.Appointments;
 import Models.User;
 import com.firebase.client.Firebase;
+import com.firebase.client.authentication.AuthenticationManager;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class PreQuestionnaire implements Initializable {
     @FXML
@@ -71,6 +73,7 @@ public class PreQuestionnaire implements Initializable {
     private void Write(){
         System.out.println(appointmentsModel.getId());
         Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+
         if(appointmentsModel==null){
             throw new NullPointerException("Can't pass null for argument 'pathString' in child()");
         }
