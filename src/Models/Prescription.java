@@ -30,7 +30,7 @@ public class Prescription {
         return appointmentId;
     }
 
-    public void setAppointmentId(String prescriptionDate) {
+    public void setAppointmentId(String appointmentId) {
         this.appointmentId = appointmentId;
     }
 

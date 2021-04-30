@@ -6,10 +6,13 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ArrayList;
@@ -42,13 +45,19 @@ public class UserAppointmentScreen implements Initializable {
                 }
                 for(int i = 0; i < prescriptionsList.size(); i++) {
                     Prescription prescriptionModel= prescriptionsList.get(i);
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            Prescription.getItems().add("Date: " + prescriptionModel.getPrescriptionDate());
+                            Prescription.getItems().add("Medicine: " + prescriptionModel.getMedicine());
+                            Prescription.getItems().add("Daily Dosage: " + prescriptionModel.getDailyDosage());
+                            Prescription.getItems().add("Duration: " + prescriptionModel.getDuration());
+                            Prescription.getItems().add("Special Instruction" + prescriptionModel.getSpecialInstructions());
+                            Prescription.getItems().add("--------------------");
+                        }
+                    });
                     if(prescriptionModel.getAppointmentId().equals(appointmentsModel.getId())){
-                        Prescription.getItems().add("Date: " + prescriptionModel.getPrescriptionDate());
-                        Prescription.getItems().add("Medicine: " + prescriptionModel.getMedicine());
-                        Prescription.getItems().add("Daily Dosage: " + prescriptionModel.getDailyDosage());
-                        Prescription.getItems().add("Duration: " + prescriptionModel.getDuration());
-                        Prescription.getItems().add("Special Instruction" + prescriptionModel.getSpecialInstructions());
-                        Prescription.getItems().add("--------------------");
+
                     }
                 }
             }

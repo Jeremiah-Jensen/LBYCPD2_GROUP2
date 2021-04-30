@@ -283,6 +283,10 @@ public class UserAppointments implements Initializable {
         model.setQ8(" ");
         model.setQ9(" ");
         model.setQ10(" ");
+        model.setSideEffectsQ(" ");
+        model.setPainScaleQ2(" ");
+        model.setPainQ2(" ");
+        model.setFeelingQ2(" ");
         model.setStatus("Upcoming");
         firebase.child("Appointments").push().setValue(model);
     }
