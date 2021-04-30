@@ -96,9 +96,11 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 - Updated credit payment system.
 - Manage Children Feature added to make a user manage multiple children.
 - User and Doctor Appointment Screens Added.
+- Users and Doctors can now upload Profile Pictures.
  
 #### April 30, 2021:
 - Realtime Patient-Doctor Consultation System Working.
+- Appointment Screens of User and Doctors are synced.
 - Updated Questionnaire GUI.
 - Follow Up Questionaire Working.
 
