@@ -85,6 +85,7 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 - Final working version of user appointment booking.
 - User and Doctor Appointments Connected.
 - Appointments Model Created.
+- Pre-Check Up Questionnaire completed.
 
 #### April 27, 2021:
 - Pre-Check Up Questionnaire Connected to the Appointmets Model.
