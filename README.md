@@ -51,55 +51,55 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 
 ## Revision Logs
 #### March 26, 2021: 
-Initial Set-Up of Repository and JavaFX.
+- Initial Set-Up of Repository and JavaFX.
 
 #### April 2, 2021: 
-Completion of Initial UI/UX. 
-Imported firebase to JavaFX.
+- Completion of Initial UI/UX. 
+- Imported firebase to JavaFX.
 
 #### April 7, 2021: 
-Incorporated firebase to the program.
-Created the initial  register and login feature.
+- Incorporated firebase to the program.
+- Created the initial  register and login feature.
 
 #### April 9, 2021: 
-Added validation to register and login.
+- Added validation to register and login.
 
 #### April 13, 2021: 
-Connect to the main menu.
+- Connect to the main menu.
 
 #### April 17, 2021: 
-Initial Doctor/User Login and Register, Pre-Checkup Questionnaire.
+- Initial Doctor/User Login and Register, Pre-Checkup Questionnaire.
 
 #### April 18, 2021:
-Schedule Appointment and Main Menu UI/UX Improvements.
+- Schedule Appointment and Main Menu UI/UX Improvements.
 
 #### April 22, 2021:
-Working GUI and some errors fixed.
-Doctor side improvements added.
+- Working GUI and some errors fixed.
+- Doctor side improvements added.
 
 #### April 24, 2021:
-Major Revision of the Appointments System.
+- Major Revision of the Appointments System.
 
 #### April 26, 2021:
-Final working version of user appointment booking.
-User and Doctor Appointments Connected.
-Appointments Model Created.
+- Final working version of user appointment booking.
+- User and Doctor Appointments Connected.
+- Appointments Model Created.
 
 #### April 27, 2021:
-Pre-Check Up Questionnaire Connected to the Appointmets Model.
-Doctor Side minor revision on appointments screen.
-User Appointment system can now get Pre-Check Up Questionnaire Answers.
-User can imput credit card information.
+- Pre-Check Up Questionnaire Connected to the Appointmets Model.
+- Doctor Side minor revision on appointments screen.
+- User Appointment system can now get Pre-Check Up Questionnaire Answers.
+- User can imput credit card information.
 
 #### April 28, 2021:
-Updated credit payment system.
-Manage Children Feature added to make a user manage multiple children.
-User and Doctor Appointment Screens Added.
+- Updated credit payment system.
+- Manage Children Feature added to make a user manage multiple children.
+- User and Doctor Appointment Screens Added.
  
 #### April 30, 2021:
-Realtime Patient-Doctor Consultation System Working.
-Updated Questionnaire GUI.
-Follow Up Questionaire Working.
+- Realtime Patient-Doctor Consultation System Working.
+- Updated Questionnaire GUI.
+- Follow Up Questionaire Working.
 
 ## About the Contributors
 For any questions about the project, you may email us directly through our personal email address.
