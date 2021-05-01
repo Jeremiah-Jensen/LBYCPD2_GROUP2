@@ -130,6 +130,11 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 - Updated Questionnaire GUI.
 - Follow Up Questionaire Working.
 
+#### May 1, 2021:
+- Parts of the source code has been Modularized.
+- Improved log in system errors.
+- UserAppointmentScreen bug has been fixed.
+
 ## About the Contributors
 For any questions about the project, you may email us directly through our personal email address.
 
