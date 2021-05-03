@@ -135,6 +135,14 @@ https://github.com/Jeremiah-Jensen/LBYCPD2_GROUP2
 - Improved log in system errors.
 - UserAppointmentScreen bug has been fixed.
 
+#### Agenda for May 3 - May 10:
+- Credit System. - Jensen
+- Update all comboBoxes to shift automatically. - Anton
+- Edit user and doctor details. - Anton and Badette
+- Recycler view to view children and doctors. - Anton
+- Finalize Logo and App Name. - All
+- Update SRS. - All
+
 ## About the Contributors
 For any questions about the project, you may email us directly through our personal email address.
 
