@@ -56,7 +56,7 @@ public class DoctorAppointmentScreen implements Initializable {
                     appointmentsList.add(appointments);
                 }
                 for(int i = 0; i < appointmentsList.size(); i++) {
-                    appointmentModel = appointmentsList.get(i);
+                    Appointments appointmentModel = appointmentsList.get(i);
                     if(appointmentModel.getDoctor().equals(fullnameDoctor) && appointmentModel.getChild().equals(DoctorAppointmentScreen.getName()) && appointmentModel.getStatus().equals("Consultation")) {
                         DateText.setText(appointmentModel.getSched());
                         LinkTextField.setText(appointmentModel.getLink());

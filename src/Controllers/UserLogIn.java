@@ -197,7 +197,7 @@ public class UserLogIn implements Initializable {
         model.setAddress(Address2.getText() + "_" + Address1.getText());
         model.setGender(Gender.getValue());
         model.setPicture(path);
-        model.setCredit(" ");
+        model.setCredit("0");
         model.setName(" ");
         model.setCardnumber(" ");
         model.setBank(" ");

@@ -34,7 +34,7 @@
                         <Font name="Avenir Book" size="19.0" />
                     </font>
                 </Label>
-                <ComboBox fx:id="AppointmentsBox" layoutX="35.0" layoutY="69.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+                <ComboBox fx:id="AppointmentsBox" layoutX="35.0" layoutY="69.0" prefHeight="33.0" prefWidth="251.0" promptText="Patient" style="-fx-background-color: #e8e8e8#e8e8e8;" />
                 <Button fx:id="ConfirmPatient" layoutX="301.0" layoutY="69.0" mnemonicParsing="false" onAction="#ConfirmPatient" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #3abd8f#3abd8f#3abd8f#3abd8f; -fx-background-radius: 50;" text="Select" textFill="WHITE">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
@@ -239,7 +239,7 @@
                     </font>
                 </Label>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="378.0" layoutY="50.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="293.0" />
-                <ListView layoutX="378.0" layoutY="66.0" prefHeight="256.0" prefWidth="293.0" style="-fx-background-radius: 20;" />
+                <ListView fx:id="PostQuesAnswers" layoutX="378.0" layoutY="66.0" prefHeight="256.0" prefWidth="293.0" style="-fx-background-radius: 20;" />
             </children>
             <effect>
                 <DropShadow>

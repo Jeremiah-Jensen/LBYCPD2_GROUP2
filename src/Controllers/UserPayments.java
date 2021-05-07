@@ -18,10 +18,10 @@ import java.util.ResourceBundle;
 public class UserPayments implements Initializable {
     @FXML
     public Button LogOutButton, AppointmentsButton, DetailsButton, HomeButton;
-    public TextField NameTextField, CardNumTextField, ExpirydateTextField, BankTextField, NetworkTextField;
+    public TextField NameTextField, CardNumTextField, ExpirydateTextField, BankTextField, NetworkTextField, CreditTextField;
     public PasswordField CVVPasswordField;
     public AnchorPane InputCard, CardDetails;
-    public Label NameLabel, CardNumLabel, ExpirydateLabel, CVVLabel, BankLabel, NetworkLabel;
+    public Label NameLabel, CardNumLabel, ExpirydateLabel, CVVLabel, BankLabel, NetworkLabel, CreditLabel;
 
     User userModel;
     int count = 0;
@@ -115,4 +115,15 @@ public class UserPayments implements Initializable {
         }
 
     }
+
+    public void LoadCredit(ActionEvent actionEvent) {
+        Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+        String Credit = CreditTextField.getText();
+        int credits = Integer.parseInt(Credit);
+        int cred = credits + Integer.parseInt(userModel.getCredit());
+        CreditLabel.setText(String.valueOf(cred));
+        firebase.child("User").child(userModel.getId()).child("credit").setValue(String.valueOf(cred));
+    }
+
+
 }
