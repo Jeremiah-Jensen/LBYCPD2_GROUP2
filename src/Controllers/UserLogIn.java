@@ -27,7 +27,7 @@ public class UserLogIn implements Initializable {
     public AnchorPane LogIn, Register, UserInfo, Background1;
     public TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Address1, Address2;
     public PasswordField Password, ReenterPassword;
-    public Label Error1,Error2, Error3, LogInError, Pic;
+    public Label Error2, LogInError, CreateError, Pic;
     public Button Next, LoginButton, DoctorLoginButton, RegisterButton, AddPic;
     public ComboBox<String> Day, Month, Year, Gender;
     public String path = "Default.png";
@@ -110,32 +110,34 @@ public class UserLogIn implements Initializable {
     }
 
     public void Next(ActionEvent actionEvent){
-        if(FirstName.getText().isEmpty() || LastName.getText().isEmpty() || Username.getText().isEmpty() || Password.getText().isEmpty() || ReenterPassword.getText().isEmpty()) {
-            // please enter all fields
-            Error1.setVisible(true);
-            // passwords do not match
-            Error3.setVisible(false);
+        int lol = 0;
+        for (int i = 0; i <userList.size() ; i++) {
+            if(Username.getText().equals(userList.get(i).getUsername())){
+                CreateError.setText("Username Taken");
+                i = userList.size();
+                lol = 1;
+            }
         }
-        else if(!Password.getText().equals(ReenterPassword.getText())) {
-            // passwords do not match
-            Error3.setVisible(true);
-            // please enter all fields
-            Error1.setVisible(false);
+        if(lol == 0) {
+            if(FirstName.getText().isEmpty() || LastName.getText().isEmpty() || Username.getText().isEmpty() || Password.getText().isEmpty() || ReenterPassword.getText().isEmpty()) {
+                CreateError.setText("Please enter all fields");
+            }
+            else if(!Password.getText().equals(ReenterPassword.getText())) {
+                CreateError.setText("Passwords do not match");
+            }
+            else{
+                CreateError.setText(" ");
+                TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), Register);
+                translateTransition.setByX(-380);
+                translateTransition.play();
+                TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(1), UserInfo);
+                translateTransition2.setByX(-380);
+                translateTransition2.play();
+                Next.setDisable(true);
+                count = 1;
+            }
         }
 
-        else {
-            Error1.setVisible(false);
-            Error3.setVisible(false);
-            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), Register);
-            translateTransition.setByX(-380);
-            translateTransition.play();
-            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(1), UserInfo);
-            translateTransition2.setByX(-380);
-            translateTransition2.play();
-            Next.setDisable(true);
-
-            count = 1;
-        }
     }
 
     public void Back(ActionEvent actionEvent){
@@ -215,9 +217,7 @@ public class UserLogIn implements Initializable {
     }
 
     private void Clear(){
-        Error1.setVisible(false);
-        Error2.setVisible(false);
-        Error3.setVisible(false);
+        CreateError.setText(" ");
         LogInError.setText(" ");
         FirstName.clear();
         LastName.clear();

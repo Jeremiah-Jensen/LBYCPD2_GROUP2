@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 public class UserDetails implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment, ManageChildren, EditDetails, AddChildren;
-    public Button LogOutButton, HomeButton, AppointmentsButton, PaymentsButton;
+    public Button LogOutButton, HomeButton, AppointmentsButton, PaymentsButton,AddChild;
     public Label Name, Birthday, Email, Number, Gender, Username, ChildName, ChildConditions, ChildBirthday, ChildPic, Error;
     public TextField ChildFN, ChildLN, ChildCN;
     public ImageView UserImage, ChildImage;
@@ -37,7 +37,7 @@ public class UserDetails implements Initializable {
     public String Pic;
     public String path = "Default.png";
     int count = 0;
-    List<Children> childrenList;
+    List<Children> childrenList = new ArrayList<>();
     User userModel;
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com");
 
@@ -60,7 +60,6 @@ public class UserDetails implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        childrenList =new ArrayList<>();
         userModel = UserLogIn.userModel;
         String FullName = userModel.getFirstName() + " " + userModel.getLastName();
         Username.setText(FullName);
@@ -133,6 +132,9 @@ public class UserDetails implements Initializable {
             model.setConditions(ChildCN.getText());
             model.setPicture(path);
             firebase.child("Child").push().setValue(model);
+            new Main().loadFXML("UserDetails");
+            Stage closeStage = (Stage) AddChild.getScene().getWindow();
+            new Main().CloseButton(closeStage);
         }
     }
 
@@ -168,7 +170,7 @@ public class UserDetails implements Initializable {
         AddChildren.setVisible(true);
     }
 
-    public void GoBack(ActionEvent actionEvent){
+    public void GoBack(ActionEvent actionEvent) {
         ManageChildren.setVisible(true);
         AddChildren.setVisible(false);
     }

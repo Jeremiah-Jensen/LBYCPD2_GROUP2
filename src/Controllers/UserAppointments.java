@@ -155,7 +155,6 @@ public class UserAppointments implements Initializable {
         ScheduleBox.setDisable(false);
         ChildBox.setDisable(false);
         ConfirmSched.setDisable(false);
-        DoctorsBox.setDisable(true);
         for(int i = 0; i < scheduleList.size(); i++) {
             Schedule scheduleModel = scheduleList.get(i);
             if(DoctorsBox.getValue().equals("Dr." + scheduleModel.getName())){
@@ -170,12 +169,6 @@ public class UserAppointments implements Initializable {
         }
     }
 
-    public void ConfirmSchedule(ActionEvent actionEvent){
-        DocName.setText(DoctorsBox.getValue());
-        SchedTime.setText(ScheduleBox.getValue());
-        SchedDate.setText(ChildBox.getValue());
-        ConfirmAppointment.setDisable(false);
-    }
 
     public void SelectAppointment(ActionEvent actionEvent){
         String AppValue = AppointmentsBox.getValue();
