@@ -77,9 +77,9 @@ public class DoctorLogin implements Initializable {
         }
     }
 
-        public void RegisterScreen (ActionEvent actionEvent){
-            new Main().loadFXML("DoctorRegister");
-            Stage closeStage = (Stage) RegisterButton.getScene().getWindow();
-            new Main().CloseButton(closeStage);
-        }
+    public void RegisterScreen (ActionEvent actionEvent){
+        new Main().loadFXML("DoctorRegister");
+        Stage closeStage = (Stage) RegisterButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
 }

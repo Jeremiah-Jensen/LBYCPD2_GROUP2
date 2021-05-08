@@ -114,7 +114,7 @@ public class DoctorDetails implements Initializable {
     }
 
     public void DoctorHome(ActionEvent actionEvent) {
-    new Main().loadFXML("DoctorMainMenu");
+        new Main().loadFXML("DoctorMainMenu");
         Stage closeStage = (Stage) HomeButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
