@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 public class DoctorAppointments implements Initializable {
 
     public Button LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton, ViewButton;
-    public ListView ScheduleList, PreQuesAnswers;
+    public ListView ScheduleList, PreQuesAnswers, PostQuesAnswers;
     public TextField day, time, link;
     public ComboBox AppointmentsBox;
     public Text PatientText, ScheduleText;
@@ -99,7 +99,7 @@ public class DoctorAppointments implements Initializable {
     }
 
     public void DoctorLogOut(ActionEvent actionEvent) {
-        new Main().LoginWindow();
+        new Main().loadFXML("LogIn");
         Stage closeStage = (Stage) LogOutButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
@@ -166,6 +166,22 @@ public class DoctorAppointments implements Initializable {
                         PreQuesAnswers.getItems().add("     - " + appointmentModel.getQ9());
                         PreQuesAnswers.getItems().add("Frequent Stepthroat Infections");
                         PreQuesAnswers.getItems().add("     - " + appointmentModel.getQ10());
+
+                        if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getChild()) && appointmentModel.getStatus().equals("Consultation")) {
+                            if(appointmentModel.getFeelingQ2().equals(" ") || appointmentModel.getPainQ2().equals(" ") || appointmentModel.getPainScaleQ2().equals(" ") || appointmentModel.getSideEffectsQ().equals(" ")) {
+                                PostQuesAnswers.getItems().add("No Answers Available");
+                            }
+                            else {
+                                PostQuesAnswers.getItems().add("What is your child feeling?");
+                                PostQuesAnswers.getItems().add("     - " + appointmentModel.getFeelingQ2());
+                                PostQuesAnswers.getItems().add("Is your child feeling pain right now?");
+                                PostQuesAnswers.getItems().add("     - " + appointmentModel.getPainQ2());
+                                PostQuesAnswers.getItems().add("If yes, rate the pain from a scale of 1-10.");
+                                PostQuesAnswers.getItems().add("     - " + appointmentModel.getPainScaleQ2());
+                                PostQuesAnswers.getItems().add("What are the side effects after drinking the medicine?");
+                                PostQuesAnswers.getItems().add("     - " + appointmentModel.getSideEffectsQ());
+                            }
+                        }
                     }
                 }
             }

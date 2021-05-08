@@ -16,7 +16,7 @@ public class DoctorMainMenu {
     }
 
     public void DoctorLogOut(ActionEvent actionEvent) {
-        new Main().LoginWindow();
+        new Main().loadFXML("LogIn");
         Stage closeStage = (Stage) LogOutButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
