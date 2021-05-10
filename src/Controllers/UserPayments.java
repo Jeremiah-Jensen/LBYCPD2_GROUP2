@@ -29,6 +29,7 @@ public class UserPayments implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userModel = UserLogIn.userModel;
+        CreditLabel.setText(userModel.getCredit());
     }
 
     public void Switch(ActionEvent actionEvent) {
@@ -117,12 +118,17 @@ public class UserPayments implements Initializable {
     }
 
     public void LoadCredit(ActionEvent actionEvent) {
-        Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+        Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
         String Credit = CreditTextField.getText();
         int credits = Integer.parseInt(Credit);
-        int cred = credits + Integer.parseInt(userModel.getCredit());
-        CreditLabel.setText(String.valueOf(cred));
+        int getCred = Integer.parseInt(userModel.getCredit());
+        int cred = credits + getCred;
         firebase.child("User").child(userModel.getId()).child("credit").setValue(String.valueOf(cred));
+
+        //resets fxml
+        Stage closeStage = (Stage) HomeButton.getScene().getWindow();
+        new Main().loadFXML("UserPayments");
+        new Main().CloseButton(closeStage);
     }
 
 
