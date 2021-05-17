@@ -73,7 +73,7 @@ public class DoctorAppointments implements Initializable {
                 }
                 for(int i = 0; i < appointmentsList.size(); i++) {
                     Appointments appointmentModel = appointmentsList.get(i);
-                    if(fullnameDoctor.equals(appointmentModel.getDoctor()) && appointmentModel.getStatus().equals("Consultation")) {
+                    if(fullnameDoctor.equals(appointmentModel.getDoctor()) && appointmentModel.getStatus().equals("Consultation") || appointmentModel.getStatus().equals("Monitor")) {
                         AppointmentsBox.getItems().add(appointmentModel.getChild());
                     }
                 }

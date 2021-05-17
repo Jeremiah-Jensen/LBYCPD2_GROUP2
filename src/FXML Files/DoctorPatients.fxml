@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -53,37 +55,41 @@
                         </DropShadow>
                     </effect>
                 </Rectangle>
-                <Button fx:id="UserDetailsButton" layoutX="29.0" layoutY="339.0" mnemonicParsing="false" onAction="#DoctorDetails" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="User Details">
+                <Button fx:id="UserDetailsButton" layoutX="31.0" layoutY="357.0" mnemonicParsing="false" onAction="#DoctorDetails" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="User Details">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="31.0" layoutY="414.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
+                <Button layoutX="33.0" layoutY="432.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="LogOutButton" layoutX="30.0" layoutY="489.0" mnemonicParsing="false" onAction="#DoctorLogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Log Out">
+                <Button fx:id="LogOutButton" layoutX="32.0" layoutY="507.0" mnemonicParsing="false" onAction="#DoctorLogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Log Out">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="AppointmentsButton" layoutX="29.0" layoutY="263.0" mnemonicParsing="false" onAction="#DoctorAppointments" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Appointments">
+                <Button fx:id="AppointmentsButton" layoutX="31.0" layoutY="281.0" mnemonicParsing="false" onAction="#DoctorAppointments" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Appointments">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="HomeButton" layoutX="27.0" layoutY="189.0" mnemonicParsing="false" onAction="#DoctorHome" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Home">
+                <Button fx:id="HomeButton" layoutX="29.0" layoutY="207.0" mnemonicParsing="false" onAction="#DoctorHome" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Home">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="108.0" layoutX="32.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="208.0" />
-                <Label layoutX="65.0" layoutY="62.0" text="LOGO">
-                    <font>
-                        <Font name="Avenir Book" size="52.0" />
-                    </font>
-                </Label>
+            <ImageView fitHeight="123.0" fitWidth="210.0" layoutX="44.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="47.0" layoutY="121.0" text="pediacare" textFill="WHITE">
+               <font>
+                  <Font name="Minimo Light" size="45.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
       <AnchorPane layoutX="296.0" layoutY="15.0" prefHeight="300.0" prefWidth="690.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">

@@ -33,43 +33,45 @@
             </DropShadow>
          </effect>
          <children>
-            <PasswordField fx:id="PasswordLogin" layoutX="124.0" layoutY="280.0" prefHeight="34.0" prefWidth="197.0" style="-fx-background-radius: 20;" />
-            <TextField fx:id="UsernameLogin" layoutX="124.0" layoutY="223.0" prefHeight="32.0" prefWidth="198.0" style="-fx-background-radius: 20;" />
-            <Button fx:id="LoginButton" layoutX="48.0" layoutY="370.0" mnemonicParsing="false" onAction="#LogInAction" prefHeight="51.0" prefWidth="259.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Log In" textFill="WHITE">
+            <PasswordField fx:id="PasswordLogin" layoutX="125.0" layoutY="295.0" prefHeight="34.0" prefWidth="197.0" style="-fx-background-radius: 20;" />
+            <TextField fx:id="UsernameLogin" layoutX="125.0" layoutY="238.0" prefHeight="32.0" prefWidth="198.0" style="-fx-background-radius: 20;" />
+            <Button fx:id="LoginButton" layoutX="46.0" layoutY="391.0" mnemonicParsing="false" onAction="#LogInAction" prefHeight="51.0" prefWidth="259.0" style="-fx-background-color: #8BD9C7; -fx-background-radius: 40px;" text="Log In" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Label layoutX="33.0" layoutY="226.0" text="Username">
+            <Label layoutX="34.0" layoutY="241.0" text="Username">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="36.0" layoutY="285.0" text="Password">
+            <Label layoutX="37.0" layoutY="300.0" text="Password">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="RegisterButton" layoutX="46.0" layoutY="442.0" mnemonicParsing="false" onAction="#RegisterScreen" prefHeight="51.0" prefWidth="259.0" style="-fx-background-color: #95D8EB; -fx-background-radius: 40px;" text="Register" textFill="WHITE">
+            <ImageView fitHeight="66.0" fitWidth="206.0" layoutX="75.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/PediaCare.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="82.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Logo.png" />
+               </image>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color blue="0.6513158082962036" green="0.6513158082962036" red="0.6513158082962036" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Button fx:id="RegisterButton" layoutX="45.0" layoutY="457.0" mnemonicParsing="false" onAction="#RegisterScreen" prefHeight="51.0" prefWidth="259.0" style="-fx-background-color: #95D8EB; -fx-background-radius: 40px;" text="Register" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <AnchorPane layoutX="92.0" layoutY="51.0" prefHeight="134.0" prefWidth="174.0">
-               <children>
-                  <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#94edff" height="90.0" layoutX="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="168.0" />
-                  <Label layoutX="20.0" layoutY="13.0" text="LOGO">
-                     <font>
-                        <Font size="50.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="58.0" layoutY="97.0" text="&quot;Tagline&quot;">
-                     <font>
-                        <Font name="Avenir Book" size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <Text fx:id="LogInError" fill="#e90000" layoutX="94.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="167.9999999999999">
+            <Text fx:id="LogInError" fill="#e90000" layoutX="94.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="167.9999999999999">
                <font>
                   <Font size="16.0" />
                </font>

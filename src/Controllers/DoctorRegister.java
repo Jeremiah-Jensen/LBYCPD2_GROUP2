@@ -106,7 +106,7 @@ public class DoctorRegister implements Initializable {
     }
 
     public void Back(ActionEvent actionEvent) {
-        new Main().LoginWindow();
+        new Main().loadFXML("LogIn");
         Stage closeStage = (Stage) BackButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
