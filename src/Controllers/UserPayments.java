@@ -12,24 +12,28 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class UserPayments implements Initializable {
     @FXML
-    public Button LogOutButton, AppointmentsButton, DetailsButton, HomeButton;
+    public Button LogOutButton, AppointmentsButton, DetailsButton, HomeButton, LoadCreditButton;
     public TextField NameTextField, CardNumTextField, ExpirydateTextField, BankTextField, NetworkTextField, CreditTextField;
     public PasswordField CVVPasswordField;
     public AnchorPane InputCard, CardDetails;
     public Label NameLabel, CardNumLabel, ExpirydateLabel, CVVLabel, BankLabel, NetworkLabel, CreditLabel;
 
     User userModel;
+    List<User> userList = new ArrayList<>();
     int count = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userModel = UserLogIn.userModel;
         CreditLabel.setText(userModel.getCredit());
+
     }
 
     public void Switch(ActionEvent actionEvent) {
@@ -79,40 +83,58 @@ public class UserPayments implements Initializable {
                     throw new NullPointerException("Can't pass null for argument 'pathString' in child()");
                 }
                 else {
-                    System.out.println(userModel.getId());
                     firebase.child("User").child(userModel.getId()).child("name").setValue(NameTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("cardnumber").setValue(CardNumTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("cvv").setValue(CVVPasswordField.getText());
                     firebase.child("User").child(userModel.getId()).child("expirydate").setValue(ExpirydateTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("bank").setValue(BankTextField.getText());
                     firebase.child("User").child(userModel.getId()).child("network").setValue(NetworkTextField.getText());
-                   new Main().loadFXML("UserPayments");
-                    Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
-                    new Main().CloseButton(closeStage);
+                    NameTextField.clear();
+                    CardNumTextField.clear();
+                    CVVPasswordField.clear();
+                    ExpirydateTextField.clear();
+                    BankTextField.clear();
+                    NetworkTextField.clear();
+                    LoadCreditButton.setDisable(false);
+
                 }
+
             }
         }
-        if(NameTextField.getText().isEmpty()){
-            NameLabel.setText("Empty field");
+
+        else if(CardNumTextField.getText().equals(userModel.getCardnumber()) && CVVPasswordField.getText().equals(userModel.getCvv())){
+            LoadCreditButton.setDisable(false);
         }
 
-        if(CardNumTextField.getText().length() != 16 || CardNumTextField.getText().isEmpty()){
-            CardNumLabel.setText("Must be 16 digits");
+        else if (!CardNumTextField.getText().equals(userModel.getCardnumber()) && !CVVPasswordField.getText().equals(userModel.getCvv())){
+            CardNumLabel.setText("Incorrect digits");
+            CVVLabel.setText("Incorrect digits");
         }
 
-        if(CVVPasswordField.getText().length() != 3 || CVVPasswordField.getText().isEmpty()){
-            CVVLabel.setText("Must be 3 digits");
-        }
-        if(ExpirydateTextField.getText().length() != 5 || ExpirydateTextField.getText().isEmpty()){
-           ExpirydateLabel.setText("Must be 5 digits");
-        }
+        else {
+            if (NameTextField.getText().isEmpty()) {
+                NameLabel.setText("Empty field");
+            }
 
-        if(BankTextField.getText().isEmpty()){
-            BankLabel.setText("Empty field");
-        }
+            if (CardNumTextField.getText().length() != 16 || CardNumTextField.getText().isEmpty()) {
+                CardNumLabel.setText("Must be 16 digits");
+            }
 
-        if(NameTextField.getText().isEmpty()){
-            NetworkLabel.setText("Empty field");
+            if (CVVPasswordField.getText().length() != 3 || CVVPasswordField.getText().isEmpty()) {
+                CVVLabel.setText("Must be 3 digits");
+            }
+            if (ExpirydateTextField.getText().length() != 5 || ExpirydateTextField.getText().isEmpty()) {
+                ExpirydateLabel.setText("Must be 5 digits");
+            }
+
+            if (BankTextField.getText().isEmpty()) {
+                BankLabel.setText("Empty field");
+            }
+
+            if (NameTextField.getText().isEmpty()) {
+                NetworkLabel.setText("Empty field");
+            }
+
         }
 
     }
@@ -124,11 +146,12 @@ public class UserPayments implements Initializable {
         int getCred = Integer.parseInt(userModel.getCredit());
         int cred = credits + getCred;
         firebase.child("User").child(userModel.getId()).child("credit").setValue(String.valueOf(cred));
-
         //resets fxml
+        CreditLabel.setText(String.valueOf(cred));
         Stage closeStage = (Stage) HomeButton.getScene().getWindow();
         new Main().loadFXML("UserPayments");
         new Main().CloseButton(closeStage);
+
     }
 
 

@@ -247,7 +247,7 @@
                 </Label>
                 <TextField fx:id="CreditTextField" layoutX="133.0" layoutY="118.0" prefHeight="26.0" prefWidth="139.0" promptText="Enter Amount" style="-fx-background-radius: 50;" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="16.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="260.0" />
-                <Button fx:id="LoadCreditButton" layoutX="14.0" layoutY="186.0" mnemonicParsing="false" onAction="#LoadCredit" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Load Credit">
+                <Button fx:id="LoadCreditButton" disable="true" layoutX="14.0" layoutY="186.0" mnemonicParsing="false" onAction="#LoadCredit" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Load Credit">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
@@ -262,6 +262,5 @@
                 </DropShadow>
             </effect>
         </AnchorPane>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="191.0" layoutY="474.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
     </children>
 </AnchorPane>
