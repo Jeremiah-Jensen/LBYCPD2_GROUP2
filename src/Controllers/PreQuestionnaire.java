@@ -21,12 +21,13 @@ public class PreQuestionnaire implements Initializable {
     public ComboBox<String> PainComboBox = new ComboBox<>();
     public TextArea Reason, Feeling;
     public ToggleGroup TG, TG1, TG2, TG3, TG4, TG5, TG6, TG7, TG8, TG9, TG10;
+    public Label Warning, ComboBoxWarning;
     Appointments appointmentsModel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         appointmentsModel = UserAppointments.appointmentsModel;
-        PainComboBox.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+        PainComboBox.getItems().addAll("0","1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
     }
 
     public void SubmitAnswers(ActionEvent actionEvent) {
@@ -68,111 +69,117 @@ public class PreQuestionnaire implements Initializable {
 
     private void Write(){
         System.out.println(appointmentsModel.getId());
-        Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
-
         if(appointmentsModel==null){
             throw new NullPointerException("Can't pass null for argument 'pathString' in child()");
         }
         else {
-            firebase.child("Appointments").child(appointmentsModel.getId()).child("feelingQ").setValue(Feeling.getText());
-            firebase.child("Appointments").child(appointmentsModel.getId()).child("reasonQ").setValue(Reason.getText());
-            firebase.child("Appointments").child(appointmentsModel.getId()).child("painScale").setValue(PainComboBox.getValue());
 
-            if(YesPainButton.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ1").setValue("Yes");
+            if(Reason.getText().isEmpty() || PainComboBox.getValue().isEmpty() || Feeling.getText().isEmpty()){
+                Warning.setText("Empty fields.");
             }
 
-            if(NoPainButton.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ1").setValue("No");
+            else {
+                Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+                if(YesPainButton.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ1").setValue("Yes");
+                }
+
+                if(NoPainButton.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ1").setValue("No");
+                }
+
+                if(YesButton1.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q1").setValue("Yes");
+                }
+
+                if(NoButton1.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q1").setValue("No");
+                }
+
+                if(YesButton2.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q2").setValue("Yes");
+                }
+
+                if(NoButton2.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q2").setValue("No");
+                }
+
+                if(YesButton3.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q3").setValue("Yes");
+                }
+
+                if(NoButton3.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q3").setValue("No");
+                }
+
+                if(YesButton4.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q4").setValue("Yes");
+                }
+
+                if(NoButton4.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q4").setValue("No");
+                }
+
+                if(YesButton5.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q5").setValue("Yes");
+                }
+
+                if(NoButton5.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q5").setValue("No");
+                }
+
+                if(YesButton6.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q6").setValue("Yes");
+                }
+
+                if(NoButton6.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q6").setValue("No");
+                }
+
+                if(YesButton7.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q7").setValue("Yes");
+                }
+
+                if(NoButton7.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q7").setValue("No");
+                }
+
+                if(YesButton8.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q8").setValue("Yes");
+                }
+
+                if(NoButton8.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q8").setValue("No");
+                }
+
+                if(YesButton9.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q9").setValue("Yes");
+                }
+
+                if(NoButton9.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q9").setValue("No");
+                }
+
+                if(YesButton10.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q10").setValue("Yes");
+                }
+
+                if(NoButton10.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("q10").setValue("No");
+                }
+
+                firebase.child("Appointments").child(appointmentsModel.getId()).child("feelingQ").setValue(Feeling.getText());
+                firebase.child("Appointments").child(appointmentsModel.getId()).child("reasonQ").setValue(Reason.getText());
+                firebase.child("Appointments").child(appointmentsModel.getId()).child("painScale").setValue(PainComboBox.getValue());
+                firebase.child("Appointments").child(appointmentsModel.getId()).child("status").setValue("Consultation");
+                //new Main().loadFXML("UserAppointments");
+                Stage closeStage = (Stage) SubmitAnswers.getScene().getWindow();
+                new Main().CloseButton(closeStage);
+
             }
-
-            if(YesButton1.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q1").setValue("Yes");
-            }
-
-            if(NoButton1.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q1").setValue("No");
-            }
-
-            if(YesButton2.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q2").setValue("Yes");
-            }
-
-            if(NoButton2.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q2").setValue("No");
-            }
-
-            if(YesButton3.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q3").setValue("Yes");
-            }
-
-            if(NoButton3.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q3").setValue("No");
-            }
-
-            if(YesButton4.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q4").setValue("Yes");
-            }
-
-            if(NoButton4.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q4").setValue("No");
-            }
-
-            if(YesButton5.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q5").setValue("Yes");
-            }
-
-            if(NoButton5.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q5").setValue("No");
-            }
-
-            if(YesButton6.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q6").setValue("Yes");
-            }
-
-            if(NoButton6.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q6").setValue("No");
-            }
-
-            if(YesButton7.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q7").setValue("Yes");
-            }
-
-            if(NoButton7.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q7").setValue("No");
-            }
-
-            if(YesButton8.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q8").setValue("Yes");
-            }
-
-            if(NoButton8.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q8").setValue("No");
-            }
-
-            if(YesButton9.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q9").setValue("Yes");
-            }
-
-            if(NoButton9.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q9").setValue("No");
-            }
-
-            if(YesButton10.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q10").setValue("Yes");
-            }
-
-            if(NoButton10.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("q10").setValue("No");
-            }
-
-            firebase.child("Appointments").child(appointmentsModel.getId()).child("status").setValue("Consultation");
-
-            new Main().loadFXML("UserAppointments");
-            Stage closeStage = (Stage) SubmitAnswers.getScene().getWindow();
-            new Main().CloseButton(closeStage);
 
         }
     }
 
-}
+    }
+
