@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminUser">
+    <children>
+        <AnchorPane layoutX="7.0" layoutY="9.0" prefHeight="563.0" prefWidth="288.0" style="-fx-background-color: 0\;">
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.3881579041481018" green="0.3881579041481018" blue="0.3881579041481018" />
+                    </color>
+                </DropShadow>
+            </effect>
+            <children>
+                <Rectangle height="604.0" layoutX="-5.0" layoutY="-12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="280.0">
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color />
+                                    </color>
+                                </Stop>
+                                <Stop offset="0.007532956685499058">
+                                    <color>
+                                        <Color red="0.41359999775886536" green="0.8799999952316284" blue="0.7678419351577759" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="0.1921568661928177" green="0.7058823704719543" blue="0.8627451062202454" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.45394736528396606" green="0.45394736528396606" blue="0.45394736528396606" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Rectangle>
+                <Button fx:id="LogOutButton" layoutX="29.0" layoutY="354.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Log Out">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
+                <Button fx:id="HomeButton" layoutX="28.0" layoutY="204.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Doctors">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
+                <Button fx:id="AppointmentsButton" layoutX="27.0" layoutY="279.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Appointments">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
+                <ImageView fitHeight="123.0" fitWidth="210.0" layoutX="39.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Images/Logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="45.0" layoutY="120.0" text="pediacare" textFill="WHITE">
+                    <font>
+                        <Font name="Minimo Light" size="45.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="ScheduleAppointment" layoutX="298.0" layoutY="16.0" prefHeight="254.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+            <children>
+                <Rectangle arcHeight="60.0" arcWidth="60.0" height="274.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="684.0">
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="0.3807261288166046" green="0.8223684430122375" blue="0.7119578719139099" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Rectangle>
+                <Label fx:id="Username" layoutX="24.0" layoutY="7.0" text="Username" textFill="WHITE">
+                    <font>
+                        <Font name="Avenir Book" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="243.0" layoutY="70.0" text="Name:" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Name" layoutX="353.0" layoutY="70.0" prefHeight="27.0" prefWidth="230.0" text="first name + last name" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="243.0" layoutY="108.0" text="Gender:" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Gender" layoutX="354.0" layoutY="108.0" prefHeight="27.0" prefWidth="230.0" text="gender" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="243.0" layoutY="148.0" prefHeight="27.0" prefWidth="87.0" text="Birthday:" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Birthday" layoutX="352.0" layoutY="148.0" prefHeight="27.0" prefWidth="241.0" text="mm/dd/yyyy" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <Button layoutX="40.0" layoutY="233.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="151.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Edit User Info">
+                    <font>
+                        <Font name="Avenir Book" size="10.0" />
+                    </font>
+                </Button>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="25.0" layoutY="52.0" strokeType="INSIDE" strokeWidth="0.0" width="624.0">
+                    <stroke>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="1.0" green="1.0" blue="1.0" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </stroke>
+                </Rectangle>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="41.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
+                <Label layoutX="243.0" layoutY="188.0" prefHeight="27.0" prefWidth="87.0" text="Email:" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Email" layoutX="352.0" layoutY="188.0" prefHeight="30.0" prefWidth="296.0" text="email.gmail.com" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="244.0" layoutY="228.0" prefHeight="27.0" prefWidth="87.0" text="Number:" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Number" layoutX="353.0" layoutY="228.0" prefHeight="27.0" prefWidth="258.0" text="09XX XXX XXXX" textFill="#fdfdfd">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                </Label>
+                <ImageView fx:id="UserImage" fitHeight="140.0" fitWidth="140.0" layoutX="47.0" layoutY="76.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Images/Default.png" />
+               </image></ImageView>
+            <ComboBox fx:id="UserBox" layoutX="344.0" layoutY="17.0" onAction="#SelectUser" opacity="0.86" prefHeight="26.0" prefWidth="303.0" promptText="Select User" style="-fx-background-color: #ffffff#ffffff;" />
+            </children>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </AnchorPane>
+        <AnchorPane fx:id="ManageChildren" layoutX="298.0" layoutY="312.0" prefHeight="274.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+            <children>
+                <Label layoutX="25.0" layoutY="11.0" text="Children" textFill="#39a2bd">
+                    <font>
+                        <Font name="Avenir Book" size="26.0" />
+                    </font>
+                </Label>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="24.0" layoutY="52.0" stroke="#39a2bd" strokeType="INSIDE" width="628.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" height="150.0" layoutX="40.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="151.0">
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="0.3807261288166046" green="0.8223684430122375" blue="0.7119578719139099" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Rectangle>
+                <ComboBox fx:id="ChildBox" layoutX="355.0" layoutY="76.0" prefHeight="33.0" prefWidth="296.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+                <Label layoutX="232.0" layoutY="121.0" text="Name:">
+                    <font>
+                        <Font name="Avenir Book" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="232.0" layoutY="158.0" text="Birthday:">
+                    <font>
+                        <Font name="Avenir Book" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="232.0" layoutY="196.0" text="Conditions:">
+                    <font>
+                        <Font name="Avenir Book" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="ChildName" layoutX="358.0" layoutY="121.0" prefHeight="30.0" prefWidth="290.0" text="--">
+                    <font>
+                        <Font name="Avenir Book" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="ChildBirthday" layoutX="358.0" layoutY="158.0" prefHeight="30.0" prefWidth="290.0" text="--">
+                    <font>
+                        <Font name="Avenir Book" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="ChildConditions" layoutX="358.0" layoutY="196.0" prefHeight="30.0" prefWidth="290.0" text="--">
+                    <font>
+                        <Font name="Avenir Book" size="20.0" />
+                    </font>
+                </Label>
+                <ImageView fx:id="ChildImage" fitHeight="140.0" fitWidth="140.0" layoutX="45.0" layoutY="82.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Images/Default.png" />
+               </image></ImageView>
+            <Label layoutX="230.0" layoutY="78.0" text="Select Child" textFill="#39a2bd">
+               <font>
+                  <Font name="Avenir Book" size="20.0" />
+               </font>
+            </Label>
+            </children>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </AnchorPane>
+    </children>
+</AnchorPane>

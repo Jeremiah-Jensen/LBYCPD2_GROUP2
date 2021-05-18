@@ -72,6 +72,11 @@ public class UserLogIn implements Initializable {
     }
 
     public void LogInAction(ActionEvent actionEvent) {
+        if(UsernameLogin.getText().equals("Admin") || PasswordLogin.getText().equals("Admin")) {
+            new Main().loadFXML("AdminUser");
+            Stage closeStage = (Stage) LoginButton.getScene().getWindow();
+            new Main().CloseButton(closeStage);
+        }
         if(UsernameLogin.getText().isEmpty() || PasswordLogin.getText().isEmpty()) {
             LogInError.setText("Please Enter Both Fields");
         }
@@ -147,11 +152,9 @@ public class UserLogIn implements Initializable {
 
     public void Back(ActionEvent actionEvent){
         if(count == 0) {
-            //this code basically moves the anchor panes lang, no need to set false
             TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), LogIn);
             translateTransition.setByX(-380);
             translateTransition.play();
-            //just to pause
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(1), Register);
             translateTransition2.setByX(380);
             translateTransition2.play();
