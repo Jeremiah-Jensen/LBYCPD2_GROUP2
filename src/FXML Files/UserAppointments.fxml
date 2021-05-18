@@ -129,54 +129,46 @@
                         </LinearGradient>
                     </fill>
                 </Rectangle>
-                <Label layoutX="427.0" layoutY="19.0" text="Appointment Details" textFill="WHITE">
-                    <font>
-                        <Font name="Avenir Book" size="26.0" />
-                    </font>
-                </Label>
-                <Label layoutX="430.0" layoutY="72.0" text="Doctor:" textFill="#fdfdfd">
+                <Label fx:id="DocName" alignment="CENTER" layoutX="429.0" layoutY="209.0" prefHeight="27.0" prefWidth="241.0" text="Dr. --" textFill="#fdfdfd">
                     <font>
                         <Font name="Avenir Book" size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="DocName" alignment="CENTER" layoutX="430.0" layoutY="105.0" prefHeight="27.0" prefWidth="241.0" text="--" textFill="#fdfdfd">
-                    <font>
-                        <Font name="Avenir Book" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="430.0" layoutY="127.0" text="Date:" textFill="#fdfdfd">
-                    <font>
-                        <Font name="Avenir Book" size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="SchedDate" alignment="CENTER" layoutX="430.0" layoutY="160.0" prefHeight="27.0" prefWidth="241.0" text="--" textFill="#fdfdfd">
-                    <font>
-                        <Font name="Avenir Book" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="431.0" layoutY="192.0" text="Time:" textFill="#fdfdfd">
-                    <font>
-                        <Font name="Avenir Book" size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="SchedTime" alignment="CENTER" layoutX="431.0" layoutY="225.0" prefHeight="27.0" prefWidth="241.0" text="--" textFill="#fdfdfd">
-                    <font>
-                        <Font name="Avenir Book" size="18.0" />
-                    </font>
-                </Label>
-            <ComboBox fx:id="DoctorsBox" layoutX="36.0" layoutY="113.0" onAction="#ConfirmDoctor" prefHeight="33.0" prefWidth="333.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <ComboBox fx:id="DoctorsBox" layoutX="36.0" layoutY="113.0" onAction="#ConfirmDoctor" prefHeight="33.0" prefWidth="341.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
             <ComboBox fx:id="ScheduleBox" disable="true" layoutX="36.0" layoutY="201.0" prefHeight="33.0" prefWidth="154.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
             <Label layoutX="216.0" layoutY="173.0" text="Child">
                <font>
                   <Font name="Avenir Book" size="19.0" />
                </font>
             </Label>
-            <ComboBox fx:id="ChildBox" disable="true" layoutX="216.0" layoutY="202.0" prefHeight="33.0" prefWidth="154.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <ComboBox fx:id="ChildBox" disable="true" layoutX="216.0" layoutY="202.0" prefHeight="33.0" prefWidth="163.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
             <Button fx:id="ConfirmSched" disable="true" layoutX="61.0" layoutY="273.0" mnemonicParsing="false" onAction="#ConfirmAppointment" prefHeight="33.0" prefWidth="293.0" style="-fx-background-color: #3abd8f#3abd8f#3abd8f#3abd8f; -fx-background-radius: 50;" text="Confirm Appointments" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>
             </Button>
+            <Label fx:id="SubSpecialty" alignment="CENTER" layoutX="417.0" layoutY="280.0" prefHeight="27.0" prefWidth="266.0" text="Subspecialty: --" textFill="#fdfdfd">
+               <font>
+                  <Font name="Avenir Book" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Specialty" alignment="CENTER" layoutX="416.0" layoutY="245.0" prefHeight="27.0" prefWidth="266.0" text="Specialty: --" textFill="#fdfdfd">
+               <font>
+                  <Font name="Avenir Book" size="18.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="165.0" layoutX="469.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="165.0" />
+            <ImageView fitHeight="163.0" fitWidth="240.0" layoutX="429.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="DoctorImage" fitHeight="155.0" fitWidth="155.0" layoutX="474.0" layoutY="36.0" pickOnBounds="true" />
+            <Label fx:id="Error" alignment="CENTER" layoutX="37.0" layoutY="246.0" prefHeight="19.0" prefWidth="341.0" textFill="#d52121">
+               <font>
+                  <Font name="Avenir Book" size="13.0" />
+               </font>
+            </Label>
             </children>
             <effect>
                 <DropShadow>
@@ -194,7 +186,7 @@
                     </font>
                 </Label>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3abd8f" height="4.0" layoutX="22.0" layoutY="52.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="349.0" />
-                <ListView layoutX="23.0" layoutY="66.0" prefHeight="253.0" prefWidth="343.0" style="-fx-background-radius: 20;" />
+                <ListView fx:id="PreviousListView" layoutX="23.0" layoutY="119.0" prefHeight="200.0" prefWidth="343.0" />
                 <Rectangle arcHeight="60.0" arcWidth="60.0" height="331.0" layoutX="391.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="293.0">
                     <fill>
                         <LinearGradient endX="1.0" endY="1.0">
@@ -224,6 +216,7 @@
                     </font>
                 </Button>
                 <TextArea layoutX="407.0" layoutY="60.0" prefHeight="200.0" prefWidth="266.0" />
+            <ComboBox fx:id="PreviousBox" layoutX="24.0" layoutY="70.0" prefHeight="33.0" prefWidth="343.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
             </children>
             <effect>
                 <DropShadow>
@@ -256,12 +249,7 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-            <ComboBox fx:id="AppointmentsBox" layoutX="24.0" layoutY="71.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
-            <Button layoutX="290.0" layoutY="71.0" mnemonicParsing="false" onAction="#SelectAppointment" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #3abd8f#3abd8f#3abd8f#3abd8f; -fx-background-radius: 50;" text="Select" textFill="WHITE">
-               <font>
-                  <Font name="Avenir Book" size="15.0" />
-               </font>
-            </Button>
+            <ComboBox fx:id="AppointmentsBox" layoutX="24.0" layoutY="71.0" onAction="#SelectAppointment" prefHeight="33.0" prefWidth="372.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
             <ListView fx:id="AppointmentsListView" layoutX="24.0" layoutY="120.0" prefHeight="82.0" prefWidth="372.0" />
             </children>
             <effect>

@@ -109,7 +109,7 @@ public class UserDetails implements Initializable {
                 }
                 for (int i = 0; i < childrenList.size(); i++) {
                     Children childrenModel = childrenList.get(i);
-                    if (userModel.getId().equals(childrenModel.getParentID())) {
+                    if (userModel.getUsername().equals(childrenModel.getParentID())) {
                         ChildBox.getItems().add(childrenModel.getFirstname() + " " + childrenModel.getLastname());
                         Platform.runLater(new Runnable() {
                             @Override
@@ -141,7 +141,7 @@ public class UserDetails implements Initializable {
         else{
             Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
             Children model = new Children();
-            model.setParentID(userModel.getId());
+            model.setParentID(userModel.getUsername());
             model.setBirthday(Month.getValue() + " " + Day.getValue() + ", " + Year.getValue());
             model.setFirstname(ChildFN.getText());
             model.setLastname(ChildLN.getText());

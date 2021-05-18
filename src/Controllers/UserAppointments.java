@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -28,10 +30,11 @@ public class UserAppointments implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment,UpcomingAppointments, PreviousAppointments;
     public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton, PaymentsButton, PreQues, PostQues;
-    public Button ConfirmDoctor, ConfirmSched, ConfirmAppointment, Consult;
-    public Label DocName, SchedTime, SchedDate;
-    public ComboBox<String> DoctorsBox, ScheduleBox, ChildBox, AppointmentsBox;
-    public ListView<String> AppointmentsListView;
+    public Button ConfirmSched, ConfirmAppointment, Consult;
+    public Label DocName, SubSpecialty,Specialty, Error;
+    public ImageView DoctorImage;
+    public ComboBox<String> DoctorsBox, ScheduleBox, ChildBox, AppointmentsBox, PreviousBox;
+    public ListView<String> AppointmentsListView, PreviousListView;
     int count = 0;
     public String FullName;
     User userModel;
@@ -90,8 +93,14 @@ public class UserAppointments implements Initializable {
                 for(int i = 0; i < appointmentsList.size()/2; i++) {
                     Appointments appointmentsModel = appointmentsList.get(i);
                     if(FullName.equals(appointmentsModel.getUser())){
-                        AppointmentsBox.getItems().add(appointmentsModel.getAppointment());
-                        AppointmentsListView.getItems().add(appointmentsModel.getAppointment());
+                        if(appointmentsModel.getStatus().equals("Upcoming") || appointmentsModel.getStatus().equals("Consultation")){
+                            AppointmentsBox.getItems().add(appointmentsModel.getAppointment());
+                            AppointmentsListView.getItems().add(appointmentsModel.getAppointment());
+                        }
+                        else{
+                            PreviousBox.getItems().add(appointmentsModel.getAppointment());
+                            PreviousListView.getItems().add(appointmentsModel.getAppointment());
+                        }
                     }
                 }
             }
@@ -152,6 +161,15 @@ public class UserAppointments implements Initializable {
 
     public void ConfirmDoctor(ActionEvent actionEvent){
         DocName.setText(DoctorsBox.getValue());
+        for(int i = 0; i < doctorList.size(); i++) {
+            Doctor doctorModel = doctorList.get(i);
+            if(DoctorsBox.getValue().equals("Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName())){
+                Image dcPic = new Image(doctorModel.getPicture());
+                DoctorImage.setImage(dcPic);
+                SubSpecialty.setText("Subspecialty: " + doctorModel.getSubspecialty());
+                Specialty.setText("Specialty: Pediatrician");
+            }
+        }
         ScheduleBox.setDisable(false);
         ChildBox.setDisable(false);
         ConfirmSched.setDisable(false);
@@ -193,10 +211,21 @@ public class UserAppointments implements Initializable {
     }
 
     public void ConfirmAppointment(ActionEvent actionEvent){
-        WriteAppointment();
-        new Main().loadFXML("UserAppointments");
-        Stage closeStage = (Stage) ConfirmAppointment.getScene().getWindow();
-        new Main().CloseButton(closeStage);
+        if(ScheduleBox.getItems().isEmpty() && ChildBox.getItems().isEmpty()){
+            Error.setText("No Available Schedule/No Registered Child Found");
+        }
+        else if(ScheduleBox.getItems().isEmpty()){
+                    Error.setText("No Available Schedule");
+        }
+        else if(ChildBox.getItems().isEmpty()){
+            Error.setText("No Registered Child Found");
+        }
+        else{
+            WriteAppointment();
+            new Main().loadFXML("UserAppointments");
+            Stage closeStage = (Stage) ConfirmAppointment.getScene().getWindow();
+            new Main().CloseButton(closeStage);
+        }
     }
 
     public void AppointmentScreen(ActionEvent actionEvent) {

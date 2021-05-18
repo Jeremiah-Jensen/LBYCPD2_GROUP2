@@ -7,7 +7,6 @@ public class Schedule {
     public Schedule() {
 
     }
-
     public Schedule(String name, String day, String time, String link) {
         this.name = name;
         this.day = day;
