@@ -5,6 +5,7 @@ import com.firebase.client.Firebase;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,7 +20,8 @@ public class DoctorDetails implements Initializable {
 
     public Button LogOutButton, AppointmentsButton, PatientsButton, HomeButton;
     public Text FirstName, ContactNumber, Email, Birthday, Gender, Address, Subspecialty;
-    public TextField FirstNameEdit, LastNameEdit, BirthdayEdit, GenderEdit, NumberEdit, EmailEdit, AddressEdit, SubspecialtyEdit;
+    public TextField FirstNameEdit, LastNameEdit, AddressLineEdit, NumberEdit, EmailEdit, AddressEdit, SubspecialtyEdit;
+    public ComboBox EditDay, EditMonth, EditYear, GenderEdit;
     public ImageView ProfilePhoto;
     public String path = "Default.png";
     Doctor doctorModel;
@@ -39,6 +41,33 @@ public class DoctorDetails implements Initializable {
         path = doctorModel.getPicture();
         Image image = new Image(path);
         ProfilePhoto.setImage(image);
+
+        for (int i = 0; i < 80; i++){
+            int day = 2003 - i;
+            String result = String.valueOf(day);
+            EditYear.getItems().add(result);
+        }
+        for (int i = 1; i < 32; i++){
+            String result = String.valueOf(i);
+            EditDay.getItems().add(result);
+        }
+        EditMonth.getItems().add("January");
+        EditMonth.getItems().add("February");
+        EditMonth.getItems().add("March");
+        EditMonth.getItems().add("April");
+        EditMonth.getItems().add("May");
+        EditMonth.getItems().add("June");
+        EditMonth.getItems().add("July");
+        EditMonth.getItems().add("August");
+        EditMonth.getItems().add("September");
+        EditMonth.getItems().add("October");
+        EditMonth.getItems().add("November");
+        EditMonth.getItems().add("December");
+
+        GenderEdit.getItems().add("Male");
+        GenderEdit.getItems().add("Female");
+        GenderEdit.getItems().add("Non-Binary");
+        GenderEdit.getItems().add("Prefer not to say");
     }
 
     public void ProfilePic(ActionEvent actionEvent) {
@@ -57,41 +86,55 @@ public class DoctorDetails implements Initializable {
         doctorModel = DoctorLogin.doctorModel;
         firebase.child("Doctor").child(doctorModel.getId()).child("firstName").setValue(FirstNameEdit.getText());
         firebase.child("Doctor").child(doctorModel.getId()).child("lastName").setValue(LastNameEdit.getText());
-        firebase.child("Doctor").child(doctorModel.getId()).child("birthday").setValue(BirthdayEdit.getText());
-        firebase.child("Doctor").child(doctorModel.getId()).child("gender").setValue(GenderEdit.getText());
+        firebase.child("Doctor").child(doctorModel.getId()).child("birthday").setValue(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
+        firebase.child("Doctor").child(doctorModel.getId()).child("gender").setValue(GenderEdit.getValue());
         firebase.child("Doctor").child(doctorModel.getId()).child("contactNumber").setValue(NumberEdit.getText());
         firebase.child("Doctor").child(doctorModel.getId()).child("email").setValue(EmailEdit.getText());
-        firebase.child("Doctor").child(doctorModel.getId()).child("address").setValue(AddressEdit.getText());
+        firebase.child("Doctor").child(doctorModel.getId()).child("address").setValue(AddressEdit.getText() + ", " + AddressLineEdit.getText());
         firebase.child("Doctor").child(doctorModel.getId()).child("subspecialty").setValue(SubspecialtyEdit.getText());
 
         String fullName = FirstNameEdit.getText() + " " + LastNameEdit.getText();
         FirstName.setText(fullName);
         ContactNumber.setText(NumberEdit.getText());
         Email.setText(EmailEdit.getText());
-        Birthday.setText(BirthdayEdit.getText());
-        Gender.setText(GenderEdit.getText());
-        Address.setText(AddressEdit.getText());
+        Birthday.setText(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
+        Gender.setText((String) GenderEdit.getValue());
+        Address.setText(AddressEdit.getText() + ", " + AddressLineEdit.getText());
         Subspecialty.setText(SubspecialtyEdit.getText());
 
-        FirstNameEdit.setText(" ");
-        LastNameEdit.setText(" ");
-        BirthdayEdit.setText(" ");
-        GenderEdit.setText(" ");
-        NumberEdit.setText(" ");
-        EmailEdit.setText(" ");
-        AddressEdit.setText(" ");
-        SubspecialtyEdit.setText(" ");
+        FirstNameEdit.setText(null);
+        LastNameEdit.setText(null);
+        EditMonth.setValue(null);
+        EditMonth.setPromptText("Month");
+        EditDay.setValue(null);
+        EditDay.setPromptText("Day");
+        EditYear.setValue(null);
+        EditYear.setPromptText("Year");
+        GenderEdit.setValue(null);
+        GenderEdit.setPromptText("Gender");
+        NumberEdit.setText(null);
+        EmailEdit.setText(null);
+        AddressEdit.setText(null);
+        AddressLineEdit.setText(null);
+        SubspecialtyEdit.setText(null);
     }
 
     public void Cancel(ActionEvent actionEvent) {
-        FirstNameEdit.setText(" ");
-        LastNameEdit.setText(" ");
-        BirthdayEdit.setText(" ");
-        GenderEdit.setText(" ");
-        NumberEdit.setText(" ");
-        EmailEdit.setText(" ");
-        AddressEdit.setText(" ");
-        SubspecialtyEdit.setText(" ");
+        FirstNameEdit.setText(null);
+        LastNameEdit.setText(null);
+        EditMonth.setValue(null);
+        EditMonth.setPromptText("Month");
+        EditDay.setValue(null);
+        EditDay.setPromptText("Day");
+        EditYear.setValue(null);
+        EditYear.setPromptText("Year");
+        GenderEdit.setValue(null);
+        GenderEdit.setPromptText("Gender");
+        NumberEdit.setText(null);
+        EmailEdit.setText(null);
+        AddressEdit.setText(null);
+        AddressLineEdit.setText(null);
+        SubspecialtyEdit.setText(null);
     }
 
     public void DoctorPatients(ActionEvent actionEvent) {
