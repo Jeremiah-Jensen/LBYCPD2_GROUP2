@@ -25,9 +25,10 @@ public class DoctorAppointments implements Initializable {
 
     public Button LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton, ViewButton;
     public ListView ScheduleList, PreQuesAnswers, PostQuesAnswers;
-    public TextField day, time, link;
-    public ComboBox AppointmentsBox;
+    public TextField  time, link;
+    public ComboBox AppointmentsBox, Status;
     public Text PatientText, ScheduleText;
+    public DatePicker date;
     public AnchorPane UpcomingAppointments, ConsultationPeriod, Questionnaires;
     Doctor doctorModel;
     List<Schedule> scheduleList = new ArrayList<>();
@@ -52,7 +53,7 @@ public class DoctorAppointments implements Initializable {
                 for (int i = 0; i < scheduleList.size(); i++) {
                     Schedule scheduleModel = scheduleList.get(i);
                     if (fullname.equals(scheduleModel.getName())) {
-                        ScheduleList.getItems().add(scheduleModel.getDay() + " at " + scheduleModel.getTime() + "\n" + scheduleModel.getLink() + "\n\n");
+                        ScheduleList.getItems().add(scheduleModel.getDay() + " at " + scheduleModel.getTime() + "\n" + scheduleModel.getLink() + "\n" + scheduleModel.getStatus() + "\n\n");
                     }
                 }
             }
@@ -62,6 +63,8 @@ public class DoctorAppointments implements Initializable {
 
             }
         });
+
+        Status.getItems().add("Available");
 
         String fullnameDoctor = "Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName();
         firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -115,11 +118,16 @@ public class DoctorAppointments implements Initializable {
         Schedule schedule = new Schedule();
         String fullname = doctorModel.getFirstName() + " " + doctorModel.getLastName();
         schedule.setName(fullname);
-        schedule.setDay(day.getText());
+        schedule.setDay(date.getEditor().getText());
         schedule.setTime(time.getText());
         schedule.setLink(link.getText());
+        schedule.setStatus((String) Status.getValue());
+        ScheduleList.getItems().add(date.getValue() + " at " + time.getText() + "\n" + link.getText() + "\n" + Status.getValue() + "\n\n");
         firebase.child("Schedule").push().setValue(schedule);
-        day.setText(null);
+        date.setValue(null);
+        date.setPromptText("Date");
+        Status.setValue(null);
+        Status.setPromptText("Status");
         time.setText(null);
         link.setText(null);
     }

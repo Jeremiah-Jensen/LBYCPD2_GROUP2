@@ -1,22 +1,42 @@
 package Models;
 
+import java.time.LocalDate;
+
 public class Schedule {
 
-    String name, day, time, link;
+    String name;
+    String time;
+    String link;
+    String status;
+    String day;
 
     public Schedule() {
 
     }
-    public Schedule(String name, String day, String time, String link) {
+
+    public Schedule(String name, String day, String time, String link, String status) {
         this.name = name;
         this.day = day;
         this.time = time;
         this.link = link;
+        this.status = status;
     }
 
-    public String getLink() { return link; }
+    public String getStatus() {
+        return status;
+    }
 
-    public void setLink(String link) { this.link = link; }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
 
     public String getName() {
         return name;
