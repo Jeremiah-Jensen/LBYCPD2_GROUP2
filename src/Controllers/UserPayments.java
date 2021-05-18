@@ -20,20 +20,22 @@ import java.util.ResourceBundle;
 public class UserPayments implements Initializable {
     @FXML
     public Button LogOutButton, AppointmentsButton, DetailsButton, HomeButton, LoadCreditButton;
-    public TextField NameTextField, CardNumTextField, ExpirydateTextField, BankTextField, NetworkTextField, CreditTextField;
+    public TextField NameTextField, CardNumTextField, ExpirydateTextField, BankTextField, NetworkTextField;
     public PasswordField CVVPasswordField;
     public AnchorPane InputCard, CardDetails;
-    public Label NameLabel, CardNumLabel, ExpirydateLabel, CVVLabel, BankLabel, NetworkLabel, CreditLabel;
+    public Label NameLabel, CardNumLabel, ExpirydateLabel, CVVLabel, BankLabel, NetworkLabel;
 
     User userModel;
-    List<User> userList = new ArrayList<>();
-    int count = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userModel = UserLogIn.userModel;
-        CreditLabel.setText(userModel.getCredit());
-
+        NameTextField.setText(userModel.getName());
+        CardNumTextField.setText(userModel.getCardnumber());
+        ExpirydateTextField.setText(userModel.getExpirydate());
+        CVVPasswordField.setText(userModel.getCvv());
+        BankTextField.setText(userModel.getBank());
+        NetworkTextField.setText(userModel.getNetwork());
     }
 
     public void Switch(ActionEvent actionEvent) {
@@ -44,6 +46,16 @@ public class UserPayments implements Initializable {
         translateTransition1.setByY(321);
         translateTransition1.play();
     }
+
+    public void GoBack(ActionEvent actionEvent) {
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), InputCard);
+        translateTransition.setByY(321);
+        translateTransition.play();
+        TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(1), CardDetails);
+        translateTransition1.setByY(-321);
+        translateTransition1.play();
+    }
+
 
     public void LogOut(ActionEvent actionEvent){
         new Main().LoginWindow();
@@ -136,21 +148,6 @@ public class UserPayments implements Initializable {
             }
 
         }
-
-    }
-
-    public void LoadCredit(ActionEvent actionEvent) {
-        Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
-        String Credit = CreditTextField.getText();
-        int credits = Integer.parseInt(Credit);
-        int getCred = Integer.parseInt(userModel.getCredit());
-        int cred = credits + getCred;
-        firebase.child("User").child(userModel.getId()).child("credit").setValue(String.valueOf(cred));
-        //resets fxml
-        CreditLabel.setText(String.valueOf(cred));
-        Stage closeStage = (Stage) HomeButton.getScene().getWindow();
-        new Main().loadFXML("UserPayments");
-        new Main().CloseButton(closeStage);
 
     }
 

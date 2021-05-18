@@ -86,7 +86,7 @@
                 </Label>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="CardDetails" layoutX="298.0" layoutY="287.0" prefHeight="297.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+        <AnchorPane fx:id="CardDetails" layoutX="298.0" layoutY="14.0" prefHeight="297.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
             <effect>
                 <DropShadow>
                     <color>
@@ -126,14 +126,14 @@
                         <Font name="Avenir Book" size="18.0" />
                     </font>
                 </Label>
-                <Button layoutX="29.0" layoutY="248.0" mnemonicParsing="false" onAction="#Switch" prefHeight="29.0" prefWidth="222.0" style="-fx-background-color: #2998ba#2998ba; -fx-background-radius: 50;" text="Add Card Details" textFill="WHITE">
-                    <font>
-                        <Font name="Avenir Book" size="15.0" />
-                    </font>
-                </Button>
+            <Button fx:id="Switch" layoutX="44.0" layoutY="252.0" mnemonicParsing="false" onAction="#Switch" prefHeight="29.0" prefWidth="222.0" style="-fx-background-color: #2998ba#2998ba; -fx-background-radius: 50;" text="Edit Card Details" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="15.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="InputCard" layoutX="298.0" layoutY="608.0" prefHeight="297.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+        <AnchorPane fx:id="InputCard" layoutX="298.0" layoutY="318.0" prefHeight="297.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
             <children>
                 <Rectangle arcHeight="60.0" arcWidth="60.0" height="297.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="637.0">
                     <fill>
@@ -205,54 +205,11 @@
                 <Label fx:id="BankLabel" layoutX="350.0" layoutY="178.0" prefHeight="25.0" prefWidth="167.0" />
                 <Label fx:id="NetworkLabel" layoutX="347.0" layoutY="208.0" prefHeight="25.0" prefWidth="167.0" />
                 <Label fx:id="NameLabel" layoutX="344.0" layoutY="55.0" prefHeight="25.0" prefWidth="178.0" />
-            </children>
-            <effect>
-                <DropShadow>
-                    <color>
-                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
-                    </color>
-                </DropShadow>
-            </effect>
-        </AnchorPane>
-        <AnchorPane fx:id="UpcomingAppointments" layoutX="298.0" layoutY="19.0" prefHeight="249.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
-            <children>
-                <Rectangle arcHeight="60.0" arcWidth="60.0" height="249.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="304.0">
-                    <fill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="0.3807261288166046" green="0.8223684430122375" blue="0.7119578719139099" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </fill>
-                </Rectangle>
-                <Label fx:id="Username1" alignment="CENTER" layoutX="17.0" layoutY="23.0" prefHeight="47.0" prefWidth="185.0" text="Current Credit PHP:" textFill="WHITE">
-                    <font>
-                        <Font name="Avenir Book" size="19.0" />
-                    </font>
-                </Label>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="16.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="260.0" />
-                <Label fx:id="Username11" alignment="CENTER" layoutX="-5.0" layoutY="106.0" prefHeight="47.0" prefWidth="135.0" text="Load Credit" textFill="WHITE">
-                    <font>
-                        <Font name="Avenir Book" size="19.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="CreditTextField" layoutX="133.0" layoutY="118.0" prefHeight="26.0" prefWidth="139.0" promptText="Enter Amount" style="-fx-background-radius: 50;" />
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="16.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="260.0" />
-                <Button fx:id="LoadCreditButton" disable="true" layoutX="14.0" layoutY="186.0" mnemonicParsing="false" onAction="#LoadCredit" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Load Credit">
-                    <font>
-                        <Font name="Avenir Book" size="15.0" />
-                    </font>
-                </Button>
-                <Label fx:id="CreditLabel" layoutX="203.0" layoutY="28.0" prefHeight="38.0" prefWidth="83.0" />
+            <Button fx:id="BackButton" layoutX="275.0" layoutY="252.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="29.0" prefWidth="222.0" style="-fx-background-color: #2998ba#2998ba; -fx-background-radius: 50;" text="Go Back" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="15.0" />
+               </font>
+            </Button>
             </children>
             <effect>
                 <DropShadow>
