@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
@@ -101,12 +102,12 @@
                     </font>
                 </Label>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3abd8f" height="4.0" layoutX="22.0" layoutY="52.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="372.0" />
-                <Label layoutX="36.0" layoutY="75.0" text="Available Doctors">
+                <Label layoutX="36.0" layoutY="116.0" text="Available Doctors">
                     <font>
                         <Font name="Avenir Book" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="36.0" layoutY="173.0" text="Schedule">
+                <Label layoutX="36.0" layoutY="195.0" text="Schedule">
                     <font>
                         <Font name="Avenir Book" size="19.0" />
                     </font>
@@ -134,14 +135,14 @@
                         <Font name="Avenir Book" size="18.0" />
                     </font>
                 </Label>
-            <ComboBox fx:id="DoctorsBox" layoutX="36.0" layoutY="113.0" onAction="#ConfirmDoctor" prefHeight="33.0" prefWidth="341.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
-            <ComboBox fx:id="ScheduleBox" disable="true" layoutX="36.0" layoutY="201.0" prefHeight="33.0" prefWidth="154.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
-            <Label layoutX="216.0" layoutY="173.0" text="Child">
+            <ComboBox fx:id="DoctorsBox" disable="true" layoutX="36.0" layoutY="150.0" onAction="#ConfirmDoctor" prefHeight="33.0" prefWidth="341.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <ComboBox fx:id="ScheduleBox" disable="true" layoutX="36.0" layoutY="224.0" prefHeight="28.0" prefWidth="154.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <Label layoutX="216.0" layoutY="195.0" text="Child">
                <font>
                   <Font name="Avenir Book" size="19.0" />
                </font>
             </Label>
-            <ComboBox fx:id="ChildBox" disable="true" layoutX="216.0" layoutY="202.0" prefHeight="33.0" prefWidth="163.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <ComboBox fx:id="ChildBox" disable="true" layoutX="216.0" layoutY="225.0" prefHeight="28.0" prefWidth="163.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
             <Button fx:id="ConfirmSched" disable="true" layoutX="61.0" layoutY="273.0" mnemonicParsing="false" onAction="#ConfirmAppointment" prefHeight="33.0" prefWidth="293.0" style="-fx-background-color: #3abd8f#3abd8f#3abd8f#3abd8f; -fx-background-radius: 50;" text="Confirm Appointments" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="15.0" />
@@ -164,11 +165,12 @@
                </image>
             </ImageView>
             <ImageView fx:id="DoctorImage" fitHeight="155.0" fitWidth="155.0" layoutX="474.0" layoutY="36.0" pickOnBounds="true" />
-            <Label fx:id="Error" alignment="CENTER" layoutX="37.0" layoutY="246.0" prefHeight="19.0" prefWidth="341.0" textFill="#d52121">
+            <Label fx:id="Error" alignment="CENTER" layoutX="36.0" layoutY="253.0" prefHeight="19.0" prefWidth="341.0" textFill="#d52121">
                <font>
                   <Font name="Avenir Book" size="13.0" />
                </font>
             </Label>
+            <DatePicker layoutX="36.0" layoutY="75.0" prefHeight="33.0" prefWidth="341.0" promptText="Select Date" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
             </children>
             <effect>
                 <DropShadow>

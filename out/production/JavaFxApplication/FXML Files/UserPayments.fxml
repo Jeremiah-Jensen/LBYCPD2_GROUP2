@@ -126,11 +126,11 @@
                         <Font name="Avenir Book" size="18.0" />
                     </font>
                 </Label>
-            <Button fx:id="Switch" layoutX="44.0" layoutY="252.0" mnemonicParsing="false" onAction="#Switch" prefHeight="29.0" prefWidth="222.0" style="-fx-background-color: #2998ba#2998ba; -fx-background-radius: 50;" text="Edit Card Details" textFill="WHITE">
-               <font>
-                  <Font name="Avenir Book" size="15.0" />
-               </font>
-            </Button>
+                <Button fx:id="Switch" layoutX="44.0" layoutY="252.0" mnemonicParsing="false" onAction="#Switch" prefHeight="29.0" prefWidth="222.0" style="-fx-background-color: #2998ba#2998ba; -fx-background-radius: 50;" text="Edit Card Details" textFill="WHITE">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="InputCard" layoutX="298.0" layoutY="318.0" prefHeight="297.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
@@ -205,11 +205,11 @@
                 <Label fx:id="BankLabel" layoutX="350.0" layoutY="178.0" prefHeight="25.0" prefWidth="167.0" />
                 <Label fx:id="NetworkLabel" layoutX="347.0" layoutY="208.0" prefHeight="25.0" prefWidth="167.0" />
                 <Label fx:id="NameLabel" layoutX="344.0" layoutY="55.0" prefHeight="25.0" prefWidth="178.0" />
-            <Button fx:id="BackButton" layoutX="275.0" layoutY="252.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="29.0" prefWidth="222.0" style="-fx-background-color: #2998ba#2998ba; -fx-background-radius: 50;" text="Go Back" textFill="WHITE">
-               <font>
-                  <Font name="Avenir Book" size="15.0" />
-               </font>
-            </Button>
+                <Button fx:id="BackButton" layoutX="275.0" layoutY="252.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="29.0" prefWidth="222.0" style="-fx-background-color: #2998ba#2998ba; -fx-background-radius: 50;" text="Go Back" textFill="WHITE">
+                    <font>
+                        <Font name="Avenir Book" size="15.0" />
+                    </font>
+                </Button>
             </children>
             <effect>
                 <DropShadow>
