@@ -73,10 +73,15 @@ public class UserAppointments implements Initializable {
                     Doctor doctor = data.getValue(Doctor.class);
                     doctorList.add(doctor);
                 }
+                /// PUT NE METHOD ON ACTION OF DATE BOX
                 for(int i = 0; i < doctorList.size(); i++) {
+                    //(if DateBox.getValue().equals(Schedule.getDay))
                     Doctor doctorModel = doctorList.get(i);
                     DoctorsBox.getItems().add("Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName());
+                    //End if
                 }
+                // DoctorsBox.setDisable();
+                //
             }
             @Override
             public void onCancelled(FirebaseError firebaseError) {
