@@ -28,11 +28,11 @@ import java.util.ResourceBundle;
 public class UserDetails implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment, ManageChildren, EditDetails, AddChildren;
-    public Button LogOutButton, HomeButton, AppointmentsButton, PaymentsButton,AddChild;
-    public Label Name, Birthday, Email, Number, Gender, Username, ChildName, ChildConditions, ChildBirthday, ChildPic, Error;
-    public TextField ChildFN, ChildLN, ChildCN;
+    public Button LogOutButton, HomeButton, AppointmentsButton, PaymentsButton,AddChild, EditUserInfo, SaveButton;
+    public Label Name, Birthday, Email, Number, Gender, Username, ChildName, ChildConditions, ChildBirthday, ChildPic, Error, Warning;
+    public TextField ChildFN, ChildLN, ChildCN, UserFN, UserLN, UserEmail, UserAddress;
     public ImageView UserImage, ChildImage;
-    public ComboBox<String> ChildBox, Day, Month, Year;
+    public ComboBox<String> ChildBox, Day, Month, Year, GenderComboBox, DayComboBox, MonthComboBox, YearComboBox;
     public Text test;
     public String Pic;
     public String path = "Default.png";
@@ -79,10 +79,26 @@ public class UserDetails implements Initializable {
             String result = String.valueOf(day);
             Year.getItems().add(result);
         }
+
         for (int k = 1; k < 32; k++){
             String result = String.valueOf(k);
             Day.getItems().add(result);
         }
+
+        for (int i = 0; i < 80; i++){
+            int day = 2003 - i;
+            String result = String.valueOf(day);
+            YearComboBox.getItems().add(result);
+        }
+
+        for (int k = 1; k < 32; k++){
+            String result = String.valueOf(k);
+            DayComboBox.getItems().add(result);
+        }
+
+        GenderComboBox.getItems().addAll("Male", "Female", "Non-Binary", "Prefer not to say");
+        MonthComboBox.getItems().addAll("January", "February","March","April","May","June","July","August","September","October","November","December");
+
         Month.getItems().addAll("January", "February","March","April","May","June","July","August","September","October","November","December");
         firebase.child("Children").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -175,6 +191,10 @@ public class UserDetails implements Initializable {
         AddChildren.setVisible(false);
     }
 
+    public void Back(ActionEvent actionEvent) {
+        EditDetails.setVisible(false);
+    }
+
     public void MainMenu(ActionEvent actionEvent){
         new Main().loadFXML("MainMenu");
         Stage closeStage = (Stage) HomeButton.getScene().getWindow();
@@ -198,4 +218,31 @@ public class UserDetails implements Initializable {
         Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
+
+    public void EditUserInfo(ActionEvent actionEvent) {
+        EditDetails.setVisible(true);
+        AddChildren.setVisible(true);
+    }
+
+    public void SaveChanges(ActionEvent actionEvent) {
+        Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+
+        if(UserFN.getText().isEmpty() || UserLN.getText().isEmpty() || UserEmail.getText().isEmpty() || DayComboBox.getValue().isEmpty() || MonthComboBox.getValue().isEmpty() || YearComboBox.getValue().isEmpty()){
+            Warning.setVisible(true);
+            Warning.setText("Missing details");
+        }
+
+        else {
+            Warning.setVisible(false);
+            firebase.child("User").child(userModel.getId()).child("firstName").setValue(UserFN.getText());
+            firebase.child("User").child(userModel.getId()).child("lastName").setValue(UserLN.getText());
+            firebase.child("User").child(userModel.getId()).child("address").setValue(UserAddress.getText());
+            firebase.child("User").child(userModel.getId()).child("email").setValue(UserEmail.getText());
+            firebase.child("User").child(userModel.getId()).child("gender").setValue(GenderComboBox.getValue());
+            firebase.child("User").child(userModel.getId()).child("birthday").setValue(MonthComboBox.getValue() + " " + DayComboBox.getValue() + ", " + YearComboBox.getValue());
+        }
+
+    }
+
+
 }

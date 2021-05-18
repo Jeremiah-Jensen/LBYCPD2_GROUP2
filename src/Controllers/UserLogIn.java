@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 public class UserLogIn implements Initializable {
     @FXML
     public AnchorPane LogIn, Register, UserInfo, Background1;
-    public TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Address1, Address2;
+    public TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Email, Number, Address1, Address2;
     public PasswordField Password, ReenterPassword;
     public Label Error2, LogInError, CreateError, Pic;
     public Button Next, LoginButton, DoctorLoginButton, RegisterButton, AddPic;
@@ -134,6 +134,11 @@ public class UserLogIn implements Initializable {
                 translateTransition2.setByX(-380);
                 translateTransition2.play();
                 Next.setDisable(true);
+                Username.setDisable(true);
+                Password.setDisable(true);
+                ReenterPassword.setDisable(true);
+                FirstName.setDisable(true);
+                LastName.setDisable(true);
                 count = 1;
             }
         }
