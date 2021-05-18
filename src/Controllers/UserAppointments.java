@@ -71,15 +71,6 @@ public class UserAppointments implements Initializable {
                     Doctor doctor = data.getValue(Doctor.class);
                     doctorList.add(doctor);
                 }
-                /// PUT NE METHOD ON ACTION OF DATE BOX
-                for(int i = 0; i < doctorList.size(); i++) {
-                    //(if DateBox.getValue().equals(Schedule.getDay))
-                    Doctor doctorModel = doctorList.get(i);
-                    DoctorsBox.getItems().add("Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName());
-                    //End if
-                }
-                // DoctorsBox.setDisable();
-                //
             }
             @Override
             public void onCancelled(FirebaseError firebaseError) {
@@ -163,10 +154,12 @@ public class UserAppointments implements Initializable {
     }
 
     public void SelectDate(ActionEvent actionEvent){
+        System.out.println(scheduleList.size());
         for(int i = 0; i < scheduleList.size(); i++) {
             Schedule scheduleModel = scheduleList.get(i);
-            if (DateBox.getValue().equals(scheduleModel.getDay())){
+            if (DateBox.getEditor().getText().equals(scheduleModel.getDay())){
                 DoctorsBox.getItems().add("Dr." + scheduleModel.getName());
+                System.out.println("lol");
             }
         }DoctorsBox.setDisable(false);
     }
@@ -193,7 +186,7 @@ public class UserAppointments implements Initializable {
         }
         for(int i = 0; i < childrenList.size(); i++) {
             Children childrenModel = childrenList.get(i);
-            if(userModel.getId().equals(childrenModel.getParentID())){
+            if(userModel.getUsername().equals(childrenModel.getParentID())){
                 ChildBox.getItems().add(childrenModel.getFirstname() + " " + childrenModel.getLastname());
             }
         }
