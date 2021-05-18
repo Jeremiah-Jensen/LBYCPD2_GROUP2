@@ -10,10 +10,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +32,7 @@ public class UserAppointments implements Initializable {
     public ImageView DoctorImage;
     public ComboBox<String> DoctorsBox, ScheduleBox, ChildBox, AppointmentsBox, PreviousBox;
     public ListView<String> AppointmentsListView, PreviousListView;
+    public DatePicker DateBox;
     int count = 0;
     public String FullName;
     User userModel;
@@ -164,6 +162,15 @@ public class UserAppointments implements Initializable {
         translateTransition3.play();
     }
 
+    public void SelectDate(ActionEvent actionEvent){
+        for(int i = 0; i < scheduleList.size(); i++) {
+            Schedule scheduleModel = scheduleList.get(i);
+            if (DateBox.getValue().equals(scheduleModel.getDay())){
+                DoctorsBox.getItems().add("Dr." + scheduleModel.getName());
+            }
+        }DoctorsBox.setDisable(false);
+    }
+
     public void ConfirmDoctor(ActionEvent actionEvent){
         DocName.setText(DoctorsBox.getValue());
         for(int i = 0; i < doctorList.size(); i++) {
@@ -220,7 +227,7 @@ public class UserAppointments implements Initializable {
             Error.setText("No Available Schedule/No Registered Child Found");
         }
         else if(ScheduleBox.getItems().isEmpty()){
-                    Error.setText("No Available Schedule");
+            Error.setText("No Available Schedule");
         }
         else if(ChildBox.getItems().isEmpty()){
             Error.setText("No Registered Child Found");
@@ -250,13 +257,13 @@ public class UserAppointments implements Initializable {
     }
 
     public void UserDetails(ActionEvent actionEvent){
-       new Main().loadFXML("UserDetails");
+        new Main().loadFXML("UserDetails");
         Stage closeStage = (Stage) DetailsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
     public void UserPayments(ActionEvent actionEvent){
-       new Main().loadFXML("UserPayments");
+        new Main().loadFXML("UserPayments");
         Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
