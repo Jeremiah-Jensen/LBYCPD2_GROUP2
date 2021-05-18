@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public class DoctorLogin implements Initializable {
     public TextField UsernameLogin, PasswordLogin;
     public Text LogInError;
-    public Button RegisterButton, LoginButton;
+    public Button RegisterButton, LoginButton, PatientLoginButton;
     int returnValue;
     List<Doctor> doctorList;
     public static Doctor doctorModel;
@@ -82,4 +82,11 @@ public class DoctorLogin implements Initializable {
         Stage closeStage = (Stage) RegisterButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
+    public void PatientsLogin(ActionEvent actionEvent) {
+        new Main().loadFXML("LogIn");
+        Stage closeStage = (Stage) PatientLoginButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+
 }
