@@ -60,7 +60,7 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="33.0" layoutY="432.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
+                <Button fx:id="HelpButton" layoutX="33.0" layoutY="432.0" mnemonicParsing="false" onAction="#DoctorHelp" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
@@ -144,8 +144,33 @@
                   <Font name="Avenir Book" size="26.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="21.0" layoutY="55.0" stroke="#39a2bd" strokeType="INSIDE" width="649.0" />
-            <TextArea fx:id="PatientsInformation" layoutX="21.0" layoutY="69.0" prefHeight="164.0" prefWidth="649.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39a2bd" height="4.0" layoutX="21.0" layoutY="55.0" stroke="#39a2bd" strokeType="INSIDE" width="305.0" />
+            <TextArea fx:id="PatientsInformation" layoutX="21.0" layoutY="69.0" prefHeight="174.0" prefWidth="305.0" />
+            <Rectangle arcHeight="60.0" arcWidth="60.0" height="257.0" layoutX="343.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="344.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color blue="0.7119578719139099" green="0.8223684430122375" red="0.3807261288166046" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color blue="0.7302631735801697" green="0.59694504737854" red="0.15889985859394073" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label layoutX="364.0" layoutY="11.0" text="Answers to Questionnaires" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="26.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="363.0" layoutY="52.0" stroke="WHITE" strokeType="INSIDE" width="305.0" />
+            <ListView fx:id="QuestionnaireList" layoutX="363.0" layoutY="69.0" prefHeight="174.0" prefWidth="305.0" />
          </children>
          <effect>
             <DropShadow>

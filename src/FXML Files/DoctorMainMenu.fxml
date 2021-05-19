@@ -77,7 +77,7 @@
                   <Font name="Avenir Book" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="33.0" layoutY="430.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
+            <Button fx:id="HelpButton" layoutX="33.0" layoutY="430.0" mnemonicParsing="false" onAction="#DoctorHelp" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>

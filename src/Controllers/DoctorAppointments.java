@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class DoctorAppointments implements Initializable {
 
-    public Button LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton, ViewButton;
+    public Button LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton, ViewButton, HelpButton;
     public ListView ScheduleList, PreQuesAnswers, PostQuesAnswers;
     public TextField  time, link;
     public ComboBox AppointmentsBox, Status;
@@ -87,6 +87,12 @@ public class DoctorAppointments implements Initializable {
 
             }
         });
+    }
+
+    public void DoctorHelp(ActionEvent actionEvent) {
+        new Main().loadFXML("DoctorHelpMenu");
+        Stage closeStage = (Stage) HelpButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
     }
 
     public void DoctorPatients(ActionEvent actionEvent) {

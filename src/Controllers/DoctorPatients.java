@@ -19,8 +19,8 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class DoctorPatients implements Initializable {
-    public Button UserDetailsButton, LogOutButton, AppointmentsButton, HomeButton;
-    public ListView PatientsList, PrevPatientsList;
+    public Button UserDetailsButton, LogOutButton, AppointmentsButton, HomeButton, HelpButton;
+    public ListView PatientsList, PrevPatientsList, QuestionnairesList;
     public TextArea PatientsInformation;
     public TextField PatientName;
     List<Children> childrenList = new ArrayList<>();
@@ -92,6 +92,12 @@ public class DoctorPatients implements Initializable {
         new Main().CloseButton(closeStage);
     }
 
+    public void DoctorHelp(ActionEvent actionEvent) {
+        new Main().loadFXML("DoctorHelpMenu");
+        Stage closeStage = (Stage) HelpButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
     public void SearchPatient(ActionEvent actionEvent) {
         PatientsInformation.setText(null);
         for(int i = 0; i < childrenList.size(); i++) {
@@ -101,6 +107,56 @@ public class DoctorPatients implements Initializable {
                 PatientsInformation.appendText(fullname + "\n");
                 PatientsInformation.appendText(child.getBirthday() + "\n");
                 PatientsInformation.appendText(child.getConditions() + "\n");
+            }
+        }
+        for(int i = 0; i < appointmentsList.size(); i++) {
+            Appointments appointmentModel = appointmentsList.get(i);
+            String fullname = appointmentModel.getChild();
+            if(PatientsList.getSelectionModel().getSelectedItem().equals(fullname)) {
+                QuestionnairesList.getItems().add("PRE CHECK-UP QUESTIONNAIRE");
+                QuestionnairesList.getItems().add("What is your child feeling?");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getFeelingQ());
+                QuestionnairesList.getItems().add("Is your child feeling pain right now?");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getPainQ1());
+                QuestionnairesList.getItems().add("If yes, rate the pain from a scale of 1-10.");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getPainScale());
+                QuestionnairesList.getItems().add("Why did your child seek consultation?");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getReasonQ());
+                QuestionnairesList.getItems().add("Chest Patin");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ1());
+                QuestionnairesList.getItems().add("Abnormal Heart Rate");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ2());
+                QuestionnairesList.getItems().add("High Blood Pressure");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ3());
+                QuestionnairesList.getItems().add("Frequent Headaches");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ4());
+                QuestionnairesList.getItems().add("Frequent Stomach Aches");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ5());
+                QuestionnairesList.getItems().add("Vision Problems");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ6());
+                QuestionnairesList.getItems().add("Hearing Problems");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ7());
+                QuestionnairesList.getItems().add("Injuries");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ8());
+                QuestionnairesList.getItems().add("Seizures");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ9());
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ10());
+
+                if(appointmentModel.getFeelingQ2().equals(" ") || appointmentModel.getPainQ2().equals(" ") || appointmentModel.getPainScaleQ2().equals(" ") || appointmentModel.getSideEffectsQ().equals(" ")) {
+                    QuestionnairesList.getItems().add("POST CHECK-UP QUESTIONNAIRE");
+                    QuestionnairesList.getItems().add("No Answers Available");
+                }
+                else {
+                    QuestionnairesList.getItems().add("POST CHECK-UP QUESTIONNAIRE");
+                    QuestionnairesList.getItems().add("What is your child feeling?");
+                    QuestionnairesList.getItems().add("     - " + appointmentModel.getFeelingQ2());
+                    QuestionnairesList.getItems().add("Is your child feeling pain right now?");
+                    QuestionnairesList.getItems().add("     - " + appointmentModel.getPainQ2());
+                    QuestionnairesList.getItems().add("If yes, rate the pain from a scale of 1-10.");
+                    QuestionnairesList.getItems().add("     - " + appointmentModel.getPainScaleQ2());
+                    QuestionnairesList.getItems().add("What are the side effects after drinking the medicine?");
+                    QuestionnairesList.getItems().add("     - " + appointmentModel.getSideEffectsQ());
+                }
             }
         }
     }
@@ -114,6 +170,57 @@ public class DoctorPatients implements Initializable {
                 PatientsInformation.appendText(fullname + "\n");
                 PatientsInformation.appendText(child.getBirthday() + "\n");
                 PatientsInformation.appendText(child.getConditions() + "\n");
+            }
+        }
+
+        for(int i = 0; i < appointmentsList.size(); i++) {
+            Appointments appointmentModel = appointmentsList.get(i);
+            String fullname = appointmentModel.getChild();
+            if(PatientsList.getSelectionModel().getSelectedItem().equals(fullname)) {
+                QuestionnairesList.getItems().add("PRE CHECK-UP QUESTIONNAIRE");
+                QuestionnairesList.getItems().add("What is your child feeling?");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getFeelingQ());
+                QuestionnairesList.getItems().add("Is your child feeling pain right now?");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getPainQ1());
+                QuestionnairesList.getItems().add("If yes, rate the pain from a scale of 1-10.");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getPainScale());
+                QuestionnairesList.getItems().add("Why did your child seek consultation?");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getReasonQ());
+                QuestionnairesList.getItems().add("Chest Patin");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ1());
+                QuestionnairesList.getItems().add("Abnormal Heart Rate");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ2());
+                QuestionnairesList.getItems().add("High Blood Pressure");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ3());
+                QuestionnairesList.getItems().add("Frequent Headaches");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ4());
+                QuestionnairesList.getItems().add("Frequent Stomach Aches");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ5());
+                QuestionnairesList.getItems().add("Vision Problems");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ6());
+                QuestionnairesList.getItems().add("Hearing Problems");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ7());
+                QuestionnairesList.getItems().add("Injuries");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ8());
+                QuestionnairesList.getItems().add("Seizures");
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ9());
+                QuestionnairesList.getItems().add("     - " + appointmentModel.getQ10());
+
+                if(appointmentModel.getFeelingQ2().equals(" ") || appointmentModel.getPainQ2().equals(" ") || appointmentModel.getPainScaleQ2().equals(" ") || appointmentModel.getSideEffectsQ().equals(" ")) {
+                    QuestionnairesList.getItems().add("POST CHECK-UP QUESTIONNAIRE");
+                    QuestionnairesList.getItems().add("No Answers Available");
+                }
+                else {
+                    QuestionnairesList.getItems().add("POST CHECK-UP QUESTIONNAIRE");
+                    QuestionnairesList.getItems().add("What is your child feeling?");
+                    QuestionnairesList.getItems().add("     - " + appointmentModel.getFeelingQ2());
+                    QuestionnairesList.getItems().add("Is your child feeling pain right now?");
+                    QuestionnairesList.getItems().add("     - " + appointmentModel.getPainQ2());
+                    QuestionnairesList.getItems().add("If yes, rate the pain from a scale of 1-10.");
+                    QuestionnairesList.getItems().add("     - " + appointmentModel.getPainScaleQ2());
+                    QuestionnairesList.getItems().add("What are the side effects after drinking the medicine?");
+                    QuestionnairesList.getItems().add("     - " + appointmentModel.getSideEffectsQ());
+                }
             }
         }
     }

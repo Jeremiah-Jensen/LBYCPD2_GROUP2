@@ -18,10 +18,10 @@ import java.util.ResourceBundle;
 
 public class DoctorDetails implements Initializable {
 
-    public Button LogOutButton, AppointmentsButton, PatientsButton, HomeButton;
-    public Text FirstName, ContactNumber, Email, Birthday, Gender, Address, Subspecialty;
+    public Button LogOutButton, AppointmentsButton, PatientsButton, HomeButton, HelpButton;
+    public Text FirstName, ContactNumber, Email, Birthday, Gender, Address, Subspecialty, Warning;
     public TextField FirstNameEdit, LastNameEdit, AddressLineEdit, NumberEdit, EmailEdit, AddressEdit, SubspecialtyEdit;
-    public ComboBox EditDay, EditMonth, EditYear, GenderEdit;
+    public ComboBox<String> EditDay, EditMonth, EditYear, GenderEdit;
     public ImageView ProfilePhoto;
     public String path = "Default.png";
     Doctor doctorModel;
@@ -84,33 +84,41 @@ public class DoctorDetails implements Initializable {
 
     public void EditInformation(ActionEvent actionEvent) {
         doctorModel = DoctorLogin.doctorModel;
-        firebase.child("Doctor").child(doctorModel.getId()).child("firstName").setValue(FirstNameEdit.getText());
-        firebase.child("Doctor").child(doctorModel.getId()).child("lastName").setValue(LastNameEdit.getText());
-        firebase.child("Doctor").child(doctorModel.getId()).child("birthday").setValue(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
-        firebase.child("Doctor").child(doctorModel.getId()).child("gender").setValue(GenderEdit.getValue());
-        firebase.child("Doctor").child(doctorModel.getId()).child("contactNumber").setValue(NumberEdit.getText());
-        firebase.child("Doctor").child(doctorModel.getId()).child("email").setValue(EmailEdit.getText());
-        firebase.child("Doctor").child(doctorModel.getId()).child("address").setValue(AddressEdit.getText() + ", " + AddressLineEdit.getText());
-        firebase.child("Doctor").child(doctorModel.getId()).child("subspecialty").setValue(SubspecialtyEdit.getText());
 
-        String fullName = FirstNameEdit.getText() + " " + LastNameEdit.getText();
-        FirstName.setText(fullName);
-        ContactNumber.setText(NumberEdit.getText());
-        Email.setText(EmailEdit.getText());
-        Birthday.setText(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
-        Gender.setText((String) GenderEdit.getValue());
-        Address.setText(AddressEdit.getText() + ", " + AddressLineEdit.getText());
-        Subspecialty.setText(SubspecialtyEdit.getText());
+        if(FirstNameEdit.getText().isEmpty() || LastNameEdit.getText().isEmpty() ||  NumberEdit.getText().isEmpty() || EmailEdit.getText().isEmpty() || AddressEdit.getText().isEmpty() || AddressLineEdit.getText().isEmpty() || SubspecialtyEdit.getText().isEmpty()) {
+            Warning.setVisible(true);
+            Warning.setText("Missing Details");
+        }
+        else {
+            Warning.setVisible(false);
+            firebase.child("Doctor").child(doctorModel.getId()).child("firstName").setValue(FirstNameEdit.getText());
+            firebase.child("Doctor").child(doctorModel.getId()).child("lastName").setValue(LastNameEdit.getText());
+            firebase.child("Doctor").child(doctorModel.getId()).child("birthday").setValue(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
+            firebase.child("Doctor").child(doctorModel.getId()).child("gender").setValue(GenderEdit.getValue());
+            firebase.child("Doctor").child(doctorModel.getId()).child("contactNumber").setValue(NumberEdit.getText());
+            firebase.child("Doctor").child(doctorModel.getId()).child("email").setValue(EmailEdit.getText());
+            firebase.child("Doctor").child(doctorModel.getId()).child("address").setValue(AddressEdit.getText() + ", " + AddressLineEdit.getText());
+            firebase.child("Doctor").child(doctorModel.getId()).child("subspecialty").setValue(SubspecialtyEdit.getText());
+
+            String fullName = FirstNameEdit.getText() + " " + LastNameEdit.getText();
+            FirstName.setText(fullName);
+            ContactNumber.setText(NumberEdit.getText());
+            Email.setText(EmailEdit.getText());
+            Birthday.setText(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
+            Gender.setText((String) GenderEdit.getValue());
+            Address.setText(AddressEdit.getText() + ", " + AddressLineEdit.getText());
+            Subspecialty.setText(SubspecialtyEdit.getText());
+        }
 
         FirstNameEdit.setText(null);
         LastNameEdit.setText(null);
-        EditMonth.setValue(null);
+        EditMonth.setValue(" ");
         EditMonth.setPromptText("Month");
-        EditDay.setValue(null);
+        EditDay.setValue(" ");
         EditDay.setPromptText("Day");
-        EditYear.setValue(null);
+        EditYear.setValue(" ");
         EditYear.setPromptText("Year");
-        GenderEdit.setValue(null);
+        GenderEdit.setValue(" ");
         GenderEdit.setPromptText("Gender");
         NumberEdit.setText(null);
         EmailEdit.setText(null);
@@ -122,13 +130,13 @@ public class DoctorDetails implements Initializable {
     public void Cancel(ActionEvent actionEvent) {
         FirstNameEdit.setText(null);
         LastNameEdit.setText(null);
-        EditMonth.setValue(null);
+        EditMonth.setValue(" ");
         EditMonth.setPromptText("Month");
-        EditDay.setValue(null);
+        EditDay.setValue(" ");
         EditDay.setPromptText("Day");
-        EditYear.setValue(null);
+        EditYear.setValue(" ");
         EditYear.setPromptText("Year");
-        GenderEdit.setValue(null);
+        GenderEdit.setValue(" ");
         GenderEdit.setPromptText("Gender");
         NumberEdit.setText(null);
         EmailEdit.setText(null);
@@ -147,7 +155,12 @@ public class DoctorDetails implements Initializable {
         new Main().loadFXML("DoctorAppointments");
         Stage closeStage = (Stage) AppointmentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
+    }
 
+    public void DoctorHelp(ActionEvent actionEvent) {
+        new Main().loadFXML("DoctorHelpMenu");
+        Stage closeStage = (Stage) HelpButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
     }
 
     public void DoctorLogOut(ActionEvent actionEvent) {

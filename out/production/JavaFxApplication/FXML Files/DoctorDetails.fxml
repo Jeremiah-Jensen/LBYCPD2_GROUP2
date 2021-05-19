@@ -61,7 +61,7 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="28.0" layoutY="425.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
+                <Button fx:id="HelpButton" layoutX="28.0" layoutY="425.0" mnemonicParsing="false" onAction="#DoctorHelp" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
@@ -177,7 +177,7 @@
                 </DropShadow>
             </effect>
         </AnchorPane>
-        <AnchorPane fx:id="UpcomingAppointments" layoutX="297.0" layoutY="305.0" prefHeight="275.0" prefWidth="689.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+        <AnchorPane fx:id="UpcomingAppointments" layoutX="297.0" layoutY="305.0" prefHeight="282.0" prefWidth="689.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
             <children>
                 <Label layoutX="25.0" layoutY="11.0" text="Edit Details" textFill="#39a2bd">
                     <font>
@@ -231,12 +231,12 @@
                         <Font size="13.0" />
                     </font>
                 </Label>
-                <Button layoutX="176.0" layoutY="235.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="18.0" prefWidth="159.0" style="-fx-background-color: #39a2bd#39a2bd;" text="Back" textFill="WHITE">
+                <Button layoutX="174.0" layoutY="250.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="18.0" prefWidth="159.0" style="-fx-background-color: #39a2bd#39a2bd;" text="Back" textFill="WHITE">
                     <font>
                         <Font name="Avenir Book" size="11.0" />
                     </font>
                 </Button>
-                <Button layoutX="356.0" layoutY="235.0" mnemonicParsing="false" onAction="#EditInformation" prefHeight="18.0" prefWidth="159.0" style="-fx-background-color: #39a2bd#39a2bd;" text="Save Changes" textFill="WHITE">
+                <Button layoutX="357.0" layoutY="250.0" mnemonicParsing="false" onAction="#EditInformation" prefHeight="18.0" prefWidth="159.0" style="-fx-background-color: #39a2bd#39a2bd;" text="Save Changes" textFill="WHITE">
                     <font>
                         <Font name="Avenir Book" size="11.0" />
                     </font>
@@ -246,6 +246,11 @@
                 <ComboBox fx:id="EditYear" editable="true" layoutX="116.0" layoutY="162.0" prefHeight="26.0" prefWidth="194.0" promptText="Year" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
                 <ComboBox fx:id="GenderEdit" editable="true" layoutX="116.0" layoutY="192.0" prefHeight="26.0" prefWidth="194.0" promptText="Gender" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
                 <TextField fx:id="AddressLineEdit" layoutX="431.0" layoutY="161.0" prefHeight="26.0" prefWidth="194.0" promptText="Address Line" style="-fx-background-radius: 20;" />
+            <Text fx:id="Warning" fill="#e90000" layoutX="261.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="167.9999999999999">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
             </children>
             <effect>
                 <DropShadow>
