@@ -29,14 +29,14 @@ public class AdminUser implements Initializable {
     public Label ChildName, ChildBirthday, ChildConditions;
     public ComboBox<String> ChildBox, UserBox;
     public Button LogOutButton;
-    User main;
+    User userModel;
     List<User> userList = new ArrayList<>();
     List<Children> childrenList = new ArrayList<>();
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        firebase.child("Children").addListenerForSingleValueEvent(new ValueEventListener() {
+        firebase.child("Child").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
@@ -72,7 +72,7 @@ public class AdminUser implements Initializable {
 
     public void SelectUser(ActionEvent actionEvent) {
         for (int i = 0; i < userList.size(); i++) {
-            User userModel = userList.get(i);
+            userModel = userList.get(i);
             if (UserBox.getValue().equals(userModel.getFirstName() + " " + userModel.getLastName() + "-" + userModel.getUsername())) {
                 String FullName = userModel.getFirstName() + " " + userModel.getLastName();
                 Username.setText(userModel.getUsername());
@@ -83,8 +83,45 @@ public class AdminUser implements Initializable {
                 Number.setText(userModel.getContactNumber());
                 Image image = new Image(userModel.getPicture());
                 UserImage.setImage(image);
+                ChildBox.setValue(" ");
+                ChildName.setText(" ");
+                ChildBirthday.setText(" ");
+                ChildConditions.setText(" ");
+                Image chPic = new Image("Default.png");
+                ChildImage.setImage(chPic);
+                ChildName.setText(" ");
+                ChildBox.getItems().clear();
+                for(int j = 0; j < childrenList.size(); j++){
+                    Children childrenModel = childrenList.get(j);
+                    if(childrenModel.getParentID().equals(userModel.getUsername())) {
+                        if (userModel.getUsername().equals(childrenModel.getParentID())) {
+                            ChildBox.getItems().add(childrenModel.getFirstname() + " " + childrenModel.getLastname());
+                        }
+                    }
+                }
             }
         }
+    }
+
+    public void SelectChild(ActionEvent actionEvent) {
+        for(int j = 0; j < childrenList.size(); j++){
+            Children childrenModel = childrenList.get(j);
+                if (ChildBox.getValue().equals(childrenModel.getFirstname() + " " + childrenModel.getLastname())) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            ChildBox.setValue(childrenModel.getFirstname() + " " + childrenModel.getLastname());
+                            ChildName.setText(childrenModel.getFirstname() + " " + childrenModel.getLastname());
+                            ChildBirthday.setText(childrenModel.getBirthday());
+                            ChildConditions.setText(childrenModel.getConditions());
+                            Image chPic = new Image(childrenModel.getPicture());
+                            ChildImage.setImage(chPic);
+                            ChildName.setText(childrenModel.getFirstname() + " " + childrenModel.getLastname());
+                        }
+                    });
+                }
+        }
+
     }
 
     public void LogOut(ActionEvent actionEvent){

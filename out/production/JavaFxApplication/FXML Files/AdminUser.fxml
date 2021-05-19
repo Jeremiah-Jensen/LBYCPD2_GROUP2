@@ -220,7 +220,7 @@
                         </LinearGradient>
                     </fill>
                 </Rectangle>
-                <ComboBox fx:id="ChildBox" layoutX="355.0" layoutY="76.0" prefHeight="33.0" prefWidth="296.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+                <ComboBox fx:id="ChildBox" layoutX="355.0" layoutY="76.0" onAction="#SelectChild" prefHeight="33.0" prefWidth="296.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
                 <Label layoutX="232.0" layoutY="121.0" text="Name:">
                     <font>
                         <Font name="Avenir Book" size="20.0" />

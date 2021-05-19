@@ -170,7 +170,7 @@
                   <Font name="Avenir Book" size="13.0" />
                </font>
             </Label>
-            <DatePicker layoutX="36.0" layoutY="75.0" prefHeight="33.0" prefWidth="341.0" promptText="Select Date" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
+            <DatePicker fx:id="DateBox" layoutX="36.0" layoutY="75.0" onAction="#SelectDate" prefHeight="33.0" prefWidth="341.0" promptText="Select Date" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
             </children>
             <effect>
                 <DropShadow>
