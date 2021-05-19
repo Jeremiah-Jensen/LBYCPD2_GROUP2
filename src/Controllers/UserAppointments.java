@@ -27,7 +27,7 @@ public class UserAppointments implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment,UpcomingAppointments, PreviousAppointments;
     public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton, PaymentsButton, PreQues, PostQues;
-    public Button ConfirmSched, ConfirmAppointment, Consult;
+    public Button ConfirmSched, Consult;
     public Label DocName, SubSpecialty,Specialty, Error;
     public ImageView DoctorImage;
     public ComboBox<String> DoctorsBox, ScheduleBox, ChildBox, AppointmentsBox, PreviousBox;
@@ -228,7 +228,7 @@ public class UserAppointments implements Initializable {
         else{
             WriteAppointment();
             new Main().loadFXML("UserAppointments");
-            Stage closeStage = (Stage) ConfirmAppointment.getScene().getWindow();
+            Stage closeStage = (Stage) ConfirmSched.getScene().getWindow();
             new Main().CloseButton(closeStage);
         }
     }

@@ -241,9 +241,8 @@ public class UserLogIn implements Initializable {
         Address2.clear();
         Pic.setText("-No Photo Selected-");
     }
-
     public void DoctorsLogin(ActionEvent actionEvent) {
-    new Main().loadFXML("DoctorLogIn");
+        new Main().loadFXML("DoctorLogIn");
         Stage closeStage = (Stage) DoctorLoginButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
