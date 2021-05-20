@@ -169,7 +169,7 @@ Email: jeremiah_jensen@dlsu.edu.ph
 
 BS Computer Engineering in De La Salle University-Manila.
 > Programming Experience: C++, C, Java, Python, Object Oriented Programming, Data Structures aEnd Algorithms.
-> Previous Projects:  Contactless Bus Payment and Reservation System, Animo Click: DLSU Services Application.
+> Previous Projects:  Contactless Bus Payment and Reservation System, GreenApp: DLSU Services Application.
 
 ## External Links
 [IntelliJ Idea Download](https://www.jetbrains.com/idea/download/#section=mac)
