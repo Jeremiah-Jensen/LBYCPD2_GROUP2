@@ -45,6 +45,10 @@ public class PostQuestionnaire implements Initializable {
             if(Feeling.getText().isEmpty() || PainScale.getValue().isEmpty() || SideEffects.getText().isEmpty()){
                 Warning.setText("Empty fields.");
             }
+
+            else if(!YesButton.isSelected() && !NoButton.isSelected()){
+                Warning.setText("Tick choices");
+            }
             else{
                 firebase.child("Appointments").child(appointmentsModel.getId()).child("feelingQ2").setValue(Feeling.getText());
                 firebase.child("Appointments").child(appointmentsModel.getId()).child("sideEffectsQ").setValue(SideEffects.getText());
@@ -57,6 +61,7 @@ public class PostQuestionnaire implements Initializable {
                 if(NoButton.isSelected()){
                     firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ2").setValue("No");
                 }
+
             }
         }
     }

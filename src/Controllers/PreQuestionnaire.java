@@ -78,6 +78,19 @@ public class PreQuestionnaire implements Initializable {
                 Warning.setText("Empty fields.");
             }
 
+            else if(!YesPainButton.isSelected() && !NoPainButton.isSelected() && !YesButton1.isSelected() && !NoButton1.isSelected()
+                    && !YesButton2.isSelected() && !NoButton2.isSelected() &&!YesButton3.isSelected() && !NoButton3.isSelected() &&
+                    !YesButton4.isSelected() && !NoButton4.isSelected()  &&
+                    !YesButton5.isSelected() && !NoButton5.isSelected()  &&
+                    !YesButton6.isSelected() && !NoButton6.isSelected()
+                    && !YesButton7.isSelected() && !NoButton7.isSelected()  &&
+                    !YesButton8.isSelected() && !NoButton8.isSelected()
+                    && !YesButton9.isSelected() && !NoButton9.isSelected()  &&
+                    !YesButton10.isSelected() && !NoButton10.isSelected()){
+                Warning.setText("Tick choices.");
+
+            }
+
             else {
                 Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
                 if(YesPainButton.isSelected()){
