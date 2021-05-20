@@ -18,12 +18,13 @@ public class PostQuestionnaire implements Initializable {
     public Button SubmitAnswers;
     public RadioButton YesButton, NoButton;
     public ToggleGroup TG1;
+    public Label Warning;
     Appointments appointmentsModel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         appointmentsModel = UserAppointments.appointmentsModel;
-        PainScale.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+        PainScale.getItems().addAll("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
     }
 
     public void SubmitAnswers(ActionEvent actionEvent) {
@@ -41,22 +42,23 @@ public class PostQuestionnaire implements Initializable {
         }
 
         else {
-
-            firebase.child("Appointments").child(appointmentsModel.getId()).child("feelingQ2").setValue(Feeling.getText());
-            firebase.child("Appointments").child(appointmentsModel.getId()).child("sideEffectsQ").setValue(SideEffects.getText());
-            firebase.child("Appointments").child(appointmentsModel.getId()).child("painScaleQ2").setValue(PainScale.getValue());
-
-            if(YesButton.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ2").setValue("Yes");
+            if(Feeling.getText().isEmpty() || PainScale.getValue().isEmpty() || SideEffects.getText().isEmpty()){
+                Warning.setText("Empty fields.");
             }
+            else{
+                firebase.child("Appointments").child(appointmentsModel.getId()).child("feelingQ2").setValue(Feeling.getText());
+                firebase.child("Appointments").child(appointmentsModel.getId()).child("sideEffectsQ").setValue(SideEffects.getText());
+                firebase.child("Appointments").child(appointmentsModel.getId()).child("painScaleQ2").setValue(PainScale.getValue());
 
-            if(NoButton.isSelected()){
-                firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ2").setValue("No");
+                if(YesButton.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ2").setValue("Yes");
+                }
+
+                if(NoButton.isSelected()){
+                    firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ2").setValue("No");
+                }
             }
-
         }
-
     }
-
 
 }

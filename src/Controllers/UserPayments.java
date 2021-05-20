@@ -7,6 +7,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,6 +34,7 @@ public class UserPayments implements Initializable {
     public ComboBox<String> Month, Year, Network;
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com");
     List<Appointments> appointmentsList = new ArrayList<>();
+    List<User> usersList = new ArrayList<>();
     User userModel;
 
     @Override
@@ -53,17 +55,25 @@ public class UserPayments implements Initializable {
                     Appointments app = data.getValue(Appointments.class);
                     appointmentsList.add(app);
                 }
+
                 System.out.println(appointmentsList.size());
                 for(int i = 0; i < appointmentsList.size(); i++) {
                     Appointments appointmentsModel = appointmentsList.get(i);
                     String FullName = userModel.getFirstName() + " " + userModel.getLastName();
                     if(FullName.equals(appointmentsModel.getUser())){
-                        if(appointmentsModel.getStatus().equals("Upcoming") || appointmentsModel.getStatus().equals("Consultation")){
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                if(appointmentsModel.getStatus().equals("Upcoming") || appointmentsModel.getStatus().equals("Consultation")){
 
-                        }
-                        else{
-                            TransactionHistory.getItems().add("500 PHP - " + appointmentsModel.getAppointment());
-                        }
+                                }
+                                else{
+                                    TransactionHistory.getItems().add("500 PHP - " + appointmentsModel.getAppointment());
+                                }
+
+                            }
+                        });
+
                     }
                 }
             }
@@ -72,6 +82,8 @@ public class UserPayments implements Initializable {
 
             }
         });
+
+
     }
 
     public void Switch(ActionEvent actionEvent) {
@@ -140,10 +152,7 @@ public class UserPayments implements Initializable {
                     InputCard.setVisible(false);
                     History.setVisible(true);
                     UserLogIn.userModel = userModel;
-                    NameLabel2.setText(userModel.getName());
-                    CardNumLabel2.setText(userModel.getCardnumber());
-                    ExpirydateLabel2.setText(userModel.getExpirydate());
-                    NetworkLabel2.setText(userModel.getNetwork());
+
                 }
 
             }
@@ -179,6 +188,37 @@ public class UserPayments implements Initializable {
             }
 
         }
+
+        firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    User app = data.getValue(User.class);
+                    usersList.add(app);
+                }
+                System.out.println(usersList.size());
+                for(int i = 0; i < usersList.size(); i++) {
+                    User userModel = usersList.get(i);
+                    String FullName = userModel.getFirstName() + " " + userModel.getLastName();
+                    if(FullName.equals(userModel.getName())){
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                NameLabel2.setText(userModel.getName());
+                                CardNumLabel2.setText(userModel.getCardnumber());
+                                ExpirydateLabel2.setText(userModel.getExpirydate());
+                                NetworkLabel2.setText(userModel.getNetwork());
+                            }
+                        });
+
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
     }
 
