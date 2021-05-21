@@ -70,10 +70,10 @@ public class PreQuestionnaire implements Initializable {
     private void Write(){
         System.out.println(appointmentsModel.getId());
         if(appointmentsModel==null){
+            System.out.println("Fail");
             throw new NullPointerException("Can't pass null for argument 'pathString' in child()");
         }
         else {
-
             if(Reason.getText().isEmpty() || PainComboBox.getEditor().getText().isEmpty() || Feeling.getText().isEmpty()){
                 Warning.setText("Empty fields.");
             }
@@ -96,7 +96,6 @@ public class PreQuestionnaire implements Initializable {
                 if(YesPainButton.isSelected()){
                     firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ1").setValue("Yes");
                 }
-
                 if(NoPainButton.isSelected()){
                     firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ1").setValue("No");
                 }

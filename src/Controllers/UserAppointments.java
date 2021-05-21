@@ -67,7 +67,7 @@ public class UserAppointments implements Initializable {
                     Appointments app = data.getValue(Appointments.class);
                     appointmentsList.add(app);
                 }
-                for(int i = 0; i < appointmentsList.size()/2; i++) {
+                for(int i = 0; i < appointmentsList.size(); i++) {
                     Appointments appointmentsModel = appointmentsList.get(i);
                     if(FullName.equals(appointmentsModel.getUser())){
                         if(appointmentsModel.getStatus().equals("Upcoming") || appointmentsModel.getStatus().equals("Consultation")){
@@ -180,7 +180,7 @@ public class UserAppointments implements Initializable {
 
     public void SelectAppointment(ActionEvent actionEvent){
         String AppValue = AppointmentsBox.getValue();
-        for(int i = 0; i < appointmentsList.size()/2; i++) {
+        for(int i = 0; i < appointmentsList.size(); i++) {
             Appointments Model = appointmentsList.get(i);
             if(AppValue.equals(Model.getAppointment())){
                 appointmentsModel = appointmentsList.get(i);
