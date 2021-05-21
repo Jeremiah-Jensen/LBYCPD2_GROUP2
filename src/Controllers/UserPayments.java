@@ -83,7 +83,6 @@ public class UserPayments implements Initializable {
                     Appointments app = data.getValue(Appointments.class);
                     appointmentsList.add(app);
                 }
-
                 for(int i = 0; i < appointmentsList.size(); i++) {
                     Appointments appointmentsModel = appointmentsList.get(i);
                     if(FullName.equals(appointmentsModel.getUser())){

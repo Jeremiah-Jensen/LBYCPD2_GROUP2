@@ -32,6 +32,7 @@ public class UserAppointments implements Initializable {
     public ImageView DoctorImage;
     public ComboBox<String> DoctorsBox, ScheduleBox, ChildBox, AppointmentsBox, PreviousBox;
     public ListView<String> AppointmentsListView, PreviousListView;
+    public String ZoomLink;
     public DatePicker DateBox;
     int count = 0;
     public String FullName;
@@ -40,24 +41,6 @@ public class UserAppointments implements Initializable {
     List<Doctor> doctorList = new ArrayList<>();
     List<Schedule> scheduleList = new ArrayList<>();
     List<Appointments> appointmentsList;
-
-    public UserAppointments(){
-        Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com");
-        firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener()
-        {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Appointments appointmentsModel=data.getValue(Appointments.class);
-                    appointmentsModel.setId(data.getKey());
-                    appointmentsList.add(appointmentsModel);
-                }
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -161,7 +144,8 @@ public class UserAppointments implements Initializable {
                 DoctorsBox.getItems().add("Dr." + scheduleModel.getName());
                 System.out.println("lol");
             }
-        }DoctorsBox.setDisable(false);
+        }
+        DoctorsBox.setDisable(false);
     }
 
     public void ConfirmDoctor(ActionEvent actionEvent){
