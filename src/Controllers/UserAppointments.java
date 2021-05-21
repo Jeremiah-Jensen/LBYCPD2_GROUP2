@@ -42,6 +42,23 @@ public class UserAppointments implements Initializable {
     List<Schedule> scheduleList = new ArrayList<>();
     List<Appointments> appointmentsList;
 
+    public UserAppointments(){
+        firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Appointments appointmentsModel=data.getValue(Appointments.class);
+                    appointmentsModel.setId(data.getKey());
+                    appointmentsList.add(appointmentsModel);
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+            }
+        });
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         appointmentsList = new ArrayList<>();
@@ -63,10 +80,6 @@ public class UserAppointments implements Initializable {
         firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Appointments app = data.getValue(Appointments.class);
-                    appointmentsList.add(app);
-                }
                 for(int i = 0; i < appointmentsList.size(); i++) {
                     Appointments appointmentsModel = appointmentsList.get(i);
                     if(FullName.equals(appointmentsModel.getUser())){
@@ -185,7 +198,6 @@ public class UserAppointments implements Initializable {
             if(AppValue.equals(Model.getAppointment())){
                 appointmentsModel = appointmentsList.get(i);
                 System.out.println(appointmentsModel.getId());
-                System.out.println(appointmentsModel.getChild());
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
