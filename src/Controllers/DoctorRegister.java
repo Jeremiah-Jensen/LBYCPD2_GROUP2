@@ -17,7 +17,7 @@ public class DoctorRegister implements Initializable {
     public PasswordField Password, ReenterPassword;
     public Label Error2, Error3, Pic;
     public Button BackButton, RegisterButton;
-    public ComboBox Day, Month, Year, Gender;
+    public ComboBox<String> Day, Month, Year, Gender;
     public String path = "Default.png";
 
     @Override
@@ -51,7 +51,7 @@ public class DoctorRegister implements Initializable {
     }
 
     public void RegisterAction(ActionEvent actionEvent) {
-        if(Username.getText().isEmpty() || Password.getText().isEmpty() || FirstName.getText().isEmpty() || FirstName.getText().isEmpty() || LastName.getText().isEmpty() || ReenterPassword.getText().isEmpty() ||  Email.getText().isEmpty() || Number.getText().isEmpty()) {
+        if(Username.getText().isEmpty() || Password.getText().isEmpty() || FirstName.getText().isEmpty() || LastName.getText().isEmpty() || ReenterPassword.getText().isEmpty() ||  Email.getText().isEmpty() || Number.getText().isEmpty() || City.getText().isEmpty() || AddressLine.getText().isEmpty() || Subspecialty.getText().isEmpty() || Day.getEditor().getText().isEmpty() || Month.getEditor().getText().isEmpty() || Year.getEditor().getText().isEmpty() || Gender.getEditor().getText().isEmpty()) {
             Error3.setVisible(false);
             Error2.setVisible(true);
         }
@@ -62,7 +62,7 @@ public class DoctorRegister implements Initializable {
         else {
             Write();
             Clear();
-        new Main().loadFXML("DoctorLogIn");
+            new Main().loadFXML("DoctorLogIn");
             Stage closeStage = (Stage) RegisterButton.getScene().getWindow();
             new Main().CloseButton(closeStage);
         }
@@ -81,7 +81,7 @@ public class DoctorRegister implements Initializable {
         model.setSubspecialty(Subspecialty.getText());
         model.setBirthday(Month.getValue() + " " + Day.getValue() + ", " + Year.getValue());
         model.setAddress(City.getText() + ", " + AddressLine.getText());
-        model.setGender((String) Gender.getValue());
+        model.setGender(Gender.getValue());
         model.setPicture(path);
         firebase.child("Doctor").push().setValue(model);
     }

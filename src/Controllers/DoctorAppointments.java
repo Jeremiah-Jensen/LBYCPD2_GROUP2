@@ -26,8 +26,8 @@ public class DoctorAppointments implements Initializable {
     public Button LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton, ViewButton, HelpButton;
     public ListView ScheduleList, PreQuesAnswers, PostQuesAnswers;
     public TextField  time, link;
-    public ComboBox AppointmentsBox, Status;
-    public Text PatientText, ScheduleText;
+    public ComboBox<String> AppointmentsBox, Status;
+    public Text PatientText, ScheduleText,Warning;
     public DatePicker date;
     public AnchorPane UpcomingAppointments, ConsultationPeriod, Questionnaires;
     Doctor doctorModel;
@@ -121,21 +121,28 @@ public class DoctorAppointments implements Initializable {
 
     public void ConfirmSchedule(ActionEvent actionEvent) {
         doctorModel = DoctorLogin.doctorModel;
-        Schedule schedule = new Schedule();
-        String fullname = doctorModel.getFirstName() + " " + doctorModel.getLastName();
-        schedule.setName(fullname);
-        schedule.setDay(date.getEditor().getText());
-        schedule.setTime(time.getText());
-        schedule.setLink(link.getText());
-        schedule.setStatus((String) Status.getValue());
-        ScheduleList.getItems().add(date.getValue() + " at " + time.getText() + "\n" + link.getText() + "\n" + Status.getValue() + "\n\n");
-        firebase.child("Schedule").push().setValue(schedule);
-        date.setValue(null);
-        date.setPromptText("Date");
-        Status.setValue(null);
-        Status.setPromptText("Status");
-        time.setText(null);
-        link.setText(null);
+        if(date.getEditor().getText().isEmpty() || time.getText().isEmpty() || link.getText().isEmpty() || Status.getEditor().getText().isEmpty()) {
+            Warning.setVisible(true);
+            Warning.setText("Missing Details");
+        }
+        else {
+            Warning.setVisible(false);
+            Schedule schedule = new Schedule();
+            String fullname = doctorModel.getFirstName() + " " + doctorModel.getLastName();
+            schedule.setName(fullname);
+            schedule.setDay(date.getEditor().getText());
+            schedule.setTime(time.getText());
+            schedule.setLink(link.getText());
+            schedule.setStatus(Status.getValue());
+            ScheduleList.getItems().add(date.getValue() + " at " + time.getText() + "\n" + link.getText() + "\n" + Status.getValue() + "\n\n");
+            firebase.child("Schedule").push().setValue(schedule);
+            date.setValue(null);
+            date.setPromptText("Date");
+            Status.setValue(null);
+            Status.setPromptText("Status");
+            time.setText(null);
+            link.setText(null);
+        }
     }
 
     public void ConfirmPatient(ActionEvent actionEvent) {

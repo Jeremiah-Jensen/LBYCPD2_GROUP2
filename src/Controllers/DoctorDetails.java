@@ -85,7 +85,7 @@ public class DoctorDetails implements Initializable {
     public void EditInformation(ActionEvent actionEvent) {
         doctorModel = DoctorLogin.doctorModel;
 
-        if(FirstNameEdit.getText().isEmpty() || LastNameEdit.getText().isEmpty() ||  NumberEdit.getText().isEmpty() || EmailEdit.getText().isEmpty() || AddressEdit.getText().isEmpty() || AddressLineEdit.getText().isEmpty() || SubspecialtyEdit.getText().isEmpty()) {
+        if(EditDay.getEditor().getText().isEmpty() || EditMonth.getEditor().getText().isEmpty() || EditYear.getEditor().getText().isEmpty() || GenderEdit.getEditor().getText().isEmpty() || FirstNameEdit.getText().isEmpty() || LastNameEdit.getText().isEmpty() ||  NumberEdit.getText().isEmpty() || EmailEdit.getText().isEmpty() || AddressEdit.getText().isEmpty() || AddressLineEdit.getText().isEmpty() || SubspecialtyEdit.getText().isEmpty()) {
             Warning.setVisible(true);
             Warning.setText("Missing Details");
         }
@@ -105,20 +105,20 @@ public class DoctorDetails implements Initializable {
             ContactNumber.setText(NumberEdit.getText());
             Email.setText(EmailEdit.getText());
             Birthday.setText(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
-            Gender.setText((String) GenderEdit.getValue());
+            Gender.setText(GenderEdit.getValue());
             Address.setText(AddressEdit.getText() + ", " + AddressLineEdit.getText());
             Subspecialty.setText(SubspecialtyEdit.getText());
         }
 
         FirstNameEdit.setText(null);
         LastNameEdit.setText(null);
-        EditMonth.setValue(" ");
+        EditMonth.setValue(null);
         EditMonth.setPromptText("Month");
-        EditDay.setValue(" ");
+        EditDay.setValue(null);
         EditDay.setPromptText("Day");
-        EditYear.setValue(" ");
+        EditYear.setValue(null);
         EditYear.setPromptText("Year");
-        GenderEdit.setValue(" ");
+        GenderEdit.setValue(null);
         GenderEdit.setPromptText("Gender");
         NumberEdit.setText(null);
         EmailEdit.setText(null);
@@ -128,15 +128,16 @@ public class DoctorDetails implements Initializable {
     }
 
     public void Cancel(ActionEvent actionEvent) {
+        Warning.setVisible(false);
         FirstNameEdit.setText(null);
         LastNameEdit.setText(null);
-        EditMonth.setValue(" ");
+        EditMonth.setValue(null);
         EditMonth.setPromptText("Month");
-        EditDay.setValue(" ");
+        EditDay.setValue(null);
         EditDay.setPromptText("Day");
-        EditYear.setValue(" ");
+        EditYear.setValue(null);
         EditYear.setPromptText("Year");
-        GenderEdit.setValue(" ");
+        GenderEdit.setValue(null);
         GenderEdit.setPromptText("Gender");
         NumberEdit.setText(null);
         EmailEdit.setText(null);

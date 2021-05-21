@@ -74,32 +74,32 @@
             </font>
         </Label>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="4.0" layoutX="563.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="421.0" />
-        <TextField fx:id="PrescriptionDate" layoutX="563.0" layoutY="104.0" prefHeight="27.0" prefWidth="207.0" promptText="MM/DD/YYYY" style="-fx-background-radius: 50;" />
-        <Label layoutX="563.0" layoutY="80.0" text="Prescription Date" textFill="WHITE">
+        <TextField fx:id="PrescriptionDate" layoutX="563.0" layoutY="96.0" prefHeight="27.0" prefWidth="207.0" promptText="MM/DD/YYYY" style="-fx-background-radius: 50;" />
+        <Label layoutX="563.0" layoutY="72.0" text="Prescription Date" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="Medicine" layoutX="777.0" layoutY="104.0" prefHeight="27.0" prefWidth="207.0" promptText="Medicine" style="-fx-background-radius: 50;" />
-        <Label layoutX="777.0" layoutY="80.0" text="Medicine" textFill="WHITE">
+        <TextField fx:id="Medicine" layoutX="777.0" layoutY="96.0" prefHeight="27.0" prefWidth="207.0" promptText="Medicine" style="-fx-background-radius: 50;" />
+        <Label layoutX="777.0" layoutY="72.0" text="Medicine" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="DailyDosage" layoutX="563.0" layoutY="173.0" prefHeight="27.0" prefWidth="207.0" promptText="Ex. 50 mg" style="-fx-background-radius: 50;" />
-        <Label layoutX="563.0" layoutY="149.0" text="Daily Dosage" textFill="WHITE">
+        <TextField fx:id="DailyDosage" layoutX="563.0" layoutY="165.0" prefHeight="27.0" prefWidth="207.0" promptText="Ex. 50 mg" style="-fx-background-radius: 50;" />
+        <Label layoutX="563.0" layoutY="141.0" text="Daily Dosage" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="Duration" layoutX="777.0" layoutY="173.0" prefHeight="27.0" prefWidth="207.0" promptText="Ex. 5 days" style="-fx-background-radius: 50;" />
-        <Label layoutX="777.0" layoutY="149.0" text="Duration" textFill="WHITE">
+        <TextField fx:id="Duration" layoutX="777.0" layoutY="165.0" prefHeight="27.0" prefWidth="207.0" promptText="Ex. 5 days" style="-fx-background-radius: 50;" />
+        <Label layoutX="777.0" layoutY="141.0" text="Duration" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="SpecialInstructions" layoutX="563.0" layoutY="244.0" prefHeight="27.0" prefWidth="207.0" promptText="N/A if none" style="-fx-background-radius: 50;" />
-        <Label layoutX="563.0" layoutY="223.0" text="Special Instructions" textFill="WHITE">
+        <TextField fx:id="SpecialInstructions" layoutX="563.0" layoutY="236.0" prefHeight="27.0" prefWidth="207.0" promptText="N/A if none" style="-fx-background-radius: 50;" />
+        <Label layoutX="563.0" layoutY="215.0" text="Special Instructions" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
@@ -115,11 +115,16 @@
             </font>
         </Text>
         <Button fx:id="EndButton" layoutX="784.0" layoutY="299.0" mnemonicParsing="false" onAction="#EndConsultation" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="End Consultation" />
-        <Label layoutX="777.0" layoutY="223.0" text="Status" textFill="WHITE">
+        <Label layoutX="777.0" layoutY="215.0" text="Status" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <ComboBox fx:id="Status" layoutX="777.0" layoutY="245.0" prefHeight="26.0" prefWidth="207.0" promptText="Status" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
+        <ComboBox fx:id="Status" editable="true" layoutX="777.0" layoutY="237.0" prefHeight="26.0" prefWidth="207.0" promptText="Status" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
+      <Text fx:id="Warning" fill="#e90000" layoutX="690.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="167.9999999999999">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

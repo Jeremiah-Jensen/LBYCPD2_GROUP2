@@ -22,7 +22,6 @@ public class DoctorPatients implements Initializable {
     public Button UserDetailsButton, LogOutButton, AppointmentsButton, HomeButton, HelpButton;
     public ListView PatientsList, PrevPatientsList, QuestionnairesList;
     public TextArea PatientsInformation;
-    public TextField PatientName;
     List<Children> childrenList = new ArrayList<>();
     List<Appointments> appointmentsList = new ArrayList<>();
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
@@ -140,6 +139,7 @@ public class DoctorPatients implements Initializable {
                 QuestionnairesList.getItems().add("     - " + appointmentModel.getQ8());
                 QuestionnairesList.getItems().add("Seizures");
                 QuestionnairesList.getItems().add("     - " + appointmentModel.getQ9());
+                QuestionnairesList.getItems().add("Frequent Stepthroat Infections");
                 QuestionnairesList.getItems().add("     - " + appointmentModel.getQ10());
 
                 if(appointmentModel.getFeelingQ2().equals(" ") || appointmentModel.getPainQ2().equals(" ") || appointmentModel.getPainScaleQ2().equals(" ") || appointmentModel.getSideEffectsQ().equals(" ")) {
@@ -176,7 +176,7 @@ public class DoctorPatients implements Initializable {
         for(int i = 0; i < appointmentsList.size(); i++) {
             Appointments appointmentModel = appointmentsList.get(i);
             String fullname = appointmentModel.getChild();
-            if(PatientsList.getSelectionModel().getSelectedItem().equals(fullname)) {
+            if(PrevPatientsList.getSelectionModel().getSelectedItem().equals(fullname)) {
                 QuestionnairesList.getItems().add("PRE CHECK-UP QUESTIONNAIRE");
                 QuestionnairesList.getItems().add("What is your child feeling?");
                 QuestionnairesList.getItems().add("     - " + appointmentModel.getFeelingQ());
@@ -204,6 +204,7 @@ public class DoctorPatients implements Initializable {
                 QuestionnairesList.getItems().add("     - " + appointmentModel.getQ8());
                 QuestionnairesList.getItems().add("Seizures");
                 QuestionnairesList.getItems().add("     - " + appointmentModel.getQ9());
+                QuestionnairesList.getItems().add("Frequent Stepthroat Infections");
                 QuestionnairesList.getItems().add("     - " + appointmentModel.getQ10());
 
                 if(appointmentModel.getFeelingQ2().equals(" ") || appointmentModel.getPainQ2().equals(" ") || appointmentModel.getPainScaleQ2().equals(" ") || appointmentModel.getSideEffectsQ().equals(" ")) {

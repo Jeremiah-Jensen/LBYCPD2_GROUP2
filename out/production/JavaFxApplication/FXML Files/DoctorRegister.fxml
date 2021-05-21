@@ -80,10 +80,10 @@
                         <Font name="Avenir Book" size="16.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="Day" layoutX="131.0" layoutY="110.0" prefHeight="26.0" prefWidth="68.0" promptText="Day" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
-                  <ComboBox fx:id="Month" layoutX="212.0" layoutY="110.0" prefHeight="26.0" prefWidth="120.0" promptText="Month" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
-                  <ComboBox fx:id="Year" layoutX="131.0" layoutY="145.0" prefHeight="26.0" prefWidth="200.0" promptText="Year" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
-                  <ComboBox fx:id="Gender" layoutX="128.0" layoutY="219.0" prefHeight="26.0" prefWidth="200.0" promptText="Gender" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
+                  <ComboBox fx:id="Day" editable="true" layoutX="131.0" layoutY="110.0" prefHeight="26.0" prefWidth="68.0" promptText="Day" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
+                  <ComboBox fx:id="Month" editable="true" layoutX="212.0" layoutY="110.0" prefHeight="26.0" prefWidth="120.0" promptText="Month" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
+                  <ComboBox fx:id="Year" editable="true" layoutX="131.0" layoutY="145.0" prefHeight="26.0" prefWidth="200.0" promptText="Year" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
+                  <ComboBox fx:id="Gender" editable="true" layoutX="128.0" layoutY="219.0" prefHeight="26.0" prefWidth="200.0" promptText="Gender" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
                   <TextField fx:id="City" layoutX="128.0" layoutY="293.0" prefHeight="32.0" prefWidth="198.0" promptText="Enter City" style="-fx-background-radius: 20;" />
                   <TextField fx:id="AddressLine" layoutX="127.0" layoutY="332.0" prefHeight="32.0" prefWidth="198.0" promptText="Address Line" style="-fx-background-radius: 20;" />
                   <Label layoutX="21.0" layoutY="409.0" text="Photo">

@@ -241,10 +241,10 @@
                         <Font name="Avenir Book" size="11.0" />
                     </font>
                 </Button>
-                <ComboBox fx:id="EditDay" editable="true" layoutX="116.0" layoutY="132.0" prefHeight="26.0" prefWidth="75.0" promptText="Day" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
-                <ComboBox fx:id="EditMonth" editable="true" layoutX="195.0" layoutY="132.0" prefHeight="26.0" prefWidth="114.0" promptText="Month" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
-                <ComboBox fx:id="EditYear" editable="true" layoutX="116.0" layoutY="162.0" prefHeight="26.0" prefWidth="194.0" promptText="Year" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
-                <ComboBox fx:id="GenderEdit" editable="true" layoutX="116.0" layoutY="192.0" prefHeight="26.0" prefWidth="194.0" promptText="Gender" style="-fx-background-color: #e8e8e8 #e8e8e8; -fx-background-radius: 50;" />
+                <ComboBox fx:id="EditDay" editable="true" layoutX="116.0" layoutY="132.0" prefHeight="26.0" prefWidth="75.0" promptText="Day" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
+                <ComboBox fx:id="EditMonth" editable="true" layoutX="195.0" layoutY="132.0" prefHeight="26.0" prefWidth="114.0" promptText="Month" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
+                <ComboBox fx:id="EditYear" editable="true" layoutX="116.0" layoutY="162.0" prefHeight="26.0" prefWidth="194.0" promptText="Year" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
+                <ComboBox fx:id="GenderEdit" editable="true" layoutX="116.0" layoutY="192.0" prefHeight="26.0" prefWidth="194.0" promptText="Gender" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
                 <TextField fx:id="AddressLineEdit" layoutX="431.0" layoutY="161.0" prefHeight="26.0" prefWidth="194.0" promptText="Address Line" style="-fx-background-radius: 20;" />
             <Text fx:id="Warning" fill="#e90000" layoutX="261.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="167.9999999999999">
                <font>
