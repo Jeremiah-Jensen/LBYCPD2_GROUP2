@@ -74,7 +74,7 @@ public class PreQuestionnaire implements Initializable {
         }
         else {
 
-            if(Reason.getText().isEmpty() || PainComboBox.getValue().isEmpty() || Feeling.getText().isEmpty()){
+            if(Reason.getText().isEmpty() || PainComboBox.getEditor().getText().isEmpty() || Feeling.getText().isEmpty()){
                 Warning.setText("Empty fields.");
             }
 

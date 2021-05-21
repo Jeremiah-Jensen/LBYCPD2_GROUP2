@@ -30,7 +30,7 @@ public class UserDetails implements Initializable {
     public AnchorPane ScheduleAppointment, ManageChildren, EditDetails, AddChildren;
     public Button HelpButton, LogOutButton, HomeButton, AppointmentsButton, PaymentsButton,AddChild, EditUserInfo, SaveButton;
     public Label Name, Birthday, Email, Number, Gender, Username, ChildName, ChildConditions, ChildBirthday, ChildPic, Error, Warning;
-    public TextField ChildFN, ChildLN, ChildCN, UserFN, UserLN, UserEmail, UserAddress;
+    public TextField ChildFN, ChildLN, ChildCN, UserFN, UserLN, UserEmail, UserAddress, PhoneNumber;
     public ImageView UserImage, ChildImage;
     public ComboBox<String> ChildBox, Day, Month, Year, GenderComboBox, DayComboBox, MonthComboBox, YearComboBox;
     public Text test;
@@ -38,6 +38,7 @@ public class UserDetails implements Initializable {
     public String path = "Default.png";
     int count = 0;
     List<Children> childrenList = new ArrayList<>();
+    List<User> usersList = new ArrayList<>();
     User userModel;
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com");
 
@@ -68,6 +69,11 @@ public class UserDetails implements Initializable {
         Gender.setText(userModel.getGender());
         Email.setText(userModel.getEmail());
         Number.setText(userModel.getContactNumber());
+        UserFN.setText(userModel.getFirstName());
+        UserLN.setText(userModel.getLastName());
+        UserEmail.setText(userModel.getEmail());
+        UserAddress.setText(userModel.getAddress());
+        PhoneNumber.setText(userModel.getContactNumber());
         Pic = userModel.getPicture();
         Image image = new Image(Pic);
         UserImage.setImage(image);
@@ -131,6 +137,37 @@ public class UserDetails implements Initializable {
 
                 }
             });
+
+        firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    User app = data.getValue(User.class);
+                    usersList.add(app);
+                }
+                for(int i = 0; i < usersList.size(); i++) {
+                    User userModel = usersList.get(i);
+                    if(FullName.equals(usersList.get(i).getFirstName() + " " + usersList.get(i).getLastName())){
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                Name.setText(userModel.getName());
+                                Gender.setText(userModel.getGender());
+                                Birthday.setText(userModel.getBirthday());
+                                Email.setText(userModel.getEmail());
+                                Number.setText(userModel.getContactNumber());
+                            }
+                        });
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
         }
 
 
@@ -232,11 +269,9 @@ public class UserDetails implements Initializable {
 
     public void SaveChanges(ActionEvent actionEvent) {
         Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
-
-        if(UserFN.getText().isEmpty() || UserLN.getText().isEmpty() || UserEmail.getText().isEmpty() || DayComboBox.getValue().isEmpty() || MonthComboBox.getValue().isEmpty() || YearComboBox.getValue().isEmpty()){
-            Warning.setVisible(true);
-            Warning.setText("Missing details");
-        }
+        if(DayComboBox.getEditor().getText().isEmpty() || MonthComboBox.getEditor().getText().isEmpty() || YearComboBox.getEditor().getText().isEmpty() ||GenderComboBox.getEditor().getText().isEmpty()){
+            Warning.setText("Empty fields");
+       }
 
         else {
             Warning.setVisible(false);
@@ -245,13 +280,16 @@ public class UserDetails implements Initializable {
             firebase.child("User").child(userModel.getId()).child("address").setValue(UserAddress.getText());
             firebase.child("User").child(userModel.getId()).child("email").setValue(UserEmail.getText());
             firebase.child("User").child(userModel.getId()).child("gender").setValue(GenderComboBox.getValue());
+            firebase.child("User").child(userModel.getId()).child("contactNumber").setValue(PhoneNumber.getText());
             firebase.child("User").child(userModel.getId()).child("birthday").setValue(MonthComboBox.getValue() + " " + DayComboBox.getValue() + ", " + YearComboBox.getValue());
             new Main().loadFXML("UserDetails");
             Stage closeStage = (Stage) EditUserInfo.getScene().getWindow();
             new Main().CloseButton(closeStage);
         }
 
-    }
+
+        }
+
 
 
 }

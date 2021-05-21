@@ -14,13 +14,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserDetails">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserDetails">
     <children>
         <AnchorPane layoutX="7.0" layoutY="9.0" prefHeight="563.0" prefWidth="288.0" style="-fx-background-color: 0\;">
             <effect>
                 <DropShadow>
                     <color>
-                        <Color blue="0.3881579041481018" green="0.3881579041481018" red="0.3881579041481018" />
+                        <Color red="0.3881579041481018" green="0.3881579041481018" blue="0.3881579041481018" />
                     </color>
                 </DropShadow>
             </effect>
@@ -36,12 +36,12 @@
                                 </Stop>
                                 <Stop offset="0.007532956685499058">
                                     <color>
-                                        <Color blue="0.7678419351577759" green="0.8799999952316284" red="0.41359999775886536" />
+                                        <Color red="0.41359999775886536" green="0.8799999952316284" blue="0.7678419351577759" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color blue="0.8627451062202454" green="0.7058823704719543" red="0.1921568661928177" />
+                                        <Color red="0.1921568661928177" green="0.7058823704719543" blue="0.8627451062202454" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -50,7 +50,7 @@
                     <effect>
                         <DropShadow>
                             <color>
-                                <Color blue="0.45394736528396606" green="0.45394736528396606" red="0.45394736528396606" />
+                                <Color red="0.45394736528396606" green="0.45394736528396606" blue="0.45394736528396606" />
                             </color>
                         </DropShadow>
                     </effect>
@@ -100,12 +100,12 @@
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color blue="0.7119578719139099" green="0.8223684430122375" red="0.3807261288166046" />
+                                        <Color red="0.3807261288166046" green="0.8223684430122375" blue="0.7119578719139099" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
+                                        <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -163,7 +163,7 @@
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color blue="1.0" green="1.0" red="1.0" />
+                                        <Color red="1.0" green="1.0" blue="1.0" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -192,7 +192,7 @@
                     </font>
                 </Label>
                 <ImageView fx:id="UserImage" fitHeight="140.0" fitWidth="140.0" layoutX="47.0" layoutY="65.0" pickOnBounds="true" />
-                <AnchorPane fx:id="EditDetails" layoutY="-3.0" prefHeight="274.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" visible="false">
+                <AnchorPane fx:id="EditDetails" layoutY="-3.0" prefHeight="274.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
                     <children>
                         <Label layoutX="25.0" layoutY="11.0" text="Edit Details" textFill="#39a2bd">
                             <font>
@@ -244,16 +244,22 @@
                                 <Font name="Avenir Book" size="11.0" />
                             </font>
                         </Button>
-                        <ComboBox fx:id="GenderComboBox" layoutX="456.0" layoutY="67.0" prefHeight="26.0" prefWidth="194.0" promptText="Gender" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
-                        <ComboBox fx:id="YearComboBox" layoutX="155.0" layoutY="182.0" prefHeight="26.0" prefWidth="176.0" promptText="Year" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
-                        <ComboBox fx:id="DayComboBox" layoutX="154.0" layoutY="145.0" prefHeight="26.0" prefWidth="80.0" promptText="Day" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
-                        <ComboBox fx:id="MonthComboBox" layoutX="244.0" layoutY="145.0" prefHeight="26.0" prefWidth="87.0" promptText="Month" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
-                        <Label fx:id="Warning" layoutX="491.0" layoutY="178.0" prefHeight="24.0" prefWidth="133.0" />
+                        <ComboBox fx:id="GenderComboBox" editable="true" layoutX="456.0" layoutY="67.0" prefHeight="26.0" prefWidth="194.0" promptText="Gender" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
+                        <ComboBox fx:id="YearComboBox" editable="true" layoutX="155.0" layoutY="182.0" prefHeight="26.0" prefWidth="176.0" promptText="Year" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
+                        <ComboBox fx:id="DayComboBox" editable="true" layoutX="154.0" layoutY="145.0" prefHeight="26.0" prefWidth="80.0" promptText="Day" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
+                        <ComboBox fx:id="MonthComboBox" editable="true" layoutX="244.0" layoutY="145.0" prefHeight="26.0" prefWidth="87.0" promptText="Month" style="-fx-background-color: #e8e8e8#e8e8e8 #e8e8e8#e8e8e8;" />
+                        <Label fx:id="Warning" layoutX="526.0" layoutY="231.0" prefHeight="24.0" prefWidth="133.0" />
+                  <Label layoutX="357.0" layoutY="175.0" prefHeight="30.0" prefWidth="140.0" text="Phone Number">
+                     <font>
+                        <Font name="Avenir Book" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="PhoneNumber" layoutX="503.0" layoutY="177.0" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 20;" />
                     </children>
                     <effect>
                         <DropShadow>
                             <color>
-                                <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+                                <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
                             </color>
                         </DropShadow>
                     </effect>
@@ -262,7 +268,7 @@
             <effect>
                 <DropShadow>
                     <color>
-                        <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
                     </color>
                 </DropShadow>
             </effect>
@@ -281,12 +287,12 @@
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color blue="0.7119578719139099" green="0.8223684430122375" red="0.3807261288166046" />
+                                        <Color red="0.3807261288166046" green="0.8223684430122375" blue="0.7119578719139099" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
+                                        <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -339,7 +345,7 @@
             <effect>
                 <DropShadow>
                     <color>
-                        <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
                     </color>
                 </DropShadow>
             </effect>
@@ -405,7 +411,7 @@
             <effect>
                 <DropShadow>
                     <color>
-                        <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
                     </color>
                 </DropShadow>
             </effect>

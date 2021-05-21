@@ -42,7 +42,7 @@ public class PostQuestionnaire implements Initializable {
         }
 
         else {
-            if(Feeling.getText().isEmpty() || PainScale.getValue().isEmpty() || SideEffects.getText().isEmpty()){
+            if(Feeling.getText().isEmpty() || PainScale.getEditor().getText().isEmpty() || SideEffects.getText().isEmpty()){
                 Warning.setText("Empty fields.");
             }
 
