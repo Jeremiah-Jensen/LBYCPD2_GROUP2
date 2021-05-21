@@ -156,9 +156,10 @@ public class DoctorAppointments implements Initializable {
                 }
                 for(int i = 0; i < appointmentsListA.size(); i++) {
                     Appointments appointmentModel = appointmentsListA.get(i);
-                    if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getChild()) && appointmentModel.getStatus().equals("Consultation")) {
+                    if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getChild()) && appointmentModel.getStatus().equals("Consultation") || appointmentModel.getStatus().equals("Monitor")) {
                         PatientText.setText(appointmentModel.getChild());
                         ScheduleText.setText(appointmentModel.getSched());
+                        PreQuesAnswers.getItems().add("STATUS: " + appointmentModel.getStatus());
                         PreQuesAnswers.getItems().add("What is your child feeling?");
                         PreQuesAnswers.getItems().add("     - " + appointmentModel.getFeelingQ());
                         PreQuesAnswers.getItems().add("Is your child feeling pain right now?");
@@ -188,11 +189,12 @@ public class DoctorAppointments implements Initializable {
                         PreQuesAnswers.getItems().add("Frequent Stepthroat Infections");
                         PreQuesAnswers.getItems().add("     - " + appointmentModel.getQ10());
 
-                        if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getChild()) && appointmentModel.getStatus().equals("Consultation")) {
+                        if(appointmentModel.getDoctor().equals(fullnameDoctor) && AppointmentsBox.getValue().equals(appointmentModel.getChild()) && appointmentModel.getStatus().equals("Consultation") || appointmentModel.getStatus().equals("Monitor")) {
                             if(appointmentModel.getFeelingQ2().equals(" ") || appointmentModel.getPainQ2().equals(" ") || appointmentModel.getPainScaleQ2().equals(" ") || appointmentModel.getSideEffectsQ().equals(" ")) {
                                 PostQuesAnswers.getItems().add("No Answers Available");
                             }
                             else {
+                                PostQuesAnswers.getItems().add("STATUS: " + appointmentModel.getStatus());
                                 PostQuesAnswers.getItems().add("What is your child feeling?");
                                 PostQuesAnswers.getItems().add("     - " + appointmentModel.getFeelingQ2());
                                 PostQuesAnswers.getItems().add("Is your child feeling pain right now?");

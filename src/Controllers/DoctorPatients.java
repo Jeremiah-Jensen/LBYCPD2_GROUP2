@@ -112,6 +112,7 @@ public class DoctorPatients implements Initializable {
             Appointments appointmentModel = appointmentsList.get(i);
             String fullname = appointmentModel.getChild();
             if(PatientsList.getSelectionModel().getSelectedItem().equals(fullname)) {
+                QuestionnairesList.getItems().add("STATUS: " + appointmentModel.getStatus());
                 QuestionnairesList.getItems().add("PRE CHECK-UP QUESTIONNAIRE");
                 QuestionnairesList.getItems().add("What is your child feeling?");
                 QuestionnairesList.getItems().add("     - " + appointmentModel.getFeelingQ());
@@ -177,6 +178,7 @@ public class DoctorPatients implements Initializable {
             Appointments appointmentModel = appointmentsList.get(i);
             String fullname = appointmentModel.getChild();
             if(PrevPatientsList.getSelectionModel().getSelectedItem().equals(fullname)) {
+                QuestionnairesList.getItems().add("STATUS: " + appointmentModel.getStatus());
                 QuestionnairesList.getItems().add("PRE CHECK-UP QUESTIONNAIRE");
                 QuestionnairesList.getItems().add("What is your child feeling?");
                 QuestionnairesList.getItems().add("     - " + appointmentModel.getFeelingQ());

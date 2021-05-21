@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorHelpMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorMainMenu">
     <children>
         <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="592.0" prefWidth="276.0" style="-fx-background-color: 0\;">
             <effect>
@@ -54,7 +54,7 @@
                         </DropShadow>
                     </effect>
                 </Rectangle>
-                <Button fx:id="PatientsButton" layoutX="31.0" layoutY="352.0" mnemonicParsing="false" onAction="#DoctorPatients" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Patients">
+                <Button fx:id="PatientButton" layoutX="31.0" layoutY="352.0" mnemonicParsing="false" onAction="#DoctorPatient" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Patients">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>

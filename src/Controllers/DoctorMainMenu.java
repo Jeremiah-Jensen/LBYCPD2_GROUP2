@@ -7,7 +7,13 @@ import javafx.stage.Stage;
 
 public class DoctorMainMenu {
 
-    public Button UserDetailsButton, LogOutButton, AppointmentsButton, PatientButton, HelpButton;
+    public Button UserDetailsButton, LogOutButton, AppointmentsButton, PatientButton, HelpButton, HomeButton;
+
+    public void DoctorHome(ActionEvent actionEvent) {
+        new Main().loadFXML("DoctorMainMenu");
+        Stage closeStage = (Stage) HomeButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
 
     public void DoctorDetails(ActionEvent actionEvent) {
         new Main().loadFXML("DoctorDetails");

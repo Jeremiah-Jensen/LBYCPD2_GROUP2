@@ -9,13 +9,19 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UserMainMenu implements Initializable {
+public class UserMainMenu {
     @FXML
-    public Button LogOutButton, AppointmentsButton, DetailsButton, PaymentsButton, HelpButton;
+    public Button LogOutButton, AppointmentsButton, DetailsButton, PaymentsButton, HelpButton, HomeButton;
 
     public void UserHelpMenu(ActionEvent actionEvent) {
         new Main().loadFXML("UserHelpMenu");
         Stage closeStage = (Stage) HelpButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+    public void UserHome(ActionEvent actionEvent) {
+        new Main().loadFXML("MainMenu");
+        Stage closeStage = (Stage) HomeButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 
@@ -41,10 +47,5 @@ public class UserMainMenu implements Initializable {
        new Main().loadFXML("UserPayments");
         Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }
