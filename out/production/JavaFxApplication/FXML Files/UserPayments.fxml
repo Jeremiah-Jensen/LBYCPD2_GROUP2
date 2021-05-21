@@ -15,14 +15,15 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserPayments">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserPayments">
     <children>
         <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="592.0" prefWidth="276.0" style="-fx-background-color: 0\;">
             <effect>
                 <DropShadow>
                     <color>
-                        <Color blue="0.3881579041481018" green="0.3881579041481018" red="0.3881579041481018" />
+                        <Color red="0.3881579041481018" green="0.3881579041481018" blue="0.3881579041481018" />
                     </color>
                 </DropShadow>
             </effect>
@@ -38,12 +39,12 @@
                                 </Stop>
                                 <Stop offset="0.007532956685499058">
                                     <color>
-                                        <Color blue="0.7686274647712708" green="0.8784313797950745" red="0.4117647111415863" />
+                                        <Color red="0.4117647111415863" green="0.8784313797950745" blue="0.7686274647712708" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color blue="0.8627451062202454" green="0.7058823704719543" red="0.1921568661928177" />
+                                        <Color red="0.1921568661928177" green="0.7058823704719543" blue="0.8627451062202454" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -52,7 +53,7 @@
                     <effect>
                         <DropShadow>
                             <color>
-                                <Color blue="0.45394736528396606" green="0.45394736528396606" red="0.45394736528396606" />
+                                <Color red="0.45394736528396606" green="0.45394736528396606" blue="0.45394736528396606" />
                             </color>
                         </DropShadow>
                     </effect>
@@ -94,7 +95,7 @@
             <effect>
                 <DropShadow>
                     <color>
-                        <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
                     </color>
                 </DropShadow>
             </effect>
@@ -108,17 +109,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
+                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                            </color>
                         </Stop>
                      </stops>
@@ -131,17 +132,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
+                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                            </color>
                         </Stop>
                      </stops>
@@ -173,17 +174,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
+                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                            </color>
                         </Stop>
                      </stops>
@@ -198,26 +199,6 @@
             <Label layoutX="439.0" layoutY="31.0" prefHeight="30.0" prefWidth="180.0" text="Credit Card Info:" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="NameLabel2" layoutX="145.0" layoutY="74.0" prefHeight="27.0" prefWidth="246.0" text="--">
-               <font>
-                  <Font name="Avenir Book" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="CardNumLabel2" layoutX="145.0" layoutY="113.0" prefHeight="27.0" prefWidth="246.0" text="--">
-               <font>
-                  <Font name="Avenir Book" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="ExpirydateLabel2" layoutX="146.0" layoutY="158.0" prefHeight="27.0" prefWidth="212.0" text="--">
-               <font>
-                  <Font name="Avenir Book" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="NetworkLabel2" layoutX="146.0" layoutY="203.0" prefHeight="27.0" prefWidth="161.0" text="--">
-               <font>
-                  <Font name="Avenir Book" size="18.0" />
                </font>
             </Label>
             <Label layoutX="439.0" layoutY="68.0" prefHeight="30.0" prefWidth="215.0" text="- 1 Appointment = 500PHP" textFill="WHITE">
@@ -240,6 +221,26 @@
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Label>
+            <Text fx:id="NameLabel2" layoutX="143.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="221.99999999999994">
+               <font>
+                  <Font name="Avenir Book" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="CardNumLabel2" layoutX="143.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="214.9999999999999">
+               <font>
+                  <Font name="Avenir Book" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="ExpirydateLabel2" layoutX="143.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="232.10400009155273">
+               <font>
+                  <Font name="Avenir Book" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="NetworkLabel2" layoutX="144.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="179.9999999999999">
+               <font>
+                  <Font name="Avenir Book" size="16.0" />
+               </font>
+            </Text>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="InputCard" layoutX="298.0" layoutY="293.0" prefHeight="297.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" visible="false">
@@ -311,17 +312,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
+                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                            </color>
                         </Stop>
                      </stops>
@@ -334,17 +335,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
+                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                            </color>
                         </Stop>
                      </stops>
@@ -373,7 +374,7 @@
             <effect>
                 <DropShadow>
                     <color>
-                        <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
                     </color>
                 </DropShadow>
             </effect>
@@ -389,17 +390,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
+                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                            </color>
                         </Stop>
                      </stops>
@@ -412,17 +413,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
+                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
+                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
                            </color>
                         </Stop>
                      </stops>
@@ -434,7 +435,7 @@
          <effect>
             <DropShadow>
                <color>
-                  <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
+                  <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
                </color>
             </DropShadow>
          </effect>

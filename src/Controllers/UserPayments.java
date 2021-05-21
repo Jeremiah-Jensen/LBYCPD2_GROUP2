@@ -10,12 +10,16 @@ import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,30 +28,54 @@ import java.util.ResourceBundle;
 
 public class UserPayments implements Initializable {
     @FXML
-    public Button HelpButton, LogOutButton, AppointmentsButton, DetailsButton, HomeButton, LoadCreditButton;
+    public Button HelpButton, LogOutButton, AppointmentsButton, DetailsButton, HomeButton, LoadCreditButton, Switch;
     public TextField NameTextField, CardNumTextField;
+    public Text NameLabel2, CardNumLabel2, ExpirydateLabel2, NetworkLabel2;
     public PasswordField CVVPasswordField;
     public ListView<String> TransactionHistory;
     public AnchorPane InputCard, CardDetails, History;
     public Label NameLabel, CardNumLabel, ExpirydateLabel, NetworkLabel, CVVLabel;
-    public Label NameLabel2, CardNumLabel2, ExpirydateLabel2, NetworkLabel2;
+//    public Label NameLabel2, CardNumLabel2, ExpirydateLabel2, NetworkLabel2;
     public ComboBox<String> Month, Year, Network;
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com");
     List<Appointments> appointmentsList = new ArrayList<>();
     List<User> usersList = new ArrayList<>();
-    User userModel;
+    User userModel = UserLogIn.userModel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        userModel = UserLogIn.userModel;
-        NameLabel2.setText(userModel.getName());
-        CardNumLabel2.setText(userModel.getCardnumber());
-        ExpirydateLabel2.setText(userModel.getExpirydate());
-        NetworkLabel2.setText(userModel.getNetwork());
-
+        String FullName = userModel.getFirstName() + " " + userModel.getLastName();
         Month.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12");
         Year.getItems().addAll("21","22","23","24","25","26","27","28","29","30","31","32");
         Network.getItems().addAll("Visa", "Mastercard","JCB");
+        firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    User app = data.getValue(User.class);
+                    usersList.add(app);
+                }
+                for(int i = 0; i < usersList.size()/3; i++) {
+                    User RT = usersList.get(i);
+                    if(FullName.equals(usersList.get(i).getFirstName() + " " + usersList.get(i).getLastName())){
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                NameLabel2.setText(RT.getName());
+                                System.out.println(RT.getName());
+                                CardNumLabel2.setText(RT.getCardnumber());
+                                ExpirydateLabel2.setText(RT.getExpirydate());
+                                NetworkLabel2.setText(RT.getNetwork());
+                            }
+                        });
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
         firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -56,10 +84,8 @@ public class UserPayments implements Initializable {
                     appointmentsList.add(app);
                 }
 
-                System.out.println(appointmentsList.size());
                 for(int i = 0; i < appointmentsList.size(); i++) {
                     Appointments appointmentsModel = appointmentsList.get(i);
-                    String FullName = userModel.getFirstName() + " " + userModel.getLastName();
                     if(FullName.equals(appointmentsModel.getUser())){
                         Platform.runLater(new Runnable() {
                             @Override
@@ -82,8 +108,6 @@ public class UserPayments implements Initializable {
 
             }
         });
-
-
     }
 
     public void Switch(ActionEvent actionEvent) {
@@ -151,10 +175,10 @@ public class UserPayments implements Initializable {
                     CVVPasswordField.clear();
                     InputCard.setVisible(false);
                     History.setVisible(true);
-                    UserLogIn.userModel = userModel;
-
+                    new Main().loadFXML("UserPayments");
+                    Stage closeStage = (Stage) Switch.getScene().getWindow();
+                    new Main().CloseButton(closeStage);
                 }
-
             }
         }
 
@@ -188,38 +212,6 @@ public class UserPayments implements Initializable {
             }
 
         }
-
-        firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    User app = data.getValue(User.class);
-                    usersList.add(app);
-                }
-                System.out.println(usersList.size());
-                for(int i = 0; i < usersList.size(); i++) {
-                    User userModel = usersList.get(i);
-                    String FullName = userModel.getFirstName() + " " + userModel.getLastName();
-                    if(FullName.equals(userModel.getName())){
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                NameLabel2.setText(userModel.getName());
-                                CardNumLabel2.setText(userModel.getCardnumber());
-                                ExpirydateLabel2.setText(userModel.getExpirydate());
-                                NetworkLabel2.setText(userModel.getNetwork());
-                            }
-                        });
-
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-
     }
 
 
