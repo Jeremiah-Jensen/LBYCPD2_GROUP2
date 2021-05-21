@@ -26,7 +26,7 @@ public class UserAppointments implements Initializable {
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
     @FXML
     public AnchorPane ScheduleAppointment,UpcomingAppointments, PreviousAppointments;
-    public Button LogOutButton, HomeButton, ScheduleButton, DetailsButton, PaymentsButton, PreQues, PostQues;
+    public Button HelpButton, LogOutButton, HomeButton, ScheduleButton, DetailsButton, PaymentsButton, PreQues, PostQues;
     public Button ConfirmSched, Consult;
     public Label DocName, SubSpecialty,Specialty, Error;
     public ImageView DoctorImage;
@@ -258,6 +258,12 @@ public class UserAppointments implements Initializable {
     public void UserPayments(ActionEvent actionEvent){
         new Main().loadFXML("UserPayments");
         Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+    public void UserHelpMenu(ActionEvent actionEvent) {
+        new Main().loadFXML("UserHelpMenu");
+        Stage closeStage = (Stage) HelpButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 

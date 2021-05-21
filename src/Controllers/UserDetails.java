@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 public class UserDetails implements Initializable {
     @FXML
     public AnchorPane ScheduleAppointment, ManageChildren, EditDetails, AddChildren;
-    public Button LogOutButton, HomeButton, AppointmentsButton, PaymentsButton,AddChild, EditUserInfo, SaveButton;
+    public Button HelpButton, LogOutButton, HomeButton, AppointmentsButton, PaymentsButton,AddChild, EditUserInfo, SaveButton;
     public Label Name, Birthday, Email, Number, Gender, Username, ChildName, ChildConditions, ChildBirthday, ChildPic, Error, Warning;
     public TextField ChildFN, ChildLN, ChildCN, UserFN, UserLN, UserEmail, UserAddress;
     public ImageView UserImage, ChildImage;
@@ -214,8 +214,14 @@ public class UserDetails implements Initializable {
     }
 
     public void UserPayments(ActionEvent actionEvent){
-       new Main().loadFXML("UserPayments");
+        new Main().loadFXML("UserPayments");
         Stage closeStage = (Stage) PaymentsButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+    public void UserHelpMenu(ActionEvent actionEvent) {
+        new Main().loadFXML("UserHelpMenu");
+        Stage closeStage = (Stage) HelpButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 

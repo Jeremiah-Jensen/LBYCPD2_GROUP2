@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class UserPayments implements Initializable {
     @FXML
-    public Button LogOutButton, AppointmentsButton, DetailsButton, HomeButton, LoadCreditButton;
+    public Button HelpButton, LogOutButton, AppointmentsButton, DetailsButton, HomeButton, LoadCreditButton;
     public TextField NameTextField, CardNumTextField;
     public PasswordField CVVPasswordField;
     public ListView<String> TransactionHistory;
@@ -104,8 +104,14 @@ public class UserPayments implements Initializable {
     }
 
     public void UserDetails(ActionEvent actionEvent){
-       new Main().loadFXML("UserDetails");
+        new Main().loadFXML("UserDetails");
         Stage closeStage = (Stage) DetailsButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
+
+    public void UserHelpMenu(ActionEvent actionEvent) {
+        new Main().loadFXML("UserHelpMenu");
+        Stage closeStage = (Stage) HelpButton.getScene().getWindow();
         new Main().CloseButton(closeStage);
     }
 

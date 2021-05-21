@@ -11,7 +11,13 @@ import java.util.ResourceBundle;
 
 public class UserMainMenu implements Initializable {
     @FXML
-    public Button LogOutButton, AppointmentsButton, DetailsButton, PaymentsButton;
+    public Button LogOutButton, AppointmentsButton, DetailsButton, PaymentsButton, HelpButton;
+
+    public void UserHelpMenu(ActionEvent actionEvent) {
+        new Main().loadFXML("UserHelpMenu");
+        Stage closeStage = (Stage) HelpButton.getScene().getWindow();
+        new Main().CloseButton(closeStage);
+    }
 
     public void LogOut(ActionEvent actionEvent){
         new Main().LoginWindow();
