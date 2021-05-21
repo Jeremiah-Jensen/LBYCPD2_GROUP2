@@ -192,7 +192,7 @@
                     </font>
                 </Label>
                 <ImageView fx:id="UserImage" fitHeight="140.0" fitWidth="140.0" layoutX="47.0" layoutY="65.0" pickOnBounds="true" />
-                <AnchorPane fx:id="EditDetails" layoutY="-3.0" prefHeight="274.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+                <AnchorPane fx:id="EditDetails" layoutY="-3.0" prefHeight="274.0" prefWidth="684.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" visible="false">
                     <children>
                         <Label layoutX="25.0" layoutY="11.0" text="Edit Details" textFill="#39a2bd">
                             <font>
@@ -341,6 +341,11 @@
                     </font>
                 </Label>
                 <ImageView fx:id="ChildImage" fitHeight="140.0" fitWidth="140.0" layoutX="45.0" layoutY="82.0" pickOnBounds="true" />
+            <Button fx:id="EditChildInfo" layoutX="34.0" layoutY="237.0" mnemonicParsing="false" onAction="#EditChildInfo" prefHeight="20.0" prefWidth="151.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Edit Child Info">
+               <font>
+                  <Font name="Avenir Book" size="10.0" />
+               </font>
+            </Button>
             </children>
             <effect>
                 <DropShadow>

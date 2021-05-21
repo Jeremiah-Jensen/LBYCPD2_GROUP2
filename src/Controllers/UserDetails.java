@@ -264,6 +264,9 @@ public class UserDetails implements Initializable {
 
     public void EditUserInfo(ActionEvent actionEvent) {
         EditDetails.setVisible(true);
+    }
+
+    public void EditChildInfo(ActionEvent actionEvent) {
         AddChildren.setVisible(true);
     }
 
@@ -272,7 +275,6 @@ public class UserDetails implements Initializable {
         if(DayComboBox.getEditor().getText().isEmpty() || MonthComboBox.getEditor().getText().isEmpty() || YearComboBox.getEditor().getText().isEmpty() ||GenderComboBox.getEditor().getText().isEmpty()){
             Warning.setText("Empty fields");
        }
-
         else {
             Warning.setVisible(false);
             firebase.child("User").child(userModel.getId()).child("firstName").setValue(UserFN.getText());
@@ -286,9 +288,7 @@ public class UserDetails implements Initializable {
             Stage closeStage = (Stage) EditUserInfo.getScene().getWindow();
             new Main().CloseButton(closeStage);
         }
-
-
-        }
+    }
 
 
 
