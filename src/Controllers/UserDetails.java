@@ -246,6 +246,9 @@ public class UserDetails implements Initializable {
             firebase.child("User").child(userModel.getId()).child("email").setValue(UserEmail.getText());
             firebase.child("User").child(userModel.getId()).child("gender").setValue(GenderComboBox.getValue());
             firebase.child("User").child(userModel.getId()).child("birthday").setValue(MonthComboBox.getValue() + " " + DayComboBox.getValue() + ", " + YearComboBox.getValue());
+            new Main().loadFXML("UserDetails");
+            Stage closeStage = (Stage) EditUserInfo.getScene().getWindow();
+            new Main().CloseButton(closeStage);
         }
 
     }
