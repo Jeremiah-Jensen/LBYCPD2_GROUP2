@@ -77,6 +77,7 @@ public class UserDetails implements Initializable {
                             @Override
                             public void run() {
                                 Username.setText(FullName);
+                                GenderComboBox.setValue(userModel.getGender());
                                 Name.setText(userModel.getUsername());
                                 Gender.setText(userModel.getGender());
                                 Birthday.setText(userModel.getBirthday());
@@ -265,7 +266,7 @@ public class UserDetails implements Initializable {
 
     public void SaveChanges(ActionEvent actionEvent) {
         Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
-        if(DayComboBox.getEditor().getText().isEmpty() || MonthComboBox.getEditor().getText().isEmpty() || YearComboBox.getEditor().getText().isEmpty() ||GenderComboBox.getEditor().getText().isEmpty()){
+        if(DayComboBox.getSelectionModel().isSelected(-1) || MonthComboBox.getSelectionModel().isSelected(-1) || YearComboBox.getSelectionModel().isSelected(-1)){
             Warning.setText("Empty fields");
        }
         else {

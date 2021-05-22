@@ -158,7 +158,7 @@ public class UserPayments implements Initializable {
         alert.setContentText("Exit this dialog box to continue editing\nClick ok to confirm");
         Optional<ButtonType> result = alert.showAndWait();
 
-        if(CardNumTextField.getText().length() == 16 && CVVPasswordField.getText().length() == 3 && !Month.getValue().isEmpty() && !Year.getValue().isEmpty() && !Network.getValue().isEmpty()){
+        if(CardNumTextField.getText().length() == 16 && CVVPasswordField.getText().length() == 3 && !Month.getSelectionModel().isSelected(-1) && !Year.getSelectionModel().isSelected(-1) && !Network.getSelectionModel().isSelected(-1)){
             if(result.isPresent()&&result.get()==ButtonType.OK){
                 if(userModel==null){
                     throw new NullPointerException("Can't pass null for argument 'pathString' in child()");
@@ -202,11 +202,11 @@ public class UserPayments implements Initializable {
             if (CVVPasswordField.getText().length() != 3 || CVVPasswordField.getText().isEmpty()) {
                 CVVLabel.setText("Must be 3 digits");
             }
-            if (Month.getValue().isEmpty() || Year.getValue().isEmpty() || (Month.getValue().isEmpty() && Year.getValue().isEmpty())) {
+            if (Month.getSelectionModel().isSelected(-1) || Year.getSelectionModel().isSelected(-1)) {
                 ExpirydateLabel.setText("Enter Expiry Date");
             }
 
-            if (Network.getValue().isEmpty()) {
+            if (Network.getSelectionModel().isSelected(-1)) {
                 NetworkLabel.setText("Empty field");
             }
 
