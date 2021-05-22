@@ -63,22 +63,46 @@ public class UserDetails implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userModel = UserLogIn.userModel;
         String FullName = userModel.getFirstName() + " " + userModel.getLastName();
-        Username.setText(FullName);
-        Name.setText(userModel.getUsername());
-        Birthday.setText(userModel.getBirthday());
-        Gender.setText(userModel.getGender());
-        Email.setText(userModel.getEmail());
-        Number.setText(userModel.getContactNumber());
-        UserFN.setText(userModel.getFirstName());
-        UserLN.setText(userModel.getLastName());
-        UserEmail.setText(userModel.getEmail());
-        UserAddress.setText(userModel.getAddress());
-        PhoneNumber.setText(userModel.getContactNumber());
-        Pic = userModel.getPicture();
-        Image image = new Image(Pic);
-        UserImage.setImage(image);
-        Image child = new Image("Default.png");
-        ChildImage.setImage(child);
+        firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    User app = data.getValue(User.class);
+                    usersList.add(app);
+                }
+                for(int i = 0; i < usersList.size(); i++) {
+                    User userModel = usersList.get(i);
+                    if(FullName.equals(usersList.get(i).getFirstName() + " " + usersList.get(i).getLastName())){
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                Username.setText(FullName);
+                                Name.setText(userModel.getUsername());
+                                Gender.setText(userModel.getGender());
+                                Birthday.setText(userModel.getBirthday());
+                                Email.setText(userModel.getEmail());
+                                Number.setText(userModel.getContactNumber());
+                                Pic = userModel.getPicture();
+                                Image image = new Image(Pic);
+                                UserImage.setImage(image);
+                                Image child = new Image("Default.png");
+                                ChildImage.setImage(child);
+                                UserFN.setText(userModel.getFirstName());
+                                UserLN.setText(userModel.getLastName());
+                                UserEmail.setText(userModel.getEmail());
+                                UserAddress.setText(userModel.getAddress());
+                                PhoneNumber.setText(userModel.getContactNumber());
+
+                            }
+                        });
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         for (int j = 0; j < 18; j++){
             int day = 2021 - j;
@@ -137,37 +161,6 @@ public class UserDetails implements Initializable {
 
                 }
             });
-
-        firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    User app = data.getValue(User.class);
-                    usersList.add(app);
-                }
-                for(int i = 0; i < usersList.size(); i++) {
-                    User userModel = usersList.get(i);
-                    if(FullName.equals(usersList.get(i).getFirstName() + " " + usersList.get(i).getLastName())){
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                Name.setText(userModel.getName());
-                                Gender.setText(userModel.getGender());
-                                Birthday.setText(userModel.getBirthday());
-                                Email.setText(userModel.getEmail());
-                                Number.setText(userModel.getContactNumber());
-                            }
-                        });
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-
-
         }
 
 

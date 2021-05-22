@@ -31,8 +31,7 @@ public class UserAppointments implements Initializable {
     public Label DocName, SubSpecialty,Specialty, Error;
     public ImageView DoctorImage;
     public ComboBox<String> DoctorsBox, ScheduleBox, ChildBox, AppointmentsBox, PreviousBox;
-    public ListView<String> AppointmentsListView, PreviousListView;
-    public String ZoomLink;
+    public ListView<String> AppointmentsListView, PreviousListView, Notes;
     public DatePicker DateBox;
     int count = 0;
     public String FullName;
@@ -40,7 +39,9 @@ public class UserAppointments implements Initializable {
     List<Children> childrenList = new ArrayList<>();
     List<Doctor> doctorList = new ArrayList<>();
     List<Schedule> scheduleList = new ArrayList<>();
+    List<Prescription> prescriptionsList = new ArrayList<>();
     List<Appointments> appointmentsList;
+
 
     public UserAppointments(){
         firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener()
@@ -125,6 +126,21 @@ public class UserAppointments implements Initializable {
 
             }
         });
+        firebase.child("Prescription").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Prescription prescription= data.getValue(Prescription.class);
+                    prescriptionsList.add(prescription);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     public void Switch(ActionEvent actionEvent) {
@@ -201,14 +217,37 @@ public class UserAppointments implements Initializable {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        if(appointmentsModel.getStatus().equals("Upcoming")){
-                            PreQues.setDisable(false);
-                            Consult.setDisable(true);
-                            System.out.println("aaa");
+                        if(appointmentsModel.getStatus().equals("Upcoming") || appointmentsModel.getStatus().equals("Consultation")){
+                            if(appointmentsModel.getStatus().equals("Upcoming")){
+                                PreQues.setDisable(false);
+                                Consult.setDisable(true);
+                                System.out.println("aaa");
+                            }
+                            else if(appointmentsModel.getStatus().equals("Consultation")){
+                                PreQues.setDisable(true);
+                                Consult.setDisable(false);
                         }
-                        else if(appointmentsModel.getStatus().equals("Consultation")){
-                            PreQues.setDisable(true);
-                            Consult.setDisable(false);
+                        else{
+                                for(int i = 0; i < prescriptionsList.size(); i++) {
+                                    Prescription prescriptionModel= prescriptionsList.get(i);
+                                    Platform.runLater(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if(appointmentsModel.getId().equals(prescriptionModel.getAppointmentId())){
+                                                Notes.getItems().add("--------------------");
+                                                System.out.println("javafx erroor");
+                                                Notes.getItems().add("Date: " + prescriptionModel.getPrescriptionDate());
+                                                Notes.getItems().add("Medicine: " + prescriptionModel.getMedicine());
+                                                Notes.getItems().add("Daily Dosage: " + prescriptionModel.getDailyDosage());
+                                                Notes.getItems().add("Duration: " + prescriptionModel.getDuration());
+                                                Notes.getItems().add("Special Instruction: " + prescriptionModel.getSpecialInstructions());
+                                                Notes.getItems().add("--------------------");
+                                            }
+
+                                        }
+                                    });
+                                }
+                        }
                         } }}); } }
     }
 
