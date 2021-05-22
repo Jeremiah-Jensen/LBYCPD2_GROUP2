@@ -261,6 +261,9 @@ public class UserAppointments implements Initializable {
         else if(ChildBox.getItems().isEmpty()){
             Error.setText("No Registered Child Found");
         }
+        else if(userModel.getCardnumber().equals(" ")){
+            Error.setText("Please Enter Credit Card in Payments");
+        }
         else{
             WriteAppointment();
             new Main().loadFXML("UserAppointments");
