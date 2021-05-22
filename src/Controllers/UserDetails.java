@@ -165,7 +165,7 @@ public class UserDetails implements Initializable {
 
 
     public  void RegisterChild(ActionEvent actionEvent){
-        if(ChildFN.getText().isEmpty() || ChildLN.getText().isEmpty() || ChildCN.getText().isEmpty() || Day.getValue().isEmpty() || Month.getValue().isEmpty() || Year.getValue().isEmpty()){
+        if(ChildFN.getText().isEmpty() || ChildLN.getText().isEmpty() || ChildCN.getText().isEmpty() || Day.getSelectionModel().isSelected(-1) || Month.getSelectionModel().isSelected(-1) || Year.getSelectionModel().isSelected(-1)){
             Error.setVisible(true);
         }
         else{

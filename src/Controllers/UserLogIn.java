@@ -103,7 +103,7 @@ public class UserLogIn implements Initializable {
     }
 
     public void RegisterAction(ActionEvent actionEvent){
-        if(Day.getValue().isEmpty() || Month.getValue().isEmpty() || Year.getValue().isEmpty() || Gender.getValue().isEmpty() || Email.getText().isEmpty() || Number.getText().isEmpty() || Address2.getText().isEmpty() || Address1.getText().isEmpty()) {
+        if(Day.getSelectionModel().isSelected(-1) || Month.getSelectionModel().isSelected(-1) || Year.getSelectionModel().isSelected(-1) || Gender.getSelectionModel().isSelected(-1) || Email.getText().isEmpty() || Number.getText().isEmpty() || Address2.getText().isEmpty() || Address1.getText().isEmpty()) {
             Error2.setVisible(true);
         } else {
             Write();
