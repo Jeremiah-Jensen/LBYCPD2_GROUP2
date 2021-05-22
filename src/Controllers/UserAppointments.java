@@ -103,6 +103,7 @@ public class UserAppointments implements Initializable {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Schedule schedule = data.getValue(Schedule.class);
+                    schedule.setId(data.getKey());
                     scheduleList.add(schedule);
                 }
             }
@@ -164,7 +165,7 @@ public class UserAppointments implements Initializable {
         ConfirmSched.setDisable(false);
         for(int i = 0; i < scheduleList.size(); i++) {
             Schedule scheduleModel = scheduleList.get(i);
-            if(DoctorsBox.getValue().equals("Dr." + scheduleModel.getName())){
+            if(DoctorsBox.getValue().equals("Dr." + scheduleModel.getName()) && scheduleModel.getStatus().equals("Available")){
                 ScheduleBox.getItems().add(scheduleModel.getDay() + " " + scheduleModel.getTime());
             }
         }
@@ -267,6 +268,7 @@ public class UserAppointments implements Initializable {
             Schedule scheduleModel = scheduleList.get(i);
             if(DoctorsBox.getValue().equals("Dr."+scheduleModel.getName())) {
                 link = scheduleModel.getLink();
+                firebase.child("Schedule").child(scheduleModel.getId()).child("status").setValue("Reserved");
             }
         }
         model.setLink(link);

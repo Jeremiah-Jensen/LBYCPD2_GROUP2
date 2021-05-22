@@ -38,6 +38,18 @@ public class DoctorDetails implements Initializable {
         Gender.setText(doctorModel.getGender());
         Address.setText(doctorModel.getAddress());
         Subspecialty.setText(doctorModel.getSubspecialty());
+
+        FirstNameEdit.setText(doctorModel.getFirstName());
+        LastNameEdit.setText(doctorModel.getLastName());
+        GenderEdit.getEditor().setText(doctorModel.getGender());
+        SubspecialtyEdit.setText(doctorModel.getSubspecialty());
+        NumberEdit.setText(doctorModel.getContactNumber());
+        String string = doctorModel.getAddress();
+        String[] arrString = string.split(", ", 2);
+        AddressEdit.setText(arrString[0]);
+        AddressLineEdit.setText(arrString[1]);
+        EmailEdit.setText(doctorModel.getEmail());
+
         path = doctorModel.getPicture();
         Image image = new Image(path);
         ProfilePhoto.setImage(image);
@@ -129,9 +141,16 @@ public class DoctorDetails implements Initializable {
 
     public void Cancel(ActionEvent actionEvent) {
         Warning.setVisible(false);
-        FirstNameEdit.setText(null);
-        LastNameEdit.setText(null);
-        EditMonth.setValue(null);
+        FirstNameEdit.setText(doctorModel.getFirstName());
+        LastNameEdit.setText(doctorModel.getLastName());
+        GenderEdit.getEditor().setText(doctorModel.getGender());
+        SubspecialtyEdit.setText(doctorModel.getSubspecialty());
+        NumberEdit.setText(doctorModel.getContactNumber());
+        String string = doctorModel.getAddress();
+        String[] arrString = string.split(", ", 2);
+        AddressEdit.setText(arrString[0]);
+        AddressLineEdit.setText(arrString[1]);
+        EmailEdit.setText(doctorModel.getEmail());
         EditMonth.setPromptText("Month");
         EditDay.setValue(null);
         EditDay.setPromptText("Day");
@@ -139,11 +158,6 @@ public class DoctorDetails implements Initializable {
         EditYear.setPromptText("Year");
         GenderEdit.setValue(null);
         GenderEdit.setPromptText("Gender");
-        NumberEdit.setText(null);
-        EmailEdit.setText(null);
-        AddressEdit.setText(null);
-        AddressLineEdit.setText(null);
-        SubspecialtyEdit.setText(null);
     }
 
     public void DoctorPatients(ActionEvent actionEvent) {
