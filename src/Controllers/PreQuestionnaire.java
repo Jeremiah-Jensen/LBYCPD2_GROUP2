@@ -74,7 +74,7 @@ public class PreQuestionnaire implements Initializable {
             throw new NullPointerException("Can't pass null for argument 'pathString' in child()");
         }
         else {
-            if(Reason.getText().isEmpty() || PainComboBox.getEditor().getText().isEmpty() || Feeling.getText().isEmpty()){
+            if(Reason.getText().isEmpty() || PainComboBox.getSelectionModel().isSelected(-1) || Feeling.getText().isEmpty()){
                 Warning.setText("Empty fields.");
             }
 
