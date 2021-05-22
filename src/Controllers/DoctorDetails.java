@@ -1,7 +1,11 @@
 package Controllers;
 
 import Models.Doctor;
+import Models.Schedule;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,6 +18,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DoctorDetails implements Initializable {
@@ -25,6 +31,7 @@ public class DoctorDetails implements Initializable {
     public ImageView ProfilePhoto;
     public String path = "Default.png";
     Doctor doctorModel;
+    List<Schedule> scheduleList = new ArrayList<>();
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
 
     @Override
@@ -128,6 +135,29 @@ public class DoctorDetails implements Initializable {
             Address.setText(AddressEdit.getText() + ", " + AddressLineEdit.getText());
             Subspecialty.setText(SubspecialtyEdit.getText());
         }
+
+        String fullnameDoctor = doctorModel.getFirstName() + " " + doctorModel.getLastName();
+        firebase.child("Schedule").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Schedule schedule = data.getValue(Schedule.class);
+                    schedule.setId(data.getKey());
+                    scheduleList.add(schedule);
+                }
+                for (int i = 0; i < scheduleList.size(); i++) {
+                    Schedule scheduleModel = scheduleList.get(i);
+                    if (fullnameDoctor.equals(scheduleModel.getName())) {
+                        firebase.child("Schedule").child(scheduleModel.getId()).child("name").setValue(FirstNameEdit.getText() + " " + LastNameEdit.getText());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     public void Cancel(ActionEvent actionEvent) {
