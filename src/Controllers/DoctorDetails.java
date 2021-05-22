@@ -46,6 +46,13 @@ public class DoctorDetails implements Initializable {
         NumberEdit.setText(doctorModel.getContactNumber());
         String string = doctorModel.getAddress();
         String[] arrString = string.split(", ", 2);
+        String birthday = doctorModel.getBirthday();
+        String[] arrBirthday = birthday.split(" ", 2);
+        EditMonth.getEditor().setText(arrBirthday[0]);
+        String dayYear= arrBirthday[1];
+        String[] arrBirthdayA = dayYear.split(", ", 2);
+        EditDay.getEditor().setText(arrBirthdayA[0]);
+        EditYear.getEditor().setText(arrBirthdayA[1]);
         AddressEdit.setText(arrString[0]);
         AddressLineEdit.setText(arrString[1]);
         EmailEdit.setText(doctorModel.getEmail());
@@ -105,8 +112,8 @@ public class DoctorDetails implements Initializable {
             Warning.setVisible(false);
             firebase.child("Doctor").child(doctorModel.getId()).child("firstName").setValue(FirstNameEdit.getText());
             firebase.child("Doctor").child(doctorModel.getId()).child("lastName").setValue(LastNameEdit.getText());
-            firebase.child("Doctor").child(doctorModel.getId()).child("birthday").setValue(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
-            firebase.child("Doctor").child(doctorModel.getId()).child("gender").setValue(GenderEdit.getValue());
+            firebase.child("Doctor").child(doctorModel.getId()).child("birthday").setValue(EditMonth.getEditor().getText() + " " + EditDay.getEditor().getText() + ", " + EditYear.getEditor().getText());
+            firebase.child("Doctor").child(doctorModel.getId()).child("gender").setValue(GenderEdit.getEditor().getText());
             firebase.child("Doctor").child(doctorModel.getId()).child("contactNumber").setValue(NumberEdit.getText());
             firebase.child("Doctor").child(doctorModel.getId()).child("email").setValue(EmailEdit.getText());
             firebase.child("Doctor").child(doctorModel.getId()).child("address").setValue(AddressEdit.getText() + ", " + AddressLineEdit.getText());
@@ -116,27 +123,11 @@ public class DoctorDetails implements Initializable {
             FirstName.setText(fullName);
             ContactNumber.setText(NumberEdit.getText());
             Email.setText(EmailEdit.getText());
-            Birthday.setText(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
-            Gender.setText(GenderEdit.getValue());
+            Birthday.setText(EditMonth.getEditor().getText() + " " + EditDay.getEditor().getText() + ", " + EditYear.getEditor().getText());
+            Gender.setText(GenderEdit.getEditor().getText());
             Address.setText(AddressEdit.getText() + ", " + AddressLineEdit.getText());
             Subspecialty.setText(SubspecialtyEdit.getText());
         }
-
-        FirstNameEdit.setText(null);
-        LastNameEdit.setText(null);
-        EditMonth.setValue(null);
-        EditMonth.setPromptText("Month");
-        EditDay.setValue(null);
-        EditDay.setPromptText("Day");
-        EditYear.setValue(null);
-        EditYear.setPromptText("Year");
-        GenderEdit.setValue(null);
-        GenderEdit.setPromptText("Gender");
-        NumberEdit.setText(null);
-        EmailEdit.setText(null);
-        AddressEdit.setText(null);
-        AddressLineEdit.setText(null);
-        SubspecialtyEdit.setText(null);
     }
 
     public void Cancel(ActionEvent actionEvent) {
@@ -151,13 +142,13 @@ public class DoctorDetails implements Initializable {
         AddressEdit.setText(arrString[0]);
         AddressLineEdit.setText(arrString[1]);
         EmailEdit.setText(doctorModel.getEmail());
-        EditMonth.setPromptText("Month");
-        EditDay.setValue(null);
-        EditDay.setPromptText("Day");
-        EditYear.setValue(null);
-        EditYear.setPromptText("Year");
-        GenderEdit.setValue(null);
-        GenderEdit.setPromptText("Gender");
+        String birthday = doctorModel.getBirthday();
+        String[] arrBirthday = birthday.split(" ", 2);
+        EditMonth.getEditor().setText(arrBirthday[0]);
+        String dayYear= arrBirthday[1];
+        String[] arrBirthdayA = dayYear.split(", ", 2);
+        EditDay.getEditor().setText(arrBirthdayA[0]);
+        EditYear.getEditor().setText(arrBirthdayA[1]);
     }
 
     public void DoctorPatients(ActionEvent actionEvent) {
