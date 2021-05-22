@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 
 import java.awt.event.ActionEvent;
@@ -25,6 +26,7 @@ public class UserAppointmentScreen implements Initializable {
     @FXML
     public Label DoctorName, ChildName, Schedule;
     public ListView Prescription;
+    public TextField ZoomLink;
     List<Prescription> prescriptionsList = new ArrayList<>();
 
     @Override
@@ -33,6 +35,7 @@ public class UserAppointmentScreen implements Initializable {
         DoctorName.setText(appointmentsModel.getDoctor());
         ChildName.setText(appointmentsModel.getChild());
         Schedule.setText(appointmentsModel.getSched());
+        ZoomLink.setText(appointmentsModel.getLink());
     }
 
     public void ShowPrescription(javafx.event.ActionEvent actionEvent) {

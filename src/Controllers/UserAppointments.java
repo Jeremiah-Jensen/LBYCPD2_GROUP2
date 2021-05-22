@@ -276,8 +276,16 @@ public class UserAppointments implements Initializable {
     }
 
     public void WriteAppointment(){
+        String link = null;
         Appointments model = new Appointments();
         model.setAppointment(DoctorsBox.getValue() + " " + ScheduleBox.getValue() + " " + ChildBox.getValue());
+        for(int i = 0; i < scheduleList.size(); i++) {
+            Schedule scheduleModel = scheduleList.get(i);
+            if(DoctorsBox.getValue().equals("Dr."+scheduleModel.getName())) {
+                link = scheduleModel.getLink();
+            }
+        }
+        model.setLink(link);
         model.setDoctor(DoctorsBox.getValue());
         model.setUser(FullName);
         model.setSched(ScheduleBox.getValue());
@@ -286,7 +294,6 @@ public class UserAppointments implements Initializable {
         model.setFollowUp(" ");
         model.setPayment(" ");
         model.setPainQ1(" ");
-        model.setLink(" ");
         model.setPreQuest(" ");
         model.setFeelingQ(" ");
         model.setReasonQ(" ");
