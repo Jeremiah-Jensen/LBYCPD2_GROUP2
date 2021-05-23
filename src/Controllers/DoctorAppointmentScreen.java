@@ -116,7 +116,7 @@ public class DoctorAppointmentScreen implements Initializable {
                     if(appointmentModel.getChild().equals(DoctorAppointmentScreen.getName())) {
                         System.out.println(appointmentModel.getId());
                         System.out.println(appointmentModel.getChild());
-                        if(Status.getEditor().getText().isEmpty()) {
+                        if(Status.getSelectionModel().isSelected(-1)) {
                             Warning.setVisible(true);
                             Warning.setText("Missing Status");
                         }

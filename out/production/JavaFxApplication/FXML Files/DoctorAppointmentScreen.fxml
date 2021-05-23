@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorAppointmentScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorAppointmentScreen">
     <children>
         <Rectangle height="363.0" layoutX="539.0" layoutY="-14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="461.0">
             <fill>
@@ -120,7 +120,7 @@
                 <Font size="15.0" />
             </font>
         </Label>
-        <ComboBox fx:id="Status" editable="true" layoutX="777.0" layoutY="237.0" prefHeight="26.0" prefWidth="207.0" promptText="Status" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
+        <ComboBox fx:id="Status" layoutX="777.0" layoutY="237.0" prefHeight="26.0" prefWidth="207.0" promptText="Status" style="-fx-background-color: #e8e8e8 #e8e8e8;" />
       <Text fx:id="Warning" fill="#e90000" layoutX="690.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="167.9999999999999">
          <font>
             <Font size="16.0" />

@@ -50,18 +50,18 @@ public class DoctorDetails implements Initializable {
 
         FirstNameEdit.setText(doctorModel.getFirstName());
         LastNameEdit.setText(doctorModel.getLastName());
-        GenderEdit.getEditor().setText(doctorModel.getGender());
+        GenderEdit.setValue(doctorModel.getGender());
         SubspecialtyEdit.setText(doctorModel.getSubspecialty());
         NumberEdit.setText(doctorModel.getContactNumber());
         String string = doctorModel.getAddress();
         String[] arrString = string.split(", ", 2);
         String birthday = doctorModel.getBirthday();
         String[] arrBirthday = birthday.split(" ", 2);
-        EditMonth.getEditor().setText(arrBirthday[0]);
+        EditMonth.setValue(arrBirthday[0]);
         String dayYear= arrBirthday[1];
         String[] arrBirthdayA = dayYear.split(", ", 2);
-        EditDay.getEditor().setText(arrBirthdayA[0]);
-        EditYear.getEditor().setText(arrBirthdayA[1]);
+        EditDay.setValue(arrBirthdayA[0]);
+        EditYear.setValue(arrBirthdayA[1]);
         AddressEdit.setText(arrString[0]);
         AddressLineEdit.setText(arrString[1]);
         EmailEdit.setText(doctorModel.getEmail());
@@ -113,7 +113,7 @@ public class DoctorDetails implements Initializable {
     public void EditInformation(ActionEvent actionEvent) {
         doctorModel = DoctorLogin.doctorModel;
 
-        if(EditDay.getEditor().getText().isEmpty() || EditMonth.getEditor().getText().isEmpty() || EditYear.getEditor().getText().isEmpty() || GenderEdit.getEditor().getText().isEmpty() || FirstNameEdit.getText().isEmpty() || LastNameEdit.getText().isEmpty() ||  NumberEdit.getText().isEmpty() || EmailEdit.getText().isEmpty() || AddressEdit.getText().isEmpty() || AddressLineEdit.getText().isEmpty() || SubspecialtyEdit.getText().isEmpty()) {
+        if(EditDay.getSelectionModel().isSelected(-1) || EditMonth.getSelectionModel().isSelected(-1) || EditYear.getSelectionModel().isSelected(-1) || GenderEdit.getSelectionModel().isSelected(-1) || FirstNameEdit.getText().isEmpty() || LastNameEdit.getText().isEmpty() ||  NumberEdit.getText().isEmpty() || EmailEdit.getText().isEmpty() || AddressEdit.getText().isEmpty() || AddressLineEdit.getText().isEmpty() || SubspecialtyEdit.getText().isEmpty()) {
             Warning.setVisible(true);
             Warning.setText("Missing Details");
         }
@@ -121,8 +121,8 @@ public class DoctorDetails implements Initializable {
             Warning.setVisible(false);
             firebase.child("Doctor").child(doctorModel.getId()).child("firstName").setValue(FirstNameEdit.getText());
             firebase.child("Doctor").child(doctorModel.getId()).child("lastName").setValue(LastNameEdit.getText());
-            firebase.child("Doctor").child(doctorModel.getId()).child("birthday").setValue(EditMonth.getEditor().getText() + " " + EditDay.getEditor().getText() + ", " + EditYear.getEditor().getText());
-            firebase.child("Doctor").child(doctorModel.getId()).child("gender").setValue(GenderEdit.getEditor().getText());
+            firebase.child("Doctor").child(doctorModel.getId()).child("birthday").setValue(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
+            firebase.child("Doctor").child(doctorModel.getId()).child("gender").setValue(GenderEdit.getValue());
             firebase.child("Doctor").child(doctorModel.getId()).child("contactNumber").setValue(NumberEdit.getText());
             firebase.child("Doctor").child(doctorModel.getId()).child("email").setValue(EmailEdit.getText());
             firebase.child("Doctor").child(doctorModel.getId()).child("address").setValue(AddressEdit.getText() + ", " + AddressLineEdit.getText());
@@ -132,8 +132,8 @@ public class DoctorDetails implements Initializable {
             FirstName.setText(fullName);
             ContactNumber.setText(NumberEdit.getText());
             Email.setText(EmailEdit.getText());
-            Birthday.setText(EditMonth.getEditor().getText() + " " + EditDay.getEditor().getText() + ", " + EditYear.getEditor().getText());
-            Gender.setText(GenderEdit.getEditor().getText());
+            Birthday.setText(EditMonth.getValue() + " " + EditDay.getValue() + ", " + EditYear.getValue());
+            Gender.setText(GenderEdit.getValue());
             Address.setText(AddressEdit.getText() + ", " + AddressLineEdit.getText());
             Subspecialty.setText(SubspecialtyEdit.getText());
         }

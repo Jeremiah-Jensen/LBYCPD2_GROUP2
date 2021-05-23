@@ -121,7 +121,7 @@ public class DoctorAppointments implements Initializable {
 
     public void ConfirmSchedule(ActionEvent actionEvent) {
         doctorModel = DoctorLogin.doctorModel;
-        if(date.getEditor().getText().isEmpty() || time.getText().isEmpty() || link.getText().isEmpty() || Status.getEditor().getText().isEmpty()) {
+        if(date.getEditor().getText().isEmpty() || time.getText().isEmpty() || link.getText().isEmpty() || Status.getSelectionModel().isSelected(-1)) {
             Warning.setVisible(true);
             Warning.setText("Missing Details");
         }
