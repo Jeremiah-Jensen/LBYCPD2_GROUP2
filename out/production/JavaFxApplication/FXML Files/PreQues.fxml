@@ -96,6 +96,6 @@
          </children>
       </AnchorPane>
       <Label fx:id="Warning" layoutX="420.0" layoutY="667.0" prefHeight="25.0" prefWidth="94.0" />
-      <ComboBox fx:id="PainComboBox" layoutX="83.0" layoutY="218.0" onAction="#SelectChild" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+      <ComboBox fx:id="PainComboBox" layoutX="83.0" layoutY="218.0"  prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
    </children>
 </AnchorPane>

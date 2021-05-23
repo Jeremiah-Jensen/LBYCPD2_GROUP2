@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 
 public class UserPayments implements Initializable {
     @FXML
-    public Button HelpButton, LogOutButton, AppointmentsButton, DetailsButton, HomeButton, LoadCreditButton, Switch;
+    public Button HelpButton, LogOutButton, AppointmentsButton, DetailsButton, HomeButton, Switch;
     public TextField NameTextField, CardNumTextField;
     public Text NameLabel2, CardNumLabel2, ExpirydateLabel2, NetworkLabel2;
     public PasswordField CVVPasswordField;
@@ -179,15 +179,6 @@ public class UserPayments implements Initializable {
                     new Main().CloseButton(closeStage);
                 }
             }
-        }
-
-        else if(CardNumTextField.getText().equals(userModel.getCardnumber()) && CVVPasswordField.getText().equals(userModel.getCvv())){
-            LoadCreditButton.setDisable(false);
-        }
-
-        else if (!CardNumTextField.getText().equals(userModel.getCardnumber()) && !CVVPasswordField.getText().equals(userModel.getCvv())){
-            CardNumLabel.setText("Incorrect digits");
-            CVVLabel.setText("Incorrect digits");
         }
 
         else {

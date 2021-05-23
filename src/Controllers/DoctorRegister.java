@@ -51,7 +51,7 @@ public class DoctorRegister implements Initializable {
     }
 
     public void RegisterAction(ActionEvent actionEvent) {
-        if(Username.getText().isEmpty() || Password.getText().isEmpty() || FirstName.getText().isEmpty() || LastName.getText().isEmpty() || ReenterPassword.getText().isEmpty() ||  Email.getText().isEmpty() || Number.getText().isEmpty() || City.getText().isEmpty() || AddressLine.getText().isEmpty() || Subspecialty.getText().isEmpty() || Day.getEditor().getText().isEmpty() || Month.getEditor().getText().isEmpty() || Year.getEditor().getText().isEmpty() || Gender.getEditor().getText().isEmpty()) {
+        if(Username.getText().isEmpty() || Password.getText().isEmpty() || FirstName.getText().isEmpty() || LastName.getText().isEmpty() || ReenterPassword.getText().isEmpty() ||  Email.getText().isEmpty() || Number.getText().isEmpty() || City.getText().isEmpty() || AddressLine.getText().isEmpty() || Subspecialty.getText().isEmpty() || Day.getSelectionModel().isSelected(-1) || Month.getSelectionModel().isSelected(-1) || Year.getSelectionModel().isSelected(-1) || Gender.getSelectionModel().isSelected(-1)) {
             Error3.setVisible(false);
             Error2.setVisible(true);
         }

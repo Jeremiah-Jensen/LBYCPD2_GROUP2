@@ -21,7 +21,7 @@ public class PreQuestionnaire implements Initializable {
     public ComboBox<String> PainComboBox = new ComboBox<>();
     public TextArea Reason, Feeling;
     public ToggleGroup TG, TG1, TG2, TG3, TG4, TG5, TG6, TG7, TG8, TG9, TG10;
-    public Label Warning, ComboBoxWarning;
+    public Label Warning;
     Appointments appointmentsModel;
 
     @Override
