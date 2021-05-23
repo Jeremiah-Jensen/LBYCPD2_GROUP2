@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Appointments;
 import Models.Doctor;
 import Models.Schedule;
 import com.firebase.client.DataSnapshot;
@@ -32,6 +33,7 @@ public class DoctorDetails implements Initializable {
     public String path = "Default.png";
     Doctor doctorModel;
     List<Schedule> scheduleList = new ArrayList<>();
+    List<Appointments> appointmentsList = new ArrayList<>();
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
 
     @Override
@@ -149,6 +151,37 @@ public class DoctorDetails implements Initializable {
                     Schedule scheduleModel = scheduleList.get(i);
                     if (fullnameDoctor.equals(scheduleModel.getName())) {
                         firebase.child("Schedule").child(scheduleModel.getId()).child("name").setValue(FirstNameEdit.getText() + " " + LastNameEdit.getText());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        String fullnameAppointment = "Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName();
+        firebase.child("Appointments").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Appointments appointments = data.getValue(Appointments.class);
+                    appointments.setId(data.getKey());
+                    appointmentsList.add(appointments);
+                }
+                for (int i = 0; i < appointmentsList.size(); i++) {
+                    Appointments appointmentsModel = appointmentsList.get(i);
+                    if (fullnameAppointment.equals(appointmentsModel.getDoctor())) {
+                        firebase.child("Appointments").child(appointmentsModel.getId()).child("doctor").setValue("Dr." + FirstNameEdit.getText() + " " + LastNameEdit.getText());
+                        String appointment = appointmentsModel.getAppointment();
+                        String[] arrAppointment = appointment.split(" ", 6);
+                        String temp = arrAppointment[0];
+                        arrAppointment[0] = "Dr." + FirstNameEdit.getText();
+                        String tempA = arrAppointment[1];
+                        arrAppointment[1] = LastNameEdit.getText();
+                        String appointmentEdit = arrAppointment[0] + " " + arrAppointment[1] + " " + arrAppointment[2] + " " + arrAppointment[3] + " " + arrAppointment[4] + " " + arrAppointment[5];
+                        firebase.child("Appointments").child(appointmentsModel.getId()).child("appointment").setValue(appointmentEdit);
                     }
                 }
             }
