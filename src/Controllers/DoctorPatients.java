@@ -98,6 +98,7 @@ public class DoctorPatients implements Initializable {
     }
 
     public void SearchPatient(ActionEvent actionEvent) {
+        QuestionnairesList.getItems().clear();
         PatientsInformation.setText(null);
         for(int i = 0; i < childrenList.size(); i++) {
             Children child = childrenList.get(i);
