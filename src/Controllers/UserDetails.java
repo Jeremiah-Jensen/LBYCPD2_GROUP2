@@ -77,7 +77,6 @@ public class UserDetails implements Initializable {
                             @Override
                             public void run() {
                                 Username.setText(FullName);
-                                GenderComboBox.setValue(userModel.getGender());
                                 Name.setText(userModel.getUsername());
                                 Gender.setText(userModel.getGender());
                                 Birthday.setText(userModel.getBirthday());
@@ -93,6 +92,19 @@ public class UserDetails implements Initializable {
                                 UserEmail.setText(userModel.getEmail());
                                 UserAddress.setText(userModel.getAddress());
                                 PhoneNumber.setText(userModel.getContactNumber());
+                                GenderComboBox.setValue(userModel.getGender());
+
+                                String birthday = userModel.getBirthday();
+                                String[] arrBirthday = birthday.split(" ",2);
+
+                                MonthComboBox.setValue(arrBirthday[0]);
+                                String dayYear = arrBirthday[1];
+
+                                String[] arrBirthdayA = dayYear.split(", ",2);
+
+                                DayComboBox.setValue(arrBirthdayA[0]);
+                                YearComboBox.setValue(arrBirthdayA[1]);
+
 
                             }
                         });
@@ -260,13 +272,10 @@ public class UserDetails implements Initializable {
         EditDetails.setVisible(true);
     }
 
-    public void EditChildInfo(ActionEvent actionEvent) {
-        AddChildren.setVisible(true);
-    }
 
     public void SaveChanges(ActionEvent actionEvent) {
         Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
-        if(DayComboBox.getSelectionModel().isSelected(-1) || MonthComboBox.getSelectionModel().isSelected(-1) || YearComboBox.getSelectionModel().isSelected(-1)){
+        if(DayComboBox.getSelectionModel().isSelected(-1) || MonthComboBox.getSelectionModel().isSelected(-1) || YearComboBox.getSelectionModel().isSelected(-1) ||UserEmail.getText().isEmpty() || UserAddress.getText().isEmpty() || PhoneNumber.getText().isEmpty() || UserLN.getText().isEmpty() || UserFN.getText().isEmpty()){
             Warning.setText("Empty fields");
        }
         else {
