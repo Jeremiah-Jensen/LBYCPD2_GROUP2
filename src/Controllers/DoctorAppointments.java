@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class DoctorAppointments implements Initializable {
 
-    public Button LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton, ViewButton, HelpButton;
+    public Button ConsultationButton, LogOutButton, PatientsButton, UserDetailsButton, HomeButton, ConfirmButton, ViewButton, HelpButton;
     public ListView ScheduleList, PreQuesAnswers, PostQuesAnswers;
     public TextField time, link;
     public ComboBox<String> AppointmentsBox, Status;
@@ -147,6 +147,8 @@ public class DoctorAppointments implements Initializable {
     public void ConfirmPatient(ActionEvent actionEvent) {
         PreQuesAnswers.getItems().clear();
         PostQuesAnswers.getItems().clear();
+        ConsultationButton.setDisable(false);
+        ViewButton.setDisable(false);
         String fullnameDoctor = "Dr." + doctorModel.getFirstName() + " " + doctorModel.getLastName();
         for (int i = 0; i < appointmentsList.size(); i++) {
             Appointments appointmentModel = appointmentsList.get(i);
@@ -225,7 +227,7 @@ public class DoctorAppointments implements Initializable {
 
     public void Consultation(ActionEvent actionEvent) {
         new Main().loadFXML("DoctorAppointmentScreen");
-        String name = (String) AppointmentsBox.getValue();
+        String name = AppointmentsBox.getSelectionModel().getSelectedItem();
         DoctorAppointmentScreen doctorAppointmentScreen = new DoctorAppointmentScreen();
         doctorAppointmentScreen.setName(name);
     }

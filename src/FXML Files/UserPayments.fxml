@@ -17,13 +17,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserPayments">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserPayments">
     <children>
         <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="592.0" prefWidth="276.0" style="-fx-background-color: 0\;">
             <effect>
                 <DropShadow>
                     <color>
-                        <Color red="0.3881579041481018" green="0.3881579041481018" blue="0.3881579041481018" />
+                        <Color blue="0.3881579041481018" green="0.3881579041481018" red="0.3881579041481018" />
                     </color>
                 </DropShadow>
             </effect>
@@ -39,12 +39,12 @@
                                 </Stop>
                                 <Stop offset="0.007532956685499058">
                                     <color>
-                                        <Color red="0.4117647111415863" green="0.8784313797950745" blue="0.7686274647712708" />
+                                        <Color blue="0.7686274647712708" green="0.8784313797950745" red="0.4117647111415863" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.1921568661928177" green="0.7058823704719543" blue="0.8627451062202454" />
+                                        <Color blue="0.8627451062202454" green="0.7058823704719543" red="0.1921568661928177" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -53,49 +53,43 @@
                     <effect>
                         <DropShadow>
                             <color>
-                                <Color red="0.45394736528396606" green="0.45394736528396606" blue="0.45394736528396606" />
+                                <Color blue="0.45394736528396606" green="0.45394736528396606" red="0.45394736528396606" />
                             </color>
                         </DropShadow>
                     </effect>
                 </Rectangle>
-                <Button fx:id="DetailsButton" layoutX="29.0" layoutY="339.0" mnemonicParsing="false" onAction="#UserDetails" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="User Details">
+                <Button fx:id="DetailsButton" layoutX="29.0" layoutY="366.0" mnemonicParsing="false" onAction="#UserDetails" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="User Details">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="HelpButton" layoutX="31.0" layoutY="414.0" mnemonicParsing="false" onAction="#UserHelpMenu" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
+                <Button fx:id="HelpButton" layoutX="31.0" layoutY="441.0" mnemonicParsing="false" onAction="#UserHelpMenu" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Help Menu">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="LogOutButton" layoutX="30.0" layoutY="489.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Log Out">
+                <Button fx:id="LogOutButton" layoutX="30.0" layoutY="516.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Log Out">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="HomeButton" layoutX="28.0" layoutY="189.0" mnemonicParsing="false" onAction="#MainMenu" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Home">
+                <Button fx:id="HomeButton" layoutX="28.0" layoutY="216.0" mnemonicParsing="false" onAction="#MainMenu" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Home">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="AppointmentsButton" layoutX="27.0" layoutY="264.0" mnemonicParsing="false" onAction="#UserAppointments" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Appointments">
+                <Button fx:id="AppointmentsButton" layoutX="27.0" layoutY="291.0" mnemonicParsing="false" onAction="#UserAppointments" prefHeight="33.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Appointments">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="108.0" layoutX="32.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="208.0" />
-                <Label layoutX="65.0" layoutY="62.0" text="LOGO">
-                    <font>
-                        <Font name="Avenir Book" size="52.0" />
-                    </font>
-                </Label>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="CardDetails" layoutX="298.0" layoutY="14.0" prefHeight="261.0" prefWidth="686.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
             <effect>
                 <DropShadow>
                     <color>
-                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
+                        <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
                     </color>
                 </DropShadow>
             </effect>
@@ -109,17 +103,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
+                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
                            </color>
                         </Stop>
                      </stops>
@@ -132,17 +126,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
+                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
                            </color>
                         </Stop>
                      </stops>
@@ -174,17 +168,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
+                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
                            </color>
                         </Stop>
                      </stops>
@@ -312,17 +306,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
+                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
                            </color>
                         </Stop>
                      </stops>
@@ -335,17 +329,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
+                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
                            </color>
                         </Stop>
                      </stops>
@@ -374,7 +368,7 @@
             <effect>
                 <DropShadow>
                     <color>
-                        <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
+                        <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
                     </color>
                 </DropShadow>
             </effect>
@@ -390,17 +384,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
+                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
                            </color>
                         </Stop>
                      </stops>
@@ -413,17 +407,17 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="0.007532956685499058">
                            <color>
-                              <Color red="0.3803921639919281" green="0.8235294222831726" blue="0.7137255072593689" />
+                              <Color blue="0.7137255072593689" green="0.8235294222831726" red="0.3803921639919281" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.16078431904315948" green="0.5960784554481506" blue="0.729411780834198" />
+                              <Color blue="0.729411780834198" green="0.5960784554481506" red="0.16078431904315948" />
                            </color>
                         </Stop>
                      </stops>
@@ -435,10 +429,20 @@
          <effect>
             <DropShadow>
                <color>
-                  <Color red="0.42763158679008484" green="0.42763158679008484" blue="0.42763158679008484" />
+                  <Color blue="0.42763158679008484" green="0.42763158679008484" red="0.42763158679008484" />
                </color>
             </DropShadow>
          </effect>
       </AnchorPane>
+      <Label layoutX="52.0" layoutY="133.0" text="pediacare" textFill="WHITE">
+         <font>
+            <Font name="Minimo Light" size="45.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="123.0" fitWidth="210.0" layoutX="56.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Logo.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

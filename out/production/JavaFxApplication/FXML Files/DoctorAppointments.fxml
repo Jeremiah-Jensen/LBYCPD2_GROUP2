@@ -43,12 +43,12 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="ViewButton" layoutX="428.0" layoutY="69.0" mnemonicParsing="false" onAction="#Switch" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="View More" textFill="#f3f3f3">
+                <Button fx:id="ViewButton" disable="true" layoutX="428.0" layoutY="69.0" mnemonicParsing="false" onAction="#Switch" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="View More" textFill="#f3f3f3">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="428.0" layoutY="122.0" mnemonicParsing="false" onAction="#Consultation" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Go to Consultation" textFill="#f3f3f3">
+                <Button fx:id="ConsultationButton" disable="true" layoutX="428.0" layoutY="122.0" mnemonicParsing="false" onAction="#Consultation" prefHeight="33.0" prefWidth="233.0" style="-fx-background-color: #39a2bd#39a2bd; -fx-background-radius: 0;" text="Go to Consultation" textFill="#f3f3f3">
                     <font>
                         <Font name="Avenir Book" size="15.0" />
                     </font>
