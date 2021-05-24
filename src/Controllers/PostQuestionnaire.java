@@ -36,24 +36,27 @@ public class PostQuestionnaire implements Initializable {
 
     private void Write(){
         Firebase firebase=new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
-            if(Feeling.getText().isEmpty() || PainScale.getSelectionModel().isSelected(-1) || SideEffects.getText().isEmpty()){
+        if(appointmentsModel==null){
+            System.out.println("Fail");
+            throw new NullPointerException("Can't pass null for argument 'pathString' in child()");
+        }
+
+        else {
+
+            if (Feeling.getText().isEmpty() || PainScale.getSelectionModel().isSelected(-1) || SideEffects.getText().isEmpty()) {
                 Warning.setText("Empty fields.");
-            }
-
-            else if(!YesButton.isSelected() && !NoButton.isSelected()){
+            } else if (!YesButton.isSelected() && !NoButton.isSelected()) {
                 Warning.setText("Tick choices");
-            }
-
-            else{
+            } else {
                 firebase.child("Appointments").child(appointmentsModel.getId()).child("feelingQ2").setValue(Feeling.getText());
                 firebase.child("Appointments").child(appointmentsModel.getId()).child("sideEffectsQ").setValue(SideEffects.getText());
                 firebase.child("Appointments").child(appointmentsModel.getId()).child("painScaleQ2").setValue(PainScale.getValue());
 
-                if(YesButton.isSelected()){
+                if (YesButton.isSelected()) {
                     firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ2").setValue("Yes");
                 }
 
-                if(NoButton.isSelected()){
+                if (NoButton.isSelected()) {
                     firebase.child("Appointments").child(appointmentsModel.getId()).child("painQ2").setValue("No");
                 }
                 new Main().loadFXML("UserAppointments");
@@ -61,6 +64,7 @@ public class PostQuestionnaire implements Initializable {
                 new Main().CloseButton(closeStage);
 
             }
+        }
 
 
     }
