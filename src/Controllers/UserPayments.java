@@ -55,7 +55,7 @@ public class UserPayments implements Initializable {
                     User app = data.getValue(User.class);
                     usersList.add(app);
                 }
-                for(int i = 0; i < usersList.size()/3; i++) {
+                for(int i = 0; i < usersList.size(); i++) {
                     User RT = usersList.get(i);
                     if(FullName.equals(usersList.get(i).getFirstName() + " " + usersList.get(i).getLastName())){
                         Platform.runLater(new Runnable() {
@@ -203,6 +203,4 @@ public class UserPayments implements Initializable {
 
         }
     }
-
-
 }

@@ -299,6 +299,4 @@ public class Appointments {
 
     public void setSched(String child) { Sched = child;
     }
-
-
 }

@@ -292,7 +292,4 @@ public class UserDetails implements Initializable {
             new Main().CloseButton(closeStage);
         }
     }
-
-
-
 }

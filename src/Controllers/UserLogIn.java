@@ -198,7 +198,6 @@ public class UserLogIn implements Initializable {
         model.setPassword(Password.getText());
         model.setFirstName(FirstName.getText());
         model.setLastName(LastName.getText());
-        model.setReenterPass(ReenterPassword.getText());
         model.setBirthday(Month.getValue() + " " + Day.getValue() + ", " + Year.getValue());
         model.setContactNumber(Number.getText());
         model.setEmail(Email.getText());
