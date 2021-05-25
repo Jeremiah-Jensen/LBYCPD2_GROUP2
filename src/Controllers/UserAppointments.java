@@ -132,7 +132,6 @@ public class UserAppointments implements Initializable {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Prescription prescription= data.getValue(Prescription.class);
                     prescriptionsList.add(prescription);
-
                 }
             }
 
@@ -223,32 +222,49 @@ public class UserAppointments implements Initializable {
                                 Consult.setDisable(true);
                                 System.out.println("aaa");
                             }
-                            else if(appointmentsModel.getStatus().equals("Consultation")){
+                            else if(appointmentsModel.getStatus().equals("Consultation")) {
                                 PreQues.setDisable(true);
                                 Consult.setDisable(false);
-                        }
-                        else{
-                                for(int i = 0; i < prescriptionsList.size(); i++) {
-                                    Prescription prescriptionModel= prescriptionsList.get(i);
-                                    Platform.runLater(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            if(appointmentsModel.getId().equals(prescriptionModel.getAppointmentId())){
-                                                Notes.getItems().add("--------------------");
-                                                System.out.println("javafx erroor");
-                                                Notes.getItems().add("Date: " + prescriptionModel.getPrescriptionDate());
-                                                Notes.getItems().add("Medicine: " + prescriptionModel.getMedicine());
-                                                Notes.getItems().add("Daily Dosage: " + prescriptionModel.getDailyDosage());
-                                                Notes.getItems().add("Duration: " + prescriptionModel.getDuration());
-                                                Notes.getItems().add("Special Instruction: " + prescriptionModel.getSpecialInstructions());
-                                                Notes.getItems().add("--------------------");
-                                            }
+                            }
 
-                                        }
-                                    });
-                                }
-                        }
                         } }}); } }
+    }
+
+    public void LoadDetails(ActionEvent actionEvent) {
+        for (int x = 0; x < appointmentsList.size(); x++) {
+            Appointments appointmentsModels =appointmentsList.get(x);
+            System.out.println(appointmentsModels.getId());
+            System.out.println(appointmentsModels.getAppointment());
+            System.out.println(PreviousBox.getValue());
+            System.out.println(prescriptionsList.size());
+            if(appointmentsModels.getAppointment().equals(PreviousBox.getValue())) {
+                for (int i = 0; i < prescriptionsList.size(); i++) {
+                    Prescription prescriptionModel = prescriptionsList.get(i);
+                    System.out.println("___________________");
+                    System.out.println(prescriptionModel.getAppointmentId());
+                    System.out.println(appointmentsModels.getId());
+                    System.out.println("___________________");
+                    if (appointmentsModels.getId().equals(prescriptionModel.getAppointmentId())) {
+                        System.out.println("Pass");
+                        System.out.println(prescriptionModel.getAppointmentId());
+                        System.out.println(appointmentsModels.getId());
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                Notes.getItems().add("--------------------");
+                                System.out.println("javafx erroor");
+                                Notes.getItems().add("Date: " + prescriptionModel.getPrescriptionDate());
+                                Notes.getItems().add("Medicine: " + prescriptionModel.getMedicine());
+                                Notes.getItems().add("Daily Dosage: " + prescriptionModel.getDailyDosage());
+                                Notes.getItems().add("Duration: " + prescriptionModel.getDuration());
+                                Notes.getItems().add("Special Instruction: " + prescriptionModel.getSpecialInstructions());
+                                Notes.getItems().add("--------------------");
+                            }
+                        });
+                    }
+                }
+            }
+        }
     }
 
     public void ConfirmAppointment(ActionEvent actionEvent){

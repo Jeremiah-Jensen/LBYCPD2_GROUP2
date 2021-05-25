@@ -216,7 +216,7 @@
                         <Font name="Avenir Book" size="15.0" />
                     </font>
                 </Button>
-            <ComboBox fx:id="PreviousBox" layoutX="24.0" layoutY="70.0" onAction="#SelectAppointment" prefHeight="33.0" prefWidth="343.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+            <ComboBox fx:id="PreviousBox" layoutX="24.0" layoutY="70.0" onAction="#LoadDetails" prefHeight="33.0" prefWidth="343.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
             <ListView fx:id="Notes" layoutX="424.0" layoutY="54.0" prefHeight="209.0" prefWidth="228.0" />
             </children>
             <effect>
