@@ -92,7 +92,6 @@ public class DoctorAppointmentScreen implements Initializable {
             prescription.setAppointmentId(AppId);
             prescription.setSpecialInstructions(SpecialInstructions.getText());
             firebase.child("Prescription").push().setValue(prescription);
-            PrescriptionDate.setText(null);
             Medicine.setText(null);
             DailyDosage.setText(null);
             Duration.setText(null);
