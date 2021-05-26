@@ -35,7 +35,9 @@ public class UserAppointments implements Initializable {
     public DatePicker DateBox;
     int count = 0;
     public String FullName;
+    String CardNum;
     User userModel;
+    List<User> userList = new ArrayList<>();
     List<Children> childrenList = new ArrayList<>();
     List<Doctor> doctorList = new ArrayList<>();
     List<Schedule> scheduleList = new ArrayList<>();
@@ -140,6 +142,19 @@ public class UserAppointments implements Initializable {
 
             }
         });
+        firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    User User= data.getValue(User.class);
+                    userList.add(User);
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     public void Switch(ActionEvent actionEvent) {
@@ -194,7 +209,9 @@ public class UserAppointments implements Initializable {
         for(int i = 0; i < scheduleList.size(); i++) {
             Schedule scheduleModel = scheduleList.get(i);
             if(DoctorsBox.getValue().equals("Dr." + scheduleModel.getName()) && scheduleModel.getStatus().equals("Available")){
-                ScheduleBox.getItems().add(scheduleModel.getDay() + " " + scheduleModel.getTime());
+                if(scheduleModel.getDay().equals(DateBox.getEditor().getText())){
+                    ScheduleBox.getItems().add(scheduleModel.getDay() + " " + scheduleModel.getTime());
+                }
             }
         }
         for(int i = 0; i < childrenList.size(); i++) {
@@ -231,6 +248,7 @@ public class UserAppointments implements Initializable {
     }
 
     public void LoadDetails(ActionEvent actionEvent) {
+        Notes.getItems().clear();
         for (int x = 0; x < appointmentsList.size(); x++) {
             Appointments appointmentsModels =appointmentsList.get(x);
             System.out.println(appointmentsModels.getId());
@@ -276,9 +294,6 @@ public class UserAppointments implements Initializable {
         }
         else if(ChildBox.getItems().isEmpty()){
             Error.setText("No Registered Child Found");
-        }
-        else if(userModel.getCardnumber().equals(" ")){
-            Error.setText("Please Enter Credit Card in Payments");
         }
         else{
             WriteAppointment();

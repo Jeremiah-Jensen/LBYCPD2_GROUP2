@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="561.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PreQuestionnaire">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="561.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PreQuestionnaire">
    <children>
       <ImageView fitHeight="769.0" fitWidth="557.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,13 +27,13 @@
       <TextArea fx:id="Reason" layoutX="101.0" layoutY="295.0" prefHeight="56.0" prefWidth="352.0" />
       <AnchorPane layoutX="236.0" layoutY="362.0" prefHeight="288.0" prefWidth="195.0">
          <children>
-            <RadioButton fx:id="YesButton1" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes">
+            <RadioButton fx:id="YesButton1" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="44.0" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="TG1" />
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="NoButton1" layoutX="133.0" layoutY="14.0" mnemonicParsing="false" text="No" toggleGroup="$TG1" />
-            <RadioButton fx:id="YesButton2" layoutX="9.0" layoutY="38.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes">
+            <RadioButton fx:id="YesButton2" layoutX="9.0" layoutY="38.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="TG2" />
                </toggleGroup>
@@ -51,7 +45,7 @@
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="NoButton3" layoutX="133.0" layoutY="62.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" toggleGroup="$TG3" />
-            <RadioButton fx:id="YesButton4" layoutX="9.0" layoutY="93.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="39.0" text="Yes">
+            <RadioButton fx:id="YesButton4" layoutX="9.0" layoutY="93.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="TG4" />
                </toggleGroup>
@@ -63,7 +57,7 @@
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="NoButton5" layoutX="134.0" layoutY="124.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" toggleGroup="$TG5" />
-            <RadioButton fx:id="YesButton6" layoutX="9.0" layoutY="153.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="39.0" text="Yes">
+            <RadioButton fx:id="YesButton6" layoutX="9.0" layoutY="153.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="TG6" />
                </toggleGroup>
@@ -75,19 +69,19 @@
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="NoButton7" layoutX="133.0" layoutY="181.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="58.0" text="No" toggleGroup="$TG7" />
-            <RadioButton fx:id="YesButton8" layoutX="9.0" layoutY="210.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes">
+            <RadioButton fx:id="YesButton8" layoutX="9.0" layoutY="210.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="TG8" />
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="NoButton8" layoutX="133.0" layoutY="210.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="No" toggleGroup="$TG8" />
-            <RadioButton fx:id="YesButton9" layoutX="9.0" layoutY="238.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes">
+            <RadioButton fx:id="YesButton9" layoutX="9.0" layoutY="238.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="TG9" />
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="NoButton9" layoutX="133.0" layoutY="238.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="58.0" text="No" toggleGroup="$TG9" />
-            <RadioButton fx:id="YesButton10" layoutX="9.0" layoutY="266.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="39.0" text="Yes">
+            <RadioButton fx:id="YesButton10" layoutX="9.0" layoutY="266.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="TG10" />
                </toggleGroup>
@@ -96,6 +90,6 @@
          </children>
       </AnchorPane>
       <Label fx:id="Warning" layoutX="420.0" layoutY="667.0" prefHeight="25.0" prefWidth="94.0" />
-      <ComboBox fx:id="PainComboBox" layoutX="83.0" layoutY="218.0"  prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
+      <ComboBox fx:id="PainComboBox" layoutX="83.0" layoutY="218.0" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: #e8e8e8#e8e8e8;" />
    </children>
 </AnchorPane>

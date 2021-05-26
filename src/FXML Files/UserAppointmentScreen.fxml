@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserAppointmentScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserAppointmentScreen">
     <children>
           <Rectangle height="363.0" layoutX="539.0" layoutY="-14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="461.0">
               <fill>
@@ -44,7 +44,7 @@
                   </DropShadow>
               </effect>
           </Rectangle>
-          <Button layoutX="659.0" layoutY="312.0" mnemonicParsing="false" onAction="#ShowPrescription" prefHeight="24.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Load">
+          <Button fx:id="Load" layoutX="659.0" layoutY="312.0" mnemonicParsing="false" onAction="#ShowPrescription" prefHeight="24.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Load">
               <font>
                   <Font name="Avenir Book" size="13.0" />
               </font>
