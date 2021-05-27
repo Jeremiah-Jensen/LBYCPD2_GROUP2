@@ -124,6 +124,14 @@ public class DoctorAppointments implements Initializable {
         doctorModel = DoctorLogin.doctorModel;
         String splitSched = ScheduleList.getSelectionModel().getSelectedItem().toString();
         String fullname = doctorModel.getFirstName() + " " + doctorModel.getLastName();
+        String[] arraySched = splitSched.split(" at ", 2);
+        String date = arraySched[0];
+        String splitSchedA = arraySched[1];
+        String[] arraySchedA = splitSchedA.split("\n", 3);
+        System.out.println(date);
+        System.out.println(arraySchedA[0]);
+        System.out.println(arraySchedA[1]);
+        System.out.println(arraySchedA[2]);
         firebase.child("Schedule").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -134,17 +142,24 @@ public class DoctorAppointments implements Initializable {
                 }
                 for (int i = 0; i < scheduleListA.size(); i++) {
                     Schedule scheduleModel = scheduleListA.get(i);
-                    if(scheduleModel.getName().equals(doctorModel.getFirstName() + " " + doctorModel.getLastName())) {
-                        String[] arraySched = splitSched.split(" at ", 2);
-                        String date = arraySched[0];
-                        String splitSchedA = arraySched[1];
-                        String[] arraySchedA = splitSchedA.split("\n", 3);
-                        if (date.equals(scheduleModel.getDay()) && arraySchedA[0].equals(scheduleModel.getTime()) && arraySchedA[1].equals(scheduleModel.getLink()) && arraySchedA[2].equals(scheduleModel.getStatus())) {
-                            firebase.child(scheduleModel.getId()).child("day").setValue(" ");
-                            firebase.child(scheduleModel.getId()).child("link").setValue(" ");
-                            firebase.child(scheduleModel.getId()).child("name").setValue(" ");
-                            firebase.child(scheduleModel.getId()).child("status").setValue(" ");
-                            firebase.child(scheduleModel.getId()).child("time").setValue(" ");
+                    if(scheduleModel.getName().equals(fullname)) {
+                        System.out.println(scheduleModel.getName());
+                        if(scheduleModel.getDay().equals(date)) {
+                            System.out.println(scheduleModel.getDay());
+                            if (scheduleModel.getTime().equals(arraySchedA[0])) {
+                                System.out.println(scheduleModel.getTime());
+                                if (scheduleModel.getLink().equals(arraySchedA[1])) {
+                                    System.out.println(scheduleModel.getLink());
+                                    if (arraySchedA[2].equals(scheduleModel.getStatus() + "\n\n")) {
+                                        System.out.println(scheduleModel.getStatus());
+                                        firebase.child("Schedule").child(scheduleModel.getId()).child("day").setValue(" ");
+                                        firebase.child("Schedule").child(scheduleModel.getId()).child("link").setValue(" ");
+                                        firebase.child("Schedule").child(scheduleModel.getId()).child("name").setValue(" ");
+                                        firebase.child("Schedule").child(scheduleModel.getId()).child("status").setValue(" ");
+                                        firebase.child("Schedule").child(scheduleModel.getId()).child("time").setValue(" ");
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -185,7 +200,7 @@ public class DoctorAppointments implements Initializable {
             schedule.setDay(date.getEditor().getText());
             schedule.setTime(time.getText());
             schedule.setLink(link.getText());
-            schedule.setStatus(Status.getValue());
+            schedule.setStatus(Status.getSelectionModel().getSelectedItem());
             ScheduleList.getItems().add(date.getValue() + " at " + time.getText() + "\n" + link.getText() + "\n" + Status.getValue() + "\n\n");
             firebase.child("Schedule").push().setValue(schedule);
             date.setValue(null);
