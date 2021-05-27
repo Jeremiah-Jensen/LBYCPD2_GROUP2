@@ -33,8 +33,7 @@ public class DoctorAppointments implements Initializable {
     Doctor doctorModel;
     List<Schedule> scheduleList = new ArrayList<>();
     List<Appointments> appointmentsList = new ArrayList<>();
-    List<Appointments> appointmentsListA = new ArrayList<>();
-    List<Appointments> appointmentsListB = new ArrayList<>();
+    List<Schedule> scheduleListA = new ArrayList<>();
     Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
     int count = 0;
     double move = 0;
@@ -48,12 +47,14 @@ public class DoctorAppointments implements Initializable {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Schedule schedule = data.getValue(Schedule.class);
+                    schedule.setId(data.getKey());
                     scheduleList.add(schedule);
                 }
                 for (int i = 0; i < scheduleList.size(); i++) {
                     Schedule scheduleModel = scheduleList.get(i);
                     if (fullname.equals(scheduleModel.getName())) {
                         ScheduleList.getItems().add(scheduleModel.getDay() + " at " + scheduleModel.getTime() + "\n" + scheduleModel.getLink() + "\n" + scheduleModel.getStatus() + "\n\n");
+                        ScheduleList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
                     }
                 }
             }
@@ -119,12 +120,64 @@ public class DoctorAppointments implements Initializable {
         new Main().CloseButton(closeStage);
     }
 
-    public void ConfirmSchedule(ActionEvent actionEvent) {
+    public void DeleteSched(ActionEvent actionEvent) {
         doctorModel = DoctorLogin.doctorModel;
-        if (date.getEditor().getText().isEmpty() || time.getText().isEmpty() || link.getText().isEmpty() || Status.getSelectionModel().isSelected(-1)) {
+        String splitSched = ScheduleList.getSelectionModel().getSelectedItem().toString();
+        String fullname = doctorModel.getFirstName() + " " + doctorModel.getLastName();
+        firebase.child("Schedule").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Schedule schedule = data.getValue(Schedule.class);
+                    schedule.setId(data.getKey());
+                    scheduleListA.add(schedule);
+                }
+                for (int i = 0; i < scheduleListA.size(); i++) {
+                    Schedule scheduleModel = scheduleListA.get(i);
+                    if(scheduleModel.getName().equals(doctorModel.getFirstName() + " " + doctorModel.getLastName())) {
+                        String[] arraySched = splitSched.split(" at ", 2);
+                        String date = arraySched[0];
+                        String splitSchedA = arraySched[1];
+                        String[] arraySchedA = splitSchedA.split("\n", 3);
+                        if (date.equals(scheduleModel.getDay()) && arraySchedA[0].equals(scheduleModel.getTime()) && arraySchedA[1].equals(scheduleModel.getLink()) && arraySchedA[2].equals(scheduleModel.getStatus())) {
+                            firebase.child(scheduleModel.getId()).child("day").setValue(" ");
+                            firebase.child(scheduleModel.getId()).child("link").setValue(" ");
+                            firebase.child(scheduleModel.getId()).child("name").setValue(" ");
+                            firebase.child(scheduleModel.getId()).child("status").setValue(" ");
+                            firebase.child(scheduleModel.getId()).child("time").setValue(" ");
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        int index = ScheduleList.getSelectionModel().getSelectedIndex();
+        System.out.println(index);
+        ScheduleList.getItems().remove(index);
+    }
+
+    public void ConfirmSchedule(ActionEvent actionEvent) {
+        int repeat = 0;
+        doctorModel = DoctorLogin.doctorModel;
+        for(int i = 0; i < scheduleList.size(); i++) {
+            Schedule scheduleModel = scheduleList.get(i);
+            if(scheduleModel.getName().equals(doctorModel.getFirstName() + " " + doctorModel.getLastName()) && scheduleModel.getDay().equals(date.getEditor().getText()) && scheduleModel.getTime().equals(time.getText())) {
+                repeat = 1;
+            }
+        }
+        if(repeat == 1) {
+            Warning.setVisible(true);
+            Warning.setText("Schedule Invalid");
+        }
+        else if (date.getEditor().getText().isEmpty() || time.getText().isEmpty() || link.getText().isEmpty() || Status.getSelectionModel().isSelected(-1)) {
             Warning.setVisible(true);
             Warning.setText("Missing Details");
-        } else {
+        }
+        else {
             Warning.setVisible(false);
             Schedule schedule = new Schedule();
             String fullname = doctorModel.getFirstName() + " " + doctorModel.getLastName();
